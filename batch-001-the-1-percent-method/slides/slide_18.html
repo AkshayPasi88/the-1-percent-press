@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1024, initial-scale=1">
+<title>Back Cover — Read One Page</title>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .brand {
+    font: 700 var(--fs-micro)/1 var(--font-body);
+    letter-spacing: 5px;
+    color: var(--accent-deep);
+  }
+  .statement {
+    font: italic 700 var(--fs-h1)/1.22 var(--font-heading);
+    color: var(--primary);
+    margin: 0;
+  }
+  .sub {
+    font: 400 var(--fs-h3)/1.45 var(--font-body);
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .share {
+    font: 400 var(--fs-body)/1.65 var(--font-body);
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .pill {
+    font: 600 var(--fs-small)/1.4 var(--font-body);
+    letter-spacing: 1.8px;
+    color: var(--primary);
+  }
+  .book-title { font: 600 var(--fs-small)/1 var(--font-body); color: var(--primary); }
+  .book-author { font: 400 var(--fs-small)/1 var(--font-body); color: var(--ink-soft); }
+  .foot {
+    font: 600 var(--fs-micro)/1 var(--font-body);
+    letter-spacing: 3px;
+    color: var(--ink-soft);
+  }
+  .hairline { width: 90px; height: 1px; background: var(--gold-line); }
+  .diamond { width: 12px; height: 12px; background: var(--accent); transform: rotate(45deg); }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; text-align:center; padding:102px 70px 62px;">
+
+    <!-- Top brand mark -->
+    <div style="display:flex; align-items:center; gap:20px; flex:none;">
+      <div class="hairline" data-decor aria-hidden="true"></div>
+      <div class="brand">THE 1% PRESS</div>
+      <div class="hairline" data-decor aria-hidden="true"></div>
+    </div>
+
+    <div style="flex:1;"></div>
+
+    <!-- Center statement -->
+    <div class="diamond" data-decor aria-hidden="true"></div>
+    <h1 class="statement" style="margin-top:32px;">Read one page.<br>Repeat tomorrow.</h1>
+    <p class="sub" style="margin-top:26px; max-width:720px;">That&rsquo;s the entire method. The compounding does the rest.</p>
+    <p class="share" style="margin-top:40px; max-width:640px;">
+      If this helped, send it to the friend who starts things - and the one who finishes them.
+    </p>
+
+    <div style="flex:1.15;"></div>
+
+    <!-- Follow pill -->
+    <span class="pill card-gold" style="display:inline-block; padding:19px 44px; flex:none;">
+      FOLLOW @THE1PERCENTPRESS - ONE POCKET GUIDE, EVERY WEEK
+    </span>
+
+    <!-- Further reading -->
+    <div class="card" style="width:640px; padding:28px 44px 24px; margin-top:64px; flex:none;">
+      <div style="font:700 var(--fs-micro)/1 var(--font-body); letter-spacing:4px; color:var(--accent-deep);">FURTHER READING</div>
+      <div style="margin-top:18px;">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:11px 0;">
+          <span class="book-title">Atomic Habits</span>
+          <span class="book-author">James Clear</span>
+        </div>
+        <div style="border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:baseline; padding:11px 0;">
+          <span class="book-title">Tiny Habits</span>
+          <span class="book-author">BJ Fogg PhD</span>
+        </div>
+        <div style="border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:baseline; padding:11px 0 2px;">
+          <span class="book-title">The Slight Edge</span>
+          <span class="book-author">Jeff Olson</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Very bottom line -->
+    <div class="foot" style="margin-top:72px; flex:none;">THE 1% METHOD - VOL. 01 - MADE FOR THE 1% COMMUNITY</div>
+  </div>
+</div>
+</body>
+</html>

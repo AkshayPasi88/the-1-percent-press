@@ -1,0 +1,124 @@
+{
+  "design": {
+    "title": "The 1% Method",
+    "style_name": "Heritage Minimal - premium cream and gold print ebook",
+    "canvas": "1024x1280 px (4:5 portrait ebook page; exports to 8x10in PPTX). The .slide root in global.css is fixed at 1024x1280 - do NOT use 1280x720.",
+    "palette": { "background": "#FAF6EF", "primary": "#1C1B18", "accent": "#C9A227" },
+    "typography": { "heading": "Playfair Display", "body": "Source Sans 3", "numeric": "Playfair Display" },
+    "reference": "Kinfolk editorial calm meets classic Penguin paperback elegance; generous cream margins, thin gold rules, letterspaced kickers"
+  },
+  "global_css_path": "/home/z/my-project/download/slides/global.css",
+  "slides_dir": "/home/z/my-project/download/slides",
+  "language": "en",
+  "speaker_notes": "none",
+  "slides": [
+    {
+      "title": "Cover - The 1% Method",
+      "layout": "cover",
+      "output_path": "/home/z/my-project/download/slides/slide_01.html",
+      "task_brief": "Ebook cover, pure typography, NO photos. Centered composition inside a thin gold frame (use .frame-gold) inset ~70px from page edges, everything vertically balanced and calm. From top to bottom inside the frame: tiny letterspaced kicker in Source Sans 3 (--fs-micro, letterspacing 4-5px, accent-deep): A POCKET GUIDE TO COMPOUND GROWTH. Then the title in Playfair Display 900, --fs-display, ink: The 1% Method. A small 12px gold square rotated 45 degrees as an ornament, flanked by two 90px thin gold hairlines. Then the subtitle in Source Sans 3 400, --fs-h3, ink-soft, max-width 640px, centered: How tiny daily habits compound into an unrecognizable life. At the bottom inside the frame, one tiny letterspaced line (--fs-micro): THE 1% PRESS - WEEKLY READERS EDITION - VOL. 01. Keep vast cream negative space; this must feel like a premium print paperback."
+    },
+    {
+      "title": "What's Inside",
+      "layout": "toc",
+      "output_path": "/home/z/my-project/download/slides/slide_02.html",
+      "task_brief": "Table of contents page. Page title in Playfair Display 700, --fs-h1: What's Inside, with a .rule-gold underneath (width ~180px, left-aligned). Below, four chapter rows, each a .card row (padding 26-30px, margin-bottom 18px) containing: a large Playfair gold number, a chapter title in Source Sans 3 700 at --fs-h3, a one-line promise at --fs-small in ink-soft, and a right-aligned folio at --fs-micro in accent-deep. Rows: 01 / The Myth of Motivation / Why systems beat sparks, and how identity makes change stick / p. 04. 02 / Start Ridiculously Small / The two-minute on-ramp and the habit stack that runs itself / p. 07. 03 / Design the Room, Not the Mood / Make good habits obvious and bad ones invisible / p. 10. 04 / Track It, Don't Break It / The chain, the comeback rule, and your weekly scorecard / p. 13. Below the rows, one slim .card-gold strip (--fs-small): ALSO INSIDE - The Method in Seven Lines (p. 16) and The 30-Day 1% Challenge (p. 17). Folio bottom-right (--fs-micro, ink-soft): 02 - THE 1% METHOD."
+    },
+    {
+      "title": "Why 1% Beats 100%",
+      "layout": "key_message_stats",
+      "output_path": "/home/z/my-project/download/slides/slide_03.html",
+      "task_brief": "Intro page. Title in Playfair Display 700, --fs-h1: Why 1% Beats 100%. Lead paragraph (--fs-body, ink-soft, max-width 820px): Big-change thinking is the great con of self-improvement. It sells intensity and ignores arithmetic. Then a row of three stat blocks (each a .card with centered text): huge Playfair number in accent-deep (~64px) + label at --fs-small in ink-soft. Block 1: x37.78 / 1% better every day, for one year. Block 2: x0.03 / 1% worse every day, for one year. Block 3: +34.8% / 1% better for just 30 days. (Use the multiplication sign character in the first two.) Under the stats, body paragraph (--fs-body, max-width 860px): You will not feel different tomorrow. That is the point. Tiny gains are invisible in a day and undeniable in a decade. This guide hands you four small levers - identity, size, environment, tracking - that quietly turn ordinary days into a different person. Bottom of page: full-bleed photo band ~300px tall using https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/3b1c426f9068.jpg (white sneakers and cream trousers walking on a sunlit sidewalk at golden hour), object-fit cover, class img-warm, with a small caption chip overlaid bottom-left (--fs-micro, cream background at 85% opacity): Small steps, kept daily. Tiny corner note top-right (--fs-micro, ink-soft): READ TIME: 12 MINUTES. Folio bottom-right above the photo band: 03 - THE 1% METHOD."
+    },
+    {
+      "title": "Chapter 01 - The Myth of Motivation",
+      "layout": "section_header",
+      "output_path": "/home/z/my-project/download/slides/slide_04.html",
+      "task_brief": "Chapter opener, typographic, no photo. Top-left small label (--fs-micro, letterspaced, accent-deep): CHAPTER 01 / 04. Dominant element: an enormous Playfair Display numeral 01, ~220px, in accent color at 30% opacity, anchored left. Title below in Playfair Display 700, --fs-h1: The Myth of Motivation. Under a .rule-gold, tagline in Playfair Display italic, --fs-h3, ink-soft: Motivation is weather. Systems are climate. Lower area, a short promise list with three .dot-gold bullets (--fs-body, ink-soft): In this chapter - why feelings can't be your plan / what to build instead of willpower / your first identity vote. Plenty of cream negative space. Folio bottom-right: 04 - THE 1% METHOD."
+    },
+    {
+      "title": "Systems, Not Sparks",
+      "layout": "three_blocks",
+      "output_path": "/home/z/my-project/download/slides/slide_05.html",
+      "task_brief": "Body page. Title in Playfair Display 700, --fs-h1: Systems, Not Sparks. Lead paragraph (--fs-body, ink-soft): Motivation arrives like a wave - loud, and then gone. People who change for good stop scheduling their lives around the wave. Three stacked .card blocks, each with a .dot-gold, a heading in Source Sans 3 700 at --fs-h3, and two sentences at --fs-body in ink-soft: 1) Motivation is a mood - You don't need to feel like it. You need a floor you can hit on your worst day. 2) Systems are the floor - A system is a decision made once: same time, same trigger, same tiny action. It runs whether you feel inspired or not. 3) Identity is the engine - Every action is a vote for a person. Write one sentence, and you are a writer. The habit is not the goal; the identity is. Bottom: pull-quote strip in .card-gold with Playfair Display italic at --fs-h3: You do not rise to the level of your motivation. You fall to the level of your systems. Folio bottom-right: 05 - THE 1% METHOD."
+    },
+    {
+      "title": "Exercise 01 - Cast Your Vote",
+      "layout": "worksheet",
+      "output_path": "/home/z/my-project/download/slides/slide_06.html",
+      "task_brief": "Worksheet page. Top kicker chip (small .card-gold pill, --fs-micro, letterspaced): EXERCISE 01 - 5 MINUTES. Title in Playfair Display 700, --fs-h1: Cast Your Vote. Instruction (--fs-body, ink-soft): Complete the sentence with a person, not a goal. Then a large statement in Playfair Display italic, --fs-h2: I am the kind of person who followed by a long writing line (border-bottom 1.5px solid var(--gold-line), width ~560px, inline). Sub-instruction (--fs-body, ink-soft): Now list three actions so small they feel almost embarrassing - evidence your future self can point to. Three numbered rows, each containing a Playfair gold number (1, 2, 3) at --fs-h2, a .tick checkbox, and a full-width writing line (border-bottom 1px solid var(--line), width ~680px). Rows spaced ~56px apart. Bottom: note strip in .card-gold (--fs-small): Keep this page. In thirty days, count the votes. Folio bottom-right: 06 - THE 1% METHOD."
+    },
+    {
+      "title": "Chapter 02 - Start Ridiculously Small",
+      "layout": "section_header_image",
+      "output_path": "/home/z/my-project/download/slides/slide_07.html",
+      "task_brief": "Chapter opener with image. Top 55% of the page: full-bleed photo https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/662b437d86ef.jpg (framed watercolor painting of stacked zen stones in soft pastel tones on a white background), object-fit cover, class img-warm, with a 2px gold hairline separating it from the lower panel. Lower 45% on cream: small label (--fs-micro, letterspaced, accent-deep): CHAPTER 02 / 04, then an oversized Playfair Display numeral 02 in accent at 30% opacity sitting right-aligned, title in Playfair Display 700 at --fs-h1: Start Ridiculously Small, tagline under a .rule-gold in Playfair Display italic at --fs-h3, ink-soft: Make the first step so small it's embarrassing to skip. Folio bottom-right: 07 - THE 1% METHOD."
+    },
+    {
+      "title": "The Two-Minute On-Ramp",
+      "layout": "split_two_column",
+      "output_path": "/home/z/my-project/download/slides/slide_08.html",
+      "task_brief": "Body page. Title in Playfair Display 700, --fs-h1: The Two-Minute On-Ramp. Lead line (--fs-h3, ink-soft): Every habit has a two-minute version. Master showing up before you master the workout. Two columns. LEFT column, three small .card rows, each showing a habit shrunk (--fs-small): 'Read before bed' becomes - read one paragraph. / 'Run three times a week' becomes - put on your running shoes. / 'Journal daily' becomes - write one sentence about today. RIGHT column: one tall .card-gold formula card titled THE HABIT STACK (--fs-micro letterspaced header) with the formula in Playfair Display italic --fs-h3: After I [existing habit], I will [two-minute version]. Below the columns, full-width body paragraph (--fs-body, ink-soft, max-width 880px): Small isn't the destination - it's the on-ramp. The two-minute rule isn't about doing less; it's about becoming the person who shows up. Momentum is a personality trait you can install. Folio bottom-right: 08 - THE 1% METHOD."
+    },
+    {
+      "title": "Exercise 02 - Build Your First Stack",
+      "layout": "worksheet",
+      "output_path": "/home/z/my-project/download/slides/slide_09.html",
+      "task_brief": "Worksheet page. Kicker chip (.card-gold pill, --fs-micro, letterspaced): EXERCISE 02 - 3 MINUTES. Title in Playfair Display 700, --fs-h1: Build Your First Stack. Two fill-in sentences stacked with generous spacing (--fs-body): After I ____________________ , I will ____________________ . (each blank is a border-bottom writing line ~330px). Then a small label (--fs-micro, letterspaced, accent-deep): ON PAPER IT LOOKS LIKE THIS. Three example rows, each a .card with a 4px solid gold left border (--fs-body): After I pour my morning coffee - I write one sentence in my journal. / After I brush my teeth - I floss one tooth. Yes, one. / After I sit down at my desk - I open my notebook and write today's #1 task. Bottom note strip in .card-gold (--fs-small): Anchor to something you already do daily. Your coffee doesn't need a reminder - ride its momentum. Folio bottom-right: 09 - THE 1% METHOD."
+    },
+    {
+      "title": "Chapter 03 - Design the Room, Not the Mood",
+      "layout": "section_header",
+      "output_path": "/home/z/my-project/download/slides/slide_10.html",
+      "task_brief": "Chapter opener, typographic, no photo, MIRRORED composition (numeral and text right-aligned, breathing room on the left). Top-right small label (--fs-micro, letterspaced, accent-deep): CHAPTER 03 / 04. Oversized Playfair Display numeral 03 in accent at 30% opacity, ~220px, right-aligned. Title in Playfair Display 700, --fs-h1: Design the Room, Not the Mood. Tagline under a right-aligned .rule-gold, Playfair Display italic, --fs-h3, ink-soft: In a well-designed room, the good choice is the lazy choice. Promise list with .dot-gold bullets, right-aligned block (--fs-body, ink-soft): In this chapter - cues that sell the habit for you / friction as a superpower / the five-minute room reset. Folio bottom-right: 10 - THE 1% METHOD."
+    },
+    {
+      "title": "Make It Obvious, Make It Easy",
+      "layout": "comparison_two_column",
+      "output_path": "/home/z/my-project/download/slides/slide_11.html",
+      "task_brief": "Body page. Title in Playfair Display 700, --fs-h1: Make It Obvious, Make It Easy. Two side-by-side columns. LEFT column (.card, header with .dot-gold and Source Sans 3 700 --fs-h3): CUE IT UP - make the good obvious. Three rows at --fs-body with small gold dots: Put the guitar in the living room, not the case. / Lay tomorrow's workout clothes on the chair tonight. / Keep the book on your pillow. RIGHT column (.card, header): BREAK IT UP - make the bad invisible. Three rows: The phone charges in the kitchen overnight. / Snacks live on the top shelf - or not in the house at all. / Log out of the app that eats your evenings. Between title and columns, one lead line (--fs-body, ink-soft): Environment is quiet autopilot. Willpower spends energy; design saves it. In a well-designed room, discipline is mostly a furniture arrangement. Bottom full-width emphasis strip in .card-gold (--fs-small): If it takes more than twenty seconds to start, it usually doesn't get started. Folio bottom-right: 11 - THE 1% METHOD."
+    },
+    {
+      "title": "Exercise 03 - The Friction Audit",
+      "layout": "worksheet",
+      "output_path": "/home/z/my-project/download/slides/slide_12.html",
+      "task_brief": "Worksheet page. Kicker chip (.card-gold pill, --fs-micro, letterspaced): EXERCISE 03 - 5 MINUTES. Title in Playfair Display 700, --fs-h1: The Friction Audit. Four .card rows, each with: a letterspaced label in accent-deep (--fs-micro) and a writing line (border-bottom, --fs-body text as prompt then blank). Row 1: MAKE OBVIOUS - One habit I want: ______ , where its cue will live: ______ . Row 2: MAKE INVISIBLE - One habit I'm done with: ______ , where it goes to disappear: ______ . Row 3: MAKE EASY - One step I can pre-do tonight: ______ . Row 4: MAKE HARD - One bit of friction I can add to the bad habit: ______ . Bottom note strip .card-gold (--fs-small): Change the room once - it works for you every day after. Folio bottom-right: 12 - THE 1% METHOD."
+    },
+    {
+      "title": "Chapter 04 - Track It, Don't Break It",
+      "layout": "section_header_image",
+      "output_path": "/home/z/my-project/download/slides/slide_13.html",
+      "task_brief": "Chapter opener with image, same family as the chapter 02 opener. Top 55%: full-bleed photo https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/8bc0e76c2a4d.jpg (cozy minimalist workspace with wooden desk, brass lamp and potted plant), object-fit cover, class img-warm, 2px gold hairline below. Lower 45% on cream: label (--fs-micro, letterspaced, accent-deep): CHAPTER 04 / 04, oversized Playfair numeral 04 in accent at 30% opacity right-aligned, title in Playfair Display 700 at --fs-h1: Track It, Don't Break It, tagline under a .rule-gold in Playfair Display italic at --fs-h3, ink-soft: What gets measured gets repeated. Folio bottom-right: 13 - THE 1% METHOD."
+    },
+    {
+      "title": "The Chain & the Comeback Rule",
+      "layout": "narrative_visual",
+      "output_path": "/home/z/my-project/download/slides/slide_14.html",
+      "task_brief": "Body page. Title in Playfair Display 700, --fs-h1: The Chain & the Comeback Rule. Paragraph (--fs-body, ink-soft, max-width 860px): A tracker turns invisible effort into a visible chain. Ten gold marks in a row will protect your evening better than any lecture - you simply won't want to break the chain. Center visual: a row of seven 44px squares with 14px gaps - the first six filled solid var(--accent) with 8px border-radius, the seventh hollow with a 2px dashed var(--gold-line) border. Caption under the row (--fs-micro, ink-soft, centered): missed once - the next mark matters most. Then a .card-gold card with header THE COMEBACK RULE (--fs-micro letterspaced) and body in Playfair Display italic --fs-h3: Never miss twice. Missing once is an accident. Missing twice is the start of a new habit - the wrong one. Closing paragraph (--fs-body, ink-soft): Review weekly, not hourly. Consistency compounds; intensity doesn't. An average day repeated beats a perfect day abandoned. Folio bottom-right: 14 - THE 1% METHOD."
+    },
+    {
+      "title": "Exercise 04 - Your Weekly 1% Scorecard",
+      "layout": "tracker_grid_worksheet",
+      "output_path": "/home/z/my-project/download/slides/slide_15.html",
+      "task_brief": "Worksheet page. Kicker chip (.card-gold pill, --fs-micro, letterspaced): EXERCISE 04 - EVERY SUNDAY. Title in Playfair Display 700, --fs-h1: Your Weekly 1% Scorecard. Line 1 (--fs-body): My 1% habit: followed by a writing line ~560px. Tracker grid in a .card: header row with seven small-caps day labels MON TUE WED THU FRI SAT SUN (--fs-micro, letterspaced, ink-soft), then one row of seven .tick checkboxes, then a slim row (--fs-small, ink-soft): Missed twice this week? - two small hollow circles labeled Y and N. Below the grid, three review prompts each with a writing line (--fs-body): What worked this week? ______ / Where did friction win? ______ / What's the 1% tweak for next week? ______ . Bottom note strip .card-gold (--fs-small): Shrink the habit before you skip it. Tired days get the two-minute floor, not a zero. Folio bottom-right: 15 - THE 1% METHOD."
+    },
+    {
+      "title": "The Method in Seven Lines",
+      "layout": "numbered_list",
+      "output_path": "/home/z/my-project/download/slides/slide_16.html",
+      "task_brief": "Takeaways page. Kicker (--fs-micro, letterspaced, accent-deep): THE WHOLE BOOK, COMPRESSED. Title in Playfair Display 700, --fs-h1: The Method in Seven Lines. Seven rows, each: a Playfair Display gold number (1-7) at ~--fs-h2 followed by one line of Source Sans 3 600 at --fs-h3 in ink. Lines: 1 - Every action is a vote for your identity. Cast cheap votes daily. 2 - Shrink the habit until it's impossible to fail. 3 - Stack it on something you already do. 4 - Design the room; let the furniture do the discipline. 5 - Track the chain - and never miss twice. 6 - Review on Sundays: keep what worked, shrink what didn't. 7 - One percent better for a year is x37.78. Start today, compound quietly. Rows separated by thin var(--line) hairlines. Bottom centered .card-gold strip (--fs-small): Screenshot this page. It's the whole book. Folio bottom-right: 16 - THE 1% METHOD."
+    },
+    {
+      "title": "The 30-Day 1% Challenge",
+      "layout": "week_cards_timeline",
+      "output_path": "/home/z/my-project/download/slides/slide_17.html",
+      "task_brief": "Action page. Kicker (--fs-micro, letterspaced, accent-deep): THE PUT-IT-TO-WORK PLAN. Title in Playfair Display 700, --fs-h1: The 30-Day 1% Challenge. Four week cards in a 2x2 grid, each a .card with a gold week label in Source Sans 3 700 (--fs-micro, letterspaced, accent-deep) and body (--fs-small, ink-soft): WEEK 1 - CHOOSE: Write your identity sentence. Pick one two-minute habit. Stack it on coffee or brushing your teeth. / WEEK 2 - DESIGN: Place the cue somewhere obvious. Hide one distraction. Pre-do one step each evening. / WEEK 3 - TRACK: Mark the chain daily. Apply never-miss-twice. Tired days get the two-minute floor. / WEEK 4 - REVIEW & GROW: Run the Sunday scorecard. Keep the habit; double it only if it feels boring by now. Bottom: photo band ~230px tall using https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/0160eda72501.jpg (man in a blue jacket walking a stone mountain path at sunset with dramatic peaks and mist), object-fit cover, class img-warm, with caption chip (--fs-micro, cream background 85% opacity) bottom-left: Thirty quiet days - then look back. Above the band, one CTA strip in .card-gold, centered letterspaced (--fs-small): TAG YOUR DAY 1 WITH #THE1PERCENTMETHOD. Folio bottom-right above the band: 17 - THE 1% METHOD."
+    },
+    {
+      "title": "Back Cover - Read One Page",
+      "layout": "closing",
+      "output_path": "/home/z/my-project/download/slides/slide_18.html",
+      "task_brief": "Back cover, centered typography, no photos. Top brand mark: two thin gold hairlines flanking the letterspaced words THE 1% PRESS (--fs-micro, accent-deep). Center: big statement in Playfair Display italic 700, --fs-h1: Read one page. Repeat tomorrow. Below, sub-line (--fs-h3, Source Sans 3 400, ink-soft): That's the entire method. The compounding does the rest. Share block (--fs-body, ink-soft, max-width 640px, centered): If this helped, send it to the friend who starts things - and the one who finishes them. A .card-gold pill, centered (--fs-small, letterspaced): FOLLOW @THE1PERCENTPRESS - ONE POCKET GUIDE, EVERY WEEK. Lower block in a subtle .card (--fs-small, ink-soft): FURTHER READING - Atomic Habits, James Clear / Tiny Habits, BJ Fogg PhD / The Slight Edge, Jeff Olson. Very bottom line (--fs-micro, ink-soft, letterspaced): THE 1% METHOD - VOL. 01 - MADE FOR THE 1% COMMUNITY."
+    }
+  ]
+}

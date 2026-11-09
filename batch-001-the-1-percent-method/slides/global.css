@@ -1,0 +1,82 @@
+/* ═══════════════════════════════════════════════════════════════
+   THE 1% METHOD — deck-wide design system
+   Format: 4:5 portrait ebook page · canvas 1024×1280 px
+   Palette: warm cream / ink / antique gold · premium minimal
+   ═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* ── Palette ─────────────────────────────────────────────── */
+  --bg: #FAF6EF;            /* warm cream page ground        */
+  --bg-deep: #F1EADA;       /* deeper cream for panels       */
+  --primary: #1C1B18;       /* ink                            */
+  --ink-soft: #55503F;      /* softened ink for body copy    */
+  --accent: #C9A227;        /* antique gold                  */
+  --accent-deep: #A8841C;   /* aged gold (text-safe on cream)*/
+  --accent-tint: rgba(201, 162, 39, 0.12);
+  --card: #FFFFFF;
+  --line: rgba(28, 27, 24, 0.16);
+  --gold-line: rgba(201, 162, 39, 0.55);
+
+  /* ── Typography tokens (families & sizes only) ───────────── */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+  --font-num: 'Playfair Display', Georgia, serif;
+
+  --fs-display: 92px;   /* cover title            */
+  --fs-h1: 54px;        /* page titles            */
+  --fs-h2: 36px;        /* section headings       */
+  --fs-h3: 26px;        /* card / block headings  */
+  --fs-body: 21px;      /* body copy              */
+  --fs-small: 17px;     /* captions, folios       */
+  --fs-micro: 13.5px;   /* kickers, running feet  */
+}
+
+html, body { margin: 0; padding: 0; }
+
+/* ── Canvas: one 4:5 portrait ebook page ────────────────────── */
+.slide {
+  width: 1024px;
+  height: 1280px;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg);
+  color: var(--primary);
+  font-family: var(--font-body);
+}
+
+/* ── Surfaces & ornaments (layout utilities only) ───────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.card-gold {
+  background: var(--accent-tint);
+  border: 1px solid var(--gold-line);
+  border-radius: 14px;
+}
+.rule-gold {
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), rgba(201, 162, 39, 0));
+}
+.frame-gold {
+  border: 1.5px solid var(--gold-line);
+  outline: 1px solid rgba(201, 162, 39, 0.25);
+  outline-offset: 7px;
+}
+.tick {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border: 2px solid var(--accent-deep);
+  border-radius: 5px;
+}
+.dot-gold {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+.img-warm { filter: saturate(0.82) sepia(0.14) contrast(0.98); }

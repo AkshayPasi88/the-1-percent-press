@@ -1,0 +1,48 @@
+{
+  "brand": {
+    "name": "The 1% Press",
+    "handle": "@The1PercentPress",
+    "hashtag": "#The1PercentMethod"
+  },
+  "palette": {
+    "bg": "#FAF6EF",
+    "ink": "#1C1B18",
+    "inkSoft": "#55503F",
+    "gold": "#C9A227",
+    "goldDeep": "#A8841C"
+  },
+  "teaser": {
+    "hookLines": ["You don't need", "more motivation."],
+    "punchLead": "You need",
+    "punch": "1%",
+    "cards": [
+      { "num": "01", "title": "Systems beat sparks.", "sub": "A decision made once runs inspired or not." },
+      { "num": "02", "title": "Two-minute on-ramp.", "sub": "Shrink the habit until it's impossible to fail." },
+      { "num": "03", "title": "Never miss twice.", "sub": "Missing once is an accident. Twice is a new habit." }
+    ],
+    "book": {
+      "kicker": "A POCKET GUIDE",
+      "title": "The 1% Method",
+      "subtitle": "How tiny daily habits compound into an unrecognizable life",
+      "chip": "FREE POCKET GUIDE"
+    },
+    "cta": "Save this. Send it to a friend."
+  },
+  "quote": {
+    "text": "Every action is a vote for the person you're becoming.",
+    "emphasis": "vote",
+    "source": "THE 1% METHOD",
+    "cta": "Free pocket guide - link in bio"
+  },
+  "checklist": {
+    "kicker": "YOUR 4-STEP",
+    "title": "1% Checklist",
+    "items": [
+      "Pick one identity",
+      "Shrink it to two minutes",
+      "Stack it on coffee",
+      "Never miss twice"
+    ],
+    "cta": "Screenshot this list."
+  }
+}

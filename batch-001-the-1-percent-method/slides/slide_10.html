@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter 03 — Design the Room, Not the Mood</title>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body{background:var(--bg);}
+  .kicker{font-family:var(--font-body);font-weight:700;font-size:var(--fs-micro);letter-spacing:3px;color:var(--accent-deep);}
+  .folio{position:absolute;bottom:34px;right:70px;font-family:var(--font-body);font-weight:600;font-size:var(--fs-micro);letter-spacing:2px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- Mirrored composition · label top-right -->
+  <div class="kicker" style="position:absolute;top:98px;right:70px;">CHAPTER 03 / 04</div>
+
+  <!-- Oversized ghost numeral · right-aligned -->
+  <div aria-hidden="true" data-decor
+       style="position:absolute;top:190px;right:58px;font-family:var(--font-num);font-weight:900;font-size:220px;line-height:0.88;color:var(--accent);opacity:0.3;">03</div>
+
+  <!-- Title block · right-aligned -->
+  <div style="position:absolute;top:470px;right:70px;width:700px;text-align:right;">
+    <h1 style="margin:0;font-family:var(--font-heading);font-weight:700;font-size:var(--fs-h1);line-height:1.16;letter-spacing:-0.01em;color:var(--primary);">Design the Room,<br>Not the Mood</h1>
+    <div class="rule-gold" style="width:240px;margin:32px 0 30px auto;background:linear-gradient(270deg, var(--accent), rgba(201,162,39,0));"></div>
+    <p style="margin:0;font-family:var(--font-heading);font-style:italic;font-size:var(--fs-h3);line-height:1.5;color:var(--ink-soft);">In a well-designed room,<br>the good choice is the lazy choice.</p>
+  </div>
+
+  <!-- Promise list · right-aligned, dots trailing -->
+  <div style="position:absolute;top:884px;right:70px;width:640px;">
+    <div style="font-family:var(--font-body);font-weight:700;font-size:var(--fs-body);color:var(--primary);text-align:right;">In this chapter &mdash;</div>
+    <div style="margin-top:26px;display:flex;flex-direction:column;gap:28px;">
+      <div style="display:flex;justify-content:flex-end;align-items:center;gap:16px;">
+        <span style="font-size:var(--fs-body);line-height:1.5;color:var(--ink-soft);">cues that sell the habit for you</span>
+        <span class="dot-gold"></span>
+      </div>
+      <div style="display:flex;justify-content:flex-end;align-items:center;gap:16px;">
+        <span style="font-size:var(--fs-body);line-height:1.5;color:var(--ink-soft);">friction as a superpower</span>
+        <span class="dot-gold"></span>
+      </div>
+      <div style="display:flex;justify-content:flex-end;align-items:center;gap:16px;">
+        <span style="font-size:var(--fs-body);line-height:1.5;color:var(--ink-soft);">the five-minute room reset</span>
+        <span class="dot-gold"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="folio">10 &ndash; THE 1% METHOD</div>
+</div>
+</body>
+</html>

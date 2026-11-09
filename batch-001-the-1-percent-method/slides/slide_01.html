@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The 1% Method — Cover</title>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .hairline-gold { height: 1px; background: var(--gold-line); }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- Thin gold frame, inset 70px from page edges -->
+  <div class="frame-gold" style="position:absolute; inset:70px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:100px 80px 88px;">
+
+    <!-- Kicker -->
+    <div style="font-family:var(--font-body); font-weight:600; font-size:var(--fs-micro); letter-spacing:4.5px; color:var(--accent-deep); text-align:center;">A POCKET GUIDE TO COMPOUND GROWTH</div>
+
+    <!-- Title cluster, optically centered -->
+    <div style="display:flex; flex-direction:column; align-items:center; text-align:center;">
+      <h1 style="margin:0; font-family:var(--font-heading); font-weight:900; font-size:var(--fs-display); line-height:1.06; color:var(--primary);">The 1% Method</h1>
+
+      <!-- Ornament: rotated gold square flanked by hairlines -->
+      <div data-decor aria-hidden="true" style="display:flex; align-items:center; gap:18px; margin:54px 0 50px;">
+        <div class="hairline-gold" style="width:90px;"></div>
+        <div style="width:12px; height:12px; background:var(--accent); transform:rotate(45deg); flex:none;"></div>
+        <div class="hairline-gold" style="width:90px;"></div>
+      </div>
+
+      <p style="margin:0; font-family:var(--font-body); font-weight:400; font-size:var(--fs-h3); line-height:1.6; color:var(--ink-soft); max-width:640px;">How tiny daily habits compound into an unrecognizable life.</p>
+    </div>
+
+    <!-- Foot line -->
+    <div style="font-family:var(--font-body); font-weight:600; font-size:var(--fs-micro); letter-spacing:3.5px; color:var(--ink-soft); text-align:center;">THE 1% PRESS - WEEKLY READERS EDITION - VOL. 01</div>
+
+  </div>
+
+</div>
+</body>
+</html>

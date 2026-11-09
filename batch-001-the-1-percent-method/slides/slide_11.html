@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Make It Obvious, Make It Easy</title>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  body{background:var(--bg);}
+  .folio{position:absolute;bottom:34px;right:70px;font-family:var(--font-body);font-weight:600;font-size:var(--fs-micro);letter-spacing:2px;color:var(--ink-soft);}
+  .dot-sm{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;margin-top:12px;}
+</style>
+</head>
+<body>
+<div class="slide" style="padding:84px 70px 0;">
+
+  <h1 style="margin:0;font-family:var(--font-heading);font-weight:700;font-size:var(--fs-h1);line-height:1.15;letter-spacing:-0.01em;color:var(--primary);">Make It Obvious, Make It Easy</h1>
+
+  <p style="margin:30px 0 0;max-width:850px;font-family:var(--font-body);font-size:var(--fs-body);line-height:1.6;color:var(--ink-soft);">Environment is quiet autopilot. Willpower spends energy; design saves it.<br>In a well-designed room, discipline is mostly a furniture arrangement.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;height:640px;margin-top:58px;">
+
+    <!-- LEFT · cue it up -->
+    <div class="card" style="display:flex;flex-direction:column;padding:42px 40px 38px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="dot-gold"></span>
+        <span style="font-family:var(--font-body);font-weight:700;font-size:var(--fs-h3);letter-spacing:0.02em;color:var(--primary);">CUE IT UP</span>
+      </div>
+      <div style="margin-top:10px;padding-left:22px;font-family:var(--font-body);font-style:italic;font-size:var(--fs-small);color:var(--ink-soft);">&mdash; make the good obvious</div>
+      <div style="height:1px;background:var(--line);margin-top:28px;"></div>
+
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;padding-top:6px;">
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <span class="dot-sm"></span>
+          <p style="margin:0;font-size:var(--fs-body);line-height:1.55;color:var(--ink-soft);">Put the guitar in the living room, not the case.</p>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <span class="dot-sm"></span>
+          <p style="margin:0;font-size:var(--fs-body);line-height:1.55;color:var(--ink-soft);">Lay tomorrow&rsquo;s workout clothes on the chair tonight.</p>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <span class="dot-sm"></span>
+          <p style="margin:0;font-size:var(--fs-body);line-height:1.55;color:var(--ink-soft);">Keep the book on your pillow.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT · break it up -->
+    <div class="card" style="display:flex;flex-direction:column;padding:42px 40px 38px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="dot-gold"></span>
+        <span style="font-family:var(--font-body);font-weight:700;font-size:var(--fs-h3);letter-spacing:0.02em;color:var(--primary);">BREAK IT UP</span>
+      </div>
+      <div style="margin-top:10px;padding-left:22px;font-family:var(--font-body);font-style:italic;font-size:var(--fs-small);color:var(--ink-soft);">&mdash; make the bad invisible</div>
+      <div style="height:1px;background:var(--line);margin-top:28px;"></div>
+
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;padding-top:6px;">
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <span class="dot-sm"></span>
+          <p style="margin:0;font-size:var(--fs-body);line-height:1.55;color:var(--ink-soft);">The phone charges in the kitchen overnight.</p>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <span class="dot-sm"></span>
+          <p style="margin:0;font-size:var(--fs-body);line-height:1.55;color:var(--ink-soft);">Snacks live on the top shelf &mdash; or not in the house at all.</p>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <span class="dot-sm"></span>
+          <p style="margin:0;font-size:var(--fs-body);line-height:1.55;color:var(--ink-soft);">Log out of the app that eats your evenings.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Emphasis strip -->
+  <div class="card-gold" style="margin-top:62px;display:flex;align-items:center;justify-content:center;gap:14px;padding:32px 36px;">
+    <span class="material-icons" aria-hidden="true" style="font-size:22px;color:var(--accent-deep);">timer</span>
+    <p style="margin:0;font-family:var(--font-body);font-weight:600;font-size:var(--fs-small);letter-spacing:0.04em;color:var(--primary);">If it takes more than twenty seconds to start, it usually doesn&rsquo;t get started.</p>
+  </div>
+
+  <div class="folio">11 &ndash; THE 1% METHOD</div>
+</div>
+</body>
+</html>

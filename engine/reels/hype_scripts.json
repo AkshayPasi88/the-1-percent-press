@@ -1,0 +1,155 @@
+{
+  "voice": {
+    "reference_id": "bf322df2096a46f18c579d0baa36f41d",
+    "model": "s2.1-pro-free",
+    "format": "mp3"
+  },
+  "brand": {
+    "handle": "@self_efficient_daily",
+    "ebookTitle": "THE 1% METHOD",
+    "ebookSub": "The 18-page pocket guide to compound growth",
+    "cta": "FREE EBOOK · LINK IN BIO"
+  },
+  "reels": [
+    {
+      "id": "gold_math",
+      "file": "hype_01.mp4",
+      "audio": "audio/hype_01.mp3",
+      "name": "The 37x Math",
+      "theme": {
+        "bg": "#141009", "panel": "#1C1710", "accent": "#E8B84B",
+        "accentDeep": "#C9A227", "ink": "#F5EDD8", "inkSoft": "#A89468"
+      },
+      "svg": "bars",
+      "hookLines": ["1% EVERY DAY", "= ×37.78"],
+      "voice": "[intense] One percent better, every day, for one year. [punchy] Not one percent total. Thirty-seven times better. [energetic] The method is free. Ebook. Link in bio.",
+      "wordOverrides": {}
+    },
+    {
+      "id": "mono_weather",
+      "file": "hype_02.mp4",
+      "audio": "audio/hype_02.mp3",
+      "name": "Motivation Is Weather",
+      "theme": {
+        "bg": "#F5F1E8", "panel": "#EDE7D9", "accent": "#16130C",
+        "accentDeep": "#16130C", "ink": "#16130C", "inkSoft": "#6B6455"
+      },
+      "svg": "chain",
+      "hookLines": ["MOTIVATION", "IS WEATHER."],
+      "voice": "[calm] Motivation is weather. [firm] Systems are climate. [energetic] Build the climate. Free ebook. Link in bio.",
+      "wordOverrides": {}
+    },
+    {
+      "id": "lime_2min",
+      "file": "hype_03.mp4",
+      "audio": "audio/hype_03.mp3",
+      "name": "The 2-Minute Rule",
+      "theme": {
+        "bg": "#101408", "panel": "#181F0D", "accent": "#C8FF4D",
+        "accentDeep": "#9CD32B", "ink": "#F4FFE0", "inkSoft": "#8A9B6B"
+      },
+      "svg": "streaks",
+      "hookLines": ["THE 2-MINUTE", "RULE"],
+      "voice": "[curious] Want a habit that sticks? [punchy] Shrink it to two minutes. Two minutes is a vote. [energetic] The rule is inside. Free ebook. Link in bio.",
+      "wordOverrides": {}
+    },
+    {
+      "id": "crimson_twice",
+      "file": "hype_04.mp4",
+      "audio": "audio/hype_04.mp3",
+      "name": "Never Miss Twice",
+      "theme": {
+        "bg": "#1A0D0F", "panel": "#261216", "accent": "#FF4B3E",
+        "accentDeep": "#D93A2F", "ink": "#FFF0EB", "inkSoft": "#B08580"
+      },
+      "svg": "bolt",
+      "hookLines": ["NEVER", "MISS TWICE."],
+      "voice": "[stern] Missed today? Fine. [punchy] Never miss twice. That is the rule. [energetic] Full method. Free ebook. Link in bio.",
+      "wordOverrides": {}
+    },
+    {
+      "id": "ocean_votes",
+      "file": "hype_05.mp4",
+      "audio": "audio/hype_05.mp3",
+      "name": "Every Action Is a Vote",
+      "theme": {
+        "bg": "#0A1626", "panel": "#102036", "accent": "#54C8FF",
+        "accentDeep": "#2E9BD6", "ink": "#EAF4FF", "inkSoft": "#7E97B5"
+      },
+      "svg": "waves",
+      "hookLines": ["EVERY ACTION", "IS A VOTE."],
+      "voice": "[thoughtful] Every action is a vote for the person you are becoming. [punchy] Cast cheap votes. Daily. [energetic] Start today. Free ebook. Link in bio.",
+      "wordOverrides": {}
+    },
+    {
+      "id": "steel_env",
+      "file": "hype_06.mp4",
+      "audio": "audio/hype_06.mp3",
+      "name": "Willpower Is Overrated",
+      "theme": {
+        "bg": "#10151B", "panel": "#182028", "accent": "#A8C5DE",
+        "accentDeep": "#E8B84B", "ink": "#EDF2F7", "inkSoft": "#7C8EA0"
+      },
+      "svg": "checks",
+      "hookLines": ["WILLPOWER IS", "OVERRATED."],
+      "voice": "[confident] Discipline is not willpower. It is furniture. [punchy] Fruit on the counter. Phone in the drawer. [energetic] Design the room. Free guide. Link in bio.",
+      "wordOverrides": {}
+    },
+    {
+      "id": "forest_chain",
+      "file": "hype_07.mp4",
+      "audio": "audio/hype_07.mp3",
+      "name": "Don't Break the Chain",
+      "theme": {
+        "bg": "#0D1A12", "panel": "#132619", "accent": "#57E39A",
+        "accentDeep": "#2FAE6F", "ink": "#ECFFF3", "inkSoft": "#7E9B8A"
+      },
+      "svg": "rings",
+      "hookLines": ["DON'T BREAK", "THE CHAIN."],
+      "voice": "[building] Day one. Day two. Day three. [intense] Do not break the chain. [energetic] Tracker inside. Free ebook. Link in bio.",
+      "wordOverrides": {}
+    },
+    {
+      "id": "coral_decade",
+      "file": "hype_08.mp4",
+      "audio": "audio/hype_08.mp3",
+      "name": "Invisible to Undeniable",
+      "theme": {
+        "bg": "#1F1013", "panel": "#2B161B", "accent": "#FF7A66",
+        "accentDeep": "#D95A48", "ink": "#FFF0EB", "inkSoft": "#B0857E"
+      },
+      "svg": "clock",
+      "hookLines": ["INVISIBLE TODAY.", "UNDENIABLE IN A DECADE."],
+      "voice": "[calm] Tiny gains are invisible in a day. [intense] Undeniable in a decade. [energetic] One percent better. Free ebook. Link in bio.",
+      "wordOverrides": {}
+    },
+    {
+      "id": "violet_monday",
+      "file": "hype_09.mp4",
+      "audio": "audio/hype_09.mp3",
+      "name": "Stop Waiting for Monday",
+      "theme": {
+        "bg": "#160E2A", "panel": "#201543", "accent": "#B990FF",
+        "accentDeep": "#8F5FE8", "ink": "#F2ECFF", "inkSoft": "#8D82B5"
+      },
+      "svg": "dots",
+      "hookLines": ["STOP WAITING", "FOR MONDAY."],
+      "voice": "[firm] Stop waiting for Monday. [punchy] Two minutes. Right now. That is it. [energetic] Start today. Free guide. Link in bio.",
+      "wordOverrides": {}
+    },
+    {
+      "id": "sunset_onepct",
+      "file": "hype_10.mp4",
+      "audio": "audio/hype_10.mp3",
+      "name": "You Need 1%",
+      "theme": {
+        "bg": "#201008", "panel": "#2E180C", "accent": "#FF9E45",
+        "accentDeep": "#D97E2B", "ink": "#FFF3E8", "inkSoft": "#B08D72"
+      },
+      "svg": "arc",
+      "hookLines": ["YOU DON'T NEED", "MORE MOTIVATION."],
+      "voice": "[direct] You do not need more motivation. [punchy] You need one percent. [energetic] The method is free. Ebook. Link in bio.",
+      "wordOverrides": {}
+    }
+  ]
+}

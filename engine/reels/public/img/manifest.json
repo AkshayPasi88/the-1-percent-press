@@ -263,52 +263,116 @@
     "width": 736,
     "height": 1308
   },
-  "ash_decay/erosion": {
-    "file": "img/ash_decay/erosion.jpg",
-    "query": "cracked dry barren earth desert ground texture close up",
+  "onyx_rescue/rooftop": {
+    "file": "img/onyx_rescue/rooftop.jpg",
+    "query": "lone man silhouette standing on rooftop overlooking city at night",
     "source": "Unsplash",
-    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/8d8d6d20edab.jpg",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/4bf565a5e0b4.jpg",
     "width": 1400,
     "height": 933
   },
-  "ash_decay/decline": {
-    "file": "img/ash_decay/decline.jpg",
-    "query": "falling red stock market chart line on a dark trading screen",
+  "onyx_rescue/road": {
+    "file": "img/onyx_rescue/road.jpg",
+    "query": "man walking alone on empty road at night in fog",
+    "source": "SplitShire",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/39ad6ce394d2.png",
+    "width": 1024,
+    "height": 1024
+  },
+  "onyx_rescue/walker": {
+    "file": "img/onyx_rescue/walker.jpg",
+    "query": "determined man walking forward portrait dark moody lighting",
     "source": "Pexels",
-    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/030132874fb8.jpeg",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/c3053f89cd09.jpeg",
+    "width": 933,
+    "height": 1400
+  },
+  "onyx_rescue/window": {
+    "file": "img/onyx_rescue/window.jpg",
+    "query": "single lit window in dark apartment building at night",
+    "source": "Unsplash",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/78d1fcf02721.jpg",
+    "width": 785,
+    "height": 1400
+  },
+  "onyx_rescue/dawnrun": {
+    "file": "img/onyx_rescue/dawnrun.jpg",
+    "query": "runner running alone on empty city street before sunrise",
+    "source": "Medium",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/9fe84dcc8386.jpg",
+    "width": 1120,
+    "height": 1400
+  },
+  "onyx_rescue/barbell": {
+    "file": "img/onyx_rescue/barbell.jpg",
+    "query": "athlete lifting heavy barbell in dark gym dramatic lighting",
+    "source": "SplitShire",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/97c24e66490e.png",
+    "width": 1024,
+    "height": 1024
+  },
+  "onyx_rescue/summit": {
+    "file": "img/onyx_rescue/summit.jpg",
+    "query": "silhouette of person standing on mountain summit at sunrise",
+    "source": "PresentationGO",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/35d9709aeb0c.jpg",
+    "width": 1285,
+    "height": 720
+  },
+  "iron_pain/wraps": {
+    "file": "img/iron_pain/wraps.jpg",
+    "query": "boxer wrapping his hands in a dark gym dramatic light",
+    "source": "Pexels",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/7a04e4b824ec.jpeg",
+    "width": 1124,
+    "height": 750
+  },
+  "iron_pain/bag": {
+    "file": "img/iron_pain/bag.jpg",
+    "query": "boxer hitting a punching bag with sweat in dark gym",
+    "source": "Pexels",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/6e4f41adc38b.jpeg",
+    "width": 1125,
+    "height": 750
+  },
+  "iron_pain/gloves": {
+    "file": "img/iron_pain/gloves.jpg",
+    "query": "boxing gloves close up hanging in dark gym",
+    "source": "Legends Boxing",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/bfdd4a41c859.png",
+    "width": 1400,
+    "height": 933
+  },
+  "iron_pain/alarm": {
+    "file": "img/iron_pain/alarm.jpg",
+    "query": "alarm clock in a dark bedroom early morning",
+    "source": "Mashable",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/1d5ee5a446f5.jpg",
+    "width": 1248,
+    "height": 702
+  },
+  "iron_pain/litwin": {
+    "file": "img/iron_pain/litwin.jpg",
+    "query": "one lit window in a dark building at night",
+    "source": "Pexels",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/aaf3e1e19913.jpeg",
     "width": 1260,
     "height": 709
   },
-  "ash_decay/turnaround": {
-    "file": "img/ash_decay/turnaround.jpg",
-    "query": "blue u turn arrow road sign against the sky",
-    "source": "Reddit",
-    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/9e8a02e5484f.png",
-    "width": 630,
-    "height": 1400
+  "iron_pain/plates": {
+    "file": "img/iron_pain/plates.jpg",
+    "query": "barbell with weight plates close up in gym",
+    "source": "Pexels",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/8295128f3e40.jpeg",
+    "width": 1127,
+    "height": 750
   },
-  "teal_stack/coffee": {
-    "file": "img/teal_stack/coffee.jpg",
-    "query": "cup of coffee beside an open book on a wooden table",
-    "source": "Unsplash",
-    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/02202a669347.jpg",
+  "iron_pain/finish": {
+    "file": "img/iron_pain/finish.jpg",
+    "query": "runner crossing finish line with arms raised at sunrise",
+    "source": "Desiring God",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/e2fb55f1dc27.jpg",
     "width": 1400,
-    "height": 931
-  },
-  "teal_stack/blocks": {
-    "file": "img/teal_stack/blocks.jpg",
-    "query": "wooden building blocks stacked into a tall tower",
-    "source": "Amazon.in",
-    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/e84177259f8e.jpg",
-    "width": 1000,
-    "height": 1000
-  },
-  "teal_stack/dominoes": {
-    "file": "img/teal_stack/dominoes.jpg",
-    "query": "domino tiles lined up in a row falling close up on table",
-    "source": "Unsplash",
-    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/3b87153c9a1a.jpg",
-    "width": 1400,
-    "height": 935
+    "height": 788
   }
 }

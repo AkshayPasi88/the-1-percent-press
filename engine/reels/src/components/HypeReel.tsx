@@ -16,6 +16,7 @@ export interface HypeReelData {
   hookEndSec: number; ctaStartSec: number; audioDurationSec: number; speechEndSec: number;
   captions: HypeGroup[];
   bgSeq?: string[]; // background variant rotation: [hook, ...body slots, cta]
+  style?: string;   // "cinematic" → full-bleed footage reels (CinematicReel)
 }
 export interface HypeBrand { handle: string; ebookTitle: string; ebookSub: string; cta: string; }
 export interface HypeProps { reel: HypeReelData; brand: HypeBrand; visuals?: Visuals | null; }

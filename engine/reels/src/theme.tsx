@@ -27,6 +27,7 @@ export const FONT_FACES = `
 @font-face { font-family: 'Source Sans 3'; src: url('${f("SourceSans3-600.ttf")}') format('truetype'); font-weight: 600; font-style: normal; font-display: block; }
 @font-face { font-family: 'Source Sans 3'; src: url('${f("SourceSans3-700.ttf")}') format('truetype'); font-weight: 700; font-style: normal; font-display: block; }
 @font-face { font-family: 'Source Sans 3'; src: url('${f("SourceSans3-400-italic.ttf")}') format('truetype'); font-weight: 400; font-style: italic; font-display: block; }
+@font-face { font-family: 'Anton'; src: url('${f("Anton-Regular.ttf")}') format('truetype'); font-weight: 400; font-style: normal; font-display: block; }
 `;
 
 /** Block rendering until the brand fonts are really loaded. */
@@ -41,6 +42,7 @@ export function useBrandFonts() {
       document.fonts.load('400 40px "Source Sans 3"'),
       document.fonts.load('600 40px "Source Sans 3"'),
       document.fonts.load('700 40px "Source Sans 3"'),
+      document.fonts.load('400 40px "Anton"'),
     ];
     Promise.all(loads)
       .then(() => continueRender(handle))

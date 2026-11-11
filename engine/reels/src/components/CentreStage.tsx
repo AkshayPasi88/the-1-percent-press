@@ -42,23 +42,23 @@ export const beatPulse = (beats: number[], t: number, decay = 6): number =>
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 
 /* ── kinetic main text: words reveal exactly when spoken ──────────────── */
-const KineticText: React.FC<{
+export const KineticText: React.FC<{
   text: string; words: VWord[]; th: Theme; t: number; fps: number;
-  big?: boolean; pulse: number;
-}> = ({ text, words, th, t, fps, big, pulse }) => {
+  big?: boolean; pulse: number; font?: string; fontScale?: number;
+}> = ({ text, words, th, t, fps, big, pulse, font, fontScale }) => {
   // map spoken word → display fragment (strip punctuation, uppercase)
   const frags = (words?.length ? words : [{ text, start: -1, end: -1 }])
     .map((w) => ({ ...w, disp: w.text.toUpperCase().replace(/[^A-Z0-9$%'\s×]/g, "") }))
     .filter((w) => w.disp);
   const joined = frags.map((f) => f.disp).join(" ");
-  const fontSize = big
+  const fontSize = (big
     ? (joined.length > 24 ? 84 : joined.length > 12 ? 110 : 148)
-    : (joined.length > 30 ? 48 : joined.length > 18 ? 62 : joined.length > 10 ? 76 : 88);
+    : (joined.length > 30 ? 48 : joined.length > 18 ? 62 : joined.length > 10 ? 76 : 88)) * (fontScale ?? 1);
   return (
     <div style={{
       display: "flex", flexWrap: "wrap", justifyContent: "center", maxWidth: big ? 960 : 880,
-      fontFamily: big ? '"Playfair Display", serif' : '"Playfair Display", serif',
-      fontWeight: 900, letterSpacing: -1, lineHeight: 1.08,
+      fontFamily: font ?? '"Playfair Display", serif',
+      fontWeight: 900, letterSpacing: big ? -1 : 0, lineHeight: 1.08,
     }}>
       {frags.map((w, i) => {
         const age = w.start < 0 ? 1 : Math.max(0, t - w.start);

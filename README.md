@@ -29,7 +29,8 @@ the-1-percent-press/
 │   ├── slides_to_pdf.js      ← HTML → PDF
 │   ├── fetch_fonts.py, fix_font_names.py, make_contact_sheets.py
 │   └── reels/                ← Remotion project
-│       ├── src/components/HypeReel.tsx        ← voiced reel component
+│       ├── src/components/HypeReel.tsx        ← voiced reel component (card style)
+│       ├── src/components/CinematicReel.tsx   ← 30s script-format cinematic reel (full-bleed footage)
 │       ├── src/components/CentreStage.tsx     ← centre visual layer (images/stats/kinetic text)
 │       ├── src/components/HypeBackgrounds.tsx ← 10 animated SVG themes
 │       ├── src/components/motion.tsx          ← kinetic-typography motion grammar

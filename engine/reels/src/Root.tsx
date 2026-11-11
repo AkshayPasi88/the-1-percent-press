@@ -7,6 +7,7 @@ import { TeaserReel } from "./components/TeaserReel";
 import { QuoteReel } from "./components/QuoteReel";
 import { ChecklistReel } from "./components/ChecklistReel";
 import { HypeReel, HypeReelData, HypeBrand } from "./components/HypeReel";
+import { CinematicReel } from "./components/CinematicReel";
 import type { ReelProps } from "./theme";
 import type { Visuals } from "./components/CentreStage";
 
@@ -44,15 +45,17 @@ export const ReelsRoot: React.FC = () => (
       defaultProps={reelProps}
     />
     {hypeData.reels.map((reel, i) => {
+      // cinematic reels hold the pointing-at-ebook ending ~4 s past the voice
+      const tail = reel.style === "cinematic" ? 4.2 : 0.9;
       const dur = Math.max(
         60,
-        Math.ceil(((reel.audioDurationSec ?? 10) + 0.9) * 30)
+        Math.ceil(((reel.audioDurationSec ?? 10) + tail) * 30)
       );
       return (
         <Composition
           key={reel.id}
           id={`Hype${String(i + 1).padStart(2, "0")}`}
-          component={HypeReel}
+          component={reel.style === "cinematic" ? CinematicReel : HypeReel}
           durationInFrames={dur}
           fps={30}
           width={1080}

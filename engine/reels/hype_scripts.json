@@ -328,55 +328,53 @@
       ]
     },
     {
-      "id": "ash_decay",
+      "id": "onyx_rescue",
       "file": "hype_13.mp4",
       "audio": "audio/hype_13.mp3",
-      "name": "The 0.99 Trap",
+      "name": "Nobody Is Coming to Save You",
+      "style": "cinematic",
       "theme": {
-        "bg": "#141117",
-        "panel": "#1D1A22",
-        "accent": "#FF5A48",
-        "accentDeep": "#C94036",
-        "ink": "#F2EFE9",
-        "inkSoft": "#A09CA8"
+        "bg": "#0A0A0C",
+        "panel": "#15151A",
+        "accent": "#FF6B4A",
+        "accentDeep": "#D44A2E",
+        "ink": "#F5F2ED",
+        "inkSoft": "#9B968F"
       },
-      "svg": "streaks",
+      "svg": "waves",
       "hookLines": [
-        "1% WORSE DAILY",
-        "= ×0.03"
+        "NOBODY IS COMING",
+        "TO SAVE YOU."
       ],
-      "voice": "[intense] One percent worse, every day, for one year. [punchy] Not one percent weaker. Ninety-seven percent gone. [energetic] Reverse the slide. Free ebook. Link in bio.",
+      "voice": "[intense] Nobody is coming to save you. And that's the best thing you need to understand. [firm] Stop waiting for the perfect moment. Stop waiting for someone to believe in you. Your future is your responsibility. [building] While others are sleeping on their dreams, work on yours. While others make excuses, take action. [calm] You don't need to be the best today. You just need to be better than yesterday. [intense] One day, your discipline will introduce you, where your excuses once held you back.",
       "wordOverrides": {},
       "bgSeq": [
-        "streaks",
-        "waves",
-        "clock"
+        "waves"
       ]
     },
     {
-      "id": "teal_stack",
+      "id": "iron_pain",
       "file": "hype_14.mp4",
       "audio": "audio/hype_14.mp3",
-      "name": "Habit Stacking",
+      "name": "Pain of Discipline vs Pain of Regret",
+      "style": "cinematic",
       "theme": {
-        "bg": "#07161A",
-        "panel": "#0D2228",
-        "accent": "#2DD4BF",
-        "accentDeep": "#14A08E",
-        "ink": "#EAF7F4",
-        "inkSoft": "#8FB8B0"
+        "bg": "#0A0D12",
+        "panel": "#141922",
+        "accent": "#FF4438",
+        "accentDeep": "#C02820",
+        "ink": "#F4F6F8",
+        "inkSoft": "#93A0AE"
       },
       "svg": "bars",
       "hookLines": [
-        "AFTER COFFEE,",
-        "READ 1 PAGE."
+        "PAIN OF DISCIPLINE,",
+        "OR PAIN OF REGRET."
       ],
-      "voice": "[calm] After I pour my morning coffee, I read one page. [punchy] Old habit. New habit. One stack. [energetic] Build your stack. Free ebook. Link in bio.",
+      "voice": "[intense] You will feel pain either way. The pain of discipline, or the pain of regret. [firm] Discipline hurts for minutes. Regret hurts for years. Choose your pain on purpose. [building] Nobody sees the five A M alarms. Nobody claps for the boring days. That is where the results live. [calm] Every rep you don't skip, every page you do read, it compounds. [intense] Choose discipline today, so tomorrow you don't drown in regret.",
       "wordOverrides": {},
       "bgSeq": [
-        "bars",
-        "checks",
-        "arc"
+        "bars"
       ]
     }
   ]

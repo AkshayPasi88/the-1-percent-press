@@ -38,38 +38,79 @@ OUT = os.path.join(ROOT, "hype_visuals.json")
 # query   : image search sentence (natural language)
 # cat     : content category → background palette
 CURATED = {
-    "ash_decay": [
-        {"phrase": "one percent worse every day for one year",
-         "text": "1% WORSE. EVERY DAY.", "slug": "erosion",
-         "query": "cracked dry barren earth desert ground texture close up",
-         "cat": "decay"},
-        {"phrase": "not one percent weaker",
-         "text": "NOT 1% WEAKER.", "slug": "erosion",
-         "query": "cracked dry barren earth desert ground texture close up",
-         "cat": "decay"},
-        {"phrase": "ninety seven percent gone",
-         "stat": {"prefix": "×", "to": 0.03, "decimals": 2, "label": "OF YOU LEFT"},
-         "slug": "decline",
-         "query": "falling red stock market chart line on a dark trading screen",
-         "cat": "decay"},
-        {"phrase": "reverse the slide",
-         "text": "REVERSE THE SLIDE.", "slug": "turnaround",
-         "query": "blue u turn arrow road sign against the sky",
-         "cat": "path"},
+    "onyx_rescue": [
+        {"phrase": "nobody is coming to save you and that's the best thing you need to understand",
+         "cover": True, "cinematic": True,
+         "text": "NOBODY IS COMING TO SAVE YOU.", "slug": "rooftop",
+         "query": "lone man silhouette standing on rooftop overlooking city at night",
+         "cat": "onyx"},
+        {"phrase": "stop waiting for the perfect moment stop waiting for someone to believe in you",
+         "cinematic": True,
+         "text": "STOP WAITING.", "slug": "road",
+         "query": "man walking alone on empty road at night in fog",
+         "cat": "onyx"},
+        {"phrase": "your future is your responsibility",
+         "cinematic": True,
+         "text": "YOUR FUTURE IS YOUR RESPONSIBILITY.", "slug": "walker",
+         "query": "determined man walking forward portrait dark moody lighting",
+         "cat": "onyx"},
+        {"phrase": "while others are sleeping on their dreams work on yours",
+         "cinematic": True,
+         "text": "WHILE THEY SLEEP, YOU WORK.", "slug": "window",
+         "query": "single lit window in dark apartment building at night",
+         "cat": "onyx"},
+        {"phrase": "while others make excuses take action",
+         "cinematic": True,
+         "text": "EXCUSES OR ACTION.", "slug": "dawnrun",
+         "query": "runner running alone on empty city street before sunrise",
+         "cat": "onyx"},
+        {"phrase": "you don't need to be the best today you just need to be better than yesterday",
+         "cinematic": True,
+         "text": "BETTER THAN YESTERDAY.", "slug": "barbell",
+         "query": "athlete lifting heavy barbell in dark gym dramatic lighting",
+         "cat": "onyx"},
+        {"phrase": "one day your discipline will introduce you where your excuses once held you back",
+         "cinematic": True,
+         "text": "DISCIPLINE WILL INTRODUCE YOU.", "slug": "summit",
+         "query": "silhouette of person standing on mountain summit at sunrise",
+         "cat": "onyx"},
     ],
-    "teal_stack": [
-        {"phrase": "after i pour my morning coffee i read one page",
-         "text": "AFTER COFFEE, ONE PAGE.", "slug": "coffee",
-         "query": "cup of coffee beside an open book on a wooden table",
-         "cat": "stack"},
-        {"phrase": "old habit new habit one stack",
-         "text": "OLD HABIT + NEW HABIT.", "slug": "blocks",
-         "query": "wooden building blocks stacked into a tall tower",
-         "cat": "stack"},
-        {"phrase": "build your stack",
-         "text": "BUILD YOUR STACK.", "slug": "dominoes",
-         "query": "dominoes standing in a long row on a table",
-         "cat": "path"},
+    "iron_pain": [
+        {"phrase": "you will feel pain either way the pain of discipline or the pain of regret",
+         "cover": True, "cinematic": True,
+         "text": "PAIN EITHER WAY.", "slug": "wraps",
+         "query": "boxer wrapping his hands in a dark gym dramatic light",
+         "cat": "iron"},
+        {"phrase": "discipline hurts for minutes regret hurts for years",
+         "cinematic": True,
+         "text": "MINUTES OR YEARS.", "slug": "bag",
+         "query": "boxer hitting a punching bag with sweat in dark gym",
+         "cat": "iron"},
+        {"phrase": "choose your pain on purpose",
+         "cinematic": True,
+         "text": "CHOOSE YOUR PAIN.", "slug": "gloves",
+         "query": "boxing gloves close up hanging in dark gym",
+         "cat": "iron"},
+        {"phrase": "nobody sees the five a m alarms nobody claps for the boring days",
+         "cinematic": True,
+         "text": "NOBODY SEES THE 5AM ALARMS.", "slug": "alarm",
+         "query": "alarm clock in a dark bedroom early morning",
+         "cat": "iron"},
+        {"phrase": "that is where the results live",
+         "cinematic": True,
+         "text": "WHERE RESULTS LIVE.", "slug": "litwin",
+         "query": "one lit window in a dark building at night",
+         "cat": "iron"},
+        {"phrase": "every rep you don't skip every page you do read it compounds",
+         "cinematic": True,
+         "text": "IT COMPOUNDS.", "slug": "plates",
+         "query": "barbell with weight plates close up in gym",
+         "cat": "iron"},
+        {"phrase": "choose discipline today so tomorrow you don't drown in regret",
+         "cinematic": True,
+         "text": "CHOOSE DISCIPLINE TODAY.", "slug": "finish",
+         "query": "runner crossing finish line with arms raised at sunrise",
+         "cat": "iron"},
     ],
     "gold_math": [
         {"phrase": "one percent better every day for one year",
@@ -245,7 +286,8 @@ PALETTES = {
     "identity": {"bg": "#0A1220", "glow": "#54C8FF"},
     "path":     {"bg": "#1C1108", "glow": "#FF9E45"},
     "emotional":{"bg": "#1F1016", "glow": "#FF7A66"},
-    "decay":   {"bg": "#161017", "glow": "#FF5A48"},
+    "onyx":     {"bg": "#0C0B10", "glow": "#FF6B4A"},
+    "iron":     {"bg": "#0B0F15", "glow": "#FF4438"},
     "stack":   {"bg": "#06181C", "glow": "#2DD4BF"},
 }
 
@@ -490,10 +532,12 @@ def build_scenes(reel, words):
             print(f"  !! phrase not found in {reel['id']}: {sp['phrase'][:40]}…")
             continue
         i, j = m
-        start = max(hook_end + 0.05, words[i]["start"] - 0.15)
+        start = (max(0.12, words[i]["start"] - 0.25) if sp.get("cover")
+                 else max(hook_end + 0.05, words[i]["start"] - 0.15))
         end = min(cta - 0.15, words[j]["end"] + 0.35)
         sc = {
             "start": round(start, 3), "end": round(max(end, start + 0.7), 3),
+            "cinematic": bool(sp.get("cinematic")),
             "text": sp.get("text", ""),
             "words": [
                 {"text": w["text"], "start": round(w["start"], 3),
@@ -535,7 +579,7 @@ def build_scenes(reel, words):
     out = []
     for sc in scenes:
         dur = sc["end"] - sc["start"]
-        if dur > 4.5 and sc.get("image"):
+        if dur > 4.5 and sc.get("image") and not sc.get("cinematic"):
             mid = round((sc["start"] + sc["end"]) / 2, 3)
             first = dict(sc)
             first["end"] = mid
@@ -591,6 +635,9 @@ def main():
     for reel in props["reels"]:
         h = reel["hookEndSec"]
         reel["hookEndSec"] = round(min(max(h, 2.2), 3.4), 3)
+        if reel.get("style") == "cinematic":
+            # the closing line IS the ending section; the ebook card owns the tail
+            reel["ctaStartSec"] = round(reel["speechEndSec"] + 0.1, 3)
     save_json(PROPS, props)
     MANIFEST_DATA = load_json(MANIFEST) if os.path.exists(MANIFEST) else {}
     out = {}

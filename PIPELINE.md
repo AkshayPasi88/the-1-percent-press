@@ -6,7 +6,22 @@ Weekly task runs **Monday 09:00 IST**. Niche: **self-improvement only.**
 
 1. **Pick the format** — flip a coin / random pick: **reel** or **slide**.
 
-2. **REEL** (voiced, 9:16):
+2. **REEL** (voiced, 9:16) — **default since 2026-11-12: the animated engine (v5)**:
+
+   **v5 — code-drawn animated reels (preferred, `engine/opuscar/`):**
+   - Add a reel definition to `REELS` in `/home/z/my-project/scripts/opuscar/build.mjs`
+     (10 sentences with roles: hook / tension / imperative / contrast /
+     reflective / punchline, a palette, bpm, seed). Narratives stay 25–40 words.
+   - `node /home/z/my-project/scripts/opuscar/build.mjs <key>` — plans, voices
+     (Fish s2.1 per-sentence emotions), renders frame-by-frame (headless Chrome),
+     mixes SFX + music, muxes at −14 LUFS and runs QC. `--fresh-voice` re-voices;
+     `--stage plan|render|mix|mux|qc` runs one stage.
+   - QC gates: no static frames, no blank frames, correct 1080×1920@30 specs,
+     audio present; vision-review the contact sheet.
+   - New seed → new film (emotions, scenes, cameras, typography, music all
+     re-randomised meaningfully). Voice cache avoids re-paying TTS calls.
+
+   **v3 legacy (photo/card reels 1–12):**
    - Add a new entry to `/home/z/my-project/scripts/reels/hype_scripts.json`
      (fresh hook + 15–25 word voice script with [emotion] tags, a theme from the
      10 existing color/svg themes or a new one, CTA to the CURRENT ebook).

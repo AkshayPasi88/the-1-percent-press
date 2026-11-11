@@ -8,7 +8,8 @@ published to **Instagram (@self_efficient_daily)** and **Pinterest
 
 | Asset | Spec | How |
 | --- | --- | --- |
-| Voiced reels | 9:16 · 1080×1920 · 30fps · H.264 + AAC, 8–13s | Fish Audio TTS (male voice "Adrian", s2.1-pro-free, emotion tags) + Remotion (karaoke captions word-synced via TTS timestamps, hooks, ebook CTA, 10 color themes + animated SVG elements) |
+| Voiced reels (v1–v3, legacy) | 9:16 · 1080×1920 · 30fps · H.264 + AAC, 8–13s | Fish Audio TTS (male voice "Adrian", s2.1-pro-free, emotion tags) + Remotion (karaoke captions word-synced via TTS timestamps, hooks, ebook CTA, 10 color themes + animated SVG elements) |
+| Voiced animated reels (v5 `opuscar`, default) | 9:16 · 1080×1920 · 30fps · H.264+AAC · −14 LUFS | Fish Audio s2.1 per-sentence EMOTIONAL TTS (shouting/whispering/dead-serious + prosody speed, word timestamps) + code-drawn canvas film (12 procedural animated backgrounds, beat-locked 1–3 s scene cuts, word-slam hooks, kinetic captions, camera moves, procedural SFX + music) rendered frame-by-frame via the [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) (MIT) pipeline — no stock footage, no AI video |
 | Quote slides | 4:5 · 1080×1350 PNG, single-image | HTML + headless Chrome (motivational/dopamine content, 6+ color themes) |
 | Ebooks | 18 pages · 4:5 portrait (8×10 in) · PPTX + PDF | pptx skill workflow (batch `build_pptx_4x5.js` + `slides_to_pdf.js`) |
 
@@ -29,6 +30,12 @@ the-1-percent-press/
 │   ├── gen_credits.py        ← image attribution table generator
 │   ├── generate_slides.py    ← 4:5 quote slide generator (headless Chrome)
 │   ├── zernio_post.mjs       ← verified publisher (presign → upload → post)
+│   ├── opuscar/              ← ENGINE v5: code-drawn animated reels (film-in-code)
+│   │   ├── engine/           ← lib/bg/type/camera/transitions/main (canvas render(t))
+│   │   ├── build.mjs         ← seeded planner + orchestrator (plan→voice→render→mix→mux→qc)
+│   │   ├── voice.mjs         ← per-sentence emotional Fish TTS + word timings
+│   │   ├── mix.py            ← numpy mix: voice + SFX + music, ducking
+│   │   └── qc.py             ← static-frame/blank/audio gates + contact sheet
 │   ├── build_pptx_4x5.js     ← HTML → 4:5 portrait PPTX
 │   ├── slides_to_pdf.js      ← HTML → PDF
 │   ├── fetch_fonts.py, fix_font_names.py, make_contact_sheets.py

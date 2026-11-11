@@ -374,5 +374,125 @@
     "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/e2fb55f1dc27.jpg",
     "width": 1400,
     "height": 788
+  },
+  "onyx_rescue/stormcity": {
+    "file": "img/onyx_rescue/stormcity.jpg",
+    "query": "dramatic storm clouds and lightning over a city at night",
+    "source": "Reddit",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/3cafd1983739.jpeg",
+    "width": 1000,
+    "height": 1400
+  },
+  "onyx_rescue/bench": {
+    "file": "img/onyx_rescue/bench.jpg",
+    "query": "person sitting alone on a bench at night under a streetlight",
+    "source": "Unsplash",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/96c60ae46af5.jpg",
+    "width": 1400,
+    "height": 933
+  },
+  "onyx_rescue/nightdesk": {
+    "file": "img/onyx_rescue/nightdesk.jpg",
+    "query": "person working late at a desk with a lamp at night",
+    "source": "Unsplash",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f0856fa894f2.jpg",
+    "width": 933,
+    "height": 1400
+  },
+  "onyx_rescue/fists": {
+    "file": "img/onyx_rescue/fists.jpg",
+    "query": "clenched fists close up determination dark lighting",
+    "source": "Midi Health",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/d5f31d15059b.png",
+    "width": 1114,
+    "height": 1114
+  },
+  "onyx_rescue/sprint": {
+    "file": "img/onyx_rescue/sprint.jpg",
+    "query": "athlete sprinting fast on a running track close up",
+    "source": "WIRED",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/6ce0196e0167.jpg",
+    "width": 1049,
+    "height": 1400
+  },
+  "onyx_rescue/candle": {
+    "file": "img/onyx_rescue/candle.jpg",
+    "query": "single candle flame burning in the darkness close up",
+    "source": "Unsplash",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/4d453cc187cd.jpg",
+    "width": 1400,
+    "height": 933
+  },
+  "onyx_rescue/chess": {
+    "file": "img/onyx_rescue/chess.jpg",
+    "query": "chess king piece close up on dark board dramatic light",
+    "source": "Pexels",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/387b1daf8aa2.jpeg",
+    "width": 1400,
+    "height": 1050
+  },
+  "iron_pain/corner": {
+    "file": "img/iron_pain/corner.jpg",
+    "query": "boxer sitting alone in the corner of a dark boxing ring",
+    "source": "The Real News Network",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/0fb22953d24f.jpg",
+    "width": 1280,
+    "height": 720
+  },
+  "iron_pain/rainman": {
+    "file": "img/iron_pain/rainman.jpg",
+    "query": "sad man standing alone in the rain at night silhouette",
+    "source": "SplitShire",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/18a5798268ac.png",
+    "width": 1024,
+    "height": 1024
+  },
+  "iron_pain/emptygym": {
+    "file": "img/iron_pain/emptygym.jpg",
+    "query": "empty dark gym with a single spotlight on the floor",
+    "source": "Quartz",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/53f182e448e0.jpg",
+    "width": 1400,
+    "height": 939
+  },
+  "iron_pain/scream": {
+    "file": "img/iron_pain/scream.jpg",
+    "query": "athlete screaming with intensity during workout in gym",
+    "source": "Red Bull",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/3aaa46927c44.jpg",
+    "width": 1400,
+    "height": 933
+  },
+  "iron_pain/books": {
+    "file": "img/iron_pain/books.jpg",
+    "query": "stack of books beside a reading lamp at night",
+    "source": "Alibaba.com",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/536d7ac54f8b.jpg",
+    "width": 1000,
+    "height": 1000
+  },
+  "iron_pain/lion": {
+    "file": "img/iron_pain/lion.jpg",
+    "query": "lion face intense stare close up dark background",
+    "source": "Picjumbo",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f43fa99cb4e1.jpg",
+    "width": 933,
+    "height": 1400
+  },
+  "onyx_rescue/mirror": {
+    "file": "img/onyx_rescue/mirror.jpg",
+    "query": "person standing in front of a large mirror indoors",
+    "source": "Pinterest",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f88e689b857c.jpg",
+    "width": 720,
+    "height": 1280
+  },
+  "onyx_rescue/ocean": {
+    "file": "img/onyx_rescue/ocean.jpg",
+    "query": "calm ocean horizon before sunrise soft moody light",
+    "source": "Pexels",
+    "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f63a95a2bad1.jpeg",
+    "width": 1400,
+    "height": 933
   }
 }

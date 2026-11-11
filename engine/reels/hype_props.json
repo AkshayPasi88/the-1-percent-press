@@ -3145,7 +3145,7 @@
     {
       "id": "onyx_rescue",
       "file": "hype_13.mp4",
-      "audio": "audio/hype_13.mp3",
+      "audio": "audio/hype_13_mix.wav",
       "name": "Nobody Is Coming to Save You",
       "style": "cinematic",
       "theme": {
@@ -3161,631 +3161,1210 @@
         "NOBODY IS COMING",
         "TO SAVE YOU."
       ],
-      "voice": "[intense] Nobody is coming to save you. And that's the best thing you need to understand. [firm] Stop waiting for the perfect moment. Stop waiting for someone to believe in you. Your future is your responsibility. [building] While others are sleeping on their dreams, work on yours. While others make excuses, take action. [calm] You don't need to be the best today. You just need to be better than yesterday. [intense] One day, your discipline will introduce you, where your excuses once held you back.",
+      "voice": "[shout] Nobody is coming to save you. [dramatic] And that's the best thing you will ever understand. [angry] Stop waiting for the perfect moment. [sad] Stop waiting for someone to finally believe in you. [serious] Your future is your responsibility. Nobody else's. [dramatic] While others are sleeping on their dreams... [fast] Work on yours! [angry] While others make excuses... [shout] Take action! [calm] You don't need to be the best today. [motivational] You just need to be better than yesterday. [whisper] One day... [dramatic] Your discipline will introduce you... [shout] Where your excuses once held you back!",
       "wordOverrides": {},
       "bgSeq": [
         "waves"
       ],
-      "hookEndSec": 2.2,
-      "ctaStartSec": 31.182,
-      "audioDurationSec": 31.268,
-      "speechEndSec": 31.082,
+      "hookEndSec": 2.221,
+      "ctaStartSec": 34.607,
+      "audioDurationSec": 34.357,
+      "speechEndSec": 34.507,
       "captions": [
         {
-          "start": 0,
-          "end": 1.12,
+          "start": 0.15,
+          "end": 1.217,
           "words": [
             {
               "text": "Nobody",
-              "start": 0,
-              "end": 0.56,
+              "start": 0.15,
+              "end": 0.683,
               "display": "Nobody"
             },
             {
               "text": "is",
-              "start": 0.56,
-              "end": 0.72,
+              "start": 0.683,
+              "end": 0.836,
               "display": "is"
             },
             {
               "text": "coming",
-              "start": 0.72,
-              "end": 1.04,
+              "start": 0.836,
+              "end": 1.217,
               "display": "coming"
             },
             {
               "text": "to",
-              "start": 1.04,
-              "end": 1.12,
+              "start": 1.217,
+              "end": 1.217,
               "display": "to"
             }
           ]
         },
         {
-          "start": 1.12,
-          "end": 1.68,
+          "start": 1.217,
+          "end": 1.902,
           "words": [
             {
               "text": "save",
-              "start": 1.12,
-              "end": 1.44,
+              "start": 1.217,
+              "end": 1.674,
               "display": "save"
             },
             {
               "text": "you",
-              "start": 1.44,
-              "end": 1.68,
+              "start": 1.674,
+              "end": 1.902,
               "display": "you"
             }
           ]
         },
         {
-          "start": 2.48,
-          "end": 3.36,
+          "start": 2.291,
+          "end": 3.358,
           "words": [
             {
               "text": "And",
-              "start": 2.48,
-              "end": 2.64,
+              "start": 2.291,
+              "end": 2.469,
               "display": "And"
             },
             {
               "text": "that's",
-              "start": 2.64,
-              "end": 2.88,
+              "start": 2.469,
+              "end": 2.825,
               "display": "that's"
             },
             {
               "text": "the",
-              "start": 2.88,
-              "end": 2.96,
+              "start": 2.825,
+              "end": 2.825,
               "display": "the"
             },
             {
               "text": "best",
-              "start": 2.96,
-              "end": 3.36,
+              "start": 2.825,
+              "end": 3.358,
               "display": "best"
             }
           ]
         },
         {
-          "start": 3.36,
-          "end": 4,
+          "start": 3.358,
+          "end": 4.425,
           "words": [
             {
               "text": "thing",
-              "start": 3.36,
-              "end": 3.52,
+              "start": 3.358,
+              "end": 3.625,
               "display": "thing"
             },
             {
               "text": "you",
-              "start": 3.52,
-              "end": 3.68,
+              "start": 3.625,
+              "end": 3.802,
               "display": "you"
             },
             {
-              "text": "need",
-              "start": 3.68,
-              "end": 3.92,
-              "display": "need"
+              "text": "will",
+              "start": 3.802,
+              "end": 3.98,
+              "display": "will"
             },
             {
-              "text": "to",
-              "start": 3.92,
-              "end": 4,
-              "display": "to"
+              "text": "ever",
+              "start": 4.069,
+              "end": 4.425,
+              "display": "ever"
             }
           ]
         },
         {
-          "start": 4,
-          "end": 4.72,
+          "start": 4.425,
+          "end": 5.225,
           "words": [
             {
               "text": "understand",
-              "start": 4,
-              "end": 4.72,
+              "start": 4.425,
+              "end": 5.225,
               "display": "understand"
             }
           ]
         },
         {
-          "start": 5.44,
-          "end": 6.56,
+          "start": 5.945,
+          "end": 6.917,
           "words": [
             {
               "text": "Stop",
-              "start": 5.44,
-              "end": 5.84,
+              "start": 5.945,
+              "end": 6.319,
               "display": "Stop"
             },
             {
               "text": "waiting",
-              "start": 5.92,
-              "end": 6.32,
+              "start": 6.319,
+              "end": 6.693,
               "display": "waiting"
             },
             {
               "text": "for",
-              "start": 6.32,
-              "end": 6.4,
+              "start": 6.693,
+              "end": 6.842,
               "display": "for"
             },
             {
               "text": "the",
-              "start": 6.4,
-              "end": 6.56,
+              "start": 6.842,
+              "end": 6.917,
               "display": "the"
             }
           ]
         },
         {
-          "start": 6.56,
-          "end": 7.44,
+          "start": 6.917,
+          "end": 7.739,
           "words": [
             {
               "text": "perfect",
-              "start": 6.56,
-              "end": 6.96,
+              "start": 6.917,
+              "end": 7.366,
               "display": "perfect"
             },
             {
               "text": "moment",
-              "start": 6.96,
-              "end": 7.44,
+              "start": 7.366,
+              "end": 7.739,
               "display": "moment"
             }
           ]
         },
         {
-          "start": 8.08,
-          "end": 9.44,
+          "start": 8.167,
+          "end": 9.716,
           "words": [
             {
               "text": "Stop",
-              "start": 8.08,
-              "end": 8.48,
+              "start": 8.167,
+              "end": 8.597,
               "display": "Stop"
             },
             {
               "text": "waiting",
-              "start": 8.56,
-              "end": 8.88,
+              "start": 8.597,
+              "end": 9.028,
               "display": "waiting"
             },
             {
               "text": "for",
-              "start": 8.88,
-              "end": 9.04,
+              "start": 9.028,
+              "end": 9.2,
               "display": "for"
             },
             {
               "text": "someone",
-              "start": 9.04,
-              "end": 9.44,
+              "start": 9.2,
+              "end": 9.716,
               "display": "someone"
             }
           ]
         },
         {
-          "start": 9.44,
-          "end": 10.32,
+          "start": 9.716,
+          "end": 10.834,
           "words": [
             {
               "text": "to",
-              "start": 9.44,
-              "end": 9.52,
+              "start": 9.716,
+              "end": 9.802,
               "display": "to"
             },
             {
+              "text": "finally",
+              "start": 9.802,
+              "end": 10.318,
+              "display": "finally"
+            },
+            {
               "text": "believe",
-              "start": 9.52,
-              "end": 9.92,
+              "start": 10.318,
+              "end": 10.662,
               "display": "believe"
             },
             {
               "text": "in",
-              "start": 9.92,
-              "end": 10,
+              "start": 10.662,
+              "end": 10.834,
               "display": "in"
-            },
+            }
+          ]
+        },
+        {
+          "start": 10.834,
+          "end": 11.092,
+          "words": [
             {
               "text": "you",
-              "start": 10,
-              "end": 10.32,
+              "start": 10.834,
+              "end": 11.092,
               "display": "you"
             }
           ]
         },
         {
-          "start": 11.04,
-          "end": 12.4,
+          "start": 11.67,
+          "end": 13.058,
           "words": [
             {
               "text": "Your",
-              "start": 11.04,
-              "end": 11.2,
+              "start": 11.67,
+              "end": 11.833,
               "display": "Your"
             },
             {
               "text": "future",
-              "start": 11.2,
-              "end": 11.84,
+              "start": 11.833,
+              "end": 12.486,
               "display": "future"
             },
             {
               "text": "is",
-              "start": 12.08,
-              "end": 12.16,
+              "start": 12.731,
+              "end": 12.813,
               "display": "is"
             },
             {
               "text": "your",
-              "start": 12.16,
-              "end": 12.4,
+              "start": 12.813,
+              "end": 13.058,
               "display": "your"
             }
           ]
         },
         {
-          "start": 12.4,
-          "end": 14.24,
+          "start": 13.058,
+          "end": 14.119,
           "words": [
             {
               "text": "responsibility",
-              "start": 12.4,
-              "end": 13.44,
+              "start": 13.058,
+              "end": 14.119,
               "display": "responsibility"
-            },
-            {
-              "text": "While",
-              "start": 13.6,
-              "end": 13.76,
-              "display": "While"
-            },
-            {
-              "text": "others",
-              "start": 13.76,
-              "end": 14.24,
-              "display": "others"
-            },
-            {
-              "text": "are",
-              "start": 14.24,
-              "end": 14.24,
-              "display": "are"
             }
           ]
         },
         {
-          "start": 14.24,
-          "end": 15.6,
+          "start": 14.584,
+          "end": 15.624,
           "words": [
             {
-              "text": "sleeping",
-              "start": 14.24,
-              "end": 14.72,
-              "display": "sleeping"
+              "text": "Nobody",
+              "start": 14.584,
+              "end": 15.144,
+              "display": "Nobody"
             },
             {
+              "text": "else's",
+              "start": 15.144,
+              "end": 15.624,
+              "display": "else's"
+            }
+          ]
+        },
+        {
+          "start": 16.061,
+          "end": 17.306,
+          "words": [
+            {
+              "text": "While",
+              "start": 16.061,
+              "end": 16.328,
+              "display": "While"
+            },
+            {
+              "text": "others",
+              "start": 16.328,
+              "end": 16.772,
+              "display": "others"
+            },
+            {
+              "text": "are",
+              "start": 16.772,
+              "end": 16.861,
+              "display": "are"
+            },
+            {
+              "text": "sleeping",
+              "start": 16.861,
+              "end": 17.306,
+              "display": "sleeping"
+            }
+          ]
+        },
+        {
+          "start": 17.306,
+          "end": 18.283,
+          "words": [
+            {
               "text": "on",
-              "start": 14.72,
-              "end": 14.88,
+              "start": 17.306,
+              "end": 17.572,
               "display": "on"
             },
             {
               "text": "their",
-              "start": 14.88,
-              "end": 15.04,
+              "start": 17.572,
+              "end": 17.661,
               "display": "their"
             },
             {
               "text": "dreams",
-              "start": 15.04,
-              "end": 15.6,
+              "start": 17.661,
+              "end": 18.283,
               "display": "dreams"
             }
           ]
         },
         {
-          "start": 16.24,
-          "end": 17.2,
+          "start": 18.99,
+          "end": 20.392,
           "words": [
             {
-              "text": "work",
-              "start": 16.24,
-              "end": 16.56,
-              "display": "work"
+              "text": "Work",
+              "start": 18.99,
+              "end": 19.273,
+              "display": "Work"
             },
             {
               "text": "on",
-              "start": 16.56,
-              "end": 16.72,
+              "start": 19.273,
+              "end": 19.415,
               "display": "on"
             },
             {
               "text": "yours",
-              "start": 16.72,
-              "end": 17.2,
+              "start": 19.415,
+              "end": 19.839,
               "display": "yours"
+            },
+            {
+              "text": "While",
+              "start": 20.168,
+              "end": 20.392,
+              "display": "While"
             }
           ]
         },
         {
-          "start": 17.562,
-          "end": 19.162,
+          "start": 20.467,
+          "end": 21.663,
           "words": [
             {
-              "text": "While",
-              "start": 17.562,
-              "end": 17.802,
-              "display": "While"
-            },
-            {
               "text": "others",
-              "start": 17.802,
-              "end": 18.202,
+              "start": 20.467,
+              "end": 20.766,
               "display": "others"
             },
             {
               "text": "make",
-              "start": 18.202,
-              "end": 18.362,
+              "start": 20.766,
+              "end": 20.991,
               "display": "make"
             },
             {
               "text": "excuses",
-              "start": 18.362,
-              "end": 19.162,
+              "start": 20.991,
+              "end": 21.663,
               "display": "excuses"
             }
           ]
         },
         {
-          "start": 19.802,
-          "end": 20.602,
+          "start": 22.047,
+          "end": 22.961,
           "words": [
             {
-              "text": "take",
-              "start": 19.802,
-              "end": 20.042,
-              "display": "take"
+              "text": "Take",
+              "start": 22.047,
+              "end": 22.352,
+              "display": "Take"
             },
             {
               "text": "action",
-              "start": 20.042,
-              "end": 20.602,
+              "start": 22.352,
+              "end": 22.961,
               "display": "action"
             }
           ]
         },
         {
-          "start": 21.402,
-          "end": 22.042,
+          "start": 23.328,
+          "end": 24.086,
           "words": [
             {
               "text": "You",
-              "start": 21.402,
-              "end": 21.562,
+              "start": 23.328,
+              "end": 23.496,
               "display": "You"
             },
             {
               "text": "don't",
-              "start": 21.562,
-              "end": 21.802,
+              "start": 23.496,
+              "end": 23.833,
               "display": "don't"
             },
             {
               "text": "need",
-              "start": 21.802,
-              "end": 22.042,
+              "start": 23.833,
+              "end": 24.086,
               "display": "need"
             },
             {
               "text": "to",
-              "start": 22.042,
-              "end": 22.042,
+              "start": 24.086,
+              "end": 24.086,
               "display": "to"
             }
           ]
         },
         {
-          "start": 22.042,
-          "end": 23.002,
+          "start": 24.086,
+          "end": 25.181,
           "words": [
             {
               "text": "be",
-              "start": 22.042,
-              "end": 22.202,
+              "start": 24.086,
+              "end": 24.254,
               "display": "be"
             },
             {
               "text": "the",
-              "start": 22.202,
-              "end": 22.282,
+              "start": 24.254,
+              "end": 24.338,
               "display": "the"
             },
             {
               "text": "best",
-              "start": 22.282,
-              "end": 22.602,
+              "start": 24.338,
+              "end": 24.76,
               "display": "best"
             },
             {
               "text": "today",
-              "start": 22.602,
-              "end": 23.002,
+              "start": 24.76,
+              "end": 25.181,
               "display": "today"
             }
           ]
         },
         {
-          "start": 23.642,
-          "end": 24.282,
+          "start": 25.679,
+          "end": 26.464,
           "words": [
             {
               "text": "You",
-              "start": 23.642,
-              "end": 23.802,
+              "start": 25.679,
+              "end": 25.836,
               "display": "You"
             },
             {
               "text": "just",
-              "start": 23.802,
-              "end": 24.042,
+              "start": 25.836,
+              "end": 26.15,
               "display": "just"
             },
             {
               "text": "need",
-              "start": 24.042,
-              "end": 24.282,
+              "start": 26.15,
+              "end": 26.385,
               "display": "need"
             },
             {
               "text": "to",
-              "start": 24.282,
-              "end": 24.282,
+              "start": 26.385,
+              "end": 26.464,
               "display": "to"
             }
           ]
         },
         {
-          "start": 24.282,
-          "end": 25.562,
+          "start": 26.464,
+          "end": 27.719,
           "words": [
             {
               "text": "be",
-              "start": 24.282,
-              "end": 24.442,
+              "start": 26.464,
+              "end": 26.542,
               "display": "be"
             },
             {
               "text": "better",
-              "start": 24.442,
-              "end": 24.762,
+              "start": 26.621,
+              "end": 26.934,
               "display": "better"
             },
             {
               "text": "than",
-              "start": 24.762,
-              "end": 24.842,
+              "start": 26.934,
+              "end": 27.091,
               "display": "than"
             },
             {
               "text": "yesterday",
-              "start": 24.842,
-              "end": 25.562,
+              "start": 27.091,
+              "end": 27.719,
               "display": "yesterday"
             }
           ]
         },
         {
-          "start": 25.642,
-          "end": 27.322,
+          "start": 28.096,
+          "end": 28.947,
           "words": [
             {
               "text": "One",
-              "start": 25.642,
-              "end": 26.042,
+              "start": 28.096,
+              "end": 28.521,
               "display": "One"
             },
             {
               "text": "day",
-              "start": 26.042,
-              "end": 26.362,
+              "start": 28.521,
+              "end": 28.947,
               "display": "day"
-            },
-            {
-              "text": "your",
-              "start": 26.602,
-              "end": 26.762,
-              "display": "your"
-            },
-            {
-              "text": "discipline",
-              "start": 26.762,
-              "end": 27.322,
-              "display": "discipline"
             }
           ]
         },
         {
-          "start": 27.322,
-          "end": 28.282,
+          "start": 29.518,
+          "end": 31.207,
           "words": [
             {
+              "text": "Your",
+              "start": 29.518,
+              "end": 29.696,
+              "display": "Your"
+            },
+            {
+              "text": "discipline",
+              "start": 29.696,
+              "end": 30.407,
+              "display": "discipline"
+            },
+            {
               "text": "will",
-              "start": 27.322,
-              "end": 27.482,
+              "start": 30.407,
+              "end": 30.585,
               "display": "will"
             },
             {
               "text": "introduce",
-              "start": 27.482,
-              "end": 27.962,
+              "start": 30.585,
+              "end": 31.207,
               "display": "introduce"
-            },
+            }
+          ]
+        },
+        {
+          "start": 31.207,
+          "end": 31.562,
+          "words": [
             {
               "text": "you",
-              "start": 27.962,
-              "end": 28.282,
+              "start": 31.207,
+              "end": 31.562,
               "display": "you"
             }
           ]
         },
         {
-          "start": 28.922,
-          "end": 30.282,
+          "start": 32.241,
+          "end": 33.613,
           "words": [
             {
-              "text": "where",
-              "start": 28.922,
-              "end": 29.082,
-              "display": "where"
+              "text": "Where",
+              "start": 32.241,
+              "end": 32.394,
+              "display": "Where"
             },
             {
               "text": "your",
-              "start": 29.082,
-              "end": 29.322,
+              "start": 32.394,
+              "end": 32.546,
               "display": "your"
             },
             {
               "text": "excuses",
-              "start": 29.322,
-              "end": 29.962,
+              "start": 32.622,
+              "end": 33.308,
               "display": "excuses"
             },
             {
               "text": "once",
-              "start": 29.962,
-              "end": 30.282,
+              "start": 33.308,
+              "end": 33.613,
               "display": "once"
             }
           ]
         },
         {
-          "start": 30.282,
-          "end": 31.082,
+          "start": 33.613,
+          "end": 34.375,
           "words": [
             {
               "text": "held",
-              "start": 30.282,
-              "end": 30.522,
+              "start": 33.613,
+              "end": 33.841,
               "display": "held"
             },
             {
               "text": "you",
-              "start": 30.522,
-              "end": 30.682,
+              "start": 33.841,
+              "end": 33.994,
               "display": "you"
             },
             {
               "text": "back",
-              "start": 30.682,
-              "end": 31.082,
+              "start": 33.994,
+              "end": 34.375,
               "display": "back"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "text": "Nobody is coming to save you.",
+          "emotion": "shout",
+          "start": 0.15,
+          "end": 2.071,
+          "words": [
+            {
+              "text": "Nobody",
+              "start": 0.15,
+              "end": 0.683
+            },
+            {
+              "text": "is",
+              "start": 0.683,
+              "end": 0.836
+            },
+            {
+              "text": "coming",
+              "start": 0.836,
+              "end": 1.217
+            },
+            {
+              "text": "to",
+              "start": 1.217,
+              "end": 1.217
+            },
+            {
+              "text": "save",
+              "start": 1.217,
+              "end": 1.674
+            },
+            {
+              "text": "you",
+              "start": 1.674,
+              "end": 1.902
+            }
+          ]
+        },
+        {
+          "text": "And that's the best thing you will ever understand.",
+          "emotion": "dramatic",
+          "start": 2.291,
+          "end": 5.445,
+          "words": [
+            {
+              "text": "And",
+              "start": 2.291,
+              "end": 2.469
+            },
+            {
+              "text": "that's",
+              "start": 2.469,
+              "end": 2.825
+            },
+            {
+              "text": "the",
+              "start": 2.825,
+              "end": 2.825
+            },
+            {
+              "text": "best",
+              "start": 2.825,
+              "end": 3.358
+            },
+            {
+              "text": "thing",
+              "start": 3.358,
+              "end": 3.625
+            },
+            {
+              "text": "you",
+              "start": 3.625,
+              "end": 3.802
+            },
+            {
+              "text": "will",
+              "start": 3.802,
+              "end": 3.98
+            },
+            {
+              "text": "ever",
+              "start": 4.069,
+              "end": 4.425
+            },
+            {
+              "text": "understand",
+              "start": 4.425,
+              "end": 5.225
+            }
+          ]
+        },
+        {
+          "text": "Stop waiting for the perfect moment.",
+          "emotion": "angry",
+          "start": 5.945,
+          "end": 8.007,
+          "words": [
+            {
+              "text": "Stop",
+              "start": 5.945,
+              "end": 6.319
+            },
+            {
+              "text": "waiting",
+              "start": 6.319,
+              "end": 6.693
+            },
+            {
+              "text": "for",
+              "start": 6.693,
+              "end": 6.842
+            },
+            {
+              "text": "the",
+              "start": 6.842,
+              "end": 6.917
+            },
+            {
+              "text": "perfect",
+              "start": 6.917,
+              "end": 7.366
+            },
+            {
+              "text": "moment",
+              "start": 7.366,
+              "end": 7.739
+            }
+          ]
+        },
+        {
+          "text": "Stop waiting for someone to finally believe in you.",
+          "emotion": "sad",
+          "start": 8.167,
+          "end": 11.27,
+          "words": [
+            {
+              "text": "Stop",
+              "start": 8.167,
+              "end": 8.597
+            },
+            {
+              "text": "waiting",
+              "start": 8.597,
+              "end": 9.028
+            },
+            {
+              "text": "for",
+              "start": 9.028,
+              "end": 9.2
+            },
+            {
+              "text": "someone",
+              "start": 9.2,
+              "end": 9.716
+            },
+            {
+              "text": "to",
+              "start": 9.716,
+              "end": 9.802
+            },
+            {
+              "text": "finally",
+              "start": 9.802,
+              "end": 10.318
+            },
+            {
+              "text": "believe",
+              "start": 10.318,
+              "end": 10.662
+            },
+            {
+              "text": "in",
+              "start": 10.662,
+              "end": 10.834
+            },
+            {
+              "text": "you",
+              "start": 10.834,
+              "end": 11.092
+            }
+          ]
+        },
+        {
+          "text": "Your future is your responsibility.",
+          "emotion": "serious",
+          "start": 11.67,
+          "end": 14.324,
+          "words": [
+            {
+              "text": "Your",
+              "start": 11.67,
+              "end": 11.833
+            },
+            {
+              "text": "future",
+              "start": 11.833,
+              "end": 12.486
+            },
+            {
+              "text": "is",
+              "start": 12.731,
+              "end": 12.813
+            },
+            {
+              "text": "your",
+              "start": 12.813,
+              "end": 13.058
+            },
+            {
+              "text": "responsibility",
+              "start": 13.058,
+              "end": 14.119
+            }
+          ]
+        },
+        {
+          "text": "Nobody else's.",
+          "emotion": "motivational",
+          "start": 14.584,
+          "end": 15.861,
+          "words": [
+            {
+              "text": "Nobody",
+              "start": 14.584,
+              "end": 15.144
+            },
+            {
+              "text": "else's",
+              "start": 15.144,
+              "end": 15.624
+            }
+          ]
+        },
+        {
+          "text": "While others are sleeping on their dreams...",
+          "emotion": "dramatic",
+          "start": 16.061,
+          "end": 18.49,
+          "words": [
+            {
+              "text": "While",
+              "start": 16.061,
+              "end": 16.328
+            },
+            {
+              "text": "others",
+              "start": 16.328,
+              "end": 16.772
+            },
+            {
+              "text": "are",
+              "start": 16.772,
+              "end": 16.861
+            },
+            {
+              "text": "sleeping",
+              "start": 16.861,
+              "end": 17.306
+            },
+            {
+              "text": "on",
+              "start": 17.306,
+              "end": 17.572
+            },
+            {
+              "text": "their",
+              "start": 17.572,
+              "end": 17.661
+            },
+            {
+              "text": "dreams",
+              "start": 17.661,
+              "end": 18.283
+            }
+          ]
+        },
+        {
+          "text": "Work on yours!",
+          "emotion": "fast",
+          "start": 18.99,
+          "end": 20.088,
+          "words": [
+            {
+              "text": "Work",
+              "start": 18.99,
+              "end": 19.273
+            },
+            {
+              "text": "on",
+              "start": 19.273,
+              "end": 19.415
+            },
+            {
+              "text": "yours",
+              "start": 19.415,
+              "end": 19.839
+            }
+          ]
+        },
+        {
+          "text": "While others make excuses...",
+          "emotion": "angry",
+          "start": 20.168,
+          "end": 21.887,
+          "words": [
+            {
+              "text": "While",
+              "start": 20.168,
+              "end": 20.392
+            },
+            {
+              "text": "others",
+              "start": 20.467,
+              "end": 20.766
+            },
+            {
+              "text": "make",
+              "start": 20.766,
+              "end": 20.991
+            },
+            {
+              "text": "excuses",
+              "start": 20.991,
+              "end": 21.663
+            }
+          ]
+        },
+        {
+          "text": "Take action!",
+          "emotion": "shout",
+          "start": 22.047,
+          "end": 23.108,
+          "words": [
+            {
+              "text": "Take",
+              "start": 22.047,
+              "end": 22.352
+            },
+            {
+              "text": "action",
+              "start": 22.352,
+              "end": 22.961
+            }
+          ]
+        },
+        {
+          "text": "You don't need to be the best today.",
+          "emotion": "calm",
+          "start": 23.328,
+          "end": 25.379,
+          "words": [
+            {
+              "text": "You",
+              "start": 23.328,
+              "end": 23.496
+            },
+            {
+              "text": "don't",
+              "start": 23.496,
+              "end": 23.833
+            },
+            {
+              "text": "need",
+              "start": 23.833,
+              "end": 24.086
+            },
+            {
+              "text": "to",
+              "start": 24.086,
+              "end": 24.086
+            },
+            {
+              "text": "be",
+              "start": 24.086,
+              "end": 24.254
+            },
+            {
+              "text": "the",
+              "start": 24.254,
+              "end": 24.338
+            },
+            {
+              "text": "best",
+              "start": 24.338,
+              "end": 24.76
+            },
+            {
+              "text": "today",
+              "start": 24.76,
+              "end": 25.181
+            }
+          ]
+        },
+        {
+          "text": "You just need to be better than yesterday.",
+          "emotion": "motivational",
+          "start": 25.679,
+          "end": 27.896,
+          "words": [
+            {
+              "text": "You",
+              "start": 25.679,
+              "end": 25.836
+            },
+            {
+              "text": "just",
+              "start": 25.836,
+              "end": 26.15
+            },
+            {
+              "text": "need",
+              "start": 26.15,
+              "end": 26.385
+            },
+            {
+              "text": "to",
+              "start": 26.385,
+              "end": 26.464
+            },
+            {
+              "text": "be",
+              "start": 26.464,
+              "end": 26.542
+            },
+            {
+              "text": "better",
+              "start": 26.621,
+              "end": 26.934
+            },
+            {
+              "text": "than",
+              "start": 26.934,
+              "end": 27.091
+            },
+            {
+              "text": "yesterday",
+              "start": 27.091,
+              "end": 27.719
+            }
+          ]
+        },
+        {
+          "text": "One day...",
+          "emotion": "whisper",
+          "start": 28.096,
+          "end": 29.138,
+          "words": [
+            {
+              "text": "One",
+              "start": 28.096,
+              "end": 28.521
+            },
+            {
+              "text": "day",
+              "start": 28.521,
+              "end": 28.947
+            }
+          ]
+        },
+        {
+          "text": "Your discipline will introduce you...",
+          "emotion": "dramatic",
+          "start": 29.518,
+          "end": 31.741,
+          "words": [
+            {
+              "text": "Your",
+              "start": 29.518,
+              "end": 29.696
+            },
+            {
+              "text": "discipline",
+              "start": 29.696,
+              "end": 30.407
+            },
+            {
+              "text": "will",
+              "start": 30.407,
+              "end": 30.585
+            },
+            {
+              "text": "introduce",
+              "start": 30.585,
+              "end": 31.207
+            },
+            {
+              "text": "you",
+              "start": 31.207,
+              "end": 31.562
+            }
+          ]
+        },
+        {
+          "text": "Where your excuses once held you back!",
+          "emotion": "shout",
+          "start": 32.241,
+          "end": 34.507,
+          "words": [
+            {
+              "text": "Where",
+              "start": 32.241,
+              "end": 32.394
+            },
+            {
+              "text": "your",
+              "start": 32.394,
+              "end": 32.546
+            },
+            {
+              "text": "excuses",
+              "start": 32.622,
+              "end": 33.308
+            },
+            {
+              "text": "once",
+              "start": 33.308,
+              "end": 33.613
+            },
+            {
+              "text": "held",
+              "start": 33.613,
+              "end": 33.841
+            },
+            {
+              "text": "you",
+              "start": 33.841,
+              "end": 33.994
+            },
+            {
+              "text": "back",
+              "start": 33.994,
+              "end": 34.375
             }
           ]
         }
@@ -3794,7 +4373,7 @@
     {
       "id": "iron_pain",
       "file": "hype_14.mp4",
-      "audio": "audio/hype_14.mp3",
+      "audio": "audio/hype_14_mix.wav",
       "name": "Pain of Discipline vs Pain of Regret",
       "style": "cinematic",
       "theme": {
@@ -3810,559 +4389,963 @@
         "PAIN OF DISCIPLINE,",
         "OR PAIN OF REGRET."
       ],
-      "voice": "[intense] You will feel pain either way. The pain of discipline, or the pain of regret. [firm] Discipline hurts for minutes. Regret hurts for years. Choose your pain on purpose. [building] Nobody sees the five A M alarms. Nobody claps for the boring days. That is where the results live. [calm] Every rep you don't skip, every page you do read, it compounds. [intense] Choose discipline today, so tomorrow you don't drown in regret.",
+      "voice": "[shout] You will feel pain either way! [dramatic] The pain of discipline... or the pain of regret. [serious] Discipline hurts for minutes. [sad] Regret hurts for years. [motivational] Choose your pain on purpose. [whisper] Nobody sees the 5AM alarms. [whisper] Nobody claps for the boring days. [fast] That's where the results live! [angry] Every rep you don't skip... [motivational] Every page you do read... it compounds. [dramatic] Choose discipline today... [shout] So tomorrow you don't drown in regret!",
       "wordOverrides": {},
       "bgSeq": [
         "bars"
       ],
-      "hookEndSec": 2.2,
-      "ctaStartSec": 29.618,
-      "audioDurationSec": 29.753,
-      "speechEndSec": 29.518,
+      "hookEndSec": 2.225,
+      "ctaStartSec": 31.426,
+      "audioDurationSec": 31.176,
+      "speechEndSec": 31.326,
       "captions": [
         {
-          "start": 0,
-          "end": 0.96,
+          "start": 0.15,
+          "end": 1.14,
           "words": [
             {
               "text": "You",
-              "start": 0,
-              "end": 0.16,
+              "start": 0.15,
+              "end": 0.302,
               "display": "You"
             },
             {
               "text": "will",
-              "start": 0.16,
-              "end": 0.24,
+              "start": 0.302,
+              "end": 0.455,
               "display": "will"
             },
             {
               "text": "feel",
-              "start": 0.24,
-              "end": 0.56,
+              "start": 0.455,
+              "end": 0.76,
               "display": "feel"
             },
             {
               "text": "pain",
-              "start": 0.56,
-              "end": 0.96,
+              "start": 0.76,
+              "end": 1.14,
               "display": "pain"
             }
           ]
         },
         {
-          "start": 0.96,
-          "end": 1.6,
+          "start": 1.14,
+          "end": 1.902,
           "words": [
             {
               "text": "either",
-              "start": 0.96,
-              "end": 1.12,
+              "start": 1.14,
+              "end": 1.369,
               "display": "either"
             },
             {
               "text": "way",
-              "start": 1.12,
-              "end": 1.6,
+              "start": 1.369,
+              "end": 1.902,
               "display": "way"
             }
           ]
         },
         {
-          "start": 2.56,
-          "end": 3.6,
+          "start": 2.295,
+          "end": 3.717,
           "words": [
             {
               "text": "The",
-              "start": 2.56,
-              "end": 2.56,
+              "start": 2.295,
+              "end": 2.384,
               "display": "The"
             },
             {
               "text": "pain",
-              "start": 2.56,
-              "end": 2.88,
+              "start": 2.384,
+              "end": 2.828,
               "display": "pain"
             },
             {
               "text": "of",
-              "start": 2.88,
-              "end": 3.04,
+              "start": 2.828,
+              "end": 3.006,
               "display": "of"
             },
             {
               "text": "discipline",
-              "start": 3.04,
-              "end": 3.6,
+              "start": 3.006,
+              "end": 3.717,
               "display": "discipline"
             }
           ]
         },
         {
-          "start": 4.24,
-          "end": 4.88,
+          "start": 4.517,
+          "end": 5.317,
           "words": [
             {
               "text": "or",
-              "start": 4.24,
-              "end": 4.4,
+              "start": 4.517,
+              "end": 4.695,
               "display": "or"
             },
             {
               "text": "the",
-              "start": 4.4,
-              "end": 4.48,
+              "start": 4.695,
+              "end": 4.784,
               "display": "the"
             },
             {
               "text": "pain",
-              "start": 4.48,
-              "end": 4.8,
+              "start": 4.784,
+              "end": 5.139,
               "display": "pain"
             },
             {
               "text": "of",
-              "start": 4.8,
-              "end": 4.88,
+              "start": 5.139,
+              "end": 5.317,
               "display": "of"
             }
           ]
         },
         {
-          "start": 4.88,
-          "end": 5.44,
+          "start": 5.317,
+          "end": 5.939,
           "words": [
             {
               "text": "regret",
-              "start": 4.88,
-              "end": 5.44,
+              "start": 5.317,
+              "end": 5.939,
               "display": "regret"
             }
           ]
         },
         {
-          "start": 6.32,
-          "end": 7.84,
+          "start": 6.607,
+          "end": 8.321,
           "words": [
             {
               "text": "Discipline",
-              "start": 6.32,
-              "end": 6.8,
+              "start": 6.607,
+              "end": 7.26,
               "display": "Discipline"
             },
             {
               "text": "hurts",
-              "start": 6.8,
-              "end": 7.2,
+              "start": 7.26,
+              "end": 7.587,
               "display": "hurts"
             },
             {
               "text": "for",
-              "start": 7.2,
-              "end": 7.36,
+              "start": 7.587,
+              "end": 7.75,
               "display": "for"
             },
             {
               "text": "minutes",
-              "start": 7.36,
-              "end": 7.84,
+              "start": 7.75,
+              "end": 8.321,
               "display": "minutes"
             }
           ]
         },
         {
-          "start": 8.48,
-          "end": 9.92,
+          "start": 8.77,
+          "end": 10.491,
           "words": [
             {
               "text": "Regret",
-              "start": 8.48,
-              "end": 8.96,
+              "start": 8.77,
+              "end": 9.287,
               "display": "Regret"
             },
             {
               "text": "hurts",
-              "start": 8.96,
-              "end": 9.28,
+              "start": 9.287,
+              "end": 9.631,
               "display": "hurts"
             },
             {
               "text": "for",
-              "start": 9.28,
-              "end": 9.36,
+              "start": 9.631,
+              "end": 9.889,
               "display": "for"
             },
             {
               "text": "years",
-              "start": 9.36,
-              "end": 9.92,
+              "start": 9.889,
+              "end": 10.491,
               "display": "years"
             }
           ]
         },
         {
-          "start": 10.72,
-          "end": 11.68,
+          "start": 11.18,
+          "end": 12.671,
           "words": [
             {
               "text": "Choose",
-              "start": 10.72,
-              "end": 11.04,
+              "start": 11.18,
+              "end": 11.494,
               "display": "Choose"
             },
             {
               "text": "your",
-              "start": 11.04,
-              "end": 11.2,
+              "start": 11.494,
+              "end": 11.651,
               "display": "your"
             },
             {
               "text": "pain",
-              "start": 11.2,
-              "end": 11.52,
+              "start": 11.651,
+              "end": 12.122,
               "display": "pain"
             },
             {
               "text": "on",
-              "start": 11.52,
-              "end": 11.68,
+              "start": 12.435,
+              "end": 12.671,
               "display": "on"
             }
           ]
         },
         {
-          "start": 11.68,
-          "end": 13.28,
+          "start": 12.671,
+          "end": 13.22,
           "words": [
             {
               "text": "purpose",
-              "start": 11.68,
-              "end": 12.24,
+              "start": 12.671,
+              "end": 13.22,
               "display": "purpose"
-            },
-            {
-              "text": "Nobody",
-              "start": 12.4,
-              "end": 12.88,
-              "display": "Nobody"
-            },
-            {
-              "text": "sees",
-              "start": 12.88,
-              "end": 13.2,
-              "display": "sees"
-            },
-            {
-              "text": "the",
-              "start": 13.2,
-              "end": 13.28,
-              "display": "the"
             }
           ]
         },
         {
-          "start": 13.28,
-          "end": 14.56,
+          "start": 13.638,
+          "end": 15.51,
           "words": [
             {
-              "text": "five",
-              "start": 13.28,
-              "end": 13.68,
-              "display": "five"
+              "text": "Nobody",
+              "start": 13.638,
+              "end": 14.149,
+              "display": "Nobody"
             },
             {
-              "text": "A",
-              "start": 13.68,
-              "end": 13.84,
-              "display": "A"
+              "text": "sees",
+              "start": 14.149,
+              "end": 14.659,
+              "display": "sees"
             },
             {
-              "text": "M",
-              "start": 13.84,
-              "end": 14,
-              "display": "M"
+              "text": "the",
+              "start": 14.659,
+              "end": 14.659,
+              "display": "the"
             },
+            {
+              "text": "5AM",
+              "start": 14.659,
+              "end": 15.51,
+              "display": "5AM"
+            }
+          ]
+        },
+        {
+          "start": 15.51,
+          "end": 16.021,
+          "words": [
             {
               "text": "alarms",
-              "start": 14,
-              "end": 14.56,
+              "start": 15.51,
+              "end": 16.021,
               "display": "alarms"
             }
           ]
         },
         {
-          "start": 15.04,
-          "end": 16.16,
+          "start": 16.648,
+          "end": 18.01,
           "words": [
             {
               "text": "Nobody",
-              "start": 15.04,
-              "end": 15.52,
+              "start": 16.648,
+              "end": 17.244,
               "display": "Nobody"
             },
             {
               "text": "claps",
-              "start": 15.52,
-              "end": 15.92,
+              "start": 17.244,
+              "end": 17.754,
               "display": "claps"
             },
             {
               "text": "for",
-              "start": 15.92,
-              "end": 16.08,
+              "start": 17.754,
+              "end": 17.925,
               "display": "for"
             },
             {
               "text": "the",
-              "start": 16.08,
-              "end": 16.16,
+              "start": 17.925,
+              "end": 18.01,
               "display": "the"
             }
           ]
         },
         {
-          "start": 16.16,
-          "end": 17.12,
+          "start": 18.01,
+          "end": 19.031,
           "words": [
             {
               "text": "boring",
-              "start": 16.16,
-              "end": 16.64,
+              "start": 18.01,
+              "end": 18.52,
               "display": "boring"
             },
             {
               "text": "days",
-              "start": 16.64,
-              "end": 17.12,
+              "start": 18.52,
+              "end": 19.031,
               "display": "days"
             }
           ]
         },
         {
-          "start": 17.92,
-          "end": 18.48,
+          "start": 19.598,
+          "end": 20.66,
           "words": [
             {
-              "text": "That",
-              "start": 17.92,
-              "end": 18.08,
-              "display": "That"
-            },
-            {
-              "text": "is",
-              "start": 18.08,
-              "end": 18.24,
-              "display": "is"
+              "text": "That's",
+              "start": 19.598,
+              "end": 19.881,
+              "display": "That's"
             },
             {
               "text": "where",
-              "start": 18.24,
-              "end": 18.4,
+              "start": 19.881,
+              "end": 20.093,
               "display": "where"
             },
             {
               "text": "the",
-              "start": 18.4,
-              "end": 18.48,
+              "start": 20.093,
+              "end": 20.164,
               "display": "the"
-            }
-          ]
-        },
-        {
-          "start": 18.48,
-          "end": 19.44,
-          "words": [
-            {
-              "text": "results",
-              "start": 18.48,
-              "end": 19.04,
-              "display": "results"
             },
             {
-              "text": "live",
-              "start": 19.04,
-              "end": 19.44,
-              "display": "live"
+              "text": "results",
+              "start": 20.164,
+              "end": 20.66,
+              "display": "results"
             }
           ]
         },
         {
-          "start": 19.838,
-          "end": 20.798,
+          "start": 20.66,
+          "end": 21.959,
           "words": [
             {
+              "text": "live",
+              "start": 20.66,
+              "end": 21.014,
+              "display": "live"
+            },
+            {
               "text": "Every",
-              "start": 19.838,
-              "end": 20.158,
+              "start": 21.211,
+              "end": 21.51,
               "display": "Every"
             },
             {
               "text": "rep",
-              "start": 20.158,
-              "end": 20.558,
+              "start": 21.51,
+              "end": 21.884,
               "display": "rep"
             },
             {
               "text": "you",
-              "start": 20.558,
-              "end": 20.558,
+              "start": 21.884,
+              "end": 21.959,
               "display": "you"
-            },
+            }
+          ]
+        },
+        {
+          "start": 21.959,
+          "end": 23.664,
+          "words": [
             {
               "text": "don't",
-              "start": 20.558,
-              "end": 20.798,
+              "start": 21.959,
+              "end": 22.183,
               "display": "don't"
-            }
-          ]
-        },
-        {
-          "start": 20.798,
-          "end": 21.278,
-          "words": [
+            },
             {
               "text": "skip",
-              "start": 20.798,
-              "end": 21.278,
+              "start": 22.183,
+              "end": 22.632,
               "display": "skip"
-            }
-          ]
-        },
-        {
-          "start": 21.758,
-          "end": 22.798,
-          "words": [
+            },
             {
-              "text": "every",
-              "start": 21.758,
-              "end": 22.078,
-              "display": "every"
+              "text": "Every",
+              "start": 22.958,
+              "end": 23.272,
+              "display": "Every"
             },
             {
               "text": "page",
-              "start": 22.078,
-              "end": 22.478,
+              "start": 23.272,
+              "end": 23.664,
               "display": "page"
-            },
+            }
+          ]
+        },
+        {
+          "start": 23.664,
+          "end": 24.37,
+          "words": [
             {
               "text": "you",
-              "start": 22.478,
-              "end": 22.558,
+              "start": 23.664,
+              "end": 23.743,
               "display": "you"
             },
             {
               "text": "do",
-              "start": 22.558,
-              "end": 22.798,
+              "start": 23.743,
+              "end": 24.056,
               "display": "do"
-            }
-          ]
-        },
-        {
-          "start": 22.798,
-          "end": 23.198,
-          "words": [
+            },
             {
               "text": "read",
-              "start": 22.798,
-              "end": 23.198,
+              "start": 24.056,
+              "end": 24.37,
               "display": "read"
             }
           ]
         },
         {
-          "start": 23.758,
-          "end": 24.638,
+          "start": 24.998,
+          "end": 25.939,
           "words": [
             {
               "text": "it",
-              "start": 23.758,
-              "end": 23.838,
+              "start": 24.998,
+              "end": 25.154,
               "display": "it"
             },
             {
               "text": "compounds",
-              "start": 23.838,
-              "end": 24.638,
+              "start": 25.154,
+              "end": 25.939,
               "display": "compounds"
             }
           ]
         },
         {
-          "start": 25.518,
-          "end": 26.878,
+          "start": 26.325,
+          "end": 28.103,
           "words": [
             {
               "text": "Choose",
-              "start": 25.518,
-              "end": 25.838,
+              "start": 26.325,
+              "end": 26.77,
               "display": "Choose"
             },
             {
               "text": "discipline",
-              "start": 25.838,
-              "end": 26.398,
+              "start": 26.77,
+              "end": 27.57,
               "display": "discipline"
             },
             {
               "text": "today",
-              "start": 26.398,
-              "end": 26.878,
+              "start": 27.57,
+              "end": 28.103,
               "display": "today"
             }
           ]
         },
         {
-          "start": 27.438,
-          "end": 28.478,
+          "start": 28.778,
+          "end": 29.997,
           "words": [
             {
-              "text": "so",
-              "start": 27.438,
-              "end": 27.678,
-              "display": "so"
+              "text": "So",
+              "start": 28.778,
+              "end": 28.931,
+              "display": "So"
             },
             {
               "text": "tomorrow",
-              "start": 27.678,
-              "end": 28.158,
+              "start": 28.931,
+              "end": 29.54,
               "display": "tomorrow"
             },
             {
               "text": "you",
-              "start": 28.158,
-              "end": 28.238,
+              "start": 29.54,
+              "end": 29.693,
               "display": "you"
             },
             {
               "text": "don't",
-              "start": 28.238,
-              "end": 28.478,
+              "start": 29.693,
+              "end": 29.997,
               "display": "don't"
             }
           ]
         },
         {
-          "start": 28.558,
-          "end": 29.518,
+          "start": 30.074,
+          "end": 31.064,
           "words": [
             {
               "text": "drown",
-              "start": 28.558,
-              "end": 28.958,
+              "start": 30.074,
+              "end": 30.454,
               "display": "drown"
             },
             {
               "text": "in",
-              "start": 28.958,
-              "end": 29.038,
+              "start": 30.454,
+              "end": 30.531,
               "display": "in"
             },
             {
               "text": "regret",
-              "start": 29.038,
-              "end": 29.518,
+              "start": 30.531,
+              "end": 31.064,
               "display": "regret"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "text": "You will feel pain either way!",
+          "emotion": "shout",
+          "start": 0.15,
+          "end": 2.075,
+          "words": [
+            {
+              "text": "You",
+              "start": 0.15,
+              "end": 0.302
+            },
+            {
+              "text": "will",
+              "start": 0.302,
+              "end": 0.455
+            },
+            {
+              "text": "feel",
+              "start": 0.455,
+              "end": 0.76
+            },
+            {
+              "text": "pain",
+              "start": 0.76,
+              "end": 1.14
+            },
+            {
+              "text": "either",
+              "start": 1.14,
+              "end": 1.369
+            },
+            {
+              "text": "way",
+              "start": 1.369,
+              "end": 1.902
+            }
+          ]
+        },
+        {
+          "text": "The pain of discipline... or the pain of regret.",
+          "emotion": "dramatic",
+          "start": 2.295,
+          "end": 6.107,
+          "words": [
+            {
+              "text": "The",
+              "start": 2.295,
+              "end": 2.384
+            },
+            {
+              "text": "pain",
+              "start": 2.384,
+              "end": 2.828
+            },
+            {
+              "text": "of",
+              "start": 2.828,
+              "end": 3.006
+            },
+            {
+              "text": "discipline",
+              "start": 3.006,
+              "end": 3.717
+            },
+            {
+              "text": "or",
+              "start": 4.517,
+              "end": 4.695
+            },
+            {
+              "text": "the",
+              "start": 4.695,
+              "end": 4.784
+            },
+            {
+              "text": "pain",
+              "start": 4.784,
+              "end": 5.139
+            },
+            {
+              "text": "of",
+              "start": 5.139,
+              "end": 5.317
+            },
+            {
+              "text": "regret",
+              "start": 5.317,
+              "end": 5.939
+            }
+          ]
+        },
+        {
+          "text": "Discipline hurts for minutes.",
+          "emotion": "serious",
+          "start": 6.607,
+          "end": 8.51,
+          "words": [
+            {
+              "text": "Discipline",
+              "start": 6.607,
+              "end": 7.26
+            },
+            {
+              "text": "hurts",
+              "start": 7.26,
+              "end": 7.587
+            },
+            {
+              "text": "for",
+              "start": 7.587,
+              "end": 7.75
+            },
+            {
+              "text": "minutes",
+              "start": 7.75,
+              "end": 8.321
+            }
+          ]
+        },
+        {
+          "text": "Regret hurts for years.",
+          "emotion": "sad",
+          "start": 8.77,
+          "end": 10.78,
+          "words": [
+            {
+              "text": "Regret",
+              "start": 8.77,
+              "end": 9.287
+            },
+            {
+              "text": "hurts",
+              "start": 9.287,
+              "end": 9.631
+            },
+            {
+              "text": "for",
+              "start": 9.631,
+              "end": 9.889
+            },
+            {
+              "text": "years",
+              "start": 9.889,
+              "end": 10.491
+            }
+          ]
+        },
+        {
+          "text": "Choose your pain on purpose.",
+          "emotion": "motivational",
+          "start": 11.18,
+          "end": 13.438,
+          "words": [
+            {
+              "text": "Choose",
+              "start": 11.18,
+              "end": 11.494
+            },
+            {
+              "text": "your",
+              "start": 11.494,
+              "end": 11.651
+            },
+            {
+              "text": "pain",
+              "start": 11.651,
+              "end": 12.122
+            },
+            {
+              "text": "on",
+              "start": 12.435,
+              "end": 12.671
+            },
+            {
+              "text": "purpose",
+              "start": 12.671,
+              "end": 13.22
+            }
+          ]
+        },
+        {
+          "text": "Nobody sees the 5AM alarms.",
+          "emotion": "whisper",
+          "start": 13.638,
+          "end": 16.268,
+          "words": [
+            {
+              "text": "Nobody",
+              "start": 13.638,
+              "end": 14.149
+            },
+            {
+              "text": "sees",
+              "start": 14.149,
+              "end": 14.659
+            },
+            {
+              "text": "the",
+              "start": 14.659,
+              "end": 14.659
+            },
+            {
+              "text": "5AM",
+              "start": 14.659,
+              "end": 15.51
+            },
+            {
+              "text": "alarms",
+              "start": 15.51,
+              "end": 16.021
+            }
+          ]
+        },
+        {
+          "text": "Nobody claps for the boring days.",
+          "emotion": "whisper",
+          "start": 16.648,
+          "end": 19.218,
+          "words": [
+            {
+              "text": "Nobody",
+              "start": 16.648,
+              "end": 17.244
+            },
+            {
+              "text": "claps",
+              "start": 17.244,
+              "end": 17.754
+            },
+            {
+              "text": "for",
+              "start": 17.754,
+              "end": 17.925
+            },
+            {
+              "text": "the",
+              "start": 17.925,
+              "end": 18.01
+            },
+            {
+              "text": "boring",
+              "start": 18.01,
+              "end": 18.52
+            },
+            {
+              "text": "days",
+              "start": 18.52,
+              "end": 19.031
+            }
+          ]
+        },
+        {
+          "text": "That's where the results live!",
+          "emotion": "fast",
+          "start": 19.598,
+          "end": 21.131,
+          "words": [
+            {
+              "text": "That's",
+              "start": 19.598,
+              "end": 19.881
+            },
+            {
+              "text": "where",
+              "start": 19.881,
+              "end": 20.093
+            },
+            {
+              "text": "the",
+              "start": 20.093,
+              "end": 20.164
+            },
+            {
+              "text": "results",
+              "start": 20.164,
+              "end": 20.66
+            },
+            {
+              "text": "live",
+              "start": 20.66,
+              "end": 21.014
+            }
+          ]
+        },
+        {
+          "text": "Every rep you don't skip...",
+          "emotion": "angry",
+          "start": 21.211,
+          "end": 22.798,
+          "words": [
+            {
+              "text": "Every",
+              "start": 21.211,
+              "end": 21.51
+            },
+            {
+              "text": "rep",
+              "start": 21.51,
+              "end": 21.884
+            },
+            {
+              "text": "you",
+              "start": 21.884,
+              "end": 21.959
+            },
+            {
+              "text": "don't",
+              "start": 21.959,
+              "end": 22.183
+            },
+            {
+              "text": "skip",
+              "start": 22.183,
+              "end": 22.632
+            }
+          ]
+        },
+        {
+          "text": "Every page you do read... it compounds.",
+          "emotion": "motivational",
+          "start": 22.958,
+          "end": 26.125,
+          "words": [
+            {
+              "text": "Every",
+              "start": 22.958,
+              "end": 23.272
+            },
+            {
+              "text": "page",
+              "start": 23.272,
+              "end": 23.664
+            },
+            {
+              "text": "you",
+              "start": 23.664,
+              "end": 23.743
+            },
+            {
+              "text": "do",
+              "start": 23.743,
+              "end": 24.056
+            },
+            {
+              "text": "read",
+              "start": 24.056,
+              "end": 24.37
+            },
+            {
+              "text": "it",
+              "start": 24.998,
+              "end": 25.154
+            },
+            {
+              "text": "compounds",
+              "start": 25.154,
+              "end": 25.939
+            }
+          ]
+        },
+        {
+          "text": "Choose discipline today...",
+          "emotion": "dramatic",
+          "start": 26.325,
+          "end": 28.278,
+          "words": [
+            {
+              "text": "Choose",
+              "start": 26.325,
+              "end": 26.77
+            },
+            {
+              "text": "discipline",
+              "start": 26.77,
+              "end": 27.57
+            },
+            {
+              "text": "today",
+              "start": 27.57,
+              "end": 28.103
+            }
+          ]
+        },
+        {
+          "text": "So tomorrow you don't drown in regret!",
+          "emotion": "shout",
+          "start": 28.778,
+          "end": 31.326,
+          "words": [
+            {
+              "text": "So",
+              "start": 28.778,
+              "end": 28.931
+            },
+            {
+              "text": "tomorrow",
+              "start": 28.931,
+              "end": 29.54
+            },
+            {
+              "text": "you",
+              "start": 29.54,
+              "end": 29.693
+            },
+            {
+              "text": "don't",
+              "start": 29.693,
+              "end": 29.997
+            },
+            {
+              "text": "drown",
+              "start": 30.074,
+              "end": 30.454
+            },
+            {
+              "text": "in",
+              "start": 30.454,
+              "end": 30.531
+            },
+            {
+              "text": "regret",
+              "start": 30.531,
+              "end": 31.064
             }
           ]
         }

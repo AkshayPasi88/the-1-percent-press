@@ -21,6 +21,10 @@ the-1-percent-press/
 ├── PIPELINE.md          ← the runbook (weekly posting + on-demand ebooks)
 ├── engine/
 │   ├── fish_tts.mjs          ← voice-over generator (Fish Audio, word timestamps)
+│   ├── cinematic_tts.mjs      ← EMOTIONAL voice engine: per-sentence TTS, real
+│   │                            speed/loudness/pause variation per emotion
+│   ├── sfx_gen.py            ← synthesized sound-design kit (impact/whoosh/riser/bed)
+│   ├── mix_cinematic.py      ← final mix: voice + ducked bed + sfx events
 │   ├── visual_director.py    ← AI visual director: image search + scene/beat timeline
 │   ├── gen_credits.py        ← image attribution table generator
 │   ├── generate_slides.py    ← 4:5 quote slide generator (headless Chrome)

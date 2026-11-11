@@ -1785,1046 +1785,1536 @@
   "onyx_rescue": {
     "scenes": [
       {
-        "start": 0.12,
-        "end": 5.27,
-        "cinematic": true,
+        "start": 0.15,
+        "end": 2.071,
         "text": "NOBODY IS COMING TO SAVE YOU.",
         "words": [
           {
             "text": "Nobody",
-            "start": 0,
-            "end": 0.56
+            "start": 0.15,
+            "end": 0.683
           },
           {
             "text": "is",
-            "start": 0.56,
-            "end": 0.72
+            "start": 0.683,
+            "end": 0.836
           },
           {
             "text": "coming",
-            "start": 0.72,
-            "end": 1.04
+            "start": 0.836,
+            "end": 1.217
           },
           {
             "text": "to",
-            "start": 1.04,
-            "end": 1.12
+            "start": 1.217,
+            "end": 1.217
           },
           {
             "text": "save",
-            "start": 1.12,
-            "end": 1.44
+            "start": 1.217,
+            "end": 1.674
           },
           {
             "text": "you",
-            "start": 1.44,
-            "end": 1.68
-          },
-          {
-            "text": "And",
-            "start": 2.48,
-            "end": 2.64
-          },
-          {
-            "text": "that's",
-            "start": 2.64,
-            "end": 2.88
-          },
-          {
-            "text": "the",
-            "start": 2.88,
-            "end": 2.96
-          },
-          {
-            "text": "best",
-            "start": 2.96,
-            "end": 3.36
-          },
-          {
-            "text": "thing",
-            "start": 3.36,
-            "end": 3.52
-          },
-          {
-            "text": "you",
-            "start": 3.52,
-            "end": 3.68
-          },
-          {
-            "text": "need",
-            "start": 3.68,
-            "end": 3.92
-          },
-          {
-            "text": "to",
-            "start": 3.92,
-            "end": 4
-          },
-          {
-            "text": "understand",
-            "start": 4,
-            "end": 4.72
+            "start": 1.674,
+            "end": 1.902
           }
         ],
+        "energy": 1.0,
+        "cinematic": true,
         "palette": {
-          "bg": "#0C0B10",
-          "glow": "#FF6B4A"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/onyx_rescue/rooftop.jpg",
         "credit": {
           "query": "lone man silhouette standing on rooftop overlooking city at night",
           "source": "Unsplash",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/4bf565a5e0b4.jpg"
-        }
+        },
+        "zoomStyle": "punch",
+        "cutType": "hard"
       },
       {
-        "start": 5.29,
-        "end": 10.87,
+        "start": 2.291,
+        "end": 5.445,
+        "text": "THE BEST THING YOU'LL EVER UNDERSTAND.",
+        "words": [
+          {
+            "text": "And",
+            "start": 2.291,
+            "end": 2.469
+          },
+          {
+            "text": "that's",
+            "start": 2.469,
+            "end": 2.825
+          },
+          {
+            "text": "the",
+            "start": 2.825,
+            "end": 2.825
+          },
+          {
+            "text": "best",
+            "start": 2.825,
+            "end": 3.358
+          },
+          {
+            "text": "thing",
+            "start": 3.358,
+            "end": 3.625
+          },
+          {
+            "text": "you",
+            "start": 3.625,
+            "end": 3.802
+          },
+          {
+            "text": "will",
+            "start": 3.802,
+            "end": 3.98
+          },
+          {
+            "text": "ever",
+            "start": 4.069,
+            "end": 4.425
+          },
+          {
+            "text": "understand",
+            "start": 4.425,
+            "end": 5.225
+          }
+        ],
+        "energy": 0.45,
         "cinematic": true,
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/onyx_rescue/stormcity.jpg",
+        "credit": {
+          "query": "dramatic storm clouds and lightning over a city at night",
+          "source": "Reddit",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/3cafd1983739.jpeg"
+        },
+        "zoomStyle": "panL",
+        "cutType": "xf"
+      },
+      {
+        "start": 5.945,
+        "end": 8.007,
         "text": "STOP WAITING.",
         "words": [
           {
             "text": "Stop",
-            "start": 5.44,
-            "end": 5.84
+            "start": 5.945,
+            "end": 6.319
           },
           {
             "text": "waiting",
-            "start": 5.92,
-            "end": 6.32
+            "start": 6.319,
+            "end": 6.693
           },
           {
             "text": "for",
-            "start": 6.32,
-            "end": 6.4
+            "start": 6.693,
+            "end": 6.842
           },
           {
             "text": "the",
-            "start": 6.4,
-            "end": 6.56
+            "start": 6.842,
+            "end": 6.917
           },
           {
             "text": "perfect",
-            "start": 6.56,
-            "end": 6.96
+            "start": 6.917,
+            "end": 7.366
           },
           {
             "text": "moment",
-            "start": 6.96,
-            "end": 7.44
-          },
-          {
-            "text": "Stop",
-            "start": 8.08,
-            "end": 8.48
-          },
-          {
-            "text": "waiting",
-            "start": 8.56,
-            "end": 8.88
-          },
-          {
-            "text": "for",
-            "start": 8.88,
-            "end": 9.04
-          },
-          {
-            "text": "someone",
-            "start": 9.04,
-            "end": 9.44
-          },
-          {
-            "text": "to",
-            "start": 9.44,
-            "end": 9.52
-          },
-          {
-            "text": "believe",
-            "start": 9.52,
-            "end": 9.92
-          },
-          {
-            "text": "in",
-            "start": 9.92,
-            "end": 10
-          },
-          {
-            "text": "you",
-            "start": 10,
-            "end": 10.32
+            "start": 7.366,
+            "end": 7.739
           }
         ],
+        "energy": 0.9,
+        "cinematic": true,
         "palette": {
-          "bg": "#0C0B10",
-          "glow": "#FF6B4A"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/onyx_rescue/road.jpg",
         "credit": {
           "query": "man walking alone on empty road at night in fog",
           "source": "SplitShire",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/39ad6ce394d2.png"
-        }
+        },
+        "zoomStyle": "punch",
+        "cutType": "hard"
       },
       {
-        "start": 10.89,
-        "end": 13.43,
+        "start": 8.167,
+        "end": 11.27,
+        "text": "NOBODY ELSE WILL BELIEVE IN YOU.",
+        "words": [
+          {
+            "text": "Stop",
+            "start": 8.167,
+            "end": 8.597
+          },
+          {
+            "text": "waiting",
+            "start": 8.597,
+            "end": 9.028
+          },
+          {
+            "text": "for",
+            "start": 9.028,
+            "end": 9.2
+          },
+          {
+            "text": "someone",
+            "start": 9.2,
+            "end": 9.716
+          },
+          {
+            "text": "to",
+            "start": 9.716,
+            "end": 9.802
+          },
+          {
+            "text": "finally",
+            "start": 9.802,
+            "end": 10.318
+          },
+          {
+            "text": "believe",
+            "start": 10.318,
+            "end": 10.662
+          },
+          {
+            "text": "in",
+            "start": 10.662,
+            "end": 10.834
+          },
+          {
+            "text": "you",
+            "start": 10.834,
+            "end": 11.092
+          }
+        ],
+        "energy": 0.25,
         "cinematic": true,
-        "text": "YOUR FUTURE IS YOUR RESPONSIBILITY.",
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/onyx_rescue/bench.jpg",
+        "credit": {
+          "query": "person sitting alone on a bench at night under a streetlight",
+          "source": "Unsplash",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/96c60ae46af5.jpg"
+        },
+        "zoomStyle": "slowPush",
+        "cutType": "xf"
+      },
+      {
+        "start": 11.67,
+        "end": 14.324,
+        "text": "YOUR FUTURE. YOUR RESPONSIBILITY.",
         "words": [
           {
             "text": "Your",
-            "start": 11.04,
-            "end": 11.2
+            "start": 11.67,
+            "end": 11.833
           },
           {
             "text": "future",
-            "start": 11.2,
-            "end": 11.84
+            "start": 11.833,
+            "end": 12.486
           },
           {
             "text": "is",
-            "start": 12.08,
-            "end": 12.16
+            "start": 12.731,
+            "end": 12.813
           },
           {
             "text": "your",
-            "start": 12.16,
-            "end": 12.4
+            "start": 12.813,
+            "end": 13.058
           },
           {
             "text": "responsibility",
-            "start": 12.4,
-            "end": 13.44
+            "start": 13.058,
+            "end": 14.119
           }
         ],
+        "energy": 0.5,
+        "cinematic": true,
         "palette": {
-          "bg": "#0C0B10",
-          "glow": "#FF6B4A"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/onyx_rescue/walker.jpg",
         "credit": {
           "query": "determined man walking forward portrait dark moody lighting",
           "source": "Pexels",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/c3053f89cd09.jpeg"
-        }
+        },
+        "zoomStyle": "pullFast",
+        "cutType": "xf"
       },
       {
-        "start": 13.45,
-        "end": 17.392,
+        "start": 14.584,
+        "end": 15.861,
+        "text": "NOBODY ELSE'S.",
+        "words": [
+          {
+            "text": "Nobody",
+            "start": 14.584,
+            "end": 15.144
+          },
+          {
+            "text": "else's",
+            "start": 15.144,
+            "end": 15.624
+          }
+        ],
+        "energy": 0.65,
         "cinematic": true,
-        "text": "WHILE THEY SLEEP, YOU WORK.",
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/onyx_rescue/mirror.jpg",
+        "credit": {
+          "query": "person standing in front of a large mirror indoors",
+          "source": "Pinterest",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f88e689b857c.jpg"
+        },
+        "zoomStyle": "pullFast",
+        "cutType": "xf"
+      },
+      {
+        "start": 16.061,
+        "end": 18.49,
+        "text": "WHILE THEY SLEEP ON THEIR DREAMS...",
         "words": [
           {
             "text": "While",
-            "start": 13.6,
-            "end": 13.76
+            "start": 16.061,
+            "end": 16.328
           },
           {
             "text": "others",
-            "start": 13.76,
-            "end": 14.24
+            "start": 16.328,
+            "end": 16.772
           },
           {
             "text": "are",
-            "start": 14.24,
-            "end": 14.24
+            "start": 16.772,
+            "end": 16.861
           },
           {
             "text": "sleeping",
-            "start": 14.24,
-            "end": 14.72
+            "start": 16.861,
+            "end": 17.306
           },
           {
             "text": "on",
-            "start": 14.72,
-            "end": 14.88
+            "start": 17.306,
+            "end": 17.572
           },
           {
             "text": "their",
-            "start": 14.88,
-            "end": 15.04
+            "start": 17.572,
+            "end": 17.661
           },
           {
             "text": "dreams",
-            "start": 15.04,
-            "end": 15.6
-          },
-          {
-            "text": "work",
-            "start": 16.24,
-            "end": 16.56
-          },
-          {
-            "text": "on",
-            "start": 16.56,
-            "end": 16.72
-          },
-          {
-            "text": "yours",
-            "start": 16.72,
-            "end": 17.2
+            "start": 17.661,
+            "end": 18.283
           }
         ],
+        "energy": 0.45,
+        "cinematic": true,
         "palette": {
-          "bg": "#0C0B10",
-          "glow": "#FF6B4A"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/onyx_rescue/window.jpg",
         "credit": {
           "query": "single lit window in dark apartment building at night",
           "source": "Unsplash",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/78d1fcf02721.jpg"
-        }
+        },
+        "zoomStyle": "push",
+        "cutType": "xf"
       },
       {
-        "start": 17.412,
-        "end": 21.232,
+        "start": 18.99,
+        "end": 20.088,
+        "text": "WORK ON YOURS!",
+        "words": [
+          {
+            "text": "Work",
+            "start": 18.99,
+            "end": 19.273
+          },
+          {
+            "text": "on",
+            "start": 19.273,
+            "end": 19.415
+          },
+          {
+            "text": "yours",
+            "start": 19.415,
+            "end": 19.839
+          }
+        ],
+        "energy": 0.85,
         "cinematic": true,
-        "text": "EXCUSES OR ACTION.",
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/onyx_rescue/nightdesk.jpg",
+        "credit": {
+          "query": "person working late at a desk with a lamp at night",
+          "source": "Unsplash",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f0856fa894f2.jpg"
+        },
+        "zoomStyle": "punch",
+        "cutType": "hard"
+      },
+      {
+        "start": 20.168,
+        "end": 21.887,
+        "text": "NO MORE EXCUSES...",
         "words": [
           {
             "text": "While",
-            "start": 17.562,
-            "end": 17.802
+            "start": 20.168,
+            "end": 20.392
           },
           {
             "text": "others",
-            "start": 17.802,
-            "end": 18.202
+            "start": 20.467,
+            "end": 20.766
           },
           {
             "text": "make",
-            "start": 18.202,
-            "end": 18.362
+            "start": 20.766,
+            "end": 20.991
           },
           {
             "text": "excuses",
-            "start": 18.362,
-            "end": 19.162
-          },
+            "start": 20.991,
+            "end": 21.663
+          }
+        ],
+        "energy": 0.9,
+        "cinematic": true,
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/onyx_rescue/fists.jpg",
+        "credit": {
+          "query": "clenched fists close up determination dark lighting",
+          "source": "Midi Health",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/d5f31d15059b.png"
+        },
+        "zoomStyle": "punch",
+        "cutType": "hard"
+      },
+      {
+        "start": 22.047,
+        "end": 23.108,
+        "text": "TAKE ACTION!",
+        "words": [
           {
-            "text": "take",
-            "start": 19.802,
-            "end": 20.042
+            "text": "Take",
+            "start": 22.047,
+            "end": 22.352
           },
           {
             "text": "action",
-            "start": 20.042,
-            "end": 20.602
+            "start": 22.352,
+            "end": 22.961
           }
         ],
+        "energy": 1.0,
+        "cinematic": true,
         "palette": {
-          "bg": "#0C0B10",
-          "glow": "#FF6B4A"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/onyx_rescue/dawnrun.jpg",
         "credit": {
           "query": "runner running alone on empty city street before sunrise",
           "source": "Medium",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/9fe84dcc8386.jpg"
-        }
+        },
+        "zoomStyle": "punch",
+        "cutType": "hard"
       },
       {
-        "start": 21.252,
-        "end": 25.472,
+        "start": 23.328,
+        "end": 25.379,
+        "text": "YOU DON'T NEED TO BE THE BEST.",
+        "words": [
+          {
+            "text": "You",
+            "start": 23.328,
+            "end": 23.496
+          },
+          {
+            "text": "don't",
+            "start": 23.496,
+            "end": 23.833
+          },
+          {
+            "text": "need",
+            "start": 23.833,
+            "end": 24.086
+          },
+          {
+            "text": "to",
+            "start": 24.086,
+            "end": 24.086
+          },
+          {
+            "text": "be",
+            "start": 24.086,
+            "end": 24.254
+          },
+          {
+            "text": "the",
+            "start": 24.254,
+            "end": 24.338
+          },
+          {
+            "text": "best",
+            "start": 24.338,
+            "end": 24.76
+          },
+          {
+            "text": "today",
+            "start": 24.76,
+            "end": 25.181
+          }
+        ],
+        "energy": 0.3,
         "cinematic": true,
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/onyx_rescue/ocean.jpg",
+        "credit": {
+          "query": "calm ocean horizon before sunrise soft moody light",
+          "source": "Pexels",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f63a95a2bad1.jpeg"
+        },
+        "zoomStyle": "panL",
+        "cutType": "xf"
+      },
+      {
+        "start": 25.679,
+        "end": 27.896,
         "text": "BETTER THAN YESTERDAY.",
         "words": [
           {
             "text": "You",
-            "start": 21.402,
-            "end": 21.562
-          },
-          {
-            "text": "don't",
-            "start": 21.562,
-            "end": 21.802
-          },
-          {
-            "text": "need",
-            "start": 21.802,
-            "end": 22.042
-          },
-          {
-            "text": "to",
-            "start": 22.042,
-            "end": 22.042
-          },
-          {
-            "text": "be",
-            "start": 22.042,
-            "end": 22.202
-          },
-          {
-            "text": "the",
-            "start": 22.202,
-            "end": 22.282
-          },
-          {
-            "text": "best",
-            "start": 22.282,
-            "end": 22.602
-          },
-          {
-            "text": "today",
-            "start": 22.602,
-            "end": 23.002
-          },
-          {
-            "text": "You",
-            "start": 23.642,
-            "end": 23.802
+            "start": 25.679,
+            "end": 25.836
           },
           {
             "text": "just",
-            "start": 23.802,
-            "end": 24.042
+            "start": 25.836,
+            "end": 26.15
           },
           {
             "text": "need",
-            "start": 24.042,
-            "end": 24.282
+            "start": 26.15,
+            "end": 26.385
           },
           {
             "text": "to",
-            "start": 24.282,
-            "end": 24.282
+            "start": 26.385,
+            "end": 26.464
           },
           {
             "text": "be",
-            "start": 24.282,
-            "end": 24.442
+            "start": 26.464,
+            "end": 26.542
           },
           {
             "text": "better",
-            "start": 24.442,
-            "end": 24.762
+            "start": 26.621,
+            "end": 26.934
           },
           {
             "text": "than",
-            "start": 24.762,
-            "end": 24.842
+            "start": 26.934,
+            "end": 27.091
           },
           {
             "text": "yesterday",
-            "start": 24.842,
-            "end": 25.562
+            "start": 27.091,
+            "end": 27.719
           }
         ],
+        "energy": 0.65,
+        "cinematic": true,
         "palette": {
-          "bg": "#0C0B10",
-          "glow": "#FF6B4A"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/onyx_rescue/barbell.jpg",
         "credit": {
           "query": "athlete lifting heavy barbell in dark gym dramatic lighting",
           "source": "SplitShire",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/97c24e66490e.png"
-        }
+        },
+        "zoomStyle": "push",
+        "cutType": "xf"
       },
       {
-        "start": 25.492,
-        "end": 30.932,
-        "cinematic": true,
-        "text": "DISCIPLINE WILL INTRODUCE YOU.",
+        "start": 28.096,
+        "end": 29.138,
+        "text": "ONE DAY...",
         "words": [
           {
             "text": "One",
-            "start": 25.642,
-            "end": 26.042
+            "start": 28.096,
+            "end": 28.521
           },
           {
             "text": "day",
-            "start": 26.042,
-            "end": 26.362
-          },
+            "start": 28.521,
+            "end": 28.947
+          }
+        ],
+        "energy": 0.2,
+        "cinematic": true,
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/onyx_rescue/candle.jpg",
+        "credit": {
+          "query": "single candle flame burning in the darkness close up",
+          "source": "Unsplash",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/4d453cc187cd.jpg"
+        },
+        "zoomStyle": "slowPush",
+        "cutType": "xf"
+      },
+      {
+        "start": 29.518,
+        "end": 31.741,
+        "text": "DISCIPLINE WILL INTRODUCE YOU.",
+        "words": [
           {
-            "text": "your",
-            "start": 26.602,
-            "end": 26.762
+            "text": "Your",
+            "start": 29.518,
+            "end": 29.696
           },
           {
             "text": "discipline",
-            "start": 26.762,
-            "end": 27.322
+            "start": 29.696,
+            "end": 30.407
           },
           {
             "text": "will",
-            "start": 27.322,
-            "end": 27.482
+            "start": 30.407,
+            "end": 30.585
           },
           {
             "text": "introduce",
-            "start": 27.482,
-            "end": 27.962
+            "start": 30.585,
+            "end": 31.207
           },
           {
             "text": "you",
-            "start": 27.962,
-            "end": 28.282
-          },
+            "start": 31.207,
+            "end": 31.562
+          }
+        ],
+        "energy": 0.45,
+        "cinematic": true,
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/onyx_rescue/chess.jpg",
+        "credit": {
+          "query": "chess king piece close up on dark board dramatic light",
+          "source": "Pexels",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/387b1daf8aa2.jpeg"
+        },
+        "zoomStyle": "panL",
+        "cutType": "xf"
+      },
+      {
+        "start": 32.241,
+        "end": 34.507,
+        "text": "WHERE YOUR EXCUSES HELD YOU BACK!",
+        "words": [
           {
-            "text": "where",
-            "start": 28.922,
-            "end": 29.082
+            "text": "Where",
+            "start": 32.241,
+            "end": 32.394
           },
           {
             "text": "your",
-            "start": 29.082,
-            "end": 29.322
+            "start": 32.394,
+            "end": 32.546
           },
           {
             "text": "excuses",
-            "start": 29.322,
-            "end": 29.962
+            "start": 32.622,
+            "end": 33.308
           },
           {
             "text": "once",
-            "start": 29.962,
-            "end": 30.282
+            "start": 33.308,
+            "end": 33.613
           },
           {
             "text": "held",
-            "start": 30.282,
-            "end": 30.522
+            "start": 33.613,
+            "end": 33.841
           },
           {
             "text": "you",
-            "start": 30.522,
-            "end": 30.682
+            "start": 33.841,
+            "end": 33.994
           },
           {
             "text": "back",
-            "start": 30.682,
-            "end": 31.082
+            "start": 33.994,
+            "end": 34.375
           }
         ],
+        "energy": 1.0,
+        "cinematic": true,
         "palette": {
-          "bg": "#0C0B10",
-          "glow": "#FF6B4A"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/onyx_rescue/summit.jpg",
         "credit": {
           "query": "silhouette of person standing on mountain summit at sunrise",
           "source": "PresentationGO",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/35d9709aeb0c.jpg"
-        }
+        },
+        "zoomStyle": "punch",
+        "cutType": "hard"
       }
     ],
     "beats": [
-      2.6,
-      3.24,
-      3.68,
-      4.42,
-      5.68,
-      6.08,
-      6.72,
-      7.12,
-      8.36,
-      8.76,
-      9.2,
-      9.76,
-      11.12,
-      11.54,
-      12.16,
-      12.76,
-      13.16,
-      13.66
+      0.15,
+      1.217,
+      2.291,
+      2.825,
+      5.945,
+      6.319,
+      7.366,
+      8.167,
+      8.597,
+      10.318,
+      11.67,
+      13.058,
+      14.584,
+      16.061,
+      16.861,
+      17.661,
+      18.99,
+      19.415,
+      20.168,
+      20.991,
+      22.047,
+      22.352,
+      23.328,
+      24.338,
+      24.76,
+      25.679
+    ],
+    "sfx": [
+      {
+        "t": 0.12,
+        "kind": "impact",
+        "vol": 0.55
+      },
+      {
+        "t": 2.291,
+        "kind": "whoosh",
+        "vol": 0.172
+      },
+      {
+        "t": 5.945,
+        "kind": "whoosh",
+        "vol": 0.244
+      },
+      {
+        "t": 8.167,
+        "kind": "whoosh",
+        "vol": 0.14
+      },
+      {
+        "t": 11.67,
+        "kind": "whoosh",
+        "vol": 0.18
+      },
+      {
+        "t": 14.584,
+        "kind": "whoosh",
+        "vol": 0.204
+      },
+      {
+        "t": 16.061,
+        "kind": "whoosh",
+        "vol": 0.172
+      },
+      {
+        "t": 18.99,
+        "kind": "whoosh",
+        "vol": 0.236
+      },
+      {
+        "t": 20.168,
+        "kind": "whoosh",
+        "vol": 0.244
+      },
+      {
+        "t": 22.047,
+        "kind": "whoosh",
+        "vol": 0.26
+      },
+      {
+        "t": 23.328,
+        "kind": "whoosh",
+        "vol": 0.148
+      },
+      {
+        "t": 25.679,
+        "kind": "whoosh",
+        "vol": 0.204
+      },
+      {
+        "t": 28.096,
+        "kind": "whoosh",
+        "vol": 0.132
+      },
+      {
+        "t": 29.518,
+        "kind": "whoosh",
+        "vol": 0.172
+      },
+      {
+        "t": 32.241,
+        "kind": "whoosh",
+        "vol": 0.26
+      },
+      {
+        "t": 33.357,
+        "kind": "riser",
+        "vol": 0.38
+      },
+      {
+        "t": 34.607,
+        "kind": "impact",
+        "vol": 0.5
+      }
     ]
   },
   "iron_pain": {
     "scenes": [
       {
-        "start": 0.12,
-        "end": 6.15,
-        "cinematic": true,
+        "start": 0.15,
+        "end": 2.075,
         "text": "PAIN EITHER WAY.",
         "words": [
           {
             "text": "You",
-            "start": 0,
-            "end": 0.16
+            "start": 0.15,
+            "end": 0.302
           },
           {
             "text": "will",
-            "start": 0.16,
-            "end": 0.24
+            "start": 0.302,
+            "end": 0.455
           },
           {
             "text": "feel",
-            "start": 0.24,
-            "end": 0.56
+            "start": 0.455,
+            "end": 0.76
           },
           {
             "text": "pain",
-            "start": 0.56,
-            "end": 0.96
+            "start": 0.76,
+            "end": 1.14
           },
           {
             "text": "either",
-            "start": 0.96,
-            "end": 1.12
+            "start": 1.14,
+            "end": 1.369
           },
           {
             "text": "way",
-            "start": 1.12,
-            "end": 1.6
-          },
-          {
-            "text": "The",
-            "start": 2.56,
-            "end": 2.56
-          },
-          {
-            "text": "pain",
-            "start": 2.56,
-            "end": 2.88
-          },
-          {
-            "text": "of",
-            "start": 2.88,
-            "end": 3.04
-          },
-          {
-            "text": "discipline",
-            "start": 3.04,
-            "end": 3.6
-          },
-          {
-            "text": "or",
-            "start": 4.24,
-            "end": 4.4
-          },
-          {
-            "text": "the",
-            "start": 4.4,
-            "end": 4.48
-          },
-          {
-            "text": "pain",
-            "start": 4.48,
-            "end": 4.8
-          },
-          {
-            "text": "of",
-            "start": 4.8,
-            "end": 4.88
-          },
-          {
-            "text": "regret",
-            "start": 4.88,
-            "end": 5.44
+            "start": 1.369,
+            "end": 1.902
           }
         ],
+        "energy": 1.0,
+        "cinematic": true,
         "palette": {
-          "bg": "#0B0F15",
-          "glow": "#FF4438"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/iron_pain/wraps.jpg",
         "credit": {
           "query": "boxer wrapping his hands in a dark gym dramatic light",
           "source": "Pexels",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/7a04e4b824ec.jpeg"
-        }
+        },
+        "zoomStyle": "pullFast",
+        "cutType": "hard"
       },
       {
-        "start": 6.17,
-        "end": 10.55,
+        "start": 2.295,
+        "end": 6.107,
+        "text": "DISCIPLINE... OR REGRET.",
+        "words": [
+          {
+            "text": "The",
+            "start": 2.295,
+            "end": 2.384
+          },
+          {
+            "text": "pain",
+            "start": 2.384,
+            "end": 2.828
+          },
+          {
+            "text": "of",
+            "start": 2.828,
+            "end": 3.006
+          },
+          {
+            "text": "discipline",
+            "start": 3.006,
+            "end": 3.717
+          },
+          {
+            "text": "or",
+            "start": 4.517,
+            "end": 4.695
+          },
+          {
+            "text": "the",
+            "start": 4.695,
+            "end": 4.784
+          },
+          {
+            "text": "pain",
+            "start": 4.784,
+            "end": 5.139
+          },
+          {
+            "text": "of",
+            "start": 5.139,
+            "end": 5.317
+          },
+          {
+            "text": "regret",
+            "start": 5.317,
+            "end": 5.939
+          }
+        ],
+        "energy": 0.45,
         "cinematic": true,
-        "text": "MINUTES OR YEARS.",
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/iron_pain/corner.jpg",
+        "credit": {
+          "query": "boxer sitting alone in the corner of a dark boxing ring",
+          "source": "The Real News Network",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/0fb22953d24f.jpg"
+        },
+        "zoomStyle": "panL",
+        "cutType": "xf"
+      },
+      {
+        "start": 6.607,
+        "end": 8.51,
+        "text": "DISCIPLINE HURTS FOR MINUTES.",
         "words": [
           {
             "text": "Discipline",
-            "start": 6.32,
-            "end": 6.8
+            "start": 6.607,
+            "end": 7.26
           },
           {
             "text": "hurts",
-            "start": 6.8,
-            "end": 7.2
+            "start": 7.26,
+            "end": 7.587
           },
           {
             "text": "for",
-            "start": 7.2,
-            "end": 7.36
+            "start": 7.587,
+            "end": 7.75
           },
           {
             "text": "minutes",
-            "start": 7.36,
-            "end": 7.84
-          },
-          {
-            "text": "Regret",
-            "start": 8.48,
-            "end": 8.96
-          },
-          {
-            "text": "hurts",
-            "start": 8.96,
-            "end": 9.28
-          },
-          {
-            "text": "for",
-            "start": 9.28,
-            "end": 9.36
-          },
-          {
-            "text": "years",
-            "start": 9.36,
-            "end": 9.92
+            "start": 7.75,
+            "end": 8.321
           }
         ],
+        "energy": 0.5,
+        "cinematic": true,
         "palette": {
-          "bg": "#0B0F15",
-          "glow": "#FF4438"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/iron_pain/bag.jpg",
         "credit": {
           "query": "boxer hitting a punching bag with sweat in dark gym",
           "source": "Pexels",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/6e4f41adc38b.jpeg"
-        }
+        },
+        "zoomStyle": "pullFast",
+        "cutType": "xf"
       },
       {
-        "start": 10.57,
-        "end": 12.23,
+        "start": 8.77,
+        "end": 10.78,
+        "text": "REGRET HURTS FOR YEARS.",
+        "words": [
+          {
+            "text": "Regret",
+            "start": 8.77,
+            "end": 9.287
+          },
+          {
+            "text": "hurts",
+            "start": 9.287,
+            "end": 9.631
+          },
+          {
+            "text": "for",
+            "start": 9.631,
+            "end": 9.889
+          },
+          {
+            "text": "years",
+            "start": 9.889,
+            "end": 10.491
+          }
+        ],
+        "energy": 0.25,
         "cinematic": true,
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/iron_pain/rainman.jpg",
+        "credit": {
+          "query": "sad man standing alone in the rain at night silhouette",
+          "source": "SplitShire",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/18a5798268ac.png"
+        },
+        "zoomStyle": "slowPush",
+        "cutType": "xf"
+      },
+      {
+        "start": 11.18,
+        "end": 13.438,
         "text": "CHOOSE YOUR PAIN.",
         "words": [
           {
             "text": "Choose",
-            "start": 10.72,
-            "end": 11.04
+            "start": 11.18,
+            "end": 11.494
           },
           {
             "text": "your",
-            "start": 11.04,
-            "end": 11.2
+            "start": 11.494,
+            "end": 11.651
           },
           {
             "text": "pain",
-            "start": 11.2,
-            "end": 11.52
+            "start": 11.651,
+            "end": 12.122
           },
           {
             "text": "on",
-            "start": 11.52,
-            "end": 11.68
+            "start": 12.435,
+            "end": 12.671
           },
           {
             "text": "purpose",
-            "start": 11.68,
-            "end": 12.24
+            "start": 12.671,
+            "end": 13.22
           }
         ],
+        "energy": 0.65,
+        "cinematic": true,
         "palette": {
-          "bg": "#0B0F15",
-          "glow": "#FF4438"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/iron_pain/gloves.jpg",
         "credit": {
           "query": "boxing gloves close up hanging in dark gym",
           "source": "Legends Boxing",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/bfdd4a41c859.png"
-        }
+        },
+        "zoomStyle": "pullFast",
+        "cutType": "xf"
       },
       {
-        "start": 12.25,
-        "end": 17.75,
-        "cinematic": true,
+        "start": 13.638,
+        "end": 16.268,
         "text": "NOBODY SEES THE 5AM ALARMS.",
         "words": [
           {
             "text": "Nobody",
-            "start": 12.4,
-            "end": 12.88
+            "start": 13.638,
+            "end": 14.149
           },
           {
             "text": "sees",
-            "start": 12.88,
-            "end": 13.2
+            "start": 14.149,
+            "end": 14.659
           },
           {
             "text": "the",
-            "start": 13.2,
-            "end": 13.28
+            "start": 14.659,
+            "end": 14.659
           },
           {
-            "text": "five",
-            "start": 13.28,
-            "end": 13.68
-          },
-          {
-            "text": "A",
-            "start": 13.68,
-            "end": 13.84
-          },
-          {
-            "text": "M",
-            "start": 13.84,
-            "end": 14
+            "text": "5AM",
+            "start": 14.659,
+            "end": 15.51
           },
           {
             "text": "alarms",
-            "start": 14,
-            "end": 14.56
-          },
-          {
-            "text": "Nobody",
-            "start": 15.04,
-            "end": 15.52
-          },
-          {
-            "text": "claps",
-            "start": 15.52,
-            "end": 15.92
-          },
-          {
-            "text": "for",
-            "start": 15.92,
-            "end": 16.08
-          },
-          {
-            "text": "the",
-            "start": 16.08,
-            "end": 16.16
-          },
-          {
-            "text": "boring",
-            "start": 16.16,
-            "end": 16.64
-          },
-          {
-            "text": "days",
-            "start": 16.64,
-            "end": 17.12
+            "start": 15.51,
+            "end": 16.021
           }
         ],
+        "energy": 0.2,
+        "cinematic": true,
         "palette": {
-          "bg": "#0B0F15",
-          "glow": "#FF4438"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/iron_pain/alarm.jpg",
         "credit": {
           "query": "alarm clock in a dark bedroom early morning",
           "source": "Mashable",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/1d5ee5a446f5.jpg"
-        }
+        },
+        "zoomStyle": "slowPush",
+        "cutType": "xf"
       },
       {
-        "start": 17.77,
-        "end": 19.668,
-        "cinematic": true,
-        "text": "WHERE RESULTS LIVE.",
+        "start": 16.648,
+        "end": 19.218,
+        "text": "NOBODY CLAPS FOR THE BORING DAYS.",
         "words": [
           {
-            "text": "That",
-            "start": 17.92,
-            "end": 18.08
+            "text": "Nobody",
+            "start": 16.648,
+            "end": 17.244
           },
           {
-            "text": "is",
-            "start": 18.08,
-            "end": 18.24
+            "text": "claps",
+            "start": 17.244,
+            "end": 17.754
           },
           {
-            "text": "where",
-            "start": 18.24,
-            "end": 18.4
+            "text": "for",
+            "start": 17.754,
+            "end": 17.925
           },
           {
             "text": "the",
-            "start": 18.4,
-            "end": 18.48
+            "start": 17.925,
+            "end": 18.01
+          },
+          {
+            "text": "boring",
+            "start": 18.01,
+            "end": 18.52
+          },
+          {
+            "text": "days",
+            "start": 18.52,
+            "end": 19.031
+          }
+        ],
+        "energy": 0.2,
+        "cinematic": true,
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/iron_pain/emptygym.jpg",
+        "credit": {
+          "query": "empty dark gym with a single spotlight on the floor",
+          "source": "Quartz",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/53f182e448e0.jpg"
+        },
+        "zoomStyle": "panL",
+        "cutType": "xf"
+      },
+      {
+        "start": 19.598,
+        "end": 21.131,
+        "text": "THAT'S WHERE RESULTS LIVE.",
+        "words": [
+          {
+            "text": "That's",
+            "start": 19.598,
+            "end": 19.881
+          },
+          {
+            "text": "where",
+            "start": 19.881,
+            "end": 20.093
+          },
+          {
+            "text": "the",
+            "start": 20.093,
+            "end": 20.164
           },
           {
             "text": "results",
-            "start": 18.48,
-            "end": 19.04
+            "start": 20.164,
+            "end": 20.66
           },
           {
             "text": "live",
-            "start": 19.04,
-            "end": 19.44
+            "start": 20.66,
+            "end": 21.014
           }
         ],
-        "palette": {
-          "bg": "#0B0F15",
-          "glow": "#FF4438"
-        },
-        "image": "img/iron_pain/litwin.jpg",
-        "credit": {
-          "query": "one lit window in a dark building at night",
-          "source": "Pexels",
-          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/aaf3e1e19913.jpeg"
-        }
-      },
-      {
-        "start": 19.688,
-        "end": 25.348,
+        "energy": 0.85,
         "cinematic": true,
-        "text": "IT COMPOUNDS.",
-        "words": [
-          {
-            "text": "Every",
-            "start": 19.838,
-            "end": 20.158
-          },
-          {
-            "text": "rep",
-            "start": 20.158,
-            "end": 20.558
-          },
-          {
-            "text": "you",
-            "start": 20.558,
-            "end": 20.558
-          },
-          {
-            "text": "don't",
-            "start": 20.558,
-            "end": 20.798
-          },
-          {
-            "text": "skip",
-            "start": 20.798,
-            "end": 21.278
-          },
-          {
-            "text": "every",
-            "start": 21.758,
-            "end": 22.078
-          },
-          {
-            "text": "page",
-            "start": 22.078,
-            "end": 22.478
-          },
-          {
-            "text": "you",
-            "start": 22.478,
-            "end": 22.558
-          },
-          {
-            "text": "do",
-            "start": 22.558,
-            "end": 22.798
-          },
-          {
-            "text": "read",
-            "start": 22.798,
-            "end": 23.198
-          },
-          {
-            "text": "it",
-            "start": 23.758,
-            "end": 23.838
-          },
-          {
-            "text": "compounds",
-            "start": 23.838,
-            "end": 24.638
-          }
-        ],
         "palette": {
-          "bg": "#0B0F15",
-          "glow": "#FF4438"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/iron_pain/plates.jpg",
         "credit": {
           "query": "barbell with weight plates close up in gym",
           "source": "Pexels",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/8295128f3e40.jpeg"
-        }
+        },
+        "zoomStyle": "punch",
+        "cutType": "hard"
       },
       {
-        "start": 25.368,
-        "end": 29.368,
+        "start": 21.211,
+        "end": 22.798,
+        "text": "EVERY REP...",
+        "words": [
+          {
+            "text": "Every",
+            "start": 21.211,
+            "end": 21.51
+          },
+          {
+            "text": "rep",
+            "start": 21.51,
+            "end": 21.884
+          },
+          {
+            "text": "you",
+            "start": 21.884,
+            "end": 21.959
+          },
+          {
+            "text": "don't",
+            "start": 21.959,
+            "end": 22.183
+          },
+          {
+            "text": "skip",
+            "start": 22.183,
+            "end": 22.632
+          }
+        ],
+        "energy": 0.9,
         "cinematic": true,
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/iron_pain/scream.jpg",
+        "credit": {
+          "query": "athlete screaming with intensity during workout in gym",
+          "source": "Red Bull",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/3aaa46927c44.jpg"
+        },
+        "zoomStyle": "punch",
+        "cutType": "hard"
+      },
+      {
+        "start": 22.958,
+        "end": 26.125,
+        "text": "IT COMPOUNDS.",
+        "words": [
+          {
+            "text": "Every",
+            "start": 22.958,
+            "end": 23.272
+          },
+          {
+            "text": "page",
+            "start": 23.272,
+            "end": 23.664
+          },
+          {
+            "text": "you",
+            "start": 23.664,
+            "end": 23.743
+          },
+          {
+            "text": "do",
+            "start": 23.743,
+            "end": 24.056
+          },
+          {
+            "text": "read",
+            "start": 24.056,
+            "end": 24.37
+          },
+          {
+            "text": "it",
+            "start": 24.998,
+            "end": 25.154
+          },
+          {
+            "text": "compounds",
+            "start": 25.154,
+            "end": 25.939
+          }
+        ],
+        "energy": 0.65,
+        "cinematic": true,
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/iron_pain/books.jpg",
+        "credit": {
+          "query": "stack of books beside a reading lamp at night",
+          "source": "Alibaba.com",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/536d7ac54f8b.jpg"
+        },
+        "zoomStyle": "panL",
+        "cutType": "xf"
+      },
+      {
+        "start": 26.325,
+        "end": 28.278,
         "text": "CHOOSE DISCIPLINE TODAY.",
         "words": [
           {
             "text": "Choose",
-            "start": 25.518,
-            "end": 25.838
+            "start": 26.325,
+            "end": 26.77
           },
           {
             "text": "discipline",
-            "start": 25.838,
-            "end": 26.398
+            "start": 26.77,
+            "end": 27.57
           },
           {
             "text": "today",
-            "start": 26.398,
-            "end": 26.878
-          },
+            "start": 27.57,
+            "end": 28.103
+          }
+        ],
+        "energy": 0.45,
+        "cinematic": true,
+        "palette": {
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
+        },
+        "image": "img/iron_pain/lion.jpg",
+        "credit": {
+          "query": "lion face intense stare close up dark background",
+          "source": "Picjumbo",
+          "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/f43fa99cb4e1.jpg"
+        },
+        "zoomStyle": "pullFast",
+        "cutType": "xf"
+      },
+      {
+        "start": 28.778,
+        "end": 31.326,
+        "text": "OR DROWN IN REGRET TOMORROW.",
+        "words": [
           {
-            "text": "so",
-            "start": 27.438,
-            "end": 27.678
+            "text": "So",
+            "start": 28.778,
+            "end": 28.931
           },
           {
             "text": "tomorrow",
-            "start": 27.678,
-            "end": 28.158
+            "start": 28.931,
+            "end": 29.54
           },
           {
             "text": "you",
-            "start": 28.158,
-            "end": 28.238
+            "start": 29.54,
+            "end": 29.693
           },
           {
             "text": "don't",
-            "start": 28.238,
-            "end": 28.478
+            "start": 29.693,
+            "end": 29.997
           },
           {
             "text": "drown",
-            "start": 28.558,
-            "end": 28.958
+            "start": 30.074,
+            "end": 30.454
           },
           {
             "text": "in",
-            "start": 28.958,
-            "end": 29.038
+            "start": 30.454,
+            "end": 30.531
           },
           {
             "text": "regret",
-            "start": 29.038,
-            "end": 29.518
+            "start": 30.531,
+            "end": 31.064
           }
         ],
+        "energy": 1.0,
+        "cinematic": true,
         "palette": {
-          "bg": "#0B0F15",
-          "glow": "#FF4438"
+          "bg": "#1F1016",
+          "glow": "#FF7A66"
         },
         "image": "img/iron_pain/finish.jpg",
         "credit": {
           "query": "runner crossing finish line with arms raised at sunrise",
           "source": "Desiring God",
           "url": "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/e2fb55f1dc27.jpg"
-        }
+        },
+        "zoomStyle": "punch",
+        "cutType": "hard"
       }
     ],
     "beats": [
-      2.6,
-      3.16,
-      4.34,
-      4.74,
-      5.2,
-      6.44,
-      7.02,
-      7.46,
-      8.56,
-      9.1,
-      9.56,
-      10.84,
-      11.4,
-      11.88,
-      12.48,
-      13.6,
-      14.0,
-      15.18
+      0.15,
+      0.76,
+      2.295,
+      3.006,
+      4.784,
+      5.317,
+      6.607,
+      7.75,
+      8.77,
+      9.889,
+      11.18,
+      11.651,
+      13.638,
+      15.51,
+      16.648,
+      18.01,
+      19.598,
+      20.164,
+      21.211,
+      22.958,
+      25.154,
+      26.325,
+      26.77,
+      27.57,
+      28.778,
+      30.074
+    ],
+    "sfx": [
+      {
+        "t": 0.12,
+        "kind": "impact",
+        "vol": 0.55
+      },
+      {
+        "t": 2.295,
+        "kind": "whoosh",
+        "vol": 0.172
+      },
+      {
+        "t": 6.607,
+        "kind": "whoosh",
+        "vol": 0.18
+      },
+      {
+        "t": 8.77,
+        "kind": "whoosh",
+        "vol": 0.14
+      },
+      {
+        "t": 11.18,
+        "kind": "whoosh",
+        "vol": 0.204
+      },
+      {
+        "t": 13.638,
+        "kind": "whoosh",
+        "vol": 0.132
+      },
+      {
+        "t": 16.648,
+        "kind": "whoosh",
+        "vol": 0.132
+      },
+      {
+        "t": 19.598,
+        "kind": "whoosh",
+        "vol": 0.236
+      },
+      {
+        "t": 21.211,
+        "kind": "whoosh",
+        "vol": 0.244
+      },
+      {
+        "t": 22.958,
+        "kind": "whoosh",
+        "vol": 0.204
+      },
+      {
+        "t": 26.325,
+        "kind": "whoosh",
+        "vol": 0.172
+      },
+      {
+        "t": 28.778,
+        "kind": "whoosh",
+        "vol": 0.26
+      },
+      {
+        "t": 30.176,
+        "kind": "riser",
+        "vol": 0.38
+      },
+      {
+        "t": 31.426,
+        "kind": "impact",
+        "vol": 0.5
+      }
     ]
   }
 }

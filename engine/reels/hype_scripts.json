@@ -346,7 +346,7 @@
         "NOBODY IS COMING",
         "TO SAVE YOU."
       ],
-      "voice": "[intense] Nobody is coming to save you. And that's the best thing you need to understand. [firm] Stop waiting for the perfect moment. Stop waiting for someone to believe in you. Your future is your responsibility. [building] While others are sleeping on their dreams, work on yours. While others make excuses, take action. [calm] You don't need to be the best today. You just need to be better than yesterday. [intense] One day, your discipline will introduce you, where your excuses once held you back.",
+      "voice": "[shout] Nobody is coming to save you. [dramatic] And that's the best thing you will ever understand. [angry] Stop waiting for the perfect moment. [sad] Stop waiting for someone to finally believe in you. [serious] Your future is your responsibility. Nobody else's. [dramatic] While others are sleeping on their dreams... [fast] Work on yours! [angry] While others make excuses... [shout] Take action! [calm] You don't need to be the best today. [motivational] You just need to be better than yesterday. [whisper] One day... [dramatic] Your discipline will introduce you... [shout] Where your excuses once held you back!",
       "wordOverrides": {},
       "bgSeq": [
         "waves"
@@ -371,7 +371,7 @@
         "PAIN OF DISCIPLINE,",
         "OR PAIN OF REGRET."
       ],
-      "voice": "[intense] You will feel pain either way. The pain of discipline, or the pain of regret. [firm] Discipline hurts for minutes. Regret hurts for years. Choose your pain on purpose. [building] Nobody sees the five A M alarms. Nobody claps for the boring days. That is where the results live. [calm] Every rep you don't skip, every page you do read, it compounds. [intense] Choose discipline today, so tomorrow you don't drown in regret.",
+      "voice": "[shout] You will feel pain either way! [dramatic] The pain of discipline... or the pain of regret. [serious] Discipline hurts for minutes. [sad] Regret hurts for years. [motivational] Choose your pain on purpose. [whisper] Nobody sees the 5AM alarms. [whisper] Nobody claps for the boring days. [fast] That's where the results live! [angry] Every rep you don't skip... [motivational] Every page you do read... it compounds. [dramatic] Choose discipline today... [shout] So tomorrow you don't drown in regret!",
       "wordOverrides": {},
       "bgSeq": [
         "bars"

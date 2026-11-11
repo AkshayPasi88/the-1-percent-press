@@ -20,6 +20,7 @@ import os
 import re
 import subprocess
 import sys
+import random
 import hashlib
 import io
 from concurrent.futures import ThreadPoolExecutor
@@ -38,80 +39,6 @@ OUT = os.path.join(ROOT, "hype_visuals.json")
 # query   : image search sentence (natural language)
 # cat     : content category → background palette
 CURATED = {
-    "onyx_rescue": [
-        {"phrase": "nobody is coming to save you and that's the best thing you need to understand",
-         "cover": True, "cinematic": True,
-         "text": "NOBODY IS COMING TO SAVE YOU.", "slug": "rooftop",
-         "query": "lone man silhouette standing on rooftop overlooking city at night",
-         "cat": "onyx"},
-        {"phrase": "stop waiting for the perfect moment stop waiting for someone to believe in you",
-         "cinematic": True,
-         "text": "STOP WAITING.", "slug": "road",
-         "query": "man walking alone on empty road at night in fog",
-         "cat": "onyx"},
-        {"phrase": "your future is your responsibility",
-         "cinematic": True,
-         "text": "YOUR FUTURE IS YOUR RESPONSIBILITY.", "slug": "walker",
-         "query": "determined man walking forward portrait dark moody lighting",
-         "cat": "onyx"},
-        {"phrase": "while others are sleeping on their dreams work on yours",
-         "cinematic": True,
-         "text": "WHILE THEY SLEEP, YOU WORK.", "slug": "window",
-         "query": "single lit window in dark apartment building at night",
-         "cat": "onyx"},
-        {"phrase": "while others make excuses take action",
-         "cinematic": True,
-         "text": "EXCUSES OR ACTION.", "slug": "dawnrun",
-         "query": "runner running alone on empty city street before sunrise",
-         "cat": "onyx"},
-        {"phrase": "you don't need to be the best today you just need to be better than yesterday",
-         "cinematic": True,
-         "text": "BETTER THAN YESTERDAY.", "slug": "barbell",
-         "query": "athlete lifting heavy barbell in dark gym dramatic lighting",
-         "cat": "onyx"},
-        {"phrase": "one day your discipline will introduce you where your excuses once held you back",
-         "cinematic": True,
-         "text": "DISCIPLINE WILL INTRODUCE YOU.", "slug": "summit",
-         "query": "silhouette of person standing on mountain summit at sunrise",
-         "cat": "onyx"},
-    ],
-    "iron_pain": [
-        {"phrase": "you will feel pain either way the pain of discipline or the pain of regret",
-         "cover": True, "cinematic": True,
-         "text": "PAIN EITHER WAY.", "slug": "wraps",
-         "query": "boxer wrapping his hands in a dark gym dramatic light",
-         "cat": "iron"},
-        {"phrase": "discipline hurts for minutes regret hurts for years",
-         "cinematic": True,
-         "text": "MINUTES OR YEARS.", "slug": "bag",
-         "query": "boxer hitting a punching bag with sweat in dark gym",
-         "cat": "iron"},
-        {"phrase": "choose your pain on purpose",
-         "cinematic": True,
-         "text": "CHOOSE YOUR PAIN.", "slug": "gloves",
-         "query": "boxing gloves close up hanging in dark gym",
-         "cat": "iron"},
-        {"phrase": "nobody sees the five a m alarms nobody claps for the boring days",
-         "cinematic": True,
-         "text": "NOBODY SEES THE 5AM ALARMS.", "slug": "alarm",
-         "query": "alarm clock in a dark bedroom early morning",
-         "cat": "iron"},
-        {"phrase": "that is where the results live",
-         "cinematic": True,
-         "text": "WHERE RESULTS LIVE.", "slug": "litwin",
-         "query": "one lit window in a dark building at night",
-         "cat": "iron"},
-        {"phrase": "every rep you don't skip every page you do read it compounds",
-         "cinematic": True,
-         "text": "IT COMPOUNDS.", "slug": "plates",
-         "query": "barbell with weight plates close up in gym",
-         "cat": "iron"},
-        {"phrase": "choose discipline today so tomorrow you don't drown in regret",
-         "cinematic": True,
-         "text": "CHOOSE DISCIPLINE TODAY.", "slug": "finish",
-         "query": "runner crossing finish line with arms raised at sunrise",
-         "cat": "iron"},
-    ],
     "gold_math": [
         {"phrase": "one percent better every day for one year",
          "text": "1% BETTER. EVERY DAY.", "slug": "climbing",
@@ -273,6 +200,83 @@ CURATED = {
     ],
 }
 
+# ── Cinematic reels: one visual plan per SENTENCE (index-aligned) ──────
+# text   : the section headline (ALL-CAPS punch line for that sentence)
+# slug/query: footage for that sentence
+CURATED_CINEMATIC = {
+    "onyx_rescue": [
+        {"text": "NOBODY IS COMING TO SAVE YOU.", "slug": "rooftop",
+         "query": "lone man silhouette standing on rooftop overlooking city at night"},
+        {"text": "THE BEST THING YOU'LL EVER UNDERSTAND.", "slug": "stormcity",
+         "query": "dramatic storm clouds and lightning over a city at night"},
+        {"text": "STOP WAITING.", "slug": "road",
+         "query": "man walking alone on empty road at night in fog"},
+        {"text": "NOBODY ELSE WILL BELIEVE IN YOU.", "slug": "bench",
+         "query": "person sitting alone on a bench at night under a streetlight"},
+        {"text": "YOUR FUTURE. YOUR RESPONSIBILITY.", "slug": "walker",
+         "query": "determined man walking forward portrait dark moody lighting"},
+        {"text": "NOBODY ELSE'S.", "slug": "mirror",
+         "query": "man looking at his own reflection in a dark mirror"},
+        {"text": "WHILE THEY SLEEP ON THEIR DREAMS...", "slug": "window",
+         "query": "single lit window in dark apartment building at night"},
+        {"text": "WORK ON YOURS!", "slug": "nightdesk",
+         "query": "person working late at a desk with a lamp at night"},
+        {"text": "NO MORE EXCUSES...", "slug": "fists",
+         "query": "clenched fists close up determination dark lighting"},
+        {"text": "TAKE ACTION!", "slug": "dawnrun",
+         "query": "runner running alone on empty city street before sunrise"},
+        {"text": "YOU DON'T NEED TO BE THE BEST.", "slug": "ocean",
+         "query": "calm ocean horizon before sunrise soft moody light"},
+        {"text": "BETTER THAN YESTERDAY.", "slug": "barbell",
+         "query": "athlete lifting heavy barbell in dark gym dramatic lighting"},
+        {"text": "ONE DAY...", "slug": "candle",
+         "query": "single candle flame burning in the darkness close up"},
+        {"text": "DISCIPLINE WILL INTRODUCE YOU.", "slug": "chess",
+         "query": "chess king piece close up on dark board dramatic light"},
+        {"text": "WHERE YOUR EXCUSES HELD YOU BACK!", "slug": "summit",
+         "query": "silhouette of person standing on mountain summit at sunrise"},
+    ],
+    "iron_pain": [
+        {"text": "PAIN EITHER WAY.", "slug": "wraps",
+         "query": "boxer wrapping his hands in a dark gym dramatic light"},
+        {"text": "DISCIPLINE... OR REGRET.", "slug": "corner",
+         "query": "boxer sitting alone in the corner of a dark boxing ring"},
+        {"text": "DISCIPLINE HURTS FOR MINUTES.", "slug": "bag",
+         "query": "boxer hitting a punching bag with sweat in dark gym"},
+        {"text": "REGRET HURTS FOR YEARS.", "slug": "rainman",
+         "query": "sad man standing alone in the rain at night silhouette"},
+        {"text": "CHOOSE YOUR PAIN.", "slug": "gloves",
+         "query": "boxing gloves close up hanging in dark gym"},
+        {"text": "NOBODY SEES THE 5AM ALARMS.", "slug": "alarm",
+         "query": "alarm clock in a dark bedroom early morning"},
+        {"text": "NOBODY CLAPS FOR THE BORING DAYS.", "slug": "emptygym",
+         "query": "empty dark gym with a single spotlight on the floor"},
+        {"text": "THAT'S WHERE RESULTS LIVE.", "slug": "plates",
+         "query": "barbell with weight plates close up in gym"},
+        {"text": "EVERY REP...", "slug": "scream",
+         "query": "athlete screaming with intensity during workout in gym"},
+        {"text": "IT COMPOUNDS.", "slug": "books",
+         "query": "stack of books beside a reading lamp at night"},
+        {"text": "CHOOSE DISCIPLINE TODAY.", "slug": "lion",
+         "query": "lion face intense stare close up dark background"},
+        {"text": "OR DROWN IN REGRET TOMORROW.", "slug": "finish",
+         "query": "runner crossing finish line with arms raised at sunrise"},
+    ],
+}
+
+# emotion → scene energy (drives cut type, zoom speed, text size, sfx volume)
+EMOTION_ENERGY = {
+    "shout": 1.0, "angry": 0.9, "fast": 0.85, "excited": 0.8,
+    "motivational": 0.65, "serious": 0.5, "sarcastic": 0.5, "dramatic": 0.45,
+    "calm": 0.3, "sad": 0.25, "whisper": 0.2,
+}
+
+# keyword set for beat markers (visual rhythm follows strong spoken words)
+STRONG_WORDS = set("""day never stop free one twice chain nobody save action work
+pain discipline regret minutes years excuses future best better yesterday
+compounds results alarms boring reps pages choose today tomorrow drown yours
+waiting moment believe responsibility sleeping dreams""".split())
+
 # ── Category → ambient palette (bg tint + glow) ─────────────────────────
 PALETTES = {
     "workout":  {"bg": "#160D0F", "glow": "#FF4B3E"},
@@ -362,7 +366,7 @@ def fetch_images(only_ids=None):
     manifest = {k: v for k, v in manifest.items()
                 if os.path.exists(os.path.join(ROOT, "public", v["file"]))}
     jobs = []  # (reel, slug, query)
-    for reel_id, scenes in CURATED.items():
+    for reel_id, scenes in list(CURATED.items()) + list(CURATED_CINEMATIC.items()):
         if only_ids and reel_id not in only_ids:
             continue
         for sc in scenes:
@@ -471,6 +475,71 @@ def fetch_images(only_ids=None):
     save_json(MANIFEST, manifest)
     print(f"downloaded {downloaded}, generated {generated} / {len(jobs)} jobs; "
           f"manifest has {len(manifest)} entries")
+
+
+# ── CINEMATIC scene planner: sentence → scene + energy/zoom/cut/sfx ────
+def build_cinematic_scenes(reel):
+    """One scene per narration sentence (1–3 s cuts), seeded for determinism.
+    Every scene: footage + headline + energy-driven treatment. Also returns
+    beat markers (strong spoken words) and the sound-design event list."""
+    sents = reel.get("sentences") or []
+    cid = reel["id"]
+    plan = CURATED_CINEMATIC.get(cid, [])
+    rng = random.Random(cid)          # deterministic per-reel creativity
+    scenes, beats, sfx = [], [], []
+    for i, sent in enumerate(sents):
+        sp = plan[i] if i < len(plan) else {}
+        emotion = (sent.get("emotion") or "motivational").lower()
+        energy = EMOTION_ENERGY.get(emotion, 0.5)
+        start, end = sent["start"], sent["end"]
+        slug = sp.get("slug")
+        mf = MANIFEST_DATA.get(f"{cid}/{slug}") if slug else None
+        sc = {
+            "start": round(start, 3), "end": round(end, 3),
+            "text": sp.get("text") or " ".join(
+                w for w in sent["text"].split()[:3]).upper() + ".",
+            "words": sent.get("words", []),
+            "energy": round(energy, 2),
+            "cinematic": True,
+            "palette": PALETTES["emotional"],
+        }
+        if mf and os.path.exists(os.path.join(ROOT, "public", mf["file"])):
+            sc["image"] = mf["file"]
+            sc["credit"] = {"query": mf["query"], "source": mf["source"], "url": mf["url"]}
+        # camera treatment: high energy → fast punch/pull + hard cut;
+        # low energy → slow push with crossfade
+        if energy >= 0.75:
+            sc["zoomStyle"] = rng.choice(["punch", "pullFast", "punch"])
+            sc["cutType"] = "hard"
+        elif energy >= 0.45:
+            sc["zoomStyle"] = rng.choice(["push", "panL", "panR", "pullFast"])
+            sc["cutType"] = "xf"
+        else:
+            sc["zoomStyle"] = rng.choice(["slowPush", "slowPush", "panL"])
+            sc["cutType"] = "xf"
+        scenes.append(sc)
+        # beats: sentence start + strong words (visual rhythm = spoken rhythm)
+        beats.append(round(start, 3))
+        for w in sent.get("words", []):
+            if w["text"].lower().strip(".,!?'\"") in STRONG_WORDS:
+                beats.append(round(w["start"], 3))
+        # sfx: whoosh on each scene switch (skipping the hook sentence)
+        if i > 0:
+            sfx.append({"t": round(start, 3), "kind": "whoosh",
+                        "vol": round(0.10 + 0.16 * energy, 3)})
+    # dedupe beats, keep order, enforce 0.22 s spacing
+    beats = sorted(set(beats))
+    spaced, last = [], -1.0
+    for b in beats:
+        if b - last >= 0.22:
+            spaced.append(b)
+            last = b
+    cta = reel.get("ctaStartSec", 0)
+    sfx = ([{"t": 0.12, "kind": "impact", "vol": 0.55}]
+           + sfx
+           + [{"t": round(cta - 1.25, 3), "kind": "riser", "vol": 0.38},
+              {"t": round(cta, 3), "kind": "impact", "vol": 0.5}])
+    return scenes, spaced[:26], sfx
 
 
 # ── LOCAL MODE (build hype_visuals.json) ────────────────────────────────
@@ -642,6 +711,14 @@ def main():
     MANIFEST_DATA = load_json(MANIFEST) if os.path.exists(MANIFEST) else {}
     out = {}
     for reel in props["reels"]:
+        if reel.get("style") == "cinematic":
+            scenes, beats, sfx = build_cinematic_scenes(reel)
+            out[reel["id"]] = {"scenes": scenes, "beats": beats, "sfx": sfx}
+            imgs = sum(1 for s in scenes if s.get("image"))
+            hard = sum(1 for s in scenes if s.get("cutType") == "hard")
+            print(f"{reel['file']}: {len(scenes)} sentence-scenes ({imgs} img, "
+                  f"{hard} hard cuts), {len(beats)} beats, {len(sfx)} sfx")
+            continue
         words = [w for g in reel["captions"] for w in g["words"]]
         scenes = build_scenes(reel, words)
         mp3 = os.path.join(ROOT, "public", reel["audio"])

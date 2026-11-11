@@ -15,6 +15,10 @@ const outDir = "/home/z/my-project/download/reels";
 fs.mkdirSync(outDir, { recursive: true });
 
 const hype = JSON.parse(fs.readFileSync(path.join(root, "hype_props.json"), "utf8"));
+let hypeVisuals = {};
+try {
+  hypeVisuals = JSON.parse(fs.readFileSync(path.join(root, "hype_visuals.json"), "utf8"));
+} catch {}
 const wanted = process.argv.slice(2);
 
 console.log("Bundling Remotion project…");
@@ -34,7 +38,11 @@ for (let i = 0; i < hype.reels.length; i++) {
     codec: "h264",
     crf: 19,
     outputLocation,
-    inputProps: { reel, brand: hype.brand },
+    inputProps: {
+      reel,
+      brand: hype.brand,
+      visuals: hypeVisuals[reel.id] ?? { scenes: [], beats: [] },
+    },
   });
   console.log(`Saved ${outputLocation}`);
 }

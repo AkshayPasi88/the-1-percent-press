@@ -1,0 +1,3594 @@
+{
+  "brand": {
+    "handle": "@self_efficient_daily",
+    "ebookTitle": "THE 1% METHOD",
+    "ebookSub": "The 18-page pocket guide to compound growth",
+    "cta": "FREE EBOOK \u00b7 LINK IN BIO"
+  },
+  "reels": [
+    {
+      "id": "gold_math",
+      "file": "hype_01.mp4",
+      "audio": "audio/hype_01.mp3",
+      "name": "The 37x Math",
+      "theme": {
+        "bg": "#141009",
+        "panel": "#1C1710",
+        "accent": "#E8B84B",
+        "accentDeep": "#C9A227",
+        "ink": "#F5EDD8",
+        "inkSoft": "#A89468"
+      },
+      "svg": "bars",
+      "hookLines": [
+        "1% EVERY DAY",
+        "= \u00d737.78"
+      ],
+      "voice": "[intense] One percent better, every day, for one year. [punchy] Not one percent total. Thirty-seven times better. [energetic] The method is free. Ebook. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 3.4,
+      "ctaStartSec": 10.44,
+      "audioDurationSec": 11.86,
+      "speechEndSec": 11.76,
+      "captions": [
+        {
+          "start": 0,
+          "end": 1.92,
+          "words": [
+            {
+              "text": "One",
+              "start": 0,
+              "end": 0.32,
+              "display": "One"
+            },
+            {
+              "text": "percent",
+              "start": 0.32,
+              "end": 0.8,
+              "display": "percent"
+            },
+            {
+              "text": "better",
+              "start": 0.8,
+              "end": 1.28,
+              "display": "better"
+            },
+            {
+              "text": "every",
+              "start": 1.52,
+              "end": 1.92,
+              "display": "every"
+            }
+          ]
+        },
+        {
+          "start": 1.92,
+          "end": 3.6,
+          "words": [
+            {
+              "text": "day",
+              "start": 1.92,
+              "end": 2.4,
+              "display": "day"
+            },
+            {
+              "text": "for",
+              "start": 2.64,
+              "end": 2.72,
+              "display": "for"
+            },
+            {
+              "text": "one",
+              "start": 2.72,
+              "end": 3.12,
+              "display": "one"
+            },
+            {
+              "text": "year",
+              "start": 3.12,
+              "end": 3.6,
+              "display": "year"
+            }
+          ]
+        },
+        {
+          "start": 4,
+          "end": 5.6,
+          "words": [
+            {
+              "text": "Not",
+              "start": 4,
+              "end": 4.32,
+              "display": "Not"
+            },
+            {
+              "text": "one",
+              "start": 4.32,
+              "end": 4.64,
+              "display": "one"
+            },
+            {
+              "text": "percent",
+              "start": 4.64,
+              "end": 5.12,
+              "display": "percent"
+            },
+            {
+              "text": "total",
+              "start": 5.12,
+              "end": 5.6,
+              "display": "total"
+            }
+          ]
+        },
+        {
+          "start": 6.48,
+          "end": 8,
+          "words": [
+            {
+              "text": "Thirty",
+              "start": 6.48,
+              "end": 6.72,
+              "display": "Thirty"
+            },
+            {
+              "text": "seven",
+              "start": 6.72,
+              "end": 7.2,
+              "display": "seven"
+            },
+            {
+              "text": "times",
+              "start": 7.2,
+              "end": 7.6,
+              "display": "times"
+            },
+            {
+              "text": "better",
+              "start": 7.6,
+              "end": 8,
+              "display": "better"
+            }
+          ]
+        },
+        {
+          "start": 8.16,
+          "end": 9.2,
+          "words": [
+            {
+              "text": "The",
+              "start": 8.16,
+              "end": 8.16,
+              "display": "The"
+            },
+            {
+              "text": "method",
+              "start": 8.16,
+              "end": 8.64,
+              "display": "method"
+            },
+            {
+              "text": "is",
+              "start": 8.64,
+              "end": 8.72,
+              "display": "is"
+            },
+            {
+              "text": "free",
+              "start": 8.72,
+              "end": 9.2,
+              "display": "free"
+            }
+          ]
+        },
+        {
+          "start": 9.68,
+          "end": 10.16,
+          "words": [
+            {
+              "text": "Ebook",
+              "start": 9.68,
+              "end": 10.16,
+              "display": "Ebook"
+            }
+          ]
+        },
+        {
+          "start": 10.64,
+          "end": 11.76,
+          "words": [
+            {
+              "text": "Link",
+              "start": 10.64,
+              "end": 11.04,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 11.04,
+              "end": 11.2,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 11.2,
+              "end": 11.76,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "bars",
+        "streaks",
+        "arc"
+      ]
+    },
+    {
+      "id": "mono_weather",
+      "file": "hype_02.mp4",
+      "audio": "audio/hype_02.mp3",
+      "name": "Motivation Is Weather",
+      "theme": {
+        "bg": "#F5F1E8",
+        "panel": "#EDE7D9",
+        "accent": "#16130C",
+        "accentDeep": "#16130C",
+        "ink": "#16130C",
+        "inkSoft": "#6B6455"
+      },
+      "svg": "chain",
+      "hookLines": [
+        "MOTIVATION",
+        "IS WEATHER."
+      ],
+      "voice": "[calm] Motivation is weather. [firm] Systems are climate. [energetic] Build the climate. Free ebook. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 2.2,
+      "ctaStartSec": 5,
+      "audioDurationSec": 7.915,
+      "speechEndSec": 7.76,
+      "captions": [
+        {
+          "start": 0,
+          "end": 1.28,
+          "words": [
+            {
+              "text": "Motivation",
+              "start": 0,
+              "end": 0.72,
+              "display": "Motivation"
+            },
+            {
+              "text": "is",
+              "start": 0.72,
+              "end": 0.8,
+              "display": "is"
+            },
+            {
+              "text": "weather",
+              "start": 0.8,
+              "end": 1.28,
+              "display": "weather"
+            }
+          ]
+        },
+        {
+          "start": 2,
+          "end": 3.12,
+          "words": [
+            {
+              "text": "Systems",
+              "start": 2,
+              "end": 2.56,
+              "display": "Systems"
+            },
+            {
+              "text": "are",
+              "start": 2.56,
+              "end": 2.64,
+              "display": "are"
+            },
+            {
+              "text": "climate",
+              "start": 2.64,
+              "end": 3.12,
+              "display": "climate"
+            }
+          ]
+        },
+        {
+          "start": 3.76,
+          "end": 4.64,
+          "words": [
+            {
+              "text": "Build",
+              "start": 3.76,
+              "end": 4.16,
+              "display": "Build"
+            },
+            {
+              "text": "the",
+              "start": 4.16,
+              "end": 4.16,
+              "display": "the"
+            },
+            {
+              "text": "climate",
+              "start": 4.16,
+              "end": 4.64,
+              "display": "climate"
+            }
+          ]
+        },
+        {
+          "start": 5.2,
+          "end": 6.16,
+          "words": [
+            {
+              "text": "Free",
+              "start": 5.2,
+              "end": 5.68,
+              "display": "Free"
+            },
+            {
+              "text": "ebook",
+              "start": 5.68,
+              "end": 6.16,
+              "display": "ebook"
+            }
+          ]
+        },
+        {
+          "start": 6.8,
+          "end": 7.76,
+          "words": [
+            {
+              "text": "Link",
+              "start": 6.8,
+              "end": 7.12,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 7.12,
+              "end": 7.2,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 7.28,
+              "end": 7.76,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "chain",
+        "checks",
+        "dots"
+      ]
+    },
+    {
+      "id": "lime_2min",
+      "file": "hype_03.mp4",
+      "audio": "audio/hype_03.mp3",
+      "name": "The 2-Minute Rule",
+      "theme": {
+        "bg": "#101408",
+        "panel": "#181F0D",
+        "accent": "#C8FF4D",
+        "accentDeep": "#9CD32B",
+        "ink": "#F4FFE0",
+        "inkSoft": "#8A9B6B"
+      },
+      "svg": "streaks",
+      "hookLines": [
+        "THE 2-MINUTE",
+        "RULE"
+      ],
+      "voice": "[curious] Want a habit that sticks? [punchy] Shrink it to two minutes. Two minutes is a vote. [energetic] The rule is inside. Free ebook. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 2.2,
+      "ctaStartSec": 6.84,
+      "audioDurationSec": 9.717,
+      "speechEndSec": 9.6,
+      "captions": [
+        {
+          "start": 0,
+          "end": 0.8,
+          "words": [
+            {
+              "text": "Want",
+              "start": 0,
+              "end": 0.24,
+              "display": "Want"
+            },
+            {
+              "text": "a",
+              "start": 0.24,
+              "end": 0.24,
+              "display": "a"
+            },
+            {
+              "text": "habit",
+              "start": 0.24,
+              "end": 0.72,
+              "display": "habit"
+            },
+            {
+              "text": "that",
+              "start": 0.72,
+              "end": 0.8,
+              "display": "that"
+            }
+          ]
+        },
+        {
+          "start": 0.8,
+          "end": 1.36,
+          "words": [
+            {
+              "text": "sticks",
+              "start": 0.8,
+              "end": 1.36,
+              "display": "sticks"
+            }
+          ]
+        },
+        {
+          "start": 1.92,
+          "end": 2.72,
+          "words": [
+            {
+              "text": "Shrink",
+              "start": 1.92,
+              "end": 2.32,
+              "display": "Shrink"
+            },
+            {
+              "text": "it",
+              "start": 2.32,
+              "end": 2.48,
+              "display": "it"
+            },
+            {
+              "text": "to",
+              "start": 2.48,
+              "end": 2.48,
+              "display": "to"
+            },
+            {
+              "text": "two",
+              "start": 2.48,
+              "end": 2.72,
+              "display": "two"
+            }
+          ]
+        },
+        {
+          "start": 2.72,
+          "end": 3.28,
+          "words": [
+            {
+              "text": "minutes",
+              "start": 2.72,
+              "end": 3.28,
+              "display": "minutes"
+            }
+          ]
+        },
+        {
+          "start": 3.92,
+          "end": 4.72,
+          "words": [
+            {
+              "text": "Two",
+              "start": 3.92,
+              "end": 4.08,
+              "display": "Two"
+            },
+            {
+              "text": "minutes",
+              "start": 4.08,
+              "end": 4.56,
+              "display": "minutes"
+            },
+            {
+              "text": "is",
+              "start": 4.56,
+              "end": 4.64,
+              "display": "is"
+            },
+            {
+              "text": "a",
+              "start": 4.64,
+              "end": 4.72,
+              "display": "a"
+            }
+          ]
+        },
+        {
+          "start": 4.72,
+          "end": 5.92,
+          "words": [
+            {
+              "text": "vote",
+              "start": 4.72,
+              "end": 5.12,
+              "display": "vote"
+            },
+            {
+              "text": "The",
+              "start": 5.28,
+              "end": 5.36,
+              "display": "The"
+            },
+            {
+              "text": "rule",
+              "start": 5.36,
+              "end": 5.76,
+              "display": "rule"
+            },
+            {
+              "text": "is",
+              "start": 5.76,
+              "end": 5.92,
+              "display": "is"
+            }
+          ]
+        },
+        {
+          "start": 5.92,
+          "end": 6.56,
+          "words": [
+            {
+              "text": "inside",
+              "start": 5.92,
+              "end": 6.56,
+              "display": "inside"
+            }
+          ]
+        },
+        {
+          "start": 7.04,
+          "end": 8,
+          "words": [
+            {
+              "text": "Free",
+              "start": 7.04,
+              "end": 7.44,
+              "display": "Free"
+            },
+            {
+              "text": "ebook",
+              "start": 7.6,
+              "end": 8,
+              "display": "ebook"
+            }
+          ]
+        },
+        {
+          "start": 8.56,
+          "end": 9.6,
+          "words": [
+            {
+              "text": "Link",
+              "start": 8.56,
+              "end": 8.88,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 8.88,
+              "end": 9.04,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 9.04,
+              "end": 9.6,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "streaks",
+        "bars",
+        "clock"
+      ]
+    },
+    {
+      "id": "crimson_twice",
+      "file": "hype_04.mp4",
+      "audio": "audio/hype_04.mp3",
+      "name": "Never Miss Twice",
+      "theme": {
+        "bg": "#1A0D0F",
+        "panel": "#261216",
+        "accent": "#FF4B3E",
+        "accentDeep": "#D93A2F",
+        "ink": "#FFF0EB",
+        "inkSoft": "#B08580"
+      },
+      "svg": "bolt",
+      "hookLines": [
+        "NEVER",
+        "MISS TWICE."
+      ],
+      "voice": "[stern] Missed today? Fine. [punchy] Never miss twice. That is the rule. [energetic] Full method. Free ebook. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 3.4,
+      "ctaStartSec": 5.88,
+      "audioDurationSec": 8.62,
+      "speechEndSec": 8.48,
+      "captions": [
+        {
+          "start": 0,
+          "end": 2.32,
+          "words": [
+            {
+              "text": "Missed",
+              "start": 0,
+              "end": 0.4,
+              "display": "Missed"
+            },
+            {
+              "text": "today",
+              "start": 0.4,
+              "end": 0.88,
+              "display": "today"
+            },
+            {
+              "text": "Fine",
+              "start": 1.12,
+              "end": 1.76,
+              "display": "Fine"
+            },
+            {
+              "text": "Never",
+              "start": 2,
+              "end": 2.32,
+              "display": "Never"
+            }
+          ]
+        },
+        {
+          "start": 2.32,
+          "end": 3.84,
+          "words": [
+            {
+              "text": "miss",
+              "start": 2.32,
+              "end": 2.64,
+              "display": "miss"
+            },
+            {
+              "text": "twice",
+              "start": 2.64,
+              "end": 3.2,
+              "display": "twice"
+            },
+            {
+              "text": "That",
+              "start": 3.36,
+              "end": 3.68,
+              "display": "That"
+            },
+            {
+              "text": "is",
+              "start": 3.68,
+              "end": 3.84,
+              "display": "is"
+            }
+          ]
+        },
+        {
+          "start": 3.84,
+          "end": 5.6,
+          "words": [
+            {
+              "text": "the",
+              "start": 3.84,
+              "end": 3.92,
+              "display": "the"
+            },
+            {
+              "text": "rule",
+              "start": 3.92,
+              "end": 4.4,
+              "display": "rule"
+            },
+            {
+              "text": "Full",
+              "start": 4.72,
+              "end": 5.12,
+              "display": "Full"
+            },
+            {
+              "text": "method",
+              "start": 5.12,
+              "end": 5.6,
+              "display": "method"
+            }
+          ]
+        },
+        {
+          "start": 6.08,
+          "end": 7.04,
+          "words": [
+            {
+              "text": "Free",
+              "start": 6.08,
+              "end": 6.48,
+              "display": "Free"
+            },
+            {
+              "text": "ebook",
+              "start": 6.48,
+              "end": 7.04,
+              "display": "ebook"
+            }
+          ]
+        },
+        {
+          "start": 7.36,
+          "end": 8.48,
+          "words": [
+            {
+              "text": "Link",
+              "start": 7.36,
+              "end": 7.68,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 7.68,
+              "end": 7.84,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 7.84,
+              "end": 8.48,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "bolt",
+        "rings",
+        "arc"
+      ]
+    },
+    {
+      "id": "ocean_votes",
+      "file": "hype_05.mp4",
+      "audio": "audio/hype_05.mp3",
+      "name": "Every Action Is a Vote",
+      "theme": {
+        "bg": "#0A1626",
+        "panel": "#102036",
+        "accent": "#54C8FF",
+        "accentDeep": "#2E9BD6",
+        "ink": "#EAF4FF",
+        "inkSoft": "#7E97B5"
+      },
+      "svg": "waves",
+      "hookLines": [
+        "EVERY ACTION",
+        "IS A VOTE."
+      ],
+      "voice": "[thoughtful] Every action is a vote for the person you are becoming. [punchy] Cast cheap votes. Daily. [energetic] Start today. Free ebook. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 3.32,
+      "ctaStartSec": 8.12,
+      "audioDurationSec": 10.971,
+      "speechEndSec": 10.8,
+      "captions": [
+        {
+          "start": 0,
+          "end": 1.28,
+          "words": [
+            {
+              "text": "Every",
+              "start": 0,
+              "end": 0.4,
+              "display": "Every"
+            },
+            {
+              "text": "action",
+              "start": 0.4,
+              "end": 0.96,
+              "display": "action"
+            },
+            {
+              "text": "is",
+              "start": 1.12,
+              "end": 1.28,
+              "display": "is"
+            },
+            {
+              "text": "a",
+              "start": 1.28,
+              "end": 1.28,
+              "display": "a"
+            }
+          ]
+        },
+        {
+          "start": 1.28,
+          "end": 2.4,
+          "words": [
+            {
+              "text": "vote",
+              "start": 1.28,
+              "end": 1.68,
+              "display": "vote"
+            },
+            {
+              "text": "for",
+              "start": 1.68,
+              "end": 1.76,
+              "display": "for"
+            },
+            {
+              "text": "the",
+              "start": 1.76,
+              "end": 1.84,
+              "display": "the"
+            },
+            {
+              "text": "person",
+              "start": 1.84,
+              "end": 2.4,
+              "display": "person"
+            }
+          ]
+        },
+        {
+          "start": 2.4,
+          "end": 3.2,
+          "words": [
+            {
+              "text": "you",
+              "start": 2.4,
+              "end": 2.56,
+              "display": "you"
+            },
+            {
+              "text": "are",
+              "start": 2.56,
+              "end": 2.64,
+              "display": "are"
+            },
+            {
+              "text": "becoming",
+              "start": 2.64,
+              "end": 3.2,
+              "display": "becoming"
+            }
+          ]
+        },
+        {
+          "start": 4,
+          "end": 5.28,
+          "words": [
+            {
+              "text": "Cast",
+              "start": 4,
+              "end": 4.4,
+              "display": "Cast"
+            },
+            {
+              "text": "cheap",
+              "start": 4.48,
+              "end": 4.8,
+              "display": "cheap"
+            },
+            {
+              "text": "votes",
+              "start": 4.8,
+              "end": 5.28,
+              "display": "votes"
+            }
+          ]
+        },
+        {
+          "start": 5.84,
+          "end": 6.32,
+          "words": [
+            {
+              "text": "Daily",
+              "start": 5.84,
+              "end": 6.32,
+              "display": "Daily"
+            }
+          ]
+        },
+        {
+          "start": 6.88,
+          "end": 7.76,
+          "words": [
+            {
+              "text": "Start",
+              "start": 6.88,
+              "end": 7.2,
+              "display": "Start"
+            },
+            {
+              "text": "today",
+              "start": 7.2,
+              "end": 7.76,
+              "display": "today"
+            }
+          ]
+        },
+        {
+          "start": 8.32,
+          "end": 9.2,
+          "words": [
+            {
+              "text": "Free",
+              "start": 8.32,
+              "end": 8.72,
+              "display": "Free"
+            },
+            {
+              "text": "ebook",
+              "start": 8.72,
+              "end": 9.2,
+              "display": "ebook"
+            }
+          ]
+        },
+        {
+          "start": 9.84,
+          "end": 10.8,
+          "words": [
+            {
+              "text": "Link",
+              "start": 9.84,
+              "end": 10.16,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 10.16,
+              "end": 10.24,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 10.24,
+              "end": 10.8,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "waves",
+        "dots",
+        "chain"
+      ]
+    },
+    {
+      "id": "steel_env",
+      "file": "hype_06.mp4",
+      "audio": "audio/hype_06.mp3",
+      "name": "Willpower Is Overrated",
+      "theme": {
+        "bg": "#10151B",
+        "panel": "#182028",
+        "accent": "#A8C5DE",
+        "accentDeep": "#E8B84B",
+        "ink": "#EDF2F7",
+        "inkSoft": "#7C8EA0"
+      },
+      "svg": "checks",
+      "hookLines": [
+        "WILLPOWER IS",
+        "OVERRATED."
+      ],
+      "voice": "[confident] Discipline is not willpower. It is furniture. [punchy] Fruit on the counter. Phone in the drawer. [energetic] Design the room. Free guide. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 2.2,
+      "ctaStartSec": 9.48,
+      "audioDurationSec": 12.225,
+      "speechEndSec": 12.08,
+      "captions": [
+        {
+          "start": 0,
+          "end": 2.08,
+          "words": [
+            {
+              "text": "Discipline",
+              "start": 0,
+              "end": 0.72,
+              "display": "Discipline"
+            },
+            {
+              "text": "is",
+              "start": 0.88,
+              "end": 1.04,
+              "display": "is"
+            },
+            {
+              "text": "not",
+              "start": 1.04,
+              "end": 1.36,
+              "display": "not"
+            },
+            {
+              "text": "willpower",
+              "start": 1.36,
+              "end": 2.08,
+              "display": "willpower"
+            }
+          ]
+        },
+        {
+          "start": 2.72,
+          "end": 3.6,
+          "words": [
+            {
+              "text": "It",
+              "start": 2.72,
+              "end": 2.88,
+              "display": "It"
+            },
+            {
+              "text": "is",
+              "start": 2.88,
+              "end": 2.96,
+              "display": "is"
+            },
+            {
+              "text": "furniture",
+              "start": 2.96,
+              "end": 3.6,
+              "display": "furniture"
+            }
+          ]
+        },
+        {
+          "start": 4.48,
+          "end": 5.52,
+          "words": [
+            {
+              "text": "Fruit",
+              "start": 4.48,
+              "end": 4.8,
+              "display": "Fruit"
+            },
+            {
+              "text": "on",
+              "start": 4.8,
+              "end": 4.96,
+              "display": "on"
+            },
+            {
+              "text": "the",
+              "start": 4.96,
+              "end": 5.04,
+              "display": "the"
+            },
+            {
+              "text": "counter",
+              "start": 5.04,
+              "end": 5.52,
+              "display": "counter"
+            }
+          ]
+        },
+        {
+          "start": 6.16,
+          "end": 7.28,
+          "words": [
+            {
+              "text": "Phone",
+              "start": 6.16,
+              "end": 6.56,
+              "display": "Phone"
+            },
+            {
+              "text": "in",
+              "start": 6.56,
+              "end": 6.64,
+              "display": "in"
+            },
+            {
+              "text": "the",
+              "start": 6.64,
+              "end": 6.72,
+              "display": "the"
+            },
+            {
+              "text": "drawer",
+              "start": 6.72,
+              "end": 7.28,
+              "display": "drawer"
+            }
+          ]
+        },
+        {
+          "start": 8.08,
+          "end": 9.12,
+          "words": [
+            {
+              "text": "Design",
+              "start": 8.08,
+              "end": 8.56,
+              "display": "Design"
+            },
+            {
+              "text": "the",
+              "start": 8.56,
+              "end": 8.64,
+              "display": "the"
+            },
+            {
+              "text": "room",
+              "start": 8.64,
+              "end": 9.12,
+              "display": "room"
+            }
+          ]
+        },
+        {
+          "start": 9.68,
+          "end": 10.56,
+          "words": [
+            {
+              "text": "Free",
+              "start": 9.68,
+              "end": 10,
+              "display": "Free"
+            },
+            {
+              "text": "guide",
+              "start": 10,
+              "end": 10.56,
+              "display": "guide"
+            }
+          ]
+        },
+        {
+          "start": 11.04,
+          "end": 12.08,
+          "words": [
+            {
+              "text": "Link",
+              "start": 11.04,
+              "end": 11.36,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 11.36,
+              "end": 11.52,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 11.52,
+              "end": 12.08,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "checks",
+        "clock",
+        "waves"
+      ]
+    },
+    {
+      "id": "forest_chain",
+      "file": "hype_07.mp4",
+      "audio": "audio/hype_07.mp3",
+      "name": "Don't Break the Chain",
+      "theme": {
+        "bg": "#0D1A12",
+        "panel": "#132619",
+        "accent": "#57E39A",
+        "accentDeep": "#2FAE6F",
+        "ink": "#ECFFF3",
+        "inkSoft": "#7E9B8A"
+      },
+      "svg": "rings",
+      "hookLines": [
+        "DON'T BREAK",
+        "THE CHAIN."
+      ],
+      "voice": "[building] Day one. Day two. Day three. [intense] Do not break the chain. [energetic] Tracker inside. Free ebook. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 2.2,
+      "ctaStartSec": 7.56,
+      "audioDurationSec": 10.24,
+      "speechEndSec": 10.08,
+      "captions": [
+        {
+          "start": 0,
+          "end": 0.64,
+          "words": [
+            {
+              "text": "Day",
+              "start": 0,
+              "end": 0.24,
+              "display": "Day"
+            },
+            {
+              "text": "one",
+              "start": 0.24,
+              "end": 0.64,
+              "display": "one"
+            }
+          ]
+        },
+        {
+          "start": 1.6,
+          "end": 2.32,
+          "words": [
+            {
+              "text": "Day",
+              "start": 1.6,
+              "end": 1.92,
+              "display": "Day"
+            },
+            {
+              "text": "two",
+              "start": 1.92,
+              "end": 2.32,
+              "display": "two"
+            }
+          ]
+        },
+        {
+          "start": 3.04,
+          "end": 3.76,
+          "words": [
+            {
+              "text": "Day",
+              "start": 3.04,
+              "end": 3.28,
+              "display": "Day"
+            },
+            {
+              "text": "three",
+              "start": 3.28,
+              "end": 3.76,
+              "display": "three"
+            }
+          ]
+        },
+        {
+          "start": 4.72,
+          "end": 5.52,
+          "words": [
+            {
+              "text": "Do",
+              "start": 4.72,
+              "end": 4.8,
+              "display": "Do"
+            },
+            {
+              "text": "not",
+              "start": 4.8,
+              "end": 5.04,
+              "display": "not"
+            },
+            {
+              "text": "break",
+              "start": 5.04,
+              "end": 5.44,
+              "display": "break"
+            },
+            {
+              "text": "the",
+              "start": 5.44,
+              "end": 5.52,
+              "display": "the"
+            }
+          ]
+        },
+        {
+          "start": 5.52,
+          "end": 7.2,
+          "words": [
+            {
+              "text": "chain",
+              "start": 5.52,
+              "end": 6,
+              "display": "chain"
+            },
+            {
+              "text": "Tracker",
+              "start": 6.16,
+              "end": 6.56,
+              "display": "Tracker"
+            },
+            {
+              "text": "inside",
+              "start": 6.56,
+              "end": 7.2,
+              "display": "inside"
+            }
+          ]
+        },
+        {
+          "start": 7.76,
+          "end": 8.64,
+          "words": [
+            {
+              "text": "Free",
+              "start": 7.76,
+              "end": 8.32,
+              "display": "Free"
+            },
+            {
+              "text": "ebook",
+              "start": 8.32,
+              "end": 8.64,
+              "display": "ebook"
+            }
+          ]
+        },
+        {
+          "start": 9.04,
+          "end": 10.08,
+          "words": [
+            {
+              "text": "Link",
+              "start": 9.04,
+              "end": 9.36,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 9.36,
+              "end": 9.52,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 9.52,
+              "end": 10.08,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "rings",
+        "arc",
+        "streaks"
+      ]
+    },
+    {
+      "id": "coral_decade",
+      "file": "hype_08.mp4",
+      "audio": "audio/hype_08.mp3",
+      "name": "Invisible to Undeniable",
+      "theme": {
+        "bg": "#1F1013",
+        "panel": "#2B161B",
+        "accent": "#FF7A66",
+        "accentDeep": "#D95A48",
+        "ink": "#FFF0EB",
+        "inkSoft": "#B0857E"
+      },
+      "svg": "clock",
+      "hookLines": [
+        "INVISIBLE TODAY.",
+        "UNDENIABLE IN A DECADE."
+      ],
+      "voice": "[calm] Tiny gains are invisible in a day. [intense] Undeniable in a decade. [energetic] One percent better. Free ebook. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 2.28,
+      "ctaStartSec": 6.84,
+      "audioDurationSec": 9.404,
+      "speechEndSec": 9.2,
+      "captions": [
+        {
+          "start": 0,
+          "end": 1.52,
+          "words": [
+            {
+              "text": "Tiny",
+              "start": 0,
+              "end": 0.4,
+              "display": "Tiny"
+            },
+            {
+              "text": "gains",
+              "start": 0.4,
+              "end": 0.8,
+              "display": "gains"
+            },
+            {
+              "text": "are",
+              "start": 0.8,
+              "end": 0.96,
+              "display": "are"
+            },
+            {
+              "text": "invisible",
+              "start": 0.96,
+              "end": 1.52,
+              "display": "invisible"
+            }
+          ]
+        },
+        {
+          "start": 1.52,
+          "end": 2.16,
+          "words": [
+            {
+              "text": "in",
+              "start": 1.52,
+              "end": 1.6,
+              "display": "in"
+            },
+            {
+              "text": "a",
+              "start": 1.6,
+              "end": 1.68,
+              "display": "a"
+            },
+            {
+              "text": "day",
+              "start": 1.68,
+              "end": 2.16,
+              "display": "day"
+            }
+          ]
+        },
+        {
+          "start": 2.88,
+          "end": 3.6,
+          "words": [
+            {
+              "text": "Undeniable",
+              "start": 2.88,
+              "end": 3.6,
+              "display": "Undeniable"
+            }
+          ]
+        },
+        {
+          "start": 4,
+          "end": 4.72,
+          "words": [
+            {
+              "text": "in",
+              "start": 4,
+              "end": 4.08,
+              "display": "in"
+            },
+            {
+              "text": "a",
+              "start": 4.08,
+              "end": 4.16,
+              "display": "a"
+            },
+            {
+              "text": "decade",
+              "start": 4.16,
+              "end": 4.72,
+              "display": "decade"
+            }
+          ]
+        },
+        {
+          "start": 5.36,
+          "end": 6.56,
+          "words": [
+            {
+              "text": "One",
+              "start": 5.36,
+              "end": 5.76,
+              "display": "One"
+            },
+            {
+              "text": "percent",
+              "start": 5.76,
+              "end": 6.16,
+              "display": "percent"
+            },
+            {
+              "text": "better",
+              "start": 6.16,
+              "end": 6.56,
+              "display": "better"
+            }
+          ]
+        },
+        {
+          "start": 7.04,
+          "end": 8.72,
+          "words": [
+            {
+              "text": "Free",
+              "start": 7.04,
+              "end": 7.6,
+              "display": "Free"
+            },
+            {
+              "text": "ebook",
+              "start": 7.6,
+              "end": 8,
+              "display": "ebook"
+            },
+            {
+              "text": "Link",
+              "start": 8.24,
+              "end": 8.56,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 8.56,
+              "end": 8.72,
+              "display": "in"
+            }
+          ]
+        },
+        {
+          "start": 8.72,
+          "end": 9.2,
+          "words": [
+            {
+              "text": "bio",
+              "start": 8.72,
+              "end": 9.2,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "clock",
+        "bars",
+        "dots"
+      ]
+    },
+    {
+      "id": "violet_monday",
+      "file": "hype_09.mp4",
+      "audio": "audio/hype_09.mp3",
+      "name": "Stop Waiting for Monday",
+      "theme": {
+        "bg": "#160E2A",
+        "panel": "#201543",
+        "accent": "#B990FF",
+        "accentDeep": "#8F5FE8",
+        "ink": "#F2ECFF",
+        "inkSoft": "#8D82B5"
+      },
+      "svg": "dots",
+      "hookLines": [
+        "STOP WAITING",
+        "FOR MONDAY."
+      ],
+      "voice": "[firm] Stop waiting for Monday. [punchy] Two minutes. Right now. That is it. [energetic] Start today. Free guide. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 2.2,
+      "ctaStartSec": 7.16,
+      "audioDurationSec": 10.005,
+      "speechEndSec": 9.92,
+      "captions": [
+        {
+          "start": 0,
+          "end": 1.44,
+          "words": [
+            {
+              "text": "Stop",
+              "start": 0,
+              "end": 0.4,
+              "display": "Stop"
+            },
+            {
+              "text": "waiting",
+              "start": 0.4,
+              "end": 0.72,
+              "display": "waiting"
+            },
+            {
+              "text": "for",
+              "start": 0.72,
+              "end": 0.88,
+              "display": "for"
+            },
+            {
+              "text": "Monday",
+              "start": 0.88,
+              "end": 1.44,
+              "display": "Monday"
+            }
+          ]
+        },
+        {
+          "start": 2.16,
+          "end": 2.88,
+          "words": [
+            {
+              "text": "Two",
+              "start": 2.16,
+              "end": 2.4,
+              "display": "Two"
+            },
+            {
+              "text": "minutes",
+              "start": 2.4,
+              "end": 2.88,
+              "display": "minutes"
+            }
+          ]
+        },
+        {
+          "start": 3.28,
+          "end": 4.16,
+          "words": [
+            {
+              "text": "Right",
+              "start": 3.28,
+              "end": 3.6,
+              "display": "Right"
+            },
+            {
+              "text": "now",
+              "start": 3.68,
+              "end": 4.16,
+              "display": "now"
+            }
+          ]
+        },
+        {
+          "start": 4.8,
+          "end": 5.44,
+          "words": [
+            {
+              "text": "That",
+              "start": 4.8,
+              "end": 4.96,
+              "display": "That"
+            },
+            {
+              "text": "is",
+              "start": 4.96,
+              "end": 5.12,
+              "display": "is"
+            },
+            {
+              "text": "it",
+              "start": 5.12,
+              "end": 5.44,
+              "display": "it"
+            }
+          ]
+        },
+        {
+          "start": 6,
+          "end": 6.96,
+          "words": [
+            {
+              "text": "Start",
+              "start": 6,
+              "end": 6.48,
+              "display": "Start"
+            },
+            {
+              "text": "today",
+              "start": 6.48,
+              "end": 6.96,
+              "display": "today"
+            }
+          ]
+        },
+        {
+          "start": 7.36,
+          "end": 8.32,
+          "words": [
+            {
+              "text": "Free",
+              "start": 7.36,
+              "end": 7.76,
+              "display": "Free"
+            },
+            {
+              "text": "guide",
+              "start": 7.76,
+              "end": 8.32,
+              "display": "guide"
+            }
+          ]
+        },
+        {
+          "start": 8.8,
+          "end": 9.92,
+          "words": [
+            {
+              "text": "Link",
+              "start": 8.8,
+              "end": 9.2,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 9.2,
+              "end": 9.28,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 9.28,
+              "end": 9.92,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "dots",
+        "waves",
+        "checks"
+      ]
+    },
+    {
+      "id": "sunset_onepct",
+      "file": "hype_10.mp4",
+      "audio": "audio/hype_10.mp3",
+      "name": "You Need 1%",
+      "theme": {
+        "bg": "#201008",
+        "panel": "#2E180C",
+        "accent": "#FF9E45",
+        "accentDeep": "#D97E2B",
+        "ink": "#FFF3E8",
+        "inkSoft": "#B08D72"
+      },
+      "svg": "arc",
+      "hookLines": [
+        "YOU DON'T NEED",
+        "MORE MOTIVATION."
+      ],
+      "voice": "[direct] You do not need more motivation. [punchy] You need one percent. [energetic] The method is free. Ebook. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 2.2,
+      "ctaStartSec": 7.56,
+      "audioDurationSec": 8.986,
+      "speechEndSec": 8.8,
+      "captions": [
+        {
+          "start": 0,
+          "end": 0.88,
+          "words": [
+            {
+              "text": "You",
+              "start": 0,
+              "end": 0.16,
+              "display": "You"
+            },
+            {
+              "text": "do",
+              "start": 0.16,
+              "end": 0.24,
+              "display": "do"
+            },
+            {
+              "text": "not",
+              "start": 0.24,
+              "end": 0.56,
+              "display": "not"
+            },
+            {
+              "text": "need",
+              "start": 0.56,
+              "end": 0.88,
+              "display": "need"
+            }
+          ]
+        },
+        {
+          "start": 0.88,
+          "end": 1.92,
+          "words": [
+            {
+              "text": "more",
+              "start": 0.88,
+              "end": 1.12,
+              "display": "more"
+            },
+            {
+              "text": "motivation",
+              "start": 1.12,
+              "end": 1.92,
+              "display": "motivation"
+            }
+          ]
+        },
+        {
+          "start": 2.72,
+          "end": 4,
+          "words": [
+            {
+              "text": "You",
+              "start": 2.72,
+              "end": 2.88,
+              "display": "You"
+            },
+            {
+              "text": "need",
+              "start": 2.88,
+              "end": 3.04,
+              "display": "need"
+            },
+            {
+              "text": "one",
+              "start": 3.04,
+              "end": 3.44,
+              "display": "one"
+            },
+            {
+              "text": "percent",
+              "start": 3.44,
+              "end": 4,
+              "display": "percent"
+            }
+          ]
+        },
+        {
+          "start": 5.12,
+          "end": 6.16,
+          "words": [
+            {
+              "text": "The",
+              "start": 5.12,
+              "end": 5.2,
+              "display": "The"
+            },
+            {
+              "text": "method",
+              "start": 5.2,
+              "end": 5.6,
+              "display": "method"
+            },
+            {
+              "text": "is",
+              "start": 5.6,
+              "end": 5.68,
+              "display": "is"
+            },
+            {
+              "text": "free",
+              "start": 5.68,
+              "end": 6.16,
+              "display": "free"
+            }
+          ]
+        },
+        {
+          "start": 6.64,
+          "end": 7.2,
+          "words": [
+            {
+              "text": "Ebook",
+              "start": 6.64,
+              "end": 7.2,
+              "display": "Ebook"
+            }
+          ]
+        },
+        {
+          "start": 7.76,
+          "end": 8.8,
+          "words": [
+            {
+              "text": "Link",
+              "start": 7.76,
+              "end": 8.08,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 8.08,
+              "end": 8.24,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 8.24,
+              "end": 8.8,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "arc",
+        "bolt",
+        "rings"
+      ]
+    },
+    {
+      "id": "gold_plateau",
+      "file": "hype_11.mp4",
+      "audio": "audio/hype_11.mp3",
+      "name": "The Plateau Lie",
+      "theme": {
+        "bg": "#141009",
+        "panel": "#1C1710",
+        "accent": "#E8B84B",
+        "accentDeep": "#C9A227",
+        "ink": "#F5EDD8",
+        "inkSoft": "#A89468"
+      },
+      "svg": "bars",
+      "hookLines": [
+        "DAY 20.",
+        "STILL NOTHING."
+      ],
+      "voice": "[intense] Day twenty, and it still looks like nothing. [calm] This is where everybody quits. [punchy] The workout that changes nothing. The page nobody reads. The ten dollars that buys nothing. [firm] But one percent compounds quietly, and the results always lag the work. [intense] Then one Tuesday the curve bends, and everyone calls it luck. [firm] It was not luck. It was math. [energetic] The full method is free. Ebook. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 2.2,
+      "ctaStartSec": 29.638,
+      "audioDurationSec": 31.033,
+      "speechEndSec": 30.878,
+      "captions": [
+        {
+          "start": 0,
+          "end": 0.8,
+          "words": [
+            {
+              "text": "Day",
+              "start": 0,
+              "end": 0.16,
+              "display": "Day"
+            },
+            {
+              "text": "twenty",
+              "start": 0.16,
+              "end": 0.8,
+              "display": "twenty"
+            }
+          ]
+        },
+        {
+          "start": 1.36,
+          "end": 2.24,
+          "words": [
+            {
+              "text": "and",
+              "start": 1.36,
+              "end": 1.52,
+              "display": "and"
+            },
+            {
+              "text": "it",
+              "start": 1.52,
+              "end": 1.6,
+              "display": "it"
+            },
+            {
+              "text": "still",
+              "start": 1.6,
+              "end": 1.92,
+              "display": "still"
+            },
+            {
+              "text": "looks",
+              "start": 1.92,
+              "end": 2.24,
+              "display": "looks"
+            }
+          ]
+        },
+        {
+          "start": 2.24,
+          "end": 2.96,
+          "words": [
+            {
+              "text": "like",
+              "start": 2.24,
+              "end": 2.48,
+              "display": "like"
+            },
+            {
+              "text": "nothing",
+              "start": 2.48,
+              "end": 2.96,
+              "display": "nothing"
+            }
+          ]
+        },
+        {
+          "start": 3.84,
+          "end": 5.12,
+          "words": [
+            {
+              "text": "This",
+              "start": 3.84,
+              "end": 4.16,
+              "display": "This"
+            },
+            {
+              "text": "is",
+              "start": 4.16,
+              "end": 4.32,
+              "display": "is"
+            },
+            {
+              "text": "where",
+              "start": 4.32,
+              "end": 4.48,
+              "display": "where"
+            },
+            {
+              "text": "everybody",
+              "start": 4.56,
+              "end": 5.12,
+              "display": "everybody"
+            }
+          ]
+        },
+        {
+          "start": 5.12,
+          "end": 6.56,
+          "words": [
+            {
+              "text": "quits",
+              "start": 5.12,
+              "end": 5.6,
+              "display": "quits"
+            },
+            {
+              "text": "The",
+              "start": 5.76,
+              "end": 5.84,
+              "display": "The"
+            },
+            {
+              "text": "workout",
+              "start": 5.84,
+              "end": 6.48,
+              "display": "workout"
+            },
+            {
+              "text": "that",
+              "start": 6.48,
+              "end": 6.56,
+              "display": "that"
+            }
+          ]
+        },
+        {
+          "start": 6.56,
+          "end": 7.52,
+          "words": [
+            {
+              "text": "changes",
+              "start": 6.56,
+              "end": 7.04,
+              "display": "changes"
+            },
+            {
+              "text": "nothing",
+              "start": 7.04,
+              "end": 7.52,
+              "display": "nothing"
+            }
+          ]
+        },
+        {
+          "start": 8.16,
+          "end": 9.68,
+          "words": [
+            {
+              "text": "The",
+              "start": 8.16,
+              "end": 8.32,
+              "display": "The"
+            },
+            {
+              "text": "page",
+              "start": 8.32,
+              "end": 8.72,
+              "display": "page"
+            },
+            {
+              "text": "nobody",
+              "start": 8.72,
+              "end": 9.12,
+              "display": "nobody"
+            },
+            {
+              "text": "reads",
+              "start": 9.12,
+              "end": 9.68,
+              "display": "reads"
+            }
+          ]
+        },
+        {
+          "start": 10.24,
+          "end": 11.2,
+          "words": [
+            {
+              "text": "The",
+              "start": 10.24,
+              "end": 10.32,
+              "display": "The"
+            },
+            {
+              "text": "ten",
+              "start": 10.32,
+              "end": 10.64,
+              "display": "ten"
+            },
+            {
+              "text": "dollars",
+              "start": 10.64,
+              "end": 11.12,
+              "display": "dollars"
+            },
+            {
+              "text": "that",
+              "start": 11.12,
+              "end": 11.2,
+              "display": "that"
+            }
+          ]
+        },
+        {
+          "start": 11.2,
+          "end": 12.08,
+          "words": [
+            {
+              "text": "buys",
+              "start": 11.2,
+              "end": 11.6,
+              "display": "buys"
+            },
+            {
+              "text": "nothing",
+              "start": 11.6,
+              "end": 12.08,
+              "display": "nothing"
+            }
+          ]
+        },
+        {
+          "start": 12.8,
+          "end": 14.4,
+          "words": [
+            {
+              "text": "But",
+              "start": 12.8,
+              "end": 12.96,
+              "display": "But"
+            },
+            {
+              "text": "one",
+              "start": 12.96,
+              "end": 13.36,
+              "display": "one"
+            },
+            {
+              "text": "percent",
+              "start": 13.36,
+              "end": 13.92,
+              "display": "percent"
+            },
+            {
+              "text": "compounds",
+              "start": 13.92,
+              "end": 14.4,
+              "display": "compounds"
+            }
+          ]
+        },
+        {
+          "start": 14.4,
+          "end": 15.2,
+          "words": [
+            {
+              "text": "quietly",
+              "start": 14.4,
+              "end": 15.2,
+              "display": "quietly"
+            }
+          ]
+        },
+        {
+          "start": 15.76,
+          "end": 17.2,
+          "words": [
+            {
+              "text": "and",
+              "start": 15.76,
+              "end": 15.92,
+              "display": "and"
+            },
+            {
+              "text": "the",
+              "start": 15.92,
+              "end": 16,
+              "display": "the"
+            },
+            {
+              "text": "results",
+              "start": 16,
+              "end": 16.56,
+              "display": "results"
+            },
+            {
+              "text": "always",
+              "start": 16.64,
+              "end": 17.2,
+              "display": "always"
+            }
+          ]
+        },
+        {
+          "start": 17.2,
+          "end": 18,
+          "words": [
+            {
+              "text": "lag",
+              "start": 17.2,
+              "end": 17.52,
+              "display": "lag"
+            },
+            {
+              "text": "the",
+              "start": 17.52,
+              "end": 17.6,
+              "display": "the"
+            },
+            {
+              "text": "work",
+              "start": 17.6,
+              "end": 18,
+              "display": "work"
+            }
+          ]
+        },
+        {
+          "start": 18.398,
+          "end": 19.758,
+          "words": [
+            {
+              "text": "Then",
+              "start": 18.398,
+              "end": 18.718,
+              "display": "Then"
+            },
+            {
+              "text": "one",
+              "start": 18.718,
+              "end": 18.958,
+              "display": "one"
+            },
+            {
+              "text": "Tuesday",
+              "start": 18.958,
+              "end": 19.598,
+              "display": "Tuesday"
+            },
+            {
+              "text": "the",
+              "start": 19.678,
+              "end": 19.758,
+              "display": "the"
+            }
+          ]
+        },
+        {
+          "start": 19.758,
+          "end": 20.638,
+          "words": [
+            {
+              "text": "curve",
+              "start": 19.758,
+              "end": 20.078,
+              "display": "curve"
+            },
+            {
+              "text": "bends",
+              "start": 20.078,
+              "end": 20.638,
+              "display": "bends"
+            }
+          ]
+        },
+        {
+          "start": 21.118,
+          "end": 22.238,
+          "words": [
+            {
+              "text": "and",
+              "start": 21.118,
+              "end": 21.198,
+              "display": "and"
+            },
+            {
+              "text": "everyone",
+              "start": 21.278,
+              "end": 21.758,
+              "display": "everyone"
+            },
+            {
+              "text": "calls",
+              "start": 21.758,
+              "end": 22.078,
+              "display": "calls"
+            },
+            {
+              "text": "it",
+              "start": 22.078,
+              "end": 22.238,
+              "display": "it"
+            }
+          ]
+        },
+        {
+          "start": 22.238,
+          "end": 22.638,
+          "words": [
+            {
+              "text": "luck",
+              "start": 22.238,
+              "end": 22.638,
+              "display": "luck"
+            }
+          ]
+        },
+        {
+          "start": 23.438,
+          "end": 24.558,
+          "words": [
+            {
+              "text": "It",
+              "start": 23.438,
+              "end": 23.598,
+              "display": "It"
+            },
+            {
+              "text": "was",
+              "start": 23.598,
+              "end": 23.838,
+              "display": "was"
+            },
+            {
+              "text": "not",
+              "start": 23.838,
+              "end": 24.158,
+              "display": "not"
+            },
+            {
+              "text": "luck",
+              "start": 24.158,
+              "end": 24.558,
+              "display": "luck"
+            }
+          ]
+        },
+        {
+          "start": 25.118,
+          "end": 25.998,
+          "words": [
+            {
+              "text": "It",
+              "start": 25.118,
+              "end": 25.278,
+              "display": "It"
+            },
+            {
+              "text": "was",
+              "start": 25.278,
+              "end": 25.438,
+              "display": "was"
+            },
+            {
+              "text": "math",
+              "start": 25.438,
+              "end": 25.998,
+              "display": "math"
+            }
+          ]
+        },
+        {
+          "start": 26.638,
+          "end": 27.758,
+          "words": [
+            {
+              "text": "The",
+              "start": 26.638,
+              "end": 26.798,
+              "display": "The"
+            },
+            {
+              "text": "full",
+              "start": 26.798,
+              "end": 27.118,
+              "display": "full"
+            },
+            {
+              "text": "method",
+              "start": 27.118,
+              "end": 27.598,
+              "display": "method"
+            },
+            {
+              "text": "is",
+              "start": 27.598,
+              "end": 27.758,
+              "display": "is"
+            }
+          ]
+        },
+        {
+          "start": 27.758,
+          "end": 28.238,
+          "words": [
+            {
+              "text": "free",
+              "start": 27.758,
+              "end": 28.238,
+              "display": "free"
+            }
+          ]
+        },
+        {
+          "start": 28.878,
+          "end": 29.438,
+          "words": [
+            {
+              "text": "Ebook",
+              "start": 28.878,
+              "end": 29.438,
+              "display": "Ebook"
+            }
+          ]
+        },
+        {
+          "start": 29.838,
+          "end": 30.878,
+          "words": [
+            {
+              "text": "Link",
+              "start": 29.838,
+              "end": 30.158,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 30.158,
+              "end": 30.318,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 30.318,
+              "end": 30.878,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "bars",
+        "streaks",
+        "rings",
+        "clock",
+        "arc"
+      ]
+    },
+    {
+      "id": "ocean_identity",
+      "file": "hype_12.mp4",
+      "audio": "audio/hype_12.mp3",
+      "name": "You Become What You Repeat",
+      "theme": {
+        "bg": "#0A1626",
+        "panel": "#102036",
+        "accent": "#54C8FF",
+        "accentDeep": "#2E9BD6",
+        "ink": "#EAF4FF",
+        "inkSoft": "#7E97B5"
+      },
+      "svg": "waves",
+      "hookLines": [
+        "YOU BECOME",
+        "WHAT YOU REPEAT."
+      ],
+      "voice": "[calm] Here is what nobody tells you about change. [punchy] You do not rise to your goals. You fall to your systems, and you become what you repeat. [thoughtful] Read one page, you are a reader. Train once a week, you are training. Show up daily, you are reliable. [firm] Nobody feels the shift on day one. [intense] But three hundred votes later you are a different person, and it started with one tiny rep. [energetic] Cast the first vote today. Free ebook. Link in bio.",
+      "wordOverrides": {},
+      "hookEndSec": 2.76,
+      "ctaStartSec": 26.982,
+      "audioDurationSec": 30.354,
+      "speechEndSec": 30.222,
+      "captions": [
+        {
+          "start": 0,
+          "end": 1.28,
+          "words": [
+            {
+              "text": "Here",
+              "start": 0,
+              "end": 0.4,
+              "display": "Here"
+            },
+            {
+              "text": "is",
+              "start": 0.48,
+              "end": 0.64,
+              "display": "is"
+            },
+            {
+              "text": "what",
+              "start": 0.64,
+              "end": 0.8,
+              "display": "what"
+            },
+            {
+              "text": "nobody",
+              "start": 0.8,
+              "end": 1.28,
+              "display": "nobody"
+            }
+          ]
+        },
+        {
+          "start": 1.28,
+          "end": 2.64,
+          "words": [
+            {
+              "text": "tells",
+              "start": 1.28,
+              "end": 1.6,
+              "display": "tells"
+            },
+            {
+              "text": "you",
+              "start": 1.6,
+              "end": 1.84,
+              "display": "you"
+            },
+            {
+              "text": "about",
+              "start": 1.84,
+              "end": 2.08,
+              "display": "about"
+            },
+            {
+              "text": "change",
+              "start": 2.08,
+              "end": 2.64,
+              "display": "change"
+            }
+          ]
+        },
+        {
+          "start": 3.36,
+          "end": 4.4,
+          "words": [
+            {
+              "text": "You",
+              "start": 3.36,
+              "end": 3.52,
+              "display": "You"
+            },
+            {
+              "text": "do",
+              "start": 3.52,
+              "end": 3.68,
+              "display": "do"
+            },
+            {
+              "text": "not",
+              "start": 3.68,
+              "end": 3.92,
+              "display": "not"
+            },
+            {
+              "text": "rise",
+              "start": 3.92,
+              "end": 4.4,
+              "display": "rise"
+            }
+          ]
+        },
+        {
+          "start": 4.48,
+          "end": 5.2,
+          "words": [
+            {
+              "text": "to",
+              "start": 4.48,
+              "end": 4.48,
+              "display": "to"
+            },
+            {
+              "text": "your",
+              "start": 4.48,
+              "end": 4.64,
+              "display": "your"
+            },
+            {
+              "text": "goals",
+              "start": 4.64,
+              "end": 5.2,
+              "display": "goals"
+            }
+          ]
+        },
+        {
+          "start": 5.76,
+          "end": 6.56,
+          "words": [
+            {
+              "text": "You",
+              "start": 5.76,
+              "end": 5.92,
+              "display": "You"
+            },
+            {
+              "text": "fall",
+              "start": 5.92,
+              "end": 6.32,
+              "display": "fall"
+            },
+            {
+              "text": "to",
+              "start": 6.4,
+              "end": 6.48,
+              "display": "to"
+            },
+            {
+              "text": "your",
+              "start": 6.48,
+              "end": 6.56,
+              "display": "your"
+            }
+          ]
+        },
+        {
+          "start": 6.56,
+          "end": 8.16,
+          "words": [
+            {
+              "text": "systems",
+              "start": 6.56,
+              "end": 7.28,
+              "display": "systems"
+            },
+            {
+              "text": "and",
+              "start": 7.52,
+              "end": 7.6,
+              "display": "and"
+            },
+            {
+              "text": "you",
+              "start": 7.6,
+              "end": 7.76,
+              "display": "you"
+            },
+            {
+              "text": "become",
+              "start": 7.76,
+              "end": 8.16,
+              "display": "become"
+            }
+          ]
+        },
+        {
+          "start": 8.16,
+          "end": 9.04,
+          "words": [
+            {
+              "text": "what",
+              "start": 8.16,
+              "end": 8.32,
+              "display": "what"
+            },
+            {
+              "text": "you",
+              "start": 8.32,
+              "end": 8.48,
+              "display": "you"
+            },
+            {
+              "text": "repeat",
+              "start": 8.48,
+              "end": 9.04,
+              "display": "repeat"
+            }
+          ]
+        },
+        {
+          "start": 9.68,
+          "end": 11.28,
+          "words": [
+            {
+              "text": "Read",
+              "start": 9.68,
+              "end": 10,
+              "display": "Read"
+            },
+            {
+              "text": "one",
+              "start": 10,
+              "end": 10.32,
+              "display": "one"
+            },
+            {
+              "text": "page",
+              "start": 10.32,
+              "end": 10.8,
+              "display": "page"
+            },
+            {
+              "text": "you",
+              "start": 11.12,
+              "end": 11.28,
+              "display": "you"
+            }
+          ]
+        },
+        {
+          "start": 11.36,
+          "end": 12.48,
+          "words": [
+            {
+              "text": "are",
+              "start": 11.36,
+              "end": 11.44,
+              "display": "are"
+            },
+            {
+              "text": "a",
+              "start": 11.44,
+              "end": 11.52,
+              "display": "a"
+            },
+            {
+              "text": "reader",
+              "start": 11.52,
+              "end": 12,
+              "display": "reader"
+            },
+            {
+              "text": "Train",
+              "start": 12.08,
+              "end": 12.48,
+              "display": "Train"
+            }
+          ]
+        },
+        {
+          "start": 12.48,
+          "end": 13.68,
+          "words": [
+            {
+              "text": "once",
+              "start": 12.48,
+              "end": 12.8,
+              "display": "once"
+            },
+            {
+              "text": "a",
+              "start": 12.8,
+              "end": 12.8,
+              "display": "a"
+            },
+            {
+              "text": "week",
+              "start": 12.8,
+              "end": 13.28,
+              "display": "week"
+            },
+            {
+              "text": "you",
+              "start": 13.44,
+              "end": 13.68,
+              "display": "you"
+            }
+          ]
+        },
+        {
+          "start": 13.68,
+          "end": 14.24,
+          "words": [
+            {
+              "text": "are",
+              "start": 13.68,
+              "end": 13.76,
+              "display": "are"
+            },
+            {
+              "text": "training",
+              "start": 13.76,
+              "end": 14.24,
+              "display": "training"
+            }
+          ]
+        },
+        {
+          "start": 14.8,
+          "end": 16.32,
+          "words": [
+            {
+              "text": "Show",
+              "start": 14.8,
+              "end": 15.2,
+              "display": "Show"
+            },
+            {
+              "text": "up",
+              "start": 15.2,
+              "end": 15.36,
+              "display": "up"
+            },
+            {
+              "text": "daily",
+              "start": 15.44,
+              "end": 15.92,
+              "display": "daily"
+            },
+            {
+              "text": "you",
+              "start": 16.08,
+              "end": 16.32,
+              "display": "you"
+            }
+          ]
+        },
+        {
+          "start": 16.32,
+          "end": 17.12,
+          "words": [
+            {
+              "text": "are",
+              "start": 16.32,
+              "end": 16.32,
+              "display": "are"
+            },
+            {
+              "text": "reliable",
+              "start": 16.32,
+              "end": 17.12,
+              "display": "reliable"
+            }
+          ]
+        },
+        {
+          "start": 17.76,
+          "end": 19.12,
+          "words": [
+            {
+              "text": "Nobody",
+              "start": 17.76,
+              "end": 18.24,
+              "display": "Nobody"
+            },
+            {
+              "text": "feels",
+              "start": 18.24,
+              "end": 18.64,
+              "display": "feels"
+            },
+            {
+              "text": "the",
+              "start": 18.64,
+              "end": 18.72,
+              "display": "the"
+            },
+            {
+              "text": "shift",
+              "start": 18.72,
+              "end": 19.12,
+              "display": "shift"
+            }
+          ]
+        },
+        {
+          "start": 19.12,
+          "end": 19.92,
+          "words": [
+            {
+              "text": "on",
+              "start": 19.12,
+              "end": 19.36,
+              "display": "on"
+            },
+            {
+              "text": "day",
+              "start": 19.36,
+              "end": 19.52,
+              "display": "day"
+            },
+            {
+              "text": "one",
+              "start": 19.52,
+              "end": 19.92,
+              "display": "one"
+            }
+          ]
+        },
+        {
+          "start": 20.302,
+          "end": 21.422,
+          "words": [
+            {
+              "text": "But",
+              "start": 20.302,
+              "end": 20.462,
+              "display": "But"
+            },
+            {
+              "text": "three",
+              "start": 20.462,
+              "end": 20.702,
+              "display": "three"
+            },
+            {
+              "text": "hundred",
+              "start": 20.702,
+              "end": 21.102,
+              "display": "hundred"
+            },
+            {
+              "text": "votes",
+              "start": 21.102,
+              "end": 21.422,
+              "display": "votes"
+            }
+          ]
+        },
+        {
+          "start": 21.422,
+          "end": 22.222,
+          "words": [
+            {
+              "text": "later",
+              "start": 21.422,
+              "end": 21.822,
+              "display": "later"
+            },
+            {
+              "text": "you",
+              "start": 21.822,
+              "end": 22.062,
+              "display": "you"
+            },
+            {
+              "text": "are",
+              "start": 22.062,
+              "end": 22.142,
+              "display": "are"
+            },
+            {
+              "text": "a",
+              "start": 22.142,
+              "end": 22.222,
+              "display": "a"
+            }
+          ]
+        },
+        {
+          "start": 22.222,
+          "end": 23.022,
+          "words": [
+            {
+              "text": "different",
+              "start": 22.222,
+              "end": 22.622,
+              "display": "different"
+            },
+            {
+              "text": "person",
+              "start": 22.622,
+              "end": 23.022,
+              "display": "person"
+            }
+          ]
+        },
+        {
+          "start": 23.502,
+          "end": 24.382,
+          "words": [
+            {
+              "text": "and",
+              "start": 23.502,
+              "end": 23.662,
+              "display": "and"
+            },
+            {
+              "text": "it",
+              "start": 23.662,
+              "end": 23.742,
+              "display": "it"
+            },
+            {
+              "text": "started",
+              "start": 23.742,
+              "end": 24.222,
+              "display": "started"
+            },
+            {
+              "text": "with",
+              "start": 24.222,
+              "end": 24.382,
+              "display": "with"
+            }
+          ]
+        },
+        {
+          "start": 24.382,
+          "end": 25.502,
+          "words": [
+            {
+              "text": "one",
+              "start": 24.382,
+              "end": 24.782,
+              "display": "one"
+            },
+            {
+              "text": "tiny",
+              "start": 24.782,
+              "end": 25.182,
+              "display": "tiny"
+            },
+            {
+              "text": "rep",
+              "start": 25.182,
+              "end": 25.502,
+              "display": "rep"
+            }
+          ]
+        },
+        {
+          "start": 26.062,
+          "end": 27.182,
+          "words": [
+            {
+              "text": "Cast",
+              "start": 26.062,
+              "end": 26.462,
+              "display": "Cast"
+            },
+            {
+              "text": "the",
+              "start": 26.462,
+              "end": 26.542,
+              "display": "the"
+            },
+            {
+              "text": "first",
+              "start": 26.542,
+              "end": 26.942,
+              "display": "first"
+            },
+            {
+              "text": "vote",
+              "start": 26.942,
+              "end": 27.182,
+              "display": "vote"
+            }
+          ]
+        },
+        {
+          "start": 27.182,
+          "end": 29.502,
+          "words": [
+            {
+              "text": "today",
+              "start": 27.182,
+              "end": 27.742,
+              "display": "today"
+            },
+            {
+              "text": "Free",
+              "start": 27.982,
+              "end": 28.382,
+              "display": "Free"
+            },
+            {
+              "text": "ebook",
+              "start": 28.382,
+              "end": 28.942,
+              "display": "ebook"
+            },
+            {
+              "text": "Link",
+              "start": 29.182,
+              "end": 29.502,
+              "display": "Link"
+            }
+          ]
+        },
+        {
+          "start": 29.502,
+          "end": 30.222,
+          "words": [
+            {
+              "text": "in",
+              "start": 29.502,
+              "end": 29.662,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 29.662,
+              "end": 30.222,
+              "display": "bio"
+            }
+          ]
+        }
+      ],
+      "bgSeq": [
+        "waves",
+        "dots",
+        "chain",
+        "rings",
+        "arc"
+      ]
+    },
+    {
+      "id": "ash_decay",
+      "file": "hype_13.mp4",
+      "audio": "audio/hype_13.mp3",
+      "name": "The 0.99 Trap",
+      "theme": {
+        "bg": "#141117",
+        "panel": "#1D1A22",
+        "accent": "#FF5A48",
+        "accentDeep": "#C94036",
+        "ink": "#F2EFE9",
+        "inkSoft": "#A09CA8"
+      },
+      "svg": "streaks",
+      "hookLines": [
+        "1% WORSE DAILY",
+        "= \u00d70.03"
+      ],
+      "voice": "[intense] One percent worse, every day, for one year. [punchy] Not one percent weaker. Ninety-seven percent gone. [energetic] Reverse the slide. Free ebook. Link in bio.",
+      "wordOverrides": {},
+      "bgSeq": [
+        "streaks",
+        "waves",
+        "clock"
+      ],
+      "hookEndSec": 3.4,
+      "ctaStartSec": 9.4,
+      "audioDurationSec": 12.042,
+      "speechEndSec": 11.92,
+      "captions": [
+        {
+          "start": 0,
+          "end": 1.84,
+          "words": [
+            {
+              "text": "One",
+              "start": 0,
+              "end": 0.32,
+              "display": "One"
+            },
+            {
+              "text": "percent",
+              "start": 0.32,
+              "end": 0.8,
+              "display": "percent"
+            },
+            {
+              "text": "worse",
+              "start": 0.8,
+              "end": 1.28,
+              "display": "worse"
+            },
+            {
+              "text": "every",
+              "start": 1.44,
+              "end": 1.84,
+              "display": "every"
+            }
+          ]
+        },
+        {
+          "start": 1.84,
+          "end": 3.44,
+          "words": [
+            {
+              "text": "day",
+              "start": 1.84,
+              "end": 2.24,
+              "display": "day"
+            },
+            {
+              "text": "for",
+              "start": 2.48,
+              "end": 2.64,
+              "display": "for"
+            },
+            {
+              "text": "one",
+              "start": 2.64,
+              "end": 2.96,
+              "display": "one"
+            },
+            {
+              "text": "year",
+              "start": 2.96,
+              "end": 3.44,
+              "display": "year"
+            }
+          ]
+        },
+        {
+          "start": 4,
+          "end": 5.68,
+          "words": [
+            {
+              "text": "Not",
+              "start": 4,
+              "end": 4.32,
+              "display": "Not"
+            },
+            {
+              "text": "one",
+              "start": 4.32,
+              "end": 4.72,
+              "display": "one"
+            },
+            {
+              "text": "percent",
+              "start": 4.72,
+              "end": 5.2,
+              "display": "percent"
+            },
+            {
+              "text": "weaker",
+              "start": 5.2,
+              "end": 5.68,
+              "display": "weaker"
+            }
+          ]
+        },
+        {
+          "start": 6.24,
+          "end": 7.92,
+          "words": [
+            {
+              "text": "Ninety",
+              "start": 6.24,
+              "end": 6.64,
+              "display": "Ninety"
+            },
+            {
+              "text": "seven",
+              "start": 6.64,
+              "end": 7.04,
+              "display": "seven"
+            },
+            {
+              "text": "percent",
+              "start": 7.04,
+              "end": 7.52,
+              "display": "percent"
+            },
+            {
+              "text": "gone",
+              "start": 7.52,
+              "end": 7.92,
+              "display": "gone"
+            }
+          ]
+        },
+        {
+          "start": 8.08,
+          "end": 9.12,
+          "words": [
+            {
+              "text": "Reverse",
+              "start": 8.08,
+              "end": 8.48,
+              "display": "Reverse"
+            },
+            {
+              "text": "the",
+              "start": 8.48,
+              "end": 8.64,
+              "display": "the"
+            },
+            {
+              "text": "slide",
+              "start": 8.64,
+              "end": 9.12,
+              "display": "slide"
+            }
+          ]
+        },
+        {
+          "start": 9.6,
+          "end": 10.56,
+          "words": [
+            {
+              "text": "Free",
+              "start": 9.6,
+              "end": 10.16,
+              "display": "Free"
+            },
+            {
+              "text": "ebook",
+              "start": 10.16,
+              "end": 10.56,
+              "display": "ebook"
+            }
+          ]
+        },
+        {
+          "start": 10.88,
+          "end": 11.92,
+          "words": [
+            {
+              "text": "Link",
+              "start": 10.88,
+              "end": 11.2,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 11.2,
+              "end": 11.36,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 11.36,
+              "end": 11.92,
+              "display": "bio"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teal_stack",
+      "file": "hype_14.mp4",
+      "audio": "audio/hype_14.mp3",
+      "name": "Habit Stacking",
+      "theme": {
+        "bg": "#07161A",
+        "panel": "#0D2228",
+        "accent": "#2DD4BF",
+        "accentDeep": "#14A08E",
+        "ink": "#EAF7F4",
+        "inkSoft": "#8FB8B0"
+      },
+      "svg": "bars",
+      "hookLines": [
+        "AFTER COFFEE,",
+        "READ 1 PAGE."
+      ],
+      "voice": "[calm] After I pour my morning coffee, I read one page. [punchy] Old habit. New habit. One stack. [energetic] Build your stack. Free ebook. Link in bio.",
+      "wordOverrides": {},
+      "bgSeq": [
+        "bars",
+        "checks",
+        "arc"
+      ],
+      "hookEndSec": 2.2,
+      "ctaStartSec": 9.64,
+      "audioDurationSec": 12.46,
+      "speechEndSec": 12.32,
+      "captions": [
+        {
+          "start": 0,
+          "end": 0.88,
+          "words": [
+            {
+              "text": "After",
+              "start": 0,
+              "end": 0.32,
+              "display": "After"
+            },
+            {
+              "text": "I",
+              "start": 0.32,
+              "end": 0.48,
+              "display": "I"
+            },
+            {
+              "text": "pour",
+              "start": 0.48,
+              "end": 0.72,
+              "display": "pour"
+            },
+            {
+              "text": "my",
+              "start": 0.72,
+              "end": 0.88,
+              "display": "my"
+            }
+          ]
+        },
+        {
+          "start": 0.88,
+          "end": 1.76,
+          "words": [
+            {
+              "text": "morning",
+              "start": 0.88,
+              "end": 1.28,
+              "display": "morning"
+            },
+            {
+              "text": "coffee",
+              "start": 1.28,
+              "end": 1.76,
+              "display": "coffee"
+            }
+          ]
+        },
+        {
+          "start": 2.48,
+          "end": 3.68,
+          "words": [
+            {
+              "text": "I",
+              "start": 2.48,
+              "end": 2.64,
+              "display": "I"
+            },
+            {
+              "text": "read",
+              "start": 2.64,
+              "end": 2.88,
+              "display": "read"
+            },
+            {
+              "text": "one",
+              "start": 2.88,
+              "end": 3.2,
+              "display": "one"
+            },
+            {
+              "text": "page",
+              "start": 3.2,
+              "end": 3.68,
+              "display": "page"
+            }
+          ]
+        },
+        {
+          "start": 4.4,
+          "end": 5.12,
+          "words": [
+            {
+              "text": "Old",
+              "start": 4.4,
+              "end": 4.64,
+              "display": "Old"
+            },
+            {
+              "text": "habit",
+              "start": 4.64,
+              "end": 5.12,
+              "display": "habit"
+            }
+          ]
+        },
+        {
+          "start": 5.84,
+          "end": 6.48,
+          "words": [
+            {
+              "text": "New",
+              "start": 5.84,
+              "end": 6.08,
+              "display": "New"
+            },
+            {
+              "text": "habit",
+              "start": 6.08,
+              "end": 6.48,
+              "display": "habit"
+            }
+          ]
+        },
+        {
+          "start": 7.04,
+          "end": 7.92,
+          "words": [
+            {
+              "text": "One",
+              "start": 7.04,
+              "end": 7.36,
+              "display": "One"
+            },
+            {
+              "text": "stack",
+              "start": 7.36,
+              "end": 7.92,
+              "display": "stack"
+            }
+          ]
+        },
+        {
+          "start": 8.48,
+          "end": 9.44,
+          "words": [
+            {
+              "text": "Build",
+              "start": 8.48,
+              "end": 8.72,
+              "display": "Build"
+            },
+            {
+              "text": "your",
+              "start": 8.72,
+              "end": 8.88,
+              "display": "your"
+            },
+            {
+              "text": "stack",
+              "start": 8.88,
+              "end": 9.44,
+              "display": "stack"
+            }
+          ]
+        },
+        {
+          "start": 9.84,
+          "end": 10.8,
+          "words": [
+            {
+              "text": "Free",
+              "start": 9.84,
+              "end": 10.24,
+              "display": "Free"
+            },
+            {
+              "text": "ebook",
+              "start": 10.24,
+              "end": 10.8,
+              "display": "ebook"
+            }
+          ]
+        },
+        {
+          "start": 11.36,
+          "end": 12.32,
+          "words": [
+            {
+              "text": "Link",
+              "start": 11.36,
+              "end": 11.6,
+              "display": "Link"
+            },
+            {
+              "text": "in",
+              "start": 11.6,
+              "end": 11.76,
+              "display": "in"
+            },
+            {
+              "text": "bio",
+              "start": 11.76,
+              "end": 12.32,
+              "display": "bio"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,927 @@
+{
+  "brand": {
+    "handle": "@self_efficient_daily",
+    "ebookTitle": "THE 1% METHOD",
+    "ebookSub": "The 18-page pocket guide to compound growth"
+  },
+  "reels": [
+    {
+      "id": "fast_37x",
+      "file": "fast_01.mp4",
+      "audio": "audio/fast_01.wav",
+      "name": "The 37× Machine",
+      "handle": "@self_efficient_daily",
+      "durationSec": 22.803,
+      "speechEndSec": 21.553,
+      "ctaStartSec": 16.761,
+      "audioDurationSec": 21.669,
+      "palette": [
+        {
+          "bg": "#111114",
+          "ink": "#FFE600",
+          "accent": "#FF4B3E"
+        },
+        {
+          "bg": "#FFE600",
+          "ink": "#141414",
+          "accent": "#111114"
+        },
+        {
+          "bg": "#FF4B3E",
+          "ink": "#FFFFFF",
+          "accent": "#141414"
+        },
+        {
+          "bg": "#00E5C7",
+          "ink": "#0A1A18",
+          "accent": "#111114"
+        }
+      ],
+      "ctaStyle": {
+        "bg": "#0E0D0B",
+        "ink": "#FAF6EF",
+        "accent": "#C9A227"
+      },
+      "ctaLines": [
+        "FREE EBOOK · THE 1% METHOD",
+        "LINK IN BIO ↓"
+      ],
+      "ebookTitle": "THE 1% METHOD",
+      "ebookSub": "The 18-page pocket guide to compound growth",
+      "scenes": [
+        {
+          "segIdx": 0,
+          "start": 0,
+          "end": 0.525,
+          "big": "STOP.",
+          "style": {
+            "bg": "#111114",
+            "ink": "#FFE600",
+            "accent": "#FF4B3E"
+          },
+          "element": "warn",
+          "layout": "punch",
+          "flash": true
+        },
+        {
+          "segIdx": 0,
+          "start": 0.613,
+          "end": 1.149,
+          "big": "SCROLLING.",
+          "style": {
+            "bg": "#FFE600",
+            "ink": "#141414",
+            "accent": "#111114"
+          },
+          "element": "cross",
+          "layout": "slideL",
+          "flash": true
+        },
+        {
+          "segIdx": 0,
+          "start": 1.184,
+          "end": 1.626,
+          "big": "LISTEN UP!",
+          "style": {
+            "bg": "#FF4B3E",
+            "ink": "#FFFFFF",
+            "accent": "#141414"
+          },
+          "element": "chevrons",
+          "layout": "stamp",
+          "flash": true
+        },
+        {
+          "segIdx": 1,
+          "start": 1.757,
+          "end": 2.79,
+          "big": "MOTIVATION ISN'T DEAD.",
+          "style": {
+            "bg": "#00E5C7",
+            "ink": "#0A1A18",
+            "accent": "#111114"
+          },
+          "element": "burst",
+          "layout": "slideR",
+          "flash": true
+        },
+        {
+          "segIdx": 1,
+          "start": 2.878,
+          "end": 3.688,
+          "big": "YOUR SYSTEM IS.",
+          "style": {
+            "bg": "#111114",
+            "ink": "#FFE600",
+            "accent": "#FF4B3E"
+          },
+          "element": "stack",
+          "layout": "rise",
+          "flash": true
+        },
+        {
+          "segIdx": 2,
+          "start": 3.759,
+          "end": 4.158,
+          "big": "FIX IT.",
+          "style": {
+            "bg": "#FFE600",
+            "ink": "#141414",
+            "accent": "#111114"
+          },
+          "element": "rocket",
+          "layout": "punch",
+          "flash": true
+        },
+        {
+          "segIdx": 2,
+          "start": 4.198,
+          "end": 4.844,
+          "big": "WAKE UP EARLY.",
+          "style": {
+            "bg": "#FF4B3E",
+            "ink": "#FFFFFF",
+            "accent": "#141414"
+          },
+          "element": "slash",
+          "layout": "slideL",
+          "flash": true
+        },
+        {
+          "segIdx": 3,
+          "start": 4.911,
+          "end": 5.62,
+          "big": "MOVE YOUR BODY.",
+          "style": {
+            "bg": "#00E5C7",
+            "ink": "#0A1A18",
+            "accent": "#111114"
+          },
+          "element": "meter",
+          "layout": "stamp",
+          "flash": true
+        },
+        {
+          "segIdx": 3,
+          "start": 5.651,
+          "end": 6.471,
+          "big": "READ ONE PAGE.",
+          "style": {
+            "bg": "#111114",
+            "ink": "#FFE600",
+            "accent": "#FF4B3E"
+          },
+          "element": "bolt",
+          "layout": "slideR",
+          "flash": true
+        },
+        {
+          "segIdx": 4,
+          "start": 6.537,
+          "end": 7.249,
+          "big": "TINY WINS.",
+          "style": {
+            "bg": "#FFE600",
+            "ink": "#141414",
+            "accent": "#111114"
+          },
+          "element": "target",
+          "layout": "rise",
+          "flash": true
+        },
+        {
+          "segIdx": 4,
+          "start": 7.331,
+          "end": 8.057,
+          "big": "STACKED DAILY.",
+          "style": {
+            "bg": "#FF4B3E",
+            "ink": "#FFFFFF",
+            "accent": "#141414"
+          },
+          "element": "warn",
+          "layout": "punch",
+          "flash": true
+        },
+        {
+          "segIdx": 4,
+          "start": 8.076,
+          "end": 8.952,
+          "big": "THAT'S THE GAME.",
+          "style": {
+            "bg": "#00E5C7",
+            "ink": "#0A1A18",
+            "accent": "#111114"
+          },
+          "element": "cross",
+          "layout": "slideL",
+          "flash": true
+        },
+        {
+          "segIdx": 5,
+          "start": 8.987,
+          "end": 9.833,
+          "big": "1% BETTER,",
+          "style": {
+            "bg": "#111114",
+            "ink": "#FFE600",
+            "accent": "#FF4B3E"
+          },
+          "element": "chevrons",
+          "layout": "stamp",
+          "flash": true
+        },
+        {
+          "segIdx": 5,
+          "start": 9.908,
+          "end": 10.763,
+          "big": "EVERY DAY.",
+          "style": {
+            "bg": "#FFE600",
+            "ink": "#141414",
+            "accent": "#111114"
+          },
+          "element": "burst",
+          "layout": "slideR",
+          "flash": true
+        },
+        {
+          "segIdx": 6,
+          "start": 10.847,
+          "end": 12.317,
+          "big": "= 37×",
+          "style": {
+            "bg": "#FF4B3E",
+            "ink": "#FFFFFF",
+            "accent": "#141414"
+          },
+          "element": "stack",
+          "layout": "rise",
+          "flash": true
+        },
+        {
+          "segIdx": 6,
+          "start": 12.317,
+          "end": 13.104,
+          "big": "IN ONE YEAR.",
+          "style": {
+            "bg": "#00E5C7",
+            "ink": "#0A1A18",
+            "accent": "#111114"
+          },
+          "element": "rocket",
+          "layout": "punch",
+          "flash": true
+        },
+        {
+          "segIdx": 7,
+          "start": 13.147,
+          "end": 13.75,
+          "big": "NO HACKS.",
+          "style": {
+            "bg": "#111114",
+            "ink": "#FFE600",
+            "accent": "#FF4B3E"
+          },
+          "element": "slash",
+          "layout": "slideL",
+          "flash": true
+        },
+        {
+          "segIdx": 7,
+          "start": 13.836,
+          "end": 14.622,
+          "big": "NO SHORTCUTS.",
+          "style": {
+            "bg": "#FFE600",
+            "ink": "#141414",
+            "accent": "#111114"
+          },
+          "element": "meter",
+          "layout": "stamp",
+          "flash": true
+        },
+        {
+          "segIdx": 8,
+          "start": 14.696,
+          "end": 15.369,
+          "big": "BRUTAL.",
+          "style": {
+            "bg": "#FF4B3E",
+            "ink": "#FFFFFF",
+            "accent": "#141414"
+          },
+          "element": "bolt",
+          "layout": "slideR",
+          "flash": true
+        },
+        {
+          "segIdx": 8,
+          "start": 15.376,
+          "end": 15.685,
+          "big": "BORING.",
+          "style": {
+            "bg": "#00E5C7",
+            "ink": "#0A1A18",
+            "accent": "#111114"
+          },
+          "element": "target",
+          "layout": "rise",
+          "flash": true
+        },
+        {
+          "segIdx": 8,
+          "start": 15.685,
+          "end": 16.799,
+          "big": "CONSISTENCY.",
+          "style": {
+            "bg": "#111114",
+            "ink": "#FFE600",
+            "accent": "#FF4B3E"
+          },
+          "element": "warn",
+          "layout": "punch",
+          "flash": true
+        }
+      ],
+      "captions": [
+        {
+          "start": 0,
+          "end": 0.525,
+          "words": [
+            {
+              "text": "Stop",
+              "display": "Stop",
+              "start": 0,
+              "end": 0.525
+            }
+          ]
+        },
+        {
+          "start": 0.613,
+          "end": 1.149,
+          "words": [
+            {
+              "text": "Scrolling",
+              "display": "Scrolling",
+              "start": 0.613,
+              "end": 1.149
+            }
+          ]
+        },
+        {
+          "start": 1.184,
+          "end": 1.626,
+          "words": [
+            {
+              "text": "Listen",
+              "display": "Listen",
+              "start": 1.184,
+              "end": 1.429
+            },
+            {
+              "text": "up",
+              "display": "up",
+              "start": 1.429,
+              "end": 1.626
+            }
+          ]
+        },
+        {
+          "start": 1.757,
+          "end": 2.79,
+          "words": [
+            {
+              "text": "Motivation",
+              "display": "Motivation",
+              "start": 1.757,
+              "end": 2.265
+            },
+            {
+              "text": "isn't",
+              "display": "isn't",
+              "start": 2.265,
+              "end": 2.331
+            },
+            {
+              "text": "dead",
+              "display": "dead",
+              "start": 2.331,
+              "end": 2.79
+            }
+          ]
+        },
+        {
+          "start": 2.878,
+          "end": 3.688,
+          "words": [
+            {
+              "text": "Your",
+              "display": "Your",
+              "start": 2.878,
+              "end": 2.967
+            },
+            {
+              "text": "system",
+              "display": "system",
+              "start": 2.967,
+              "end": 3.426
+            },
+            {
+              "text": "is",
+              "display": "is",
+              "start": 3.426,
+              "end": 3.688
+            }
+          ]
+        },
+        {
+          "start": 3.759,
+          "end": 4.158,
+          "words": [
+            {
+              "text": "Fix",
+              "display": "Fix",
+              "start": 3.759,
+              "end": 4.027
+            },
+            {
+              "text": "it",
+              "display": "it",
+              "start": 4.027,
+              "end": 4.158
+            }
+          ]
+        },
+        {
+          "start": 4.198,
+          "end": 4.844,
+          "words": [
+            {
+              "text": "Wake",
+              "display": "Wake",
+              "start": 4.198,
+              "end": 4.385
+            },
+            {
+              "text": "up",
+              "display": "up",
+              "start": 4.385,
+              "end": 4.516
+            },
+            {
+              "text": "early",
+              "display": "early",
+              "start": 4.516,
+              "end": 4.844
+            }
+          ]
+        },
+        {
+          "start": 4.911,
+          "end": 5.62,
+          "words": [
+            {
+              "text": "Move",
+              "display": "Move",
+              "start": 4.911,
+              "end": 5.095
+            },
+            {
+              "text": "your",
+              "display": "your",
+              "start": 5.095,
+              "end": 5.227
+            },
+            {
+              "text": "body",
+              "display": "body",
+              "start": 5.227,
+              "end": 5.62
+            }
+          ]
+        },
+        {
+          "start": 5.651,
+          "end": 6.471,
+          "words": [
+            {
+              "text": "Read",
+              "display": "Read",
+              "start": 5.651,
+              "end": 5.815
+            },
+            {
+              "text": "one",
+              "display": "one",
+              "start": 5.815,
+              "end": 6.012
+            },
+            {
+              "text": "page",
+              "display": "page",
+              "start": 6.012,
+              "end": 6.471
+            }
+          ]
+        },
+        {
+          "start": 6.537,
+          "end": 7.249,
+          "words": [
+            {
+              "text": "Tiny",
+              "display": "Tiny",
+              "start": 6.537,
+              "end": 6.79
+            },
+            {
+              "text": "wins",
+              "display": "wins",
+              "start": 6.79,
+              "end": 7.249
+            }
+          ]
+        },
+        {
+          "start": 7.331,
+          "end": 8.057,
+          "words": [
+            {
+              "text": "stacked",
+              "display": "stacked",
+              "start": 7.331,
+              "end": 7.713
+            },
+            {
+              "text": "daily",
+              "display": "daily",
+              "start": 7.713,
+              "end": 8.057
+            }
+          ]
+        },
+        {
+          "start": 8.076,
+          "end": 8.952,
+          "words": [
+            {
+              "text": "That's",
+              "display": "That's",
+              "start": 8.076,
+              "end": 8.296
+            },
+            {
+              "text": "the",
+              "display": "the",
+              "start": 8.296,
+              "end": 8.361
+            },
+            {
+              "text": "whole",
+              "display": "whole",
+              "start": 8.361,
+              "end": 8.558
+            },
+            {
+              "text": "game",
+              "display": "game",
+              "start": 8.558,
+              "end": 8.952
+            }
+          ]
+        },
+        {
+          "start": 8.987,
+          "end": 9.833,
+          "words": [
+            {
+              "text": "One",
+              "display": "One",
+              "start": 8.987,
+              "end": 9.177
+            },
+            {
+              "text": "percent",
+              "display": "percent",
+              "start": 9.177,
+              "end": 9.505
+            },
+            {
+              "text": "better",
+              "display": "better",
+              "start": 9.505,
+              "end": 9.833
+            }
+          ]
+        },
+        {
+          "start": 9.908,
+          "end": 10.763,
+          "words": [
+            {
+              "text": "every",
+              "display": "every",
+              "start": 9.908,
+              "end": 10.108
+            },
+            {
+              "text": "single",
+              "display": "single",
+              "start": 10.108,
+              "end": 10.436
+            },
+            {
+              "text": "day",
+              "display": "day",
+              "start": 10.436,
+              "end": 10.763
+            }
+          ]
+        },
+        {
+          "start": 10.847,
+          "end": 12.317,
+          "words": [
+            {
+              "text": "means",
+              "display": "means",
+              "start": 10.847,
+              "end": 11.072
+            },
+            {
+              "text": "thirty-seven",
+              "display": "thirty-seven",
+              "start": 11.072,
+              "end": 11.662
+            },
+            {
+              "text": "times",
+              "display": "times",
+              "start": 11.662,
+              "end": 11.99
+            },
+            {
+              "text": "better",
+              "display": "better",
+              "start": 11.99,
+              "end": 12.317
+            }
+          ]
+        },
+        {
+          "start": 12.317,
+          "end": 13.104,
+          "words": [
+            {
+              "text": "in",
+              "display": "in",
+              "start": 12.317,
+              "end": 12.514
+            },
+            {
+              "text": "one",
+              "display": "one",
+              "start": 12.514,
+              "end": 12.711
+            },
+            {
+              "text": "year",
+              "display": "year",
+              "start": 12.711,
+              "end": 13.104
+            }
+          ]
+        },
+        {
+          "start": 13.147,
+          "end": 13.75,
+          "words": [
+            {
+              "text": "No",
+              "display": "No",
+              "start": 13.147,
+              "end": 13.291
+            },
+            {
+              "text": "hacks",
+              "display": "hacks",
+              "start": 13.291,
+              "end": 13.75
+            }
+          ]
+        },
+        {
+          "start": 13.836,
+          "end": 14.622,
+          "words": [
+            {
+              "text": "No",
+              "display": "No",
+              "start": 13.836,
+              "end": 13.966
+            },
+            {
+              "text": "shortcuts",
+              "display": "shortcuts",
+              "start": 13.966,
+              "end": 14.622
+            }
+          ]
+        },
+        {
+          "start": 14.696,
+          "end": 15.369,
+          "words": [
+            {
+              "text": "Just",
+              "display": "Just",
+              "start": 14.696,
+              "end": 14.845
+            },
+            {
+              "text": "brutal",
+              "display": "brutal",
+              "start": 14.845,
+              "end": 15.369
+            }
+          ]
+        },
+        {
+          "start": 15.376,
+          "end": 15.685,
+          "words": [
+            {
+              "text": "boring",
+              "display": "boring",
+              "start": 15.376,
+              "end": 15.685
+            }
+          ]
+        },
+        {
+          "start": 15.685,
+          "end": 16.799,
+          "words": [
+            {
+              "text": "beautiful",
+              "display": "beautiful",
+              "start": 15.685,
+              "end": 16.078
+            },
+            {
+              "text": "consistency",
+              "display": "consistency",
+              "start": 16.078,
+              "end": 16.799
+            }
+          ]
+        },
+        {
+          "start": 16.881,
+          "end": 17.867,
+          "words": [
+            {
+              "text": "The",
+              "display": "The",
+              "start": 16.881,
+              "end": 16.937
+            },
+            {
+              "text": "entire",
+              "display": "entire",
+              "start": 16.937,
+              "end": 17.33
+            },
+            {
+              "text": "method",
+              "display": "method",
+              "start": 17.33,
+              "end": 17.724
+            },
+            {
+              "text": "is",
+              "display": "is",
+              "start": 17.789,
+              "end": 17.867
+            }
+          ]
+        },
+        {
+          "start": 17.867,
+          "end": 19.002,
+          "words": [
+            {
+              "text": "a",
+              "display": "a",
+              "start": 17.867,
+              "end": 17.933
+            },
+            {
+              "text": "free",
+              "display": "free",
+              "start": 17.933,
+              "end": 18.195
+            },
+            {
+              "text": "ebook",
+              "display": "ebook",
+              "start": 18.392,
+              "end": 18.654
+            },
+            {
+              "text": "sitting",
+              "display": "sitting",
+              "start": 18.741,
+              "end": 19.002
+            }
+          ]
+        },
+        {
+          "start": 19.002,
+          "end": 19.657,
+          "words": [
+            {
+              "text": "in",
+              "display": "in",
+              "start": 19.002,
+              "end": 19.067
+            },
+            {
+              "text": "my",
+              "display": "my",
+              "start": 19.067,
+              "end": 19.198
+            },
+            {
+              "text": "bio",
+              "display": "bio",
+              "start": 19.198,
+              "end": 19.657
+            }
+          ]
+        },
+        {
+          "start": 19.737,
+          "end": 20.472,
+          "words": [
+            {
+              "text": "go",
+              "display": "go",
+              "start": 19.737,
+              "end": 19.816
+            },
+            {
+              "text": "take",
+              "display": "take",
+              "start": 19.816,
+              "end": 20.079
+            },
+            {
+              "text": "it",
+              "display": "it",
+              "start": 20.079,
+              "end": 20.21
+            },
+            {
+              "text": "before",
+              "display": "before",
+              "start": 20.21,
+              "end": 20.472
+            }
+          ]
+        },
+        {
+          "start": 20.472,
+          "end": 21.553,
+          "words": [
+            {
+              "text": "you",
+              "display": "you",
+              "start": 20.472,
+              "end": 20.603
+            },
+            {
+              "text": "waste",
+              "display": "waste",
+              "start": 20.603,
+              "end": 20.866
+            },
+            {
+              "text": "another",
+              "display": "another",
+              "start": 20.866,
+              "end": 21.128
+            },
+            {
+              "text": "year",
+              "display": "year",
+              "start": 21.128,
+              "end": 21.553
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

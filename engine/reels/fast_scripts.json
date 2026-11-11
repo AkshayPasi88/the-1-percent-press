@@ -1,0 +1,43 @@
+{
+  "voice": {
+    "reference_id": "bf322df2096a46f18c579d0baa36f41d",
+    "model": "s2.1-pro-free",
+    "format": "mp3",
+    "prosody": { "rate": 1.2 }
+  },
+  "brand": {
+    "handle": "@self_efficient_daily",
+    "ebookTitle": "THE 1% METHOD",
+    "ebookSub": "The 18-page pocket guide to compound growth"
+  },
+  "elements": ["warn", "cross", "chevrons", "burst", "stack", "rocket", "slash", "meter", "bolt", "target"],
+  "reels": [
+    {
+      "id": "fast_37x",
+      "file": "fast_01.mp4",
+      "audio": "audio/fast_01.wav",
+      "name": "The 37× Machine",
+      "palette": [
+        { "bg": "#111114", "ink": "#FFE600", "accent": "#FF4B3E" },
+        { "bg": "#FFE600", "ink": "#141414", "accent": "#111114" },
+        { "bg": "#FF4B3E", "ink": "#FFFFFF", "accent": "#141414" },
+        { "bg": "#00E5C7", "ink": "#0A1A18", "accent": "#111114" }
+      ],
+      "ctaStyle": { "bg": "#0E0D0B", "ink": "#FAF6EF", "accent": "#C9A227" },
+      "ctaLines": ["FREE EBOOK · THE 1% METHOD", "LINK IN BIO ↓"],
+      "segments": [
+        { "voice": "[intense] Stop. Scrolling. Listen up!", "big": ["STOP.", "SCROLLING.", "LISTEN UP!"] },
+        { "voice": "Motivation isn't dead. Your system is.", "big": ["MOTIVATION ISN'T DEAD.", "YOUR SYSTEM IS."] },
+        { "voice": "Fix it. Wake up early.", "big": ["FIX IT.", "WAKE UP EARLY."] },
+        { "voice": "Move your body. Read one page.", "big": ["MOVE YOUR BODY.", "READ ONE PAGE."] },
+        { "voice": "Tiny wins, stacked daily. That's the whole game!", "big": ["TINY WINS.", "STACKED DAILY.", "THAT'S THE GAME."] },
+        { "voice": "One percent better, every single day,", "big": ["1% BETTER,", "EVERY DAY."] },
+        { "voice": "means thirty-seven times better in one year!", "big": ["= 37×", "IN ONE YEAR."] },
+        { "voice": "No hacks. No shortcuts.", "big": ["NO HACKS.", "NO SHORTCUTS."] },
+        { "voice": "Just brutal, boring, beautiful consistency.", "big": ["BRUTAL.", "BORING.", "CONSISTENCY."] },
+        { "voice": "[punchy] The entire method is a free ebook sitting in my bio —", "cta": true },
+        { "voice": "go take it before you waste another year!", "cta": true }
+      ]
+    }
+  ]
+}

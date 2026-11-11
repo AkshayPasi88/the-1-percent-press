@@ -5,6 +5,8 @@ import {
 } from "remotion";
 import { FONT_FACES, useBrandFonts } from "../theme";
 import { Background, Grain, Vignette, Theme } from "./HypeBackgrounds";
+import { CentreStage, Visuals, hexLerp, luminance, beatPulse } from "./CentreStage";
+import { ParallaxLayer as BgParallax, trackingReveal as hookTracking } from "./motion";
 
 export interface HypeWord { text: string; start: number; end: number; display: string; }
 export interface HypeGroup { start: number; end: number; words: HypeWord[]; }
@@ -13,9 +15,16 @@ export interface HypeReelData {
   theme: Theme; svg: string; hookLines: string[];
   hookEndSec: number; ctaStartSec: number; audioDurationSec: number; speechEndSec: number;
   captions: HypeGroup[];
+  bgSeq?: string[]; // background variant rotation: [hook, ...body slots, cta]
 }
 export interface HypeBrand { handle: string; ebookTitle: string; ebookSub: string; cta: string; }
-export interface HypeProps { reel: HypeReelData; brand: HypeBrand; }
+export interface HypeProps { reel: HypeReelData; brand: HypeBrand; visuals?: Visuals | null; }
+
+/** All available animated background variants. */
+const ALL_VARIANTS = ["bars", "chain", "streaks", "bolt", "waves", "checks", "rings", "clock", "dots", "arc"];
+
+/** Crossfade duration between consecutive background variants (seconds). */
+const BG_CROSSFADE = 0.6;
 
 /** Find the caption group that should be on screen at time t (seconds). */
 const groupAt = (groups: HypeGroup[], t: number): number => {
@@ -24,7 +33,7 @@ const groupAt = (groups: HypeGroup[], t: number): number => {
   return idx;
 };
 
-export const HypeReel: React.FC<HypeProps> = ({ reel, brand }) => {
+export const HypeReel: React.FC<HypeProps> = ({ reel, brand, visuals }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const t = frame / fps;
@@ -46,6 +55,68 @@ export const HypeReel: React.FC<HypeProps> = ({ reel, brand }) => {
   const groupAge = t - (reel.captions[gi - 1]?.end ?? 0);
   const groupPop = spring({ frame: groupAge * fps, fps, config: { damping: 18, stiffness: 260 } });
 
+  /* ── rotating background sequence (hook → body slots → CTA) ──
+     The reel never sits on one static backdrop: the hook, each body stretch
+     and the CTA each get their own animated variant, crossfaded + slow push. */
+  const bgSeq: string[] = (() => {
+    if (reel.bgSeq?.length) return reel.bgSeq;
+    // deterministic fallback rotation (for reels generated without bgSeq)
+    const h = [...(reel.id ?? "")].reduce((a, c) => a + c.charCodeAt(0), 0);
+    const others = ALL_VARIANTS.filter((v) => v !== reel.svg);
+    const bodyN = (reel.audioDurationSec ?? 10) > 20 ? 3 : 1;
+    const body = Array.from({ length: bodyN }, (_, i) => others[(h + i * 3) % others.length]);
+    return [reel.svg, ...body, others[(h + 7) % others.length]].filter((v, i, a) => a.indexOf(v) === i);
+  })();
+
+  const hookB = Math.min(Math.max(0.01, reel.hookEndSec), Math.max(0.02, reel.ctaStartSec - 0.5));
+  const bodySpan = Math.max(0, reel.ctaStartSec - hookB);
+  const nBody = Math.max(0, bgSeq.length - 2);
+  const bounds = [0, hookB];
+  for (let i = 1; i <= nBody; i++) bounds.push(hookB + (bodySpan * i) / nBody);
+
+  let segIdx = 0;
+  for (let i = 0; i < bounds.length; i++) if (t + 0.001 >= bounds[i]) segIdx = i;
+  const segStart = bounds[segIdx];
+  const segEnd = bounds[segIdx + 1] ?? Infinity;
+  const segLen = Number.isFinite(segEnd) ? segEnd - segStart : Math.max(1, durationInFrames / fps - segStart);
+  const curVariant = bgSeq[Math.min(segIdx, bgSeq.length - 1)];
+  const nextVariant = bgSeq[segIdx + 1];
+
+  // incoming layer fades in just before the switch
+  const inOp = nextVariant && Number.isFinite(segEnd)
+    ? interpolate(t, [segEnd - BG_CROSSFADE, segEnd], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
+    : 0;
+  // slow ken-burns push inside each segment (resets are masked by the crossfade)
+  const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+  const drift = 1 + 0.045 * clamp01((t - segStart) / Math.max(0.5, segLen));
+  const inDrift = 1 + 0.045 * clamp01((t - (segEnd - BG_CROSSFADE)) / Math.max(0.5, segLen));
+
+  // CTA dimming so the ebook card pops over whatever variant is showing
+  const bgDim = t >= reel.ctaStartSec
+    ? interpolate(t, [reel.ctaStartSec, reel.ctaStartSec + 0.45], [1, 0.22], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
+    : 1;
+
+  /* ── context-aware background colour morph + ambient glow ──
+     The backdrop tint follows the narration: each scene carries a palette
+     for its subject; transitions are smoothed over 0.7 s. */
+  const LIGHT = luminance(th.bg) > 0.5;
+  const sceneTint = (pal?: { bg: string }) =>
+    pal ? hexLerp(th.bg, pal.bg, LIGHT ? 0.45 : 0.8) : th.bg;
+  const vscenes = visuals?.scenes ?? [];
+  let sceneIdx = -1;
+  for (let i = 0; i < vscenes.length; i++) if (t >= vscenes[i].start) sceneIdx = i;
+  const morphBg = (() => {
+    if (sceneIdx < 0) return th.bg;
+    const cur = sceneTint(vscenes[sceneIdx].palette);
+    const prev = sceneIdx > 0 ? sceneTint(vscenes[sceneIdx - 1].palette) : th.bg;
+    const x = clamp01((t - vscenes[sceneIdx].start) / 0.7);
+    const sx = x * x * (3 - 2 * x); // smoothstep
+    return hexLerp(prev, cur, sx);
+  })();
+  const pulse = beatPulse(visuals?.beats ?? [], t);
+  const glowCol = sceneIdx >= 0 ? (vscenes[sceneIdx].palette?.glow ?? th.accent) : th.accent;
+  const glowOp = (sceneIdx >= 0 ? 0.16 : 0.08) + 0.14 * pulse;
+
   /* ── CTA book card ── */
   const ctaT = Math.max(0, t - reel.ctaStartSec);
   const ctaS = spring({ frame: ctaT * fps, fps, config: { damping: 15, stiffness: 120 } });
@@ -57,17 +128,30 @@ export const HypeReel: React.FC<HypeProps> = ({ reel, brand }) => {
   return (
     <>
       <style>{FONT_FACES}</style>
-      <AbsoluteFill style={{ background: th.bg, fontFamily: '"Source Sans 3", sans-serif', color: th.ink }}>
+      <AbsoluteFill style={{ background: morphBg, fontFamily: '"Source Sans 3", sans-serif', color: th.ink }}>
         {audio}
+        <div style={{ position: "absolute", inset: 0, opacity: bgDim * 0.5, overflow: "hidden" }}>
+          <BgParallax factor={0.85} style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
+            <div style={{ position: "absolute", inset: 0, transform: `scale(${drift})` }}>
+              <Background th={th} variant={curVariant} />
+            </div>
+            {inOp > 0.001 && nextVariant && (
+              <div style={{ position: "absolute", inset: 0, opacity: inOp, transform: `scale(${inDrift})` }}>
+                <Background th={th} variant={nextVariant} />
+              </div>
+            )}
+          </BgParallax>
+        </div>
+        {/* ambient environment glow — colour follows the current scene */}
         <div style={{
           position: "absolute", inset: 0,
-          opacity: t >= reel.ctaStartSec
-            ? interpolate(t, [reel.ctaStartSec, reel.ctaStartSec + 0.45], [1, 0.22], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
-            : 1,
-        }}>
-          <Background th={th} variant={reel.svg} />
-        </div>
+          background: `radial-gradient(ellipse 62% 38% at 50% 34%, ${glowCol} 0%, transparent 70%)`,
+          opacity: glowOp, filter: "blur(2px)",
+        }} />
         <Vignette th={th} />
+
+        {/* centre stage — images / kinetic main text / counters (never empty) */}
+        <CentreStage th={th} visuals={visuals ?? { scenes: [], beats: [] }} />
 
         {/* handle chip */}
         <div style={{ position: "absolute", top: 148, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
@@ -90,12 +174,16 @@ export const HypeReel: React.FC<HypeProps> = ({ reel, brand }) => {
             }} />
             {reel.hookLines.map((line, li) => {
               const s = spring({ frame: frame - 4 - li * 9, fps, config: { damping: 14, stiffness: 150 } });
+              // tagline-style tracking reveal: letters start tight, open up
+              const lineAge = Math.max(0, (frame - 4 - li * 9) / fps);
+              const tr = hookTracking(lineAge, -0.012, 0.8);
               return (
                 <div key={li} style={{
                   fontFamily: '"Playfair Display", serif', fontWeight: 900,
                   fontSize: line.length > 16 ? 96 : 122, lineHeight: 1.06, color: th.ink,
-                  letterSpacing: -1, margin: "4px 0",
-                  opacity: Math.min(1, s * 1.3),
+                  letterSpacing: `${tr.letterSpacing}em`, margin: "4px 0",
+                  opacity: Math.min(1, s * 1.3) * (tr.opacity ?? 1),
+                  filter: tr.filter,
                   transform: `translateY(${interpolate(s, [0, 1], [52, 0])}px)`,
                   textShadow: `0 10px 44px ${th.bg}`,
                 }}>
@@ -109,27 +197,6 @@ export const HypeReel: React.FC<HypeProps> = ({ reel, brand }) => {
               marginTop: 40, height: 6, borderRadius: 3, background: th.accent,
               width: interpolate(frame, [8, 46], [0, 210], { extrapolateRight: "clamp" }),
             }} />
-          </div>
-        )}
-
-        {/* mid-reel title — keeps the frame alive between hook and CTA */}
-        {reel.ctaStartSec - reel.hookEndSec > 1.0 && t >= reel.hookEndSec - 0.15 && t < reel.ctaStartSec && (
-          <div style={{
-            position: "absolute", top: 700, left: 90, right: 90, textAlign: "center",
-            opacity: interpolate(
-              t,
-              [reel.hookEndSec - 0.15, reel.hookEndSec + 0.25, reel.ctaStartSec - 0.3, reel.ctaStartSec - 0.02],
-              [0, 1, 1, 0],
-              { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-            ),
-          }}>
-            <div style={{
-              fontSize: 56, fontWeight: 700, letterSpacing: 9, lineHeight: 1.3,
-              color: th.inkSoft, textTransform: "uppercase", textShadow: `0 8px 30px ${th.bg}`,
-            }}>
-              {reel.hookLines.join(" · ")}
-            </div>
-            <div style={{ height: 3, width: 120, background: `${th.accent}99`, margin: "26px auto 0", borderRadius: 2 }} />
           </div>
         )}
 
@@ -169,29 +236,29 @@ export const HypeReel: React.FC<HypeProps> = ({ reel, brand }) => {
           </div>
         )}
 
-        {/* karaoke captions */}
+        {/* transcript strip — slim; the kinetic main text above is the star */}
         {captionsVisible && group && (
           <div style={{
-            position: "absolute", top: 1430, left: 0, right: 0, display: "flex", justifyContent: "center",
-            opacity: interpolate(t, [0, 0.12], [0, 1], { extrapolateRight: "clamp" }),
+            position: "absolute", top: 1470, left: 0, right: 0, display: "flex", justifyContent: "center",
+            opacity: 0.92 * interpolate(t, [0, 0.12], [0, 1], { extrapolateRight: "clamp" }),
           }}>
             <div key={gi} style={{
-              display: "flex", flexWrap: "wrap", justifyContent: "center", maxWidth: 920,
-              background: `${th.panel}F2`, border: `2px solid ${th.accent}40`, borderRadius: 26,
-              padding: "26px 44px",
-              transform: `translateY(${interpolate(groupPop, [0, 1], [16, 0])}px)`,
+              display: "flex", flexWrap: "wrap", justifyContent: "center", maxWidth: 980,
+              background: `${th.panel}D9`, border: `1.5px solid ${th.accent}33`, borderRadius: 20,
+              padding: "16px 34px",
+              transform: `translateY(${interpolate(groupPop, [0, 1], [14, 0])}px)`,
             }}>
               {group.words.map((w, wi) => {
                 const active = t >= w.start - 0.03 && t <= w.end + 0.1;
                 const said = t > w.end + 0.1;
                 const age = Math.max(0, t - w.start);
-                const pop = active ? interpolate(age, [0, 0.1], [1.16, 1], { extrapolateRight: "clamp" }) : 1;
+                const pop = active ? interpolate(age, [0, 0.1], [1.13, 1], { extrapolateRight: "clamp" }) : 1;
                 return (
                   <span key={wi} style={{
-                    fontSize: 64, fontWeight: 700, letterSpacing: 0.5, lineHeight: 1.25,
-                    margin: "0 9px", display: "inline-block",
-                    color: active ? th.accent : th.ink,
-                    opacity: said || active ? 1 : 0.82,
+                    fontSize: 42, fontWeight: 700, letterSpacing: 0.5, lineHeight: 1.22,
+                    margin: "0 7px", display: "inline-block",
+                    color: active ? th.accent : th.inkSoft,
+                    opacity: said || active ? 1 : 0.66,
                     transform: `scale(${pop})`,
                     transition: "none",
                   }}>

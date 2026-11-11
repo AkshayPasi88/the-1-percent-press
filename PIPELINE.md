@@ -12,6 +12,9 @@ Weekly task runs **Monday 09:00 IST**. Niche: **self-improvement only.**
      10 existing color/svg themes or a new one, CTA to the CURRENT ebook).
    - `cd /home/z/my-project/scripts && node fish_tts.mjs <n>` — generates the
      voice-over + word timestamps (public/audio/hype_NN.mp3 + hype_props.json).
+   - `python3 visual_director.py --fetch --only <id>` — image search + download
+     for the reel's curated scene specs; then `python3 visual_director.py` to
+     rebuild hype_visuals.json (scene windows + beat markers).
    - `cd /home/z/my-project/scripts/reels && node render_hype.mjs HypeNN` —
      renders `download/reels/hype_NN.mp4` (1080×1920 h264+aac).
    - QA: ffprobe the MP4; extract 2 frames and vision-check captions/hook/CTA

@@ -21,6 +21,8 @@ the-1-percent-press/
 ├── PIPELINE.md          ← the runbook (weekly posting + on-demand ebooks)
 ├── engine/
 │   ├── fish_tts.mjs          ← voice-over generator (Fish Audio, word timestamps)
+│   ├── visual_director.py    ← AI visual director: image search + scene/beat timeline
+│   ├── gen_credits.py        ← image attribution table generator
 │   ├── generate_slides.py    ← 4:5 quote slide generator (headless Chrome)
 │   ├── zernio_post.mjs       ← verified publisher (presign → upload → post)
 │   ├── build_pptx_4x5.js     ← HTML → 4:5 portrait PPTX
@@ -28,8 +30,11 @@ the-1-percent-press/
 │   ├── fetch_fonts.py, fix_font_names.py, make_contact_sheets.py
 │   └── reels/                ← Remotion project
 │       ├── src/components/HypeReel.tsx        ← voiced reel component
+│       ├── src/components/CentreStage.tsx     ← centre visual layer (images/stats/kinetic text)
 │       ├── src/components/HypeBackgrounds.tsx ← 10 animated SVG themes
+│       ├── src/components/motion.tsx          ← kinetic-typography motion grammar
 │       ├── hype_scripts.json                  ← reel content definitions
+│       ├── hype_visuals.json                  ← per-reel scene + beat timeline
 │       ├── render_hype.mjs                    ← renders voiced reels
 │       └── render_all.mjs, props.json         ← classic silent reels (v1)
 ```

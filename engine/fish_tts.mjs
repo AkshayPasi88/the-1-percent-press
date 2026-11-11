@@ -53,26 +53,28 @@ async function synthesize(text, referenceId) {
   // Audio: concat base64 chunks in chunk order.
   const mp3 = Buffer.concat(events.filter((e) => e.audio_base64).map((e) => Buffer.from(e.audio_base64, "base64")));
 
-  // Alignment: the API sends a CUMULATIVE alignment — each SSE event repeats all
-  // words spoken so far, so the LAST event with alignment carries the complete
-  // list. Verify against the expected word count; fall back to per-chunk merge.
-  let words = [];
-  const withAlign = events.filter((e) => e.alignment?.segments?.length);
-  if (withAlign.length) {
-    const expected = cleanVoice(text).split(/\s+/).filter(Boolean).length;
-    const last = withAlign[withAlign.length - 1];
-    const best = last.alignment.segments.length >= expected * 0.8 ? last : null;
-    if (best) {
-      words = best.alignment.segments.map((s) => ({ text: s.text, start: s.start, end: s.end }));
-    } else {
-      for (const e of withAlign) {
-        const off = e.chunk_audio_offset_sec ?? 0;
-        for (const s of e.alignment.segments)
-          words.push({ text: s.text, start: s.start + off, end: s.end + off });
-      }
+  // Alignment: Fish SSE events are grouped by chunk_seq. WITHIN a chunk, each
+  // event repeats the cumulative alignment of that chunk only (times relative
+  // to the chunk's own start); ACROSS chunks, chunk_audio_offset_sec gives the
+  // chunk's absolute position. So: per chunk keep only its LAST event, then
+  // shift by that chunk's offset. (Single-chunk texts are the trivial case.)
+  const byChunk = new Map();
+  for (const e of events) {
+    if (!e.alignment?.segments?.length) continue;
+    const seq = e.chunk_seq ?? 0;
+    byChunk.set(seq, e); // later events in the same chunk overwrite earlier ones
+  }
+  const words = [];
+  for (const e of byChunk.values()) {
+    const off = e.chunk_audio_offset_sec ?? 0;
+    for (const s of e.alignment.segments) {
+      words.push({ text: s.text, start: s.start + off, end: s.end + off });
     }
   }
-  if (!words.length) throw new Error("no word alignment in response");
+  const expected = cleanVoice(text).split(/\s+/).filter(Boolean).length;
+  if (words.length < Math.floor(expected * 0.8)) {
+    throw new Error(`alignment incomplete: ${words.length}/${expected} words`);
+  }
   return { mp3, words };
 }
 
@@ -152,6 +154,9 @@ for (const reel of picks) {
   for (let i = 0; i < words.length - 1; i++) {
     if (words[i + 1].start - words[i].end > 0.42) { hookEndSec = words[i].end + 0.12; break; }
   }
+  // readability floor: a 2-line hook overlay needs ~2.2s on screen even if the
+  // speaker's first pause lands earlier (TTS pauses at commas too).
+  hookEndSec = Math.min(Math.max(hookEndSec, 2.2), 3.4); // cap: hook must not eat the body window
   let ctaIdx = -1;
   for (let i = groups.length - 1; i >= 0; i--) {
     const t = groups[i].words.map((w) => w.text).join(" ").toLowerCase();

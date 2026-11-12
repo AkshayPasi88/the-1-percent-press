@@ -1,8 +1,7 @@
-node_modules
+node_modules/
 *.log
 .DS_Store
 .secrets/
 tool-results/
 __pycache__/
-engine/opuscar/.venv/
-engine/opuscar/films/
+engine/reels/v6/render_tmp/

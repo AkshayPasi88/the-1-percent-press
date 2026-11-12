@@ -6,50 +6,21 @@ Weekly task runs **Monday 09:00 IST**. Niche: **self-improvement only.**
 
 1. **Pick the format** — flip a coin / random pick: **reel** or **slide**.
 
-2. **REEL** (voiced, 9:16) — **default since 2026-11-12: the animated FILM engine (v6)**:
-
-   **v6 — opuscar film engine (preferred, `engine/opuscar/` in this repo):**
-   - Add a reel definition to `REELS` in
-     `/home/z/my-project/repos/the-1-percent-press/engine/opuscar/build.mjs`
-     (sentences with roles: hook / tension / imperative / contrast /
-     reflective / punchline, a palette, bpm, seed, voiceRef). Narratives
-     stay 25–40 words.
-   - The **creative director** (`director.mjs`) reads each sentence, casts
-     the story world (dark mountains → road → climb → storm → summit
-     sunrise, or vault/city/study for money/time narratives), stages the
-     Seeker (our code-drawn hooded character), places custom animated
-     objects, designs camera + lighting, and schedules narration-synced fx
-     (lightning-on-"storm", sunrise-on-"sun", flag at the payoff) — then
-     validates the storyboard schema before rendering.
-   - `node /home/z/my-project/repos/the-1-percent-press/engine/opuscar/build.mjs <key>`
-     — plans + voices (Fish s2.1 per-sentence emotions), renders
-     frame-by-frame (headless Chrome), mixes SFX + music + ambience, muxes
-     at −14 LUFS and runs QC. `--fresh-voice` re-voices; `--stage
-     plan|render|mix|mux|qc` runs one stage. `node preview.mjs <key>`
-     renders quick per-world stills with fake timings (no TTS cost) for a
-     visual smoke test.
-   - QC gates: storyboard schema, no static frames, no blank frames,
-     correct 1080×1920@30 specs, audio present, story coverage ≥70% of
-     speech, ≥3 worlds, ≤4.6 s scenes, Seeker present; vision-review the
-     contact sheet.
-   - New seed → new film (emotions, staging, cameras, fx, typography,
-     music all re-randomised meaningfully). Voice cache avoids re-paying
-     TTS calls. Reference repos (MIT): lemo-opuscar (pipeline + craft),
-     awesome-opus5-5-videos (creative library) — cloned under `repos/`.
-
-   **v3 legacy (photo/card reels 1–12):**
-   - Add a new entry to `/home/z/my-project/scripts/reels/hype_scripts.json`
-     (fresh hook + 15–25 word voice script with [emotion] tags, a theme from the
-     10 existing color/svg themes or a new one, CTA to the CURRENT ebook).
-   - `cd /home/z/my-project/scripts && node fish_tts.mjs <n>` — generates the
-     voice-over + word timestamps (public/audio/hype_NN.mp3 + hype_props.json).
-   - `python3 visual_director.py --fetch --only <id>` — image search + download
-     for the reel's curated scene specs; then `python3 visual_director.py` to
-     rebuild hype_visuals.json (scene windows + beat markers).
-   - `cd /home/z/my-project/scripts/reels && node render_hype.mjs HypeNN` —
-     renders `download/reels/hype_NN.mp4` (1080×1920 h264+aac).
-   - QA: ffprobe the MP4; extract 2 frames and vision-check captions/hook/CTA
-     (or PIL ink check); ASR one file if voice changed.
+2. **REEL** (voiced, 9:16, fully animated — Engine v6):
+   - Add a new entry to `engine/reels/hype_props.json`
+     (fresh hook lines + voice script with [emotion] tags, a theme palette,
+     CTA to the CURRENT ebook). Optionally extend the per-reel direction
+     table in `engine/reels/v6/director.mjs` (worlds, actions, counters).
+   - `node engine/fish_tts.mjs <n>` — generates the voice-over + word
+     timestamps (`engine/reels/public/audio/hype_NN.mp3`, duration back into
+     `hype_props.json`).
+   - `cd engine/reels && npm run build` — the whole v6 pipeline:
+     probe (audio analysis) → director (scene specs) → render
+     (1080×1920@30 deterministic + ffmpeg master) → QC.
+     Single reel: `npm run render:one -- <n>`.
+   - QA: `npm run qc` (duration, streams, black frames, silence, contact
+     sheets in `v6/sheets/`). Vision-check 2 frames per world type.
+     Fix by editing the spec or direction table, re-render that reel only.
 
 3. **SLIDE** (single 4:5 image):
    - Add a fresh dopamine/hard-work quote entry to `SLIDES` in
@@ -85,14 +56,23 @@ Same flow as batch 001:
 3. Export PPTX + PDF (`build_pptx_4x5.js`, `slides_to_pdf.js`) — 18 pages, 8×10 in.
 4. Create a NEW GitHub repo `/<topic-slug>-ebook` (public), containing
    `ebook/` (PPTX + PDF), `reels/`, `slides/`, `marketing_kit/`, `sources/`.
-5. Produce an initial set of voiced reels + slides for it (see weekly run).
+5. Produce an initial set of voiced animated reels + slides for it (see weekly run).
 6. From then on, weekly reels/slides point their CTA to THIS new ebook.
 
 ## Environment prerequisites (build sandbox)
 
-- Node 24 · Remotion deps in `scripts/reels` (`npm install` if recycled)
-- Playwright Chromium (slides) + Remotion's headless Chrome (reels)
+- Node 24 · Remotion deps in `engine/reels` (`npm install` if recycled)
+- Playwright Chromium headless-shell (reels render + slides)
 - ffmpeg/ffprobe · LibreOffice · poppler for QA
 - Secrets in `/home/z/my-project/.secrets/`: `github_token`, `fish_audio_key`,
   `zernio_key`, `instagram_account_id`, `pinterest_account_id` (chmod 600)
 - Fish Audio free model has fair-use limits — pace calls (~1.5s between reels)
+
+## Hard rules
+
+- **No stock footage, no web images, no static backgrounds in reels — ever.**
+  Engine v6 draws every frame programmatically (see `engine/reels/v6/SPEC.md`).
+- Deterministic rendering only: seeded randomness, closed-form motion,
+  no `Date.now()` / unseeded `Math.random()` in components.
+- A reel ships only after `qc.mjs` passes and its contact sheet has been
+  vision-checked.

@@ -1,0 +1,366 @@
+[
+  {
+    "id": "gold_math",
+    "file": "hype_01.mp4",
+    "checks": {
+      "duration": {
+        "expected": 15.31,
+        "actual": 15.4,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -18.3,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/gold_math.jpg",
+    "ok": true
+  },
+  {
+    "id": "mono_weather",
+    "file": "hype_02.mp4",
+    "checks": {
+      "duration": {
+        "expected": 11.365,
+        "actual": 11.4,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -20,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/mono_weather.jpg",
+    "ok": true
+  },
+  {
+    "id": "lime_2min",
+    "file": "hype_03.mp4",
+    "checks": {
+      "duration": {
+        "expected": 13.167000000000003,
+        "actual": 13.3,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -18.9,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/lime_2min.jpg",
+    "ok": true
+  },
+  {
+    "id": "crimson_twice",
+    "file": "hype_04.mp4",
+    "checks": {
+      "duration": {
+        "expected": 12.069999999999999,
+        "actual": 12.2,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -19,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/crimson_twice.jpg",
+    "ok": true
+  },
+  {
+    "id": "ocean_votes",
+    "file": "hype_05.mp4",
+    "checks": {
+      "duration": {
+        "expected": 14.421000000000001,
+        "actual": 14.5,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -19.3,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/ocean_votes.jpg",
+    "ok": true
+  },
+  {
+    "id": "steel_env",
+    "file": "hype_06.mp4",
+    "checks": {
+      "duration": {
+        "expected": 15.675000000000002,
+        "actual": 15.8,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -18.7,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/steel_env.jpg",
+    "ok": true
+  },
+  {
+    "id": "forest_chain",
+    "file": "hype_07.mp4",
+    "checks": {
+      "duration": {
+        "expected": 13.69,
+        "actual": 13.8,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -19.1,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/forest_chain.jpg",
+    "ok": true
+  },
+  {
+    "id": "coral_decade",
+    "file": "hype_08.mp4",
+    "checks": {
+      "duration": {
+        "expected": 12.854000000000001,
+        "actual": 12.9,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -18.8,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/coral_decade.jpg",
+    "ok": true
+  },
+  {
+    "id": "violet_monday",
+    "file": "hype_09.mp4",
+    "checks": {
+      "duration": {
+        "expected": 13.455,
+        "actual": 13.5,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -19.2,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/violet_monday.jpg",
+    "ok": true
+  },
+  {
+    "id": "sunset_onepct",
+    "file": "hype_10.mp4",
+    "checks": {
+      "duration": {
+        "expected": 12.436000000000002,
+        "actual": 12.5,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -18.3,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/sunset_onepct.jpg",
+    "ok": true
+  },
+  {
+    "id": "gold_plateau",
+    "file": "hype_11.mp4",
+    "checks": {
+      "duration": {
+        "expected": 34.483000000000004,
+        "actual": 34.6,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -18.1,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/gold_plateau.jpg",
+    "ok": true
+  },
+  {
+    "id": "ocean_identity",
+    "file": "hype_12.mp4",
+    "checks": {
+      "duration": {
+        "expected": 33.804,
+        "actual": 33.9,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -17.7,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/ocean_identity.jpg",
+    "ok": true
+  },
+  {
+    "id": "onyx_rescue",
+    "file": "hype_13.mp4",
+    "checks": {
+      "duration": {
+        "expected": 36.11800000000001,
+        "actual": 36.2,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -19.1,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/onyx_rescue.jpg",
+    "ok": true
+  },
+  {
+    "id": "iron_pain",
+    "file": "hype_14.mp4",
+    "checks": {
+      "duration": {
+        "expected": 34.60300000000001,
+        "actual": 34.7,
+        "ok": true
+      },
+      "streams": {
+        "video": "h264",
+        "audio": "aac",
+        "ok": true
+      },
+      "black_frames": {
+        "count": 0,
+        "ok": true
+      },
+      "audio": {
+        "mean_volume_db": -18.3,
+        "ok": true
+      }
+    },
+    "sheet": "/home/z/my-project/repos/the-1-percent-press/engine/reels/v6/sheets/iron_pain.jpg",
+    "ok": true
+  }
+]

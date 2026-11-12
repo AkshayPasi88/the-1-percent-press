@@ -1,14 +1,19 @@
 {
   "name": "reels",
-  "version": "1.0.0",
-  "description": "",
+  "version": "6.0.0",
+  "description": "Engine v6 — Fully Animated Cinematic Video Generation Engine. Every reel is an animated world: no stock footage, no photos, no static backgrounds.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "probe": "node v6/probe.mjs",
+    "direct": "node v6/director.mjs",
+    "render": "node v6/render.mjs",
+    "render:one": "node v6/render.mjs --only",
+    "qc": "node v6/qc.mjs",
+    "build": "node v6/probe.mjs && node v6/director.mjs && node v6/render.mjs && node v6/qc.mjs"
   },
-  "keywords": [],
+  "keywords": ["remotion", "reels", "animation", "cinematic"],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "@remotion/bundler": "^4.0.542",

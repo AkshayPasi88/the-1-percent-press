@@ -80,6 +80,28 @@ def main():
     if static_pairs: fails.append(f"static frames at {[f'{t:.1f}s' for t, _ in static_pairs]}")
     if blanks: fails.append(f"blank frames at {[f'{t:.1f}s' for t, _ in blanks]}")
 
+    # ——— 2b. film gates: story coverage, world variety, pacing ———
+    story = [s for s in plan["scenes"] if s.get("kind") == "story"]
+    if plan.get("engine") == "v6-film":
+        if not story:
+            fails.append("v6 film has no story scenes")
+        else:
+            speech0 = plan["segments"][0]["t0"]
+            speech1 = max(s["t1"] for s in plan["segments"])
+            covered = sum(
+                min(s["t1"], speech1) - max(s["t0"], speech0)
+                for s in story if s["t1"] > speech0 and s["t0"] < speech1
+            )
+            cov = covered / (speech1 - speech0)
+            if cov < 0.7: fails.append(f"story scenes cover only {cov:.0%} of speech")
+            worlds = sorted({s.get("world") for s in story})
+            if len(worlds) < 3: fails.append(f"only {len(worlds)} worlds staged ({worlds})")
+            longs = [s["id"] for s in story if s["t1"] - s["t0"] > 4.8]
+            if longs: fails.append(f"story scenes too long: {longs}")
+            if not plan.get("fxs"): warns.append("no fx events")
+            actor_scenes = [s for s in story if s.get("actor")]
+            if not actor_scenes: fails.append("Seeker never appears")
+
     # ——— 3. audio present + voice starts on time ———
     r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a:0",
                         "-show_entries", "stream=codec_name:format=duration", "-of", "json", str(mp4)],
@@ -107,6 +129,9 @@ def main():
     report = {
         "file": str(mp4), "duration": dur, "size": f"{w}x{h}", "fps": fps,
         "scenes": len(plan["scenes"]), "hookWords": len(plan["hook"]["words"]),
+        "engine": plan.get("engine"),
+        "worlds": sorted({s.get("world") for s in plan["scenes"] if s.get("world")}),
+        "fxEvents": len(plan.get("fxs", [])),
         "staticPairs": len(static_pairs), "blanks": len(blanks),
         "fails": fails, "warns": warns, "sheet": str(sheet),
     }

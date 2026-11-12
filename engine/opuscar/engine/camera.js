@@ -2,7 +2,7 @@
 // punch, shake, tilt + a global breath so nothing is ever perfectly still.
 (function () {
   const E = (window.ENGINE = window.ENGINE || {});
-  const { clamp, lerp, seg, spring, mulberry, hash } = E;
+  const { clamp, lerp, seg, ss, spring, mulberry, hash } = E;
 
   /**
    * Returns {scale, dx, dy, rot} for the scene at time t.
@@ -45,6 +45,15 @@
       case "tilt":
         scale = 1.08;
         rot = lerp(-0.035, 0.035, p);
+        break;
+      case "crane": // slow vertical rise, slight push — the "get up" move
+        scale = lerp(1.04, 1.14, p);
+        dy = lerp(H * 0.035, -H * 0.05, ss(p));
+        break;
+      case "follow": // steady subject: world drifts around it
+        scale = 1.08;
+        dx = Math.sin(tt * 0.4 + scene.phase) * W * 0.012;
+        dy = Math.cos(tt * 0.33 + scene.phase) * H * 0.01;
         break;
       case "drift":
       default:

@@ -88,6 +88,36 @@
         }
         break;
       }
+      case "ink": {
+        // medium-native ink bleed: a dark wedge sweeping off with a glowing
+        // ragged edge — story scenes wipe like ink pulled across the page
+        const p = clamp(tt / 0.42, 0, 1);
+        if (p >= 1) return;
+        const r = mulberry((hash("ink" + scene.id)) >>> 0);
+        const ease = 1 - Math.pow(1 - p, 2.6);
+        const edge = W * (1.35) * (1 - ease) + W * 0.1;
+        ctx.beginPath();
+        ctx.moveTo(-40, -40);
+        ctx.lineTo(edge, -40);
+        // ragged leading edge down the screen
+        let ex = edge;
+        for (let y = 0; y <= H + 40; y += H / 14) {
+          ex = edge + (r() - 0.5) * W * 0.16 * (1 - ease);
+          ctx.lineTo(ex, y);
+        }
+        ctx.lineTo(-40, H + 40);
+        ctx.closePath();
+        ctx.fillStyle = "rgba(6,7,12,0.96)";
+        ctx.fill();
+        // glowing ink lip
+        ctx.strokeStyle = rgba(pal.accent, 0.85 * (1 - ease));
+        ctx.lineWidth = 7;
+        ctx.beginPath();
+        ctx.moveTo(edge + W * 0.02, -40);
+        ctx.quadraticCurveTo(ex + W * 0.05, H / 2, edge + W * 0.02, H + 40);
+        ctx.stroke();
+        break;
+      }
     }
   };
 })();

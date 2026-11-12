@@ -6,20 +6,36 @@ Weekly task runs **Monday 09:00 IST**. Niche: **self-improvement only.**
 
 1. **Pick the format** — flip a coin / random pick: **reel** or **slide**.
 
-2. **REEL** (voiced, 9:16) — **default since 2026-11-12: the animated engine (v5)**:
+2. **REEL** (voiced, 9:16) — **default since 2026-11-12: the animated FILM engine (v6)**:
 
-   **v5 — code-drawn animated reels (preferred, `engine/opuscar/`):**
-   - Add a reel definition to `REELS` in `/home/z/my-project/scripts/opuscar/build.mjs`
-     (10 sentences with roles: hook / tension / imperative / contrast /
-     reflective / punchline, a palette, bpm, seed). Narratives stay 25–40 words.
-   - `node /home/z/my-project/scripts/opuscar/build.mjs <key>` — plans, voices
-     (Fish s2.1 per-sentence emotions), renders frame-by-frame (headless Chrome),
-     mixes SFX + music, muxes at −14 LUFS and runs QC. `--fresh-voice` re-voices;
-     `--stage plan|render|mix|mux|qc` runs one stage.
-   - QC gates: no static frames, no blank frames, correct 1080×1920@30 specs,
-     audio present; vision-review the contact sheet.
-   - New seed → new film (emotions, scenes, cameras, typography, music all
-     re-randomised meaningfully). Voice cache avoids re-paying TTS calls.
+   **v6 — opuscar film engine (preferred, `engine/opuscar/` in this repo):**
+   - Add a reel definition to `REELS` in
+     `/home/z/my-project/repos/the-1-percent-press/engine/opuscar/build.mjs`
+     (sentences with roles: hook / tension / imperative / contrast /
+     reflective / punchline, a palette, bpm, seed, voiceRef). Narratives
+     stay 25–40 words.
+   - The **creative director** (`director.mjs`) reads each sentence, casts
+     the story world (dark mountains → road → climb → storm → summit
+     sunrise, or vault/city/study for money/time narratives), stages the
+     Seeker (our code-drawn hooded character), places custom animated
+     objects, designs camera + lighting, and schedules narration-synced fx
+     (lightning-on-"storm", sunrise-on-"sun", flag at the payoff) — then
+     validates the storyboard schema before rendering.
+   - `node /home/z/my-project/repos/the-1-percent-press/engine/opuscar/build.mjs <key>`
+     — plans + voices (Fish s2.1 per-sentence emotions), renders
+     frame-by-frame (headless Chrome), mixes SFX + music + ambience, muxes
+     at −14 LUFS and runs QC. `--fresh-voice` re-voices; `--stage
+     plan|render|mix|mux|qc` runs one stage. `node preview.mjs <key>`
+     renders quick per-world stills with fake timings (no TTS cost) for a
+     visual smoke test.
+   - QC gates: storyboard schema, no static frames, no blank frames,
+     correct 1080×1920@30 specs, audio present, story coverage ≥70% of
+     speech, ≥3 worlds, ≤4.6 s scenes, Seeker present; vision-review the
+     contact sheet.
+   - New seed → new film (emotions, staging, cameras, fx, typography,
+     music all re-randomised meaningfully). Voice cache avoids re-paying
+     TTS calls. Reference repos (MIT): lemo-opuscar (pipeline + craft),
+     awesome-opus5-5-videos (creative library) — cloned under `repos/`.
 
    **v3 legacy (photo/card reels 1–12):**
    - Add a new entry to `/home/z/my-project/scripts/reels/hype_scripts.json`

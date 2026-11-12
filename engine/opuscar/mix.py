@@ -107,6 +107,77 @@ def sfx_tick(gain=1.0):
     return ping * np.exp(-t * 90) * gain
 
 
+def sfx_thunder(gain=1.0):
+    """Rolling thunder: crack transient + low rumble with slow decay."""
+    n = int(1.6 * SR)
+    t = np.arange(n) / SR
+    # rumble: brown-ish noise (integrated white), band-limited
+    rumble = np.cumsum(rng.normal(0, 1, n))
+    rumble /= (np.abs(rumble).max() + 1e-9)
+    spec = np.fft.rfft(rumble)
+    freqs = np.fft.rfftfreq(n, 1 / SR)
+    spec *= np.exp(-((freqs - 90) ** 2) / (2 * 70**2))  # energy 20..160 Hz
+    rumble = np.fft.irfft(spec, n)
+    rumble /= (np.abs(rumble).max() + 1e-9)
+    env = np.exp(-t * 1.9) * np.minimum(1, t / 0.05)
+    # crack: sharp filtered noise burst at the head
+    cn = int(0.12 * SR)
+    ct = np.arange(cn) / SR
+    crack = rng.normal(0, 1, cn) * np.exp(-ct * 60)
+    cs = np.fft.rfft(crack)
+    cf = np.fft.rfftfreq(cn, 1 / SR)
+    cs *= np.exp(-((cf - 900) ** 2) / (2 * 500**2))
+    crack = np.fft.irfft(cs, cn)
+    crack /= (np.abs(crack).max() + 1e-9)
+    out = rumble * env + np.pad(crack, (0, n - cn)) * 0.7
+    return out * gain
+
+
+def sfx_step(gain=1.0):
+    """Footstep on grit: short low thump + tiny noise scuff."""
+    n = int(0.09 * SR)
+    t = np.arange(n) / SR
+    f = 95 * np.exp(-t * 30) + 48
+    thump = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 55)
+    scuff = rng.normal(0, 1, n) * np.exp(-t * 90) * 0.4
+    return (thump + scuff) * gain
+
+
+def sfx_sunswell(gain=1.0):
+    """Warm sunrise swell: major triad sines fading in and blooming."""
+    n = int(2.4 * SR)
+    t = np.arange(n) / SR
+    x = np.zeros(n)
+    for k, semi in enumerate((0, 4, 7, 12)):
+        f = midi_hz(57 + semi) * (1 + 0.0015 * np.sin(2 * np.pi * 0.22 * t + k))
+        x += np.sin(2 * np.pi * f * t) / (2.2 + k * 0.5)
+    env = np.minimum(1, t / 1.6) * np.minimum(1, np.maximum(0, (2.4 - t)) / 0.7)
+    lfo = 0.6 + 0.4 * np.sin(2 * np.pi * 0.4 * t)
+    return x * env * lfo * gain
+
+
+def rain_bed(dur_total, windows):
+    """Storm ambience: filtered noise bed, amplitude over the storm windows."""
+    n = int(dur_total * SR)
+    t = np.arange(n) / SR
+    noise = rng.normal(0, 0.35, n)
+    spec = np.fft.rfft(noise)
+    freqs = np.fft.rfftfreq(n, 1 / SR)
+    spec *= np.exp(-((freqs - 2400) ** 2) / (2 * 1600**2))  # hiss band
+    bed = np.fft.irfft(spec, n)
+    bed /= (np.abs(bed).max() + 1e-9)
+    env = np.zeros(n)
+    for (t0, t1) in windows:
+        i0, i1 = int(t0 * SR), min(n, int(t1 * SR))
+        a = int(0.4 * SR)
+        if i1 > i0:
+            env[i0:i1] = 1
+            if i0 + a < i1:  # fade edges
+                env[i0:min(i1, i0 + a)] = np.linspace(0, 1, min(a, i1 - i0))
+                env[max(i0, i1 - a):i1] = np.linspace(1, 0, min(a, i1 - max(i0, i1 - a)))
+    return bed * env
+
+
 # ————————————————————————————— music ————————————————————————————————————
 
 def midi_hz(m):
@@ -256,6 +327,17 @@ def main():
             place(sfx, sfx_subdrop(), e["t"], 0.4 * g)
         elif e["type"] == "tick":
             place(sfx, sfx_tick(), e["t"], 0.2 * g)
+        elif e["type"] == "thunder":
+            place(sfx, sfx_thunder(), e["t"], 0.85 * g)
+        elif e["type"] == "step":
+            place(sfx, sfx_step(), e["t"], 0.5 * g)
+        elif e["type"] == "sunSwell":
+            place(sfx, sfx_sunswell(), max(0, e["t"] - 1.2), 0.4 * g)
+
+    # storm ambience bed over storm-scene windows (world-level weather)
+    storm_windows = [(s["t0"], s["t1"]) for s in plan.get("scenes", []) if s.get("world") == "storm"]
+    if storm_windows:
+        sfx += rain_bed(dur_total, storm_windows) * 0.16
 
     # music bus with energy envelope
     def energy_at(t):

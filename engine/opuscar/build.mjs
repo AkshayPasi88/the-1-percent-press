@@ -1,30 +1,36 @@
 #!/usr/bin/env node
-// build.mjs — the opuscar reel orchestrator.
-// 1. plan: seeded creative decisions per reel (emotion delivery, scene
-//    sequence, camera, transitions, typography layouts, keywords, palette)
+// build.mjs — the opuscar film orchestrator (ENGINE v6: animated film).
+// 1. plan: seeded creative decisions + THE DIRECTOR (storyboard: worlds,
+//    Seeker staging, props, camera, lighting, narration-synced fx) + schema
+//    validation before any pixels exist
 // 2. voice: per-sentence Fish TTS with real emotion tags + word timings
 // 3. assemble: plan.json + film dir (page + engine + fonts)
 // 4. render: headless Chrome frame-by-frame (lemo-opuscar core/render)
-// 5. mix: voice + procedural sfx + music (python/numpy) → mix.wav
+// 5. mix: voice + procedural sfx (incl. thunder/steps/sun swell) + music
 // 6. mux: −14 LUFS master → final mp4
-// 7. qc: automated checks + contact sheet
+// 7. qc: automated gates + contact sheet
 //
 // Usage: node build.mjs <reelId> [--stage plan|render|mix|mux|qc|all] [--fresh-voice]
+// preview.mjs imports REELS/buildPlan/writeFilmDir for dry-run visual checks.
 import fs from "node:fs";
 import path from "node:path";
-import { execFileSync, spawnSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { voiceFilm } from "./voice.mjs";
+import { buildStoryboard, validateStoryboard } from "./director.mjs";
 
-const ROOT = path.dirname(fileURLToPath(import.meta.url)); // scripts/opuscar
+const ROOT = path.dirname(fileURLToPath(import.meta.url)); // engine/opuscar
 const LEMO = "/home/z/my-project/repos/lemo-opuscar";
 const REELS_FONTS = "/home/z/my-project/scripts/reels/public/fonts";
 const PY = path.join(ROOT, ".venv/bin/python");
+// sandbox chrome for playwright-core (fresh installs fetch their own)
+const CHROME = "/home/z/.cache/ms-playwright/chromium_headless_shell-1200/chrome-headless-shell-linux64/chrome-headless-shell";
+if (fs.existsSync(CHROME)) process.env.PLAYWRIGHT_CHROME = process.env.PLAYWRIGHT_CHROME || CHROME;
 
 // ————————————————————————————————— reel definitions ———————————————————————
-// Narratives are the approved ones (hype_scripts.json #13/#14); each sentence
-// gets a ROLE, and the seeded planner picks a real Fish delivery from that
-// role's pool → "random with feelings", meaningful per line.
+// Every reel now stages as an ANIMATED FILM (v6): the director reads the
+// narration and casts worlds/objects/actor beats. Narratives are ours; the
+// Seeker character, props and worlds are original code-drawn assets.
 
 const DELIVERY_POOLS = {
   hook: ["shouting", "angry, shouting", "fierce and loud"],
@@ -42,7 +48,7 @@ const REELS = [
     voiceRef: "bf322df2096a46f18c579d0baa36f41d", // Adrian — gravel narrator
     seed: 13001,
     palette: { name: "onyx_gold", bg0: "#0b0b10", bg1: "#16121c", colors: ["#f5c542", "#e8e6e3", "#9c8446"], accent: "#f5c542", text: "#f4f2ee" },
-    bpm: 96, root: 45, // A minor-ish
+    bpm: 96, root: 45,
     sentences: [
       { text: "Nobody is coming to save you.", role: "hook" },
       { text: "And that's the best thing you need to understand.", role: "tension" },
@@ -61,7 +67,7 @@ const REELS = [
     voiceRef: "9a9cf47702da476aa4629e2506d4a857", // Energetic Male — harder edge
     seed: 14002,
     palette: { name: "blood_ink", bg0: "#0a0506", bg1: "#1c0d10", colors: ["#ff2e3f", "#ff8c94", "#7a1620"], accent: "#ff2e3f", text: "#f7e9e6" },
-    bpm: 112, root: 41, // F minor-ish
+    bpm: 112, root: 41,
     sentences: [
       { text: "You will feel pain either way.", role: "hook" },
       { text: "The pain of discipline, or the pain of regret.", role: "tension" },
@@ -75,11 +81,50 @@ const REELS = [
       { text: "Choose discipline today, so tomorrow you don't drown in regret.", role: "punchline" },
     ],
   },
+  {
+    key: 15, id: "dark_starting_line", name: "Nobody Is Coming (Animated Film)", file: "reel_15_nobody_film",
+    voiceRef: "bf322df2096a46f18c579d0baa36f41d", // Adrian — gravel narrator
+    seed: 15003,
+    palette: { name: "journey_dawn", bg0: "#0a0d1c", bg1: "#17203a", colors: ["#f5c542", "#5b6ee1", "#8fa3d9"], accent: "#f5c542", text: "#f2f0ea" },
+    bpm: 92, root: 45,
+    sentences: [
+      { text: "Nobody is coming.", role: "hook" },
+      { text: "Not a hero. Not a miracle. Not luck.", role: "tension" },
+      { text: "The dark you're standing in? That's your starting line.", role: "contrast" },
+      { text: "So get up, and start walking.", role: "imperative" },
+      { text: "The road will be empty. That's exactly the point.", role: "tension" },
+      { text: "The climb will try to break you.", role: "tension" },
+      { text: "Let the storm come.", role: "imperative" },
+      { text: "Because the sun only rises for the ones who kept moving.", role: "contrast" },
+      { text: "Every step you take alone is building the person they'll all meet one day.", role: "punchline" },
+    ],
+  },
+  {
+    key: 16, id: "five_am_city", name: "While You Were Sleeping", file: "reel_16_while_sleeping",
+    voiceRef: "9a9cf47702da476aa4629e2506d4a857", // Energetic Male
+    seed: 16004,
+    palette: { name: "cold_gears", bg0: "#070d16", bg1: "#14263c", colors: ["#f5c542", "#4ea3d8", "#c9d7ee"], accent: "#f5c542", text: "#eef2f8" },
+    bpm: 104, root: 43,
+    sentences: [
+      { text: "Five A M. Nobody claps.", role: "hook" },
+      { text: "The alarm screams while the bed whispers stay.", role: "tension" },
+      { text: "Winners live in the minutes everyone else wastes.", role: "contrast" },
+      { text: "While you were sleeping, someone was building.", role: "contrast" },
+      { text: "Page by page. Rep by rep. Day by day.", role: "tension" },
+      { text: "Time doesn't care about your feelings.", role: "tension" },
+      { text: "It only counts what you actually did.", role: "imperative" },
+      { text: "So stack your days like coins, and let them compound.", role: "contrast" },
+      { text: "One day, the sum will speak for you.", role: "punchline" },
+    ],
+  },
 ];
 
 const EMPHASIS = new Set(("nobody save stop waiting future responsibility discipline regret pain choose " +
   "purpose minutes years today tomorrow yesterday better best action excuses results live compounds " +
-  "alarms boring rep page skip drown sleeping dreams work understand introduce").split(" "));
+  "alarms boring rep page skip drown sleeping dreams work understand introduce " +
+  "hero miracle luck dark starting line get walking empty point climb break storm sun rises moving kept " +
+  "step alone building meet one day five am claps screams bed whisper stay winners minutes wastes " +
+  "feelings counts stack coins sum speak").split(" "));
 
 // ————————————————————————————————— seeded helpers ————————————————————————
 function mulberry(seed) {
@@ -94,9 +139,9 @@ function mulberry(seed) {
 const pick = (rng, arr) => arr[Math.floor(rng() * arr.length) % arr.length];
 const rrange = (rng, a, b) => a + rng() * (b - a);
 
-// ————————————————————————————————— the planner ——————————————————————————
+// ————————————————————————————————— the planner (v6) ————————————————————
 
-function buildPlan(rng, reel, lines) {
+export function buildPlan(rng, reel, lines) {
 
   // 1. timeline: place each voiced sentence with seeded gaps
   const segs = [];
@@ -110,7 +155,6 @@ function buildPlan(rng, reel, lines) {
       t0: +(cursor + w.t0).toFixed(3),
       t1: +(cursor + w.t1).toFixed(3),
     }));
-    // keyword flag: emphasis lexicon OR long word (cap 4)
     let keys = 0;
     for (const w of words) {
       const bare = w.text.toLowerCase().replace(/[^a-z']/g, "");
@@ -123,11 +167,10 @@ function buildPlan(rng, reel, lines) {
   const ctaT0 = +(speechEnd + 0.4).toFixed(3);
   const DUR = +(ctaT0 + 3.9).toFixed(3);
 
-  // hook = sentence 0, but clamp its window to ≤ 2.4s of slam time (word-driven)
   const hookSeg = segs[0];
   const hook = { id: "hook", t0: hookSeg.t0, t1: hookSeg.t1, words: hookSeg.words };
 
-  // 3. typography layout per sentence
+  // 2. typography layout per sentence
   for (const segm of segs) {
     const n = segm.words.length;
     if (segm.role === "punchline" && n <= 5) segm.layout = "spot";
@@ -135,73 +178,10 @@ function buildPlan(rng, reel, lines) {
     else segm.layout = pick(rng, ["stack", "stack", "block", "arc"]);
   }
 
-  // 4. scene sequence: fast flips inside the hook (one per word), beat-locked
-  //    1–3 s units in the body, no immediate type repeats.
-  const beat = 60 / reel.bpm;
-  const BG = ["rings", "flow", "waves", "tunnel", "stripes", "shards", "mosaic", "blobs", "matrix", "spotlight", "orbits", "glitch"];
-  const TRANS = ["flash", "bars", "wipe", "streak", "glitchBurst", "cut"];
-  const CAMS = ["push", "pull", "panL", "panR", "punch", "tilt", "drift"];
-  const scenes = [];
-  let sceneIdx = 0;
-  const bag = [];
-  const drawType = () => {
-    if (!bag.length) bag.push(...BG.slice().sort(() => rng() - 0.5));
-    return bag.pop();
-  };
-  const mkScene = (t0, t1, zone, forcedType) => {
-    sceneIdx++;
-    const type = forcedType || drawType();
-    const inner = type === "glitch" ? pick(rng, BG.filter((b) => b !== "glitch" && b !== "matrix")) : undefined;
-    const isHook = zone === "hook";
-    const isPunch = zone === "punch";
-    const trans = isHook
-      ? pick(rng, ["flash", "flash", "streak", "glitchBurst"])
-      : pick(rng, TRANS);
-    const cam = isHook
-      ? pick(rng, ["punch", "shake", "push"])
-      : isPunch
-        ? pick(rng, ["punch", "shake", "push"])
-        : pick(rng, CAMS);
-    scenes.push({
-      id: "s" + sceneIdx, t0: +t0.toFixed(3), t1: +t1.toFixed(3),
-      type, inner, cam, trans,
-      seed: Math.floor(rng() * 0xfffffff),
-      speed: +rrange(rng, 0.85, 1.3).toFixed(2),
-    });
-  };
+  // 3. THE DIRECTOR: storyboard the film (worlds + actor + props + fx)
+  const { scenes, fxs, storyScenes } = buildStoryboard(rng, reel, lines, segs, hook, ctaT0, DUR);
 
-  // hook: one scene per word (fast bg flips, 0.25–0.7 s each)
-  for (let i = 0; i < hook.words.length; i++) {
-    const w0 = hook.words[i].t0;
-    const w1 = i + 1 < hook.words.length ? hook.words[i + 1].t0 : hook.t1;
-    mkScene(w0 - 0.05, Math.max(w0 + 0.2, w1), "hook");
-  }
-  // body: split each sentence window into beat-locked units of 1–3 s
-  let lastTrans = null;
-  for (const segm of segs.slice(1)) {
-    let s = segm.t0 - 0.08;
-    const end = segm.t1 + 0.12;
-    while (end - s > 0.4) {
-      // beat-multiples that fit inside 1–3 s and the remaining window
-      const remain = end - s;
-      const beats = [2, 3, 4, 6].map((b) => b * beat).filter((d) => d >= 0.9 && d <= 3.05 && d <= remain + 0.05);
-      let dur = beats.length ? pick(rng, beats) : Math.min(remain, 3.05);
-      if (remain - dur < 0.9 && remain < 3.4) dur = remain; // absorb the tail
-      mkScene(s, Math.min(end, s + dur), segm.role === "punchline" ? "punch" : "body");
-      s += dur;
-    }
-  }
-  // CTA zone: two calm, readable scenes (no glyph rain behind the end card)
-  const CALM = ["waves", "blobs", "orbits", "rings"];
-  const cta1 = pick(rng, CALM), cta2 = pick(rng, CALM.filter((c) => c !== cta1));
-  mkScene(ctaT0, ctaT0 + 1.9, "body", cta1);
-  mkScene(ctaT0 + 1.9, DUR, "body", cta2);
-  scenes.sort((a, b) => a.t0 - b.t0);
-  // stitch tiny gaps / overlaps
-  for (let i = 0; i < scenes.length - 1; i++) scenes[i].t1 = scenes[i + 1].t0;
-  scenes[scenes.length - 1].t1 = DUR;
-
-  // 5. music energy map
+  // 4. music energy map
   const energyMap = [];
   for (const segm of segs) {
     const lvl = segm.role === "hook" ? 1.0 : segm.role === "reflective" ? 0.42 : segm.role === "punchline" ? 1.0 : 0.86;
@@ -215,21 +195,23 @@ function buildPlan(rng, reel, lines) {
     palette: reel.palette,
     brand: JSON.parse(fs.readFileSync("/home/z/my-project/scripts/reels/hype_scripts.json", "utf8")).brand,
     voiceRef: reel.voiceRef,
-    hook, segments: segs, scenes,
+    hook, segments: segs, scenes, fxs,
     cta: { t0: ctaT0, t1: DUR },
     deliveries: reel.sentences.map((s) => ({ role: s.role, delivery: s.delivery, speed: s.speed })),
+    engine: "v6-film", worlds: [...new Set(storyScenes.map((s) => s.world))],
   };
 }
 
 // ————————————————————————————————— film dir ————————————————————————————
 
-function writeFilmDir(reel, plan) {
+export function writeFilmDir(reel, plan) {
   const dir = path.join(ROOT, "films", reel.id);
   fs.mkdirSync(dir, { recursive: true });
   fs.mkdirSync(path.join(dir, "fonts"), { recursive: true });
   fs.mkdirSync(path.join(dir, "out"), { recursive: true });
   // engine + page
-  for (const f of ["lib.js", "bg.js", "type.js", "camera.js", "transitions.js", "main.js"]) {
+  for (const f of ["lib.js", "bg.js", "type.js", "camera.js", "transitions.js",
+    "objects.js", "characters.js", "worlds.js", "story.js", "main.js"]) {
     fs.copyFileSync(path.join(ROOT, "engine", f), path.join(dir, f));
   }
   const html = fs.readFileSync(path.join(ROOT, "engine", "index.html"), "utf8").replace("{{FILM_TITLE}}", reel.name);
@@ -247,7 +229,7 @@ function writeFilmDir(reel, plan) {
 async function main() {
   const key = Number(process.argv[2]);
   const reel = REELS.find((r) => r.key === key);
-  if (!reel) { console.error("usage: node build.mjs <13|14> [--stage plan|render|mix|mux|qc|all] [--fresh-voice]"); process.exit(2); }
+  if (!reel) { console.error("usage: node build.mjs <13..16> [--stage plan|render|mix|mux|qc|all] [--fresh-voice]"); process.exit(2); }
   const stageIdx = process.argv.indexOf("--stage");
   const stage = stageIdx > 0 ? process.argv[stageIdx + 1] : "all";
   const freshVoice = process.argv.includes("--fresh-voice");
@@ -256,24 +238,21 @@ async function main() {
 
   if (stage === "all" || stage === "plan") {
     if (freshVoice) fs.rmSync(path.join(dir, "voice"), { recursive: true, force: true });
-    // seeded deliveries FIRST (voice needs them), same rng stream continues
-    // into the planner → fully deterministic per seed
     const rng = mulberry(reel.seed);
     for (const s of reel.sentences) {
       s.delivery = pick(rng, DELIVERY_POOLS[s.role]);
       const [sa, sb] = SPEED_BY_ROLE[s.role];
       s.speed = +rrange(rng, sa, sb).toFixed(2);
     }
-    const film = {
-      dir,
-      sentences: reel.sentences,
-      reference_id: reel.voiceRef,
-    };
+    const film = { dir, sentences: reel.sentences, reference_id: reel.voiceRef };
     const lines = await voiceFilm(film);
     const plan = buildPlan(rng, reel, lines);
+    // schema gate: never render an invalid storyboard
+    validateStoryboard(plan, { WORLDS_LIST: ["dark_mountain", "road", "climb", "storm", "summit", "vault", "city", "study"] });
     const d = writeFilmDir(reel, plan);
-    console.log(`  plan.json → ${d}  (DUR ${plan.DUR}s, ${plan.scenes.length} scenes, hook ${plan.hook.words.length} slams)`);
+    console.log(`  plan.json → ${d}  (DUR ${plan.DUR}s, ${plan.scenes.length} scenes, ${plan.worlds.length} worlds, ${plan.fxs.length} fx events)`);
     console.log("  deliveries:", plan.deliveries.map((x) => `${x.role}:${x.delivery}`).join(" | "));
+    console.log("  worlds:", plan.worlds.join(" → "));
   }
 
   if (stage === "all" || stage === "render") {
@@ -297,4 +276,6 @@ function run(cmd, args, opts = {}) {
   if (r.status !== 0) { console.error(`stage failed: ${cmd} exit ${r.status}`); process.exit(r.status || 1); }
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+export { REELS };
+const __isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (__isMain) main().catch((e) => { console.error(e); process.exit(1); });

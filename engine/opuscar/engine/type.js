@@ -15,11 +15,22 @@
     return out;
   };
 
+  /** Readability plate: heavy dark stroke behind every display word, so
+   *  type stays legible over bright worlds (sun, lightning, glare). */
+  function plate(ctx, text, size) {
+    ctx.save();
+    ctx.strokeStyle = "rgba(8,9,14,0.88)";
+    ctx.lineWidth = Math.max(4, size * 0.055);
+    ctx.lineJoin = "round";
+    ctx.strokeText(text, 0, 0);
+    ctx.restore();
+  }
+
   /** Big word slam-in transform helper. tt = seconds since word t0. */
   function slam(tt) {
-    // scale 2.35 → 1 with elastic settle + fast fade-in
-    const k = spring(tt, 150, 13);
-    const scale = lerp(2.35, 1, clamp(k, 0, 1.12));
+    // scale 1.9 → 1 with fast elastic settle + quick fade-in (brief, punchy)
+    const k = spring(tt, 185, 14);
+    const scale = lerp(1.9, 1, clamp(k, 0, 1.1));
     const alpha = clamp(tt / 0.07, 0, 1);
     return { scale, alpha };
   }
@@ -55,7 +66,8 @@
       // depth shadow
       ctx.fillStyle = rgba(pal.colors[0], 0.55);
       ctx.fillText(disp, 8, 14);
-      // main fill
+      // main fill (dark plate first for readability over bright scenes)
+      plate(ctx, disp, size);
       ctx.fillStyle = strobe ? pal.text : pal.accent;
       ctx.fillText(disp, 0, 0);
       // hard outline
@@ -104,6 +116,7 @@
       ctx.font = `400 ${size}px Anton, sans-serif`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
+      plate(ctx, cur.disp, size);
       ctx.fillStyle = rgba(pal.colors[0], 0.5);
       ctx.fillText(cur.disp, 7, 12);
       ctx.fillStyle = key ? pal.accent : pal.text;
@@ -150,15 +163,18 @@
         y += Math.sin(frac * Math.PI) * -70;
         x = W / 2 + Math.cos(frac * Math.PI) * 0; // arc = vertical curve only
       }
-      // slide-up settle for stacked words
+      // slide-up settle for stacked words + a gentle bob so settled text
+      // keeps breathing (never a frozen caption block)
       const slide = (1 - clamp(tt / 0.22, 0, 1)) * 26;
+      const bob = Math.sin(t * 2.1 + w.i * 1.37) * 2.2;
       const key = w.key || w.live;
       ctx.save();
-      ctx.translate(x, y + slide);
+      ctx.translate(x, y + slide + bob);
       if (segm.layout !== "block") ctx.scale(scale, scale);
       else ctx.scale(lerp(1.35, 1, k), lerp(1.35, 1, k));
       ctx.globalAlpha = alpha * gAlpha * (w.live ? 1 : 0.6);
       ctx.font = `400 ${size}px Anton, sans-serif`;
+      plate(ctx, w.disp, size);
       ctx.fillStyle = key ? pal.accent : pal.text;
       if (w.live) { // active spoken word: underline tick
         ctx.fillStyle = pal.accent;
@@ -169,6 +185,7 @@
         ctx.shadowBlur = 8;
       }
       ctx.fillText(w.disp, 0, 0);
+      ctx.shadowBlur = 0;
       ctx.restore();
       const wdt = ctx.measureText(w.disp).width;
       const bx0 = segm.layout === "block" ? x - 4 : x - wdt / 2 - 8;

@@ -268,11 +268,11 @@
     }
    ],
    "camSig": "0,0,1.03,-1;-30,-40,1.1,1",
-   "action": "levitate",
+   "action": "idle",
    "character": true,
    "charPos": [
-    540,
-    860
+    780,
+    820
    ],
    "charScale": 2,
    "lighting": {
@@ -331,7 +331,7 @@
     }
    ],
    "camSig": "0,0,1.03,0;-34,14,1.09,0;26,-30,1.15,0",
-   "action": "walk",
+   "action": "idle",
    "character": true,
    "charPos": [
     420,
@@ -388,11 +388,11 @@
     }
    ],
    "camSig": "20,0,1.04,0;-26,14,1.1,0",
-   "action": "idle",
+   "action": "walk",
    "character": true,
    "charPos": [
-    540,
-    1670
+    660,
+    1650
    ],
    "charScale": 2,
    "lighting": {

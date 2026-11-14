@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>s06-paper-forest</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+@font-face{font-family:'Anton';src:url('assets/fonts/Anton-Regular.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-400.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-600.ttf');font-weight:600;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-700.ttf');font-weight:700;font-display:block}
+.clip{position:absolute;inset:0;overflow:hidden}
+#s06-paper-forest{position:absolute;inset:0;font-family:'Source Sans 3',sans-serif;background:#0D1A12;--pulse:0;--acc:#57E39A}
+#s06-paper-forest-camera{position:absolute;inset:0;will-change:transform}
+#s06-paper-forest-world{position:absolute;left:0;top:0}
+#s06-paper-forest-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
+  radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.17) 100%),
+  linear-gradient(180deg, rgba(87,227,154,0.080), rgba(87,227,154,0.032));}
+#s06-paper-forest-wipe{position:absolute;inset:0;z-index:50;background:linear-gradient(180deg,#2FAE6F,#57E39A);transform:translateY(0)}
+#s06-paper-forest-wipe .wipe-edge{position:absolute;left:0;right:0;bottom:0;height:26px;background:#ECFFF3;opacity:0.9}
+#s06-paper-forest-fade{position:absolute;inset:0;z-index:60;background:#000;opacity:0}
+#s06-paper-forest-cap{position:absolute;bottom:172px;left:80px;right:80px;display:flex;justify-content:center;z-index:10}
+.cap-box{max-width:860px;background:rgba(8,8,10,0.62);border:2px solid rgba(87,227,154,0.350);border-radius:26px;padding:22px 34px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 14px}
+.cw{font-family:'Source Sans 3';font-weight:700;font-size:47px;line-height:1.25;color:rgba(236,255,243,0.620);display:inline-block}#s06-paper-forest-brand{position:absolute;top:92px;left:0;right:0;display:flex;justify-content:center;z-index:11}
+#s06-paper-forest-brand{font-family:'Source Sans 3';font-weight:600;font-size:34px;letter-spacing:4px;color:#7E9B8A;background:rgba(8,8,10,0.4);border-radius:999px;padding:10px 28px;width:max-content;margin:0 auto}
+.bdot{width:12px;height:12px;border-radius:6px;background:#57E39A;display:inline-block}
+</style>
+</head>
+<body>
+<div id="s06-paper-forest" data-composition-id="s06-paper-forest" data-width="1080" data-height="1920">
+  <div id="s06-paper-forest-camera">
+    <svg id="s06-paper-forest-world" viewBox="0 0 1080 1920" width="1080" height="1920">
+
+  <rect x="0" y="0" width="1080" height="1920" fill="#0D1A12"/>
+  <polygon points="220,-40 350,-40 540,1920 280,1920" fill="rgba(233,255,216,0.050)"/>
+  <polygon points="520,-40 650,-40 840,1920 580,1920" fill="rgba(233,255,216,0.062)"/>
+  <polygon points="800,-40 930,-40 1120,1920 860,1920" fill="rgba(233,255,216,0.074)"/>
+  <g id="s06-paper-forest-for-t0-0" transform="translate(-154.97 1180)">
+        <rect x="-7" y="-50.97" width="15.4" height="53.52" rx="8" fill="#08150d"/>
+        <circle cx="0" cy="-70.09" r="43.33" fill="#0c1e13"/>
+        <circle cx="-25.49" cy="-50.97" r="30.58" fill="#18291f"/>
+        <circle cx="25.49" cy="-53.52" r="28.03" fill="#0b1a11"/>
+      </g><g id="s06-paper-forest-for-t0-1" transform="translate(35.79 1180)">
+        <rect x="-7" y="-66.46" width="15.4" height="69.79" rx="8" fill="#08150d"/>
+        <circle cx="0" cy="-91.39" r="56.49" fill="#0c1e13"/>
+        <circle cx="-33.23" cy="-66.46" r="39.88" fill="#18291f"/>
+        <circle cx="33.23" cy="-69.79" r="36.55" fill="#0b1a11"/>
+      </g><g id="s06-paper-forest-for-t0-2" transform="translate(264.55 1180)">
+        <rect x="-7" y="-45.98" width="15.4" height="48.28" rx="8" fill="#08150d"/>
+        <circle cx="0" cy="-63.22" r="39.08" fill="#0c1e13"/>
+        <circle cx="-22.99" cy="-45.98" r="27.59" fill="#18291f"/>
+        <circle cx="22.99" cy="-48.28" r="25.29" fill="#0b1a11"/>
+      </g><g id="s06-paper-forest-for-t0-3" transform="translate(455.26 1180)">
+        <rect x="-7" y="-62.82" width="15.4" height="65.96" rx="8" fill="#08150d"/>
+        <circle cx="0" cy="-86.38" r="53.4" fill="#0c1e13"/>
+        <circle cx="-31.41" cy="-62.82" r="37.69" fill="#18291f"/>
+        <circle cx="31.41" cy="-65.96" r="34.55" fill="#0b1a11"/>
+      </g><g id="s06-paper-forest-for-t0-4" transform="translate(554.84 1180)">
+        <rect x="-7" y="-54.27" width="15.4" height="56.98" rx="8" fill="#08150d"/>
+        <circle cx="0" cy="-74.62" r="46.13" fill="#0c1e13"/>
+        <circle cx="-27.13" cy="-54.27" r="32.56" fill="#18291f"/>
+        <circle cx="27.13" cy="-56.98" r="29.85" fill="#0b1a11"/>
+      </g><g id="s06-paper-forest-for-t0-5" transform="translate(817.14 1180)">
+        <rect x="-7" y="-64.58" width="15.4" height="67.81" rx="8" fill="#08150d"/>
+        <circle cx="0" cy="-88.8" r="54.9" fill="#0c1e13"/>
+        <circle cx="-32.29" cy="-64.58" r="38.75" fill="#18291f"/>
+        <circle cx="32.29" cy="-67.81" r="35.52" fill="#0b1a11"/>
+      </g><g id="s06-paper-forest-for-t0-6" transform="translate(1040.64 1180)">
+        <rect x="-7" y="-44.58" width="15.4" height="46.81" rx="8" fill="#08150d"/>
+        <circle cx="0" cy="-61.3" r="37.9" fill="#0c1e13"/>
+        <circle cx="-22.29" cy="-44.58" r="26.75" fill="#18291f"/>
+        <circle cx="22.29" cy="-46.81" r="24.52" fill="#0b1a11"/>
+      </g><g id="s06-paper-forest-for-t1-0" transform="translate(-104.91 1380)">
+        <rect x="-10" y="-79.14" width="22" height="83.09" rx="8" fill="#0c1f16"/>
+        <circle cx="0" cy="-108.81" r="67.27" fill="#112c1f"/>
+        <circle cx="-39.57" cy="-79.14" r="47.48" fill="#1d372a"/>
+        <circle cx="39.57" cy="-83.09" r="43.53" fill="#0f271b"/>
+      </g><g id="s06-paper-forest-for-t1-1" transform="translate(53.31 1380)">
+        <rect x="-10" y="-66.51" width="22" height="69.84" rx="8" fill="#0c1f16"/>
+        <circle cx="0" cy="-91.45" r="56.53" fill="#112c1f"/>
+        <circle cx="-33.26" cy="-66.51" r="39.91" fill="#1d372a"/>
+        <circle cx="33.26" cy="-69.84" r="36.58" fill="#0f271b"/>
+      </g><g id="s06-paper-forest-for-t1-2" transform="translate(258.44 1380)">
+        <rect x="-10" y="-65.1" width="22" height="68.36" rx="8" fill="#0c1f16"/>
+        <circle cx="0" cy="-89.52" r="55.34" fill="#112c1f"/>
+        <circle cx="-32.55" cy="-65.1" r="39.06" fill="#1d372a"/>
+        <circle cx="32.55" cy="-68.36" r="35.81" fill="#0f271b"/>
+      </g><g id="s06-paper-forest-for-t1-3" transform="translate(456.55 1380)">
+        <rect x="-10" y="-92.43" width="22" height="97.06" rx="8" fill="#0c1f16"/>
+        <circle cx="0" cy="-127.1" r="78.57" fill="#112c1f"/>
+        <circle cx="-46.22" cy="-92.43" r="55.46" fill="#1d372a"/>
+        <circle cx="46.22" cy="-97.06" r="50.84" fill="#0f271b"/>
+      </g><g id="s06-paper-forest-for-t1-4" transform="translate(614.88 1380)">
+        <rect x="-10" y="-60.59" width="22" height="63.62" rx="8" fill="#0c1f16"/>
+        <circle cx="0" cy="-83.31" r="51.5" fill="#112c1f"/>
+        <circle cx="-30.3" cy="-60.59" r="36.35" fill="#1d372a"/>
+        <circle cx="30.3" cy="-63.62" r="33.33" fill="#0f271b"/>
+      </g><g id="s06-paper-forest-for-t1-5" transform="translate(859.42 1380)">
+        <rect x="-10" y="-74.07" width="22" height="77.77" rx="8" fill="#0c1f16"/>
+        <circle cx="0" cy="-101.85" r="62.96" fill="#112c1f"/>
+        <circle cx="-37.04" cy="-74.07" r="44.44" fill="#1d372a"/>
+        <circle cx="37.04" cy="-77.77" r="40.74" fill="#0f271b"/>
+      </g><g id="s06-paper-forest-for-t1-6" transform="translate(937.53 1380)">
+        <rect x="-10" y="-82.46" width="22" height="86.58" rx="8" fill="#0c1f16"/>
+        <circle cx="0" cy="-113.38" r="70.09" fill="#112c1f"/>
+        <circle cx="-41.23" cy="-82.46" r="49.47" fill="#1d372a"/>
+        <circle cx="41.23" cy="-86.58" r="45.35" fill="#0f271b"/>
+      </g><g id="s06-paper-forest-for-t2-0" transform="translate(-157.37 1600)">
+        <rect x="-13.5" y="-116.64" width="29.7" height="122.47" rx="8" fill="#112d1f"/>
+        <circle cx="0" cy="-160.38" r="99.14" fill="#18402c"/>
+        <circle cx="-58.32" cy="-116.64" r="69.98" fill="#244a37"/>
+        <circle cx="58.32" cy="-122.47" r="64.15" fill="#153827"/>
+      </g><g id="s06-paper-forest-for-t2-1" transform="translate(92.97 1600)">
+        <rect x="-13.5" y="-81.25" width="29.7" height="85.32" rx="8" fill="#112d1f"/>
+        <circle cx="0" cy="-111.72" r="69.07" fill="#18402c"/>
+        <circle cx="-40.63" cy="-81.25" r="48.75" fill="#244a37"/>
+        <circle cx="40.63" cy="-85.32" r="44.69" fill="#153827"/>
+      </g><g id="s06-paper-forest-for-t2-2" transform="translate(193.63 1600)">
+        <rect x="-13.5" y="-98.04" width="29.7" height="102.94" rx="8" fill="#112d1f"/>
+        <circle cx="0" cy="-134.8" r="83.33" fill="#18402c"/>
+        <circle cx="-49.02" cy="-98.04" r="58.82" fill="#244a37"/>
+        <circle cx="49.02" cy="-102.94" r="53.92" fill="#153827"/>
+      </g><g id="s06-paper-forest-for-t2-3" transform="translate(389.82 1600)">
+        <rect x="-13.5" y="-87.7" width="29.7" height="92.09" rx="8" fill="#112d1f"/>
+        <circle cx="0" cy="-120.59" r="74.55" fill="#18402c"/>
+        <circle cx="-43.85" cy="-87.7" r="52.62" fill="#244a37"/>
+        <circle cx="43.85" cy="-92.09" r="48.24" fill="#153827"/>
+      </g><g id="s06-paper-forest-for-t2-4" transform="translate(630.63 1600)">
+        <rect x="-13.5" y="-126.51" width="29.7" height="132.84" rx="8" fill="#112d1f"/>
+        <circle cx="0" cy="-173.95" r="107.53" fill="#18402c"/>
+        <circle cx="-63.26" cy="-126.51" r="75.91" fill="#244a37"/>
+        <circle cx="63.26" cy="-132.84" r="69.58" fill="#153827"/>
+      </g><g id="s06-paper-forest-for-t2-5" transform="translate(767.83 1600)">
+        <rect x="-13.5" y="-107.61" width="29.7" height="112.99" rx="8" fill="#112d1f"/>
+        <circle cx="0" cy="-147.97" r="91.47" fill="#18402c"/>
+        <circle cx="-53.81" cy="-107.61" r="64.57" fill="#244a37"/>
+        <circle cx="53.81" cy="-112.99" r="59.19" fill="#153827"/>
+      </g><g id="s06-paper-forest-for-t2-6" transform="translate(958.26 1600)">
+        <rect x="-13.5" y="-117.27" width="29.7" height="123.13" rx="8" fill="#112d1f"/>
+        <circle cx="0" cy="-161.24" r="99.68" fill="#18402c"/>
+        <circle cx="-58.63" cy="-117.27" r="70.36" fill="#244a37"/>
+        <circle cx="58.63" cy="-123.13" r="64.5" fill="#153827"/>
+      </g>
+  <rect id="s06-paper-forest-for-fog0" x="-160" y="1040" width="1500" height="70" rx="35" fill="rgba(207,232,216,0.070)"/>
+  <rect id="s06-paper-forest-for-fog1" x="80" y="1240" width="1500" height="70" rx="35" fill="rgba(207,232,216,0.090)"/>
+  <rect id="s06-paper-forest-for-fog2" x="320" y="1460" width="1500" height="70" rx="35" fill="rgba(207,232,216,0.110)"/>
+  <rect id="s06-paper-forest-for-fog3" x="560" y="1680" width="1500" height="70" rx="35" fill="rgba(207,232,216,0.130)"/>
+  <g id="s06-paper-forest-for-c0" opacity="0"><ellipse cx="780" cy="1560" rx="34" ry="20" fill="none" stroke="#57E39A" stroke-width="9" transform="rotate(-14 780 1560)"/></g><g id="s06-paper-forest-for-c1" opacity="0"><ellipse cx="711.15" cy="1496" rx="34" ry="20" fill="none" stroke="#57E39A" stroke-width="9" transform="rotate(18 711.15 1496)"/></g><g id="s06-paper-forest-for-c2" opacity="0"><ellipse cx="628.37" cy="1432" rx="34" ry="20" fill="none" stroke="#57E39A" stroke-width="9" transform="rotate(-14 628.37 1432)"/></g><g id="s06-paper-forest-for-c3" opacity="0"><ellipse cx="530.54" cy="1368" rx="34" ry="20" fill="none" stroke="#57E39A" stroke-width="9" transform="rotate(18 530.54 1368)"/></g><g id="s06-paper-forest-for-c4" opacity="0"><ellipse cx="430.38" cy="1304" rx="34" ry="20" fill="none" stroke="#57E39A" stroke-width="9" transform="rotate(-14 430.38 1304)"/></g><g id="s06-paper-forest-for-c5" opacity="0"><ellipse cx="342.74" cy="1240" rx="34" ry="20" fill="none" stroke="#57E39A" stroke-width="9" transform="rotate(18 342.74 1240)"/></g><g id="s06-paper-forest-for-c6" opacity="0"><ellipse cx="270.97" cy="1176" rx="34" ry="20" fill="none" stroke="#57E39A" stroke-width="9" transform="rotate(-14 270.97 1176)"/></g>
+  <g id="s06-paper-forest-for-ff" style="opacity:calc(0.5 + var(--pulse,0)*0.5)"><circle cx="400.38" cy="1446.64" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="393.45" cy="1007.9" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="823.51" cy="1575.43" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="839.04" cy="1044.36" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="638.77" cy="1500.2" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="184.58" cy="1444.96" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="374.78" cy="1415.56" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="316.41" cy="1335.77" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="762.59" cy="1176.37" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="768.96" cy="752.74" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="152.27" cy="965.16" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="161.69" cy="1264.19" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="1015.82" cy="1312.39" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="107.13" cy="1589.36" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="351.67" cy="878.36" r="5" fill="rgba(87,227,154,0.750)"/><circle cx="128.16" cy="1263.53" r="5" fill="rgba(87,227,154,0.750)"/></g>
+<g id="s06-paper-forest-fx-dust"><circle id="s06-paper-forest-fx-d0" cx="1002.0" cy="1513.7" r="1.9" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d1" cx="86.6" cy="741.5" r="1.9" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d2" cx="369.5" cy="367.9" r="3.7" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d3" cx="37.5" cy="1547.1" r="1.6" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d4" cx="11.7" cy="505.9" r="2.7" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d5" cx="504.3" cy="1489.1" r="3.7" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d6" cx="846.5" cy="1850.1" r="1.9" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d7" cx="1062.2" cy="-25.0" r="2.5" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d8" cx="142.8" cy="1733.7" r="3.4" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d9" cx="1110.0" cy="837.4" r="2.3" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d10" cx="4.7" cy="677.6" r="3.3" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d11" cx="716.9" cy="1354.7" r="1.9" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d12" cx="708.0" cy="1501.7" r="2.7" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d13" cx="597.6" cy="1682.8" r="2.9" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d14" cx="726.5" cy="1028.4" r="3.3" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d15" cx="607.7" cy="294.9" r="3.9" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d16" cx="899.3" cy="264.7" r="3.1" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d17" cx="1090.1" cy="1202.2" r="2.4" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d18" cx="477.2" cy="1125.2" r="3.2" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d19" cx="846.8" cy="609.6" r="3.6" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d20" cx="626.2" cy="1577.2" r="3.1" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d21" cx="932.6" cy="1521.1" r="3.7" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d22" cx="1049.2" cy="1308.9" r="3.2" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d23" cx="995.3" cy="645.0" r="1.8" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d24" cx="302.6" cy="81.0" r="3.7" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d25" cx="1076.4" cy="539.9" r="4.0" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d26" cx="1067.5" cy="442.3" r="3.3" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d27" cx="708.4" cy="198.9" r="1.5" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d28" cx="556.2" cy="582.2" r="2.6" fill="rgba(236,255,243,0.300)"/><circle id="s06-paper-forest-fx-d29" cx="1082.2" cy="1423.1" r="2.6" fill="rgba(236,255,243,0.300)"/></g>
+<g id="s06-paper-forest-char"><g id="s06-paper-forest-to-root">
+  <ellipse id="s06-paper-forest-to-shadow" cx="0" cy="7" rx="64" ry="12" fill="#000000" opacity="0.38"/>
+  <ellipse id="s06-paper-forest-to-halo" cx="0" cy="-116" rx="130" ry="182" fill="var(--acc)" style="opacity:calc(0.07 + var(--pulse, 0) * 0.07)"/>
+
+  <g id="s06-paper-forest-to-bob" transform="translate(0 0)">
+    <g id="s06-paper-forest-to-squash" style="transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(calc(1 + var(--pulse, 0) * 0.033))">
+      <g id="s06-paper-forest-to-lean" transform="rotate(0)">
+
+        
+        <g id="s06-paper-forest-to-legsStand">
+          <g transform="translate(-17 -96)">
+            <g id="s06-paper-forest-to-legL">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="4" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(17 -96)">
+            <g id="s06-paper-forest-to-legR">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="-11" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(-3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <g id="s06-paper-forest-to-legsSit" opacity="0">
+          <path d="M 0 -96 q -42 -12 -62 12 q 30 16 62 6 z" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+          <path d="M 0 -96 q 42 -12 62 12 q -30 16 -62 6 z" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+          <ellipse cx="-54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="-54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+          <ellipse cx="54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+        </g>
+
+        
+        <g transform="translate(0 -96)">
+          <g id="s06-paper-forest-to-torso">
+            <path d="M -37 10 Q -45 -50 -30 -70 L 30 -70 Q 45 -50 37 10 Q 0 20 -37 10 Z"
+                  fill="#262731" stroke="#0D0E13" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M -22 -8 Q 0 0 22 -8" stroke="#17181F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M -9 -63 q -2 15 -5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 9 -63 q 2 15 5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="0" cy="-24" r="7" fill="#E8B84B"/>
+            <circle cx="0" cy="-24" r="7" fill="none" stroke="#17181F" stroke-width="2"/>
+            <path id="s06-paper-forest-to-rimT" d="M -37 10 Q -45 -50 -30 -70" fill="none" stroke="var(--acc)"
+                  stroke-width="4" stroke-linecap="round" style="opacity:calc(0.5 + var(--pulse, 0) * 0.3)"/>
+
+            
+            <g id="s06-paper-forest-to-barbell" opacity="0" transform="translate(0 -78)">
+              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
+              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+            </g>
+
+            
+            <g transform="translate(-33 -62)">
+              <g id="s06-paper-forest-to-armL">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s06-paper-forest-to-forearmL">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(33 -62)">
+              <g id="s06-paper-forest-to-armR">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s06-paper-forest-to-forearmR">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            
+            <g transform="translate(0 -70)">
+              <g id="s06-paper-forest-to-head">
+                <ellipse cx="0" cy="-34" rx="33" ry="33" fill="#17181F" stroke="#0D0E13" stroke-width="3.5"/>
+                <ellipse cx="8" cy="-30" rx="20" ry="17" fill="#0B0C10" opacity="0.92"/>
+                <path d="M -33 -38 Q 0 -76 33 -38 Z" fill="#262731" stroke="#0D0E13" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M -33 -38 Q 0 -76 33 -38" fill="none" stroke="#E8B84B" stroke-width="3"/>
+                <rect x="6" y="-40" width="42" height="11" rx="5.5" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                <circle cx="-2" cy="-49" r="5.5" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <path id="s06-paper-forest-to-rimL" d="M -28 -88 L -28 -28" stroke="var(--acc)" stroke-width="3"
+              stroke-linecap="round" fill="none" style="opacity:calc(0.45 + var(--pulse, 0) * 0.3)"/>
+      </g>
+    </g>
+  </g>
+</g></g>
+    </svg>
+  </div>
+  <div id="s06-paper-forest-grade"></div>
+  <div id="s06-paper-forest-cap"><div class="cap-box"><span class="cw" id="s06-paper-forest-cw-0">Link</span><span class="cw" id="s06-paper-forest-cw-1">in</span><span class="cw" id="s06-paper-forest-cw-2">bio.</span></div></div><div id="s06-paper-forest-brand"><span class="bdot"></span>@SELF_EFFICIENT_DAILY</div>
+  <div id="s06-paper-forest-wipe"><div class="wipe-edge"></div></div>
+  <div id="s06-paper-forest-fade"></div>
+</div>
+<script>
+(function () {
+  const v7 = {};
+// v7 scene-kit — shared browser runtime inlined into every scene by build.mjs.
+// Camera creep, audio-envelope proxy (--pulse CSS var), hook slam, karaoke
+// captions, counters, brand tag, onset fx, flood wipe-in, grade veil.
+// Everything is a pure function of the paused GSAP timeline (deterministic).
+/* global v7 */
+(function () {
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+
+  // ---- audio envelope proxy: one tween drives the --pulse CSS var -------
+  v7.envProxy = function (tl, p, rootId, env, dur) {
+    if (!env || env.length === 0 || dur <= 0.02) return;
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const prox = { t: 0 };
+    tl.to(prox, {
+      t: dur,
+      duration: dur,
+      ease: "none",
+      onUpdate: function () {
+        const f = Math.min(env.length - 1, Math.max(0, Math.round(prox.t * 30)));
+        root.style.setProperty("--pulse", env[f].toFixed(3));
+      },
+    }, 0);
+  };
+
+  // ---- camera: keyed [t,x,y,zoom,rot] -> sequential fromTo on #camera ----
+  v7.camera = function (tl, p, keys, dur) {
+    if (!keys || keys.length === 0) return;
+    const cam = "#" + p + "camera";
+    if (keys.length === 1) {
+      const k = keys[0];
+      tl.set(cam, { x: -k.x, y: -k.y, scale: k.zoom, rotation: k.rot }, 0.001);
+      return;
+    }
+    for (let i = 0; i < keys.length - 1; i++) {
+      const a = keys[i];
+      const b = keys[i + 1];
+      const span = Math.max(0.05, b.t - a.t);
+      tl.fromTo(cam,
+        { x: -a.x, y: -a.y, scale: a.zoom, rotation: a.rot },
+        { x: -b.x, y: -b.y, scale: b.zoom, rotation: b.rot, duration: span, ease: "power2.inOut" },
+        Math.max(0, a.t));
+    }
+  };
+
+  // ---- hook type: per-character spring slam --------------------------------
+  v7.hook = function (tl, p, lines, th, dur) {
+    const box = "#" + p + "hook";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+    let delay = 0.05;
+    lines.forEach((line, li) => {
+      const chars = line.split("");
+      chars.forEach((ch, ci) => {
+        const sel = `#${p}hk-${li}-${ci}`;
+        if (ch === " ") return;
+        tl.fromTo(sel,
+          { opacity: 0, scale: 0.6, y: 26 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" },
+          delay + ci * 0.035);
+      });
+      delay += 0.14 + Math.min(0.5, chars.length * 0.035);
+    });
+    // hold, then shrink away just before scene end
+    tl.to(box, { scale: 0.94, duration: 0.3, ease: "power2.in" }, Math.max(0.1, dur - 0.32));
+  };
+
+  // ---- karaoke captions: word-level color/scale sync -----------------------
+  v7.captions = function (tl, p, words, th, sceneDur, sceneStart) {
+    const box = "#" + p + "cap";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.02);
+    words.forEach((w, i) => {
+      const sel = `#${p}cw-${i}`;
+      const ws = Math.max(0, w.start - sceneStart);
+      const we = Math.min(sceneDur - 0.05, w.end - sceneStart);
+      if (we <= ws) return;
+      // upcoming -> active (white, pop)
+      tl.fromTo(sel,
+        { color: th.inkSoft, scale: 1 },
+        { color: "#FFFFFF", scale: 1.1, duration: 0.09, ease: "power2.out" },
+        ws);
+      // active -> spoken (accent, settle)
+      tl.to(sel, { color: th.accent, scale: 1, duration: 0.12, ease: "power2.out" }, we);
+    });
+  };
+
+  // ---- animated counter ------------------------------------------------------
+  v7.counter = function (tl, p, counter, dur) {
+    const box = "#" + p + "ctr";
+    const numEl = document.getElementById(p + "ctr-num");
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 0.05);
+    const dec = counter.decimals || 0;
+    const prox = { v: counter.from };
+    tl.fromTo(prox,
+      { v: counter.from },
+      { v: counter.to, duration: dur * 0.7, ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = (counter.prefix || "") + prox.v.toFixed(dec) + (counter.suffix || "");
+        } },
+      0.08);
+  };
+
+  // ---- brand tag: settle-in + tiny bob ---------------------------------------
+  v7.brand = function (tl, p, dur) {
+    const tag = "#" + p + "brand";
+    tl.set(tag, { opacity: 0 }, 0.001);
+    tl.fromTo(tag, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo(tag, { y: 0 }, { y: -4, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.6)) - 1 }, 0.5);
+  };
+
+  // ---- onset fx ---------------------------------------------------------------
+  // shockwave ring + speed lines + flash, placed at scene-local onset times
+  v7.onsetFx = function (tl, p, th, onsets, fxKeys, dur) {
+    const has = (k) => fxKeys && fxKeys.indexOf(k) >= 0;
+    onsets.forEach((t0) => {
+      if (t0 <= 0.05 || t0 >= dur - 0.05) return;
+      if (has("shockwave")) {
+        const ring = "#" + p + "fx-ring";
+        tl.set(ring, { attr: { r: 60, opacity: 0 } }, t0 - 0.001);
+        tl.fromTo(ring,
+          { attr: { r: 60, opacity: 0.5 } },
+          { attr: { r: 700, opacity: 0 }, duration: 0.55, ease: "power2.out" },
+          t0);
+      }
+      if (has("speedlines")) {
+        const g = "#" + p + "fx-speed";
+        tl.set(g, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(g,
+          { opacity: 0.55, scale: 1.15 },
+          { opacity: 0, scale: 1, duration: 0.4, ease: "power2.out", transformOrigin: "50% 51%" },
+          t0);
+      }
+      if (has("flash")) {
+        const f = "#" + p + "fx-flash";
+        tl.set(f, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(f, { opacity: 0.16 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, t0);
+      }
+    });
+  };
+
+  // ---- flood wipe-in at scene start -------------------------------------------
+  v7.wipe = function (tl, p, isFirst, dur) {
+    const panel = "#" + p + "wipe";
+    if (isFirst) {
+      const fade = "#" + p + "fade";
+      tl.set(fade, { opacity: 1 }, 0.001);
+      tl.fromTo(fade, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.02);
+      tl.set(panel, { opacity: 0 }, 0.001);
+      return;
+    }
+    tl.set(panel, { opacity: 1 }, 0.001);
+    tl.fromTo(panel,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.46, ease: "power3.inOut" },
+      0.02);
+    // trailing edge accent line
+    const edge = "#" + p + "wipe-edge";
+    tl.fromTo(edge,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.5, ease: "power3.inOut" },
+      0.02);
+  };
+
+  // ---- character: place rig wrapper (static) and run action ------------------
+  v7.placeCharacter = function (p, pos, scale, facing) {
+    const el = document.getElementById(p + "char");
+    if (!el) return;
+    el.setAttribute("transform",
+      `translate(${pos[0]} ${pos[1]}) scale(${(scale * (facing || 1)).toFixed(3)} ${scale.toFixed(3)})`);
+  };
+})();
+
+// TheOne character runtime — inlined into every scene by build.mjs.
+// Applies GSAP tweens to the canonical rig. The rig markup is byte-identical
+// in every scene (only ids get a scene prefix); these joint rotations are the
+// ONLY per-scene variation, so identity and proportions cannot drift.
+// Determinism: finite repeats only, absolute times, pure function of timeline.
+/* global v7 */
+(function () {
+  // Joint oscillation around `base` between base+amp and base-amp.
+  // yoyo with sine.inOut approximates sin(t) closely at joint scale.
+  function swing(tl, sel, base, amp, cycleSec, dur, phase) {
+    if (amp === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    const from = base + (phase >= 0 ? amp : -amp);
+    tl.fromTo(
+      sel,
+      { attr: { transform: `rotate(${from.toFixed(2)})` } },
+      { attr: { transform: `rotate(${(2 * base - from).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+  // Bounded bounce (0 -> -depth -> 0) on the bob wrapper.
+  function bounce(tl, sel, depth, cycleSec, dur) {
+    if (depth === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    tl.fromTo(
+      sel,
+      { attr: { transform: "translate(0 0)" } },
+      { attr: { transform: `translate(0 ${(-depth).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+
+  // p = scene id prefix, e.g. "s01-" (rig ids are `${p}to-…`)
+  v7.character = function (tl, p, action, dur) {
+    const g = (n) => "#" + p + n;
+    const seated = action === "meditate" || action === "levitate";
+
+    tl.set(g("to-legsStand"), { attr: { opacity: seated ? 0 : 1 } }, 0.001);
+    tl.set(g("to-legsSit"), { attr: { opacity: seated ? 1 : 0 } }, 0.001);
+
+    const S = {
+      idle:     { lean: 0,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      walk:     { lean: 2,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      run:      { lean: -9,  head: -3, fArmL: 42,  fArmR: 42,  barbell: 0 },
+      climb:    { lean: 14,  head: -6, fArmL: 8,   fArmR: 8,   barbell: 0 },
+      lift:     { lean: 0,   head: 0,  fArmL: 6,   fArmR: 6,   barbell: 1 },
+      meditate: { lean: 0,   head: 2,  fArmL: 32,  fArmR: -32, barbell: 0 },
+      levitate: { lean: 0,   head: -2, fArmL: 14,  fArmR: -14, barbell: 0 },
+      victory:  { lean: 0,   head: -2, fArmL: 6,   fArmR: 6,   barbell: 0 },
+      point:    { lean: 3,   head: 4,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+    }[action] || { lean: 0, head: 0, fArmL: 0, fArmR: 0, barbell: 0 };
+
+    tl.set(g("to-lean"), { attr: { transform: `rotate(${S.lean})` } }, 0.001);
+    tl.set(g("to-head"), { attr: { transform: `rotate(${S.head})` } }, 0.001);
+    tl.set(g("to-forearmL"), { attr: { transform: `rotate(${S.fArmL})` } }, 0.001);
+    tl.set(g("to-forearmR"), { attr: { transform: `rotate(${S.fArmR})` } }, 0.001);
+    tl.set(g("to-barbell"), { attr: { opacity: S.barbell } }, 0.001);
+
+    switch (action) {
+      case "idle":
+        swing(tl, g("to-armL"), 0, 4, 1.1, dur, 1);
+        swing(tl, g("to-armR"), 0, 4, 1.1, dur, -1);
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+        break;
+      case "walk":
+        swing(tl, g("to-legL"), 0, 24, 0.667, dur, 1);
+        swing(tl, g("to-legR"), 0, 24, 0.667, dur, -1);
+        swing(tl, g("to-armL"), 0, 16, 0.667, dur, -1);
+        swing(tl, g("to-armR"), 0, 16, 0.667, dur, 1);
+        bounce(tl, g("to-bob"), 5, 0.333, dur);
+        break;
+      case "run":
+        swing(tl, g("to-legL"), 0, 40, 0.385, dur, 1);
+        swing(tl, g("to-legR"), 0, 40, 0.385, dur, -1);
+        swing(tl, g("to-armL"), 0, 34, 0.385, dur, -1);
+        swing(tl, g("to-armR"), 0, 34, 0.385, dur, 1);
+        bounce(tl, g("to-bob"), 7, 0.192, dur);
+        break;
+      case "climb":
+        // arms reach up alternately around 150°, knees step
+        swing(tl, g("to-armL"), 150, 26, 1.11, dur, 1);
+        swing(tl, g("to-armR"), 150, 26, 1.11, dur, -1);
+        swing(tl, g("to-legL"), 28, 16, 1.11, dur, 1);
+        swing(tl, g("to-legR"), 28, 16, 1.11, dur, -1);
+        bounce(tl, g("to-bob"), 3, 1.11, dur);
+        break;
+      case "lift": {
+        const cyc = 1.82;
+        const reps = Math.max(1, Math.ceil(dur / cyc));
+        for (let i = 0; i < reps; i++) {
+          const t0 = i * cyc;
+          tl.fromTo(g("to-armL"),
+            { attr: { transform: "rotate(168)" } },
+            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.fromTo(g("to-armR"),
+            { attr: { transform: "rotate(-168)" } },
+            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-barbell"),
+            { attr: { transform: "translate(0 -108)" } },
+            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-bob"),
+            { attr: { transform: "translate(0 0)" } },
+            { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+        }
+        break;
+      }
+      case "meditate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(38)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-38)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 2.0, dur);
+        break;
+      case "levitate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(62)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-62)" } }, 0.002);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 -14)" } },
+          { attr: { transform: "translate(0 -23)" }, duration: 1.11, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.11)) - 1 },
+          0);
+        break;
+      case "victory":
+        // arms held up (~160°) with a slight sway + one hop
+        tl.fromTo(g("to-armL"),
+          { attr: { transform: "rotate(158)" } },
+          { attr: { transform: "rotate(163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-armR"),
+          { attr: { transform: "rotate(-158)" } },
+          { attr: { transform: "rotate(-163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 0)" } },
+          { attr: { transform: "translate(0 -12)" }, duration: 0.36, ease: "sine.out" },
+          0);
+        tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: 0.36, ease: "bounce.in" }, 0.36);
+        break;
+      case "point":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 1.4, dur);
+        break;
+      default:
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+    }
+  };
+})();
+
+  const SID = "s06-paper-forest";
+  const P = "s06-paper-forest-";
+  const DUR = 2.133;
+  const ENV = [0.6,0.492,0.476,0.391,0.32,0.263,0.215,0.177,0.145,0.119,0.097,0.08,0.065,0.054,0.044,0.036,0.03,0.024,0.02,0.016,0.013,0.061,0.423,0.51,0.529,0.639,0.634,0.681,0.559,0.458,0.376,0.89,0.73,0.645,0.604,0.496,0.406,0.527,0.432,0.378,0.31,0.306,0.303,0.302,0.248,0.203,0.167,0.137,0.112,0.092,0.075,0.062,0.051,0.042,0.034,0.028,0,0,0,0,0,0,0,0];
+  const ONSETS = [0.733,1.033];
+  const SCENE = {"action":"walk","type":"caption","camera":[{"t":0,"x":40,"y":10,"zoom":1.04,"rot":0},{"t":2.086666666666666,"x":20,"y":-34,"zoom":1.12,"rot":0}],"fx":["dust"],"counter":null,"hookLines":null,"words":[{"w":"Link","start":0.20333333333333314,"end":0.8328205128205131},{"w":"in","start":0.8328205128205131,"end":1.21051282051282},{"w":"bio.","start":1.21051282051282,"end":1.8399999999999999}],"startSec":8.4};
+  const TH = {"bg":"#0D1A12","panel":"#132619","accent":"#57E39A","accentDeep":"#2FAE6F","ink":"#ECFFF3","inkSoft":"#7E9B8A"};
+  const gsap = window.gsap;
+  const tl = gsap.timeline({ paused: true });
+
+  v7.wipe(tl, P, false, DUR);
+  v7.camera(tl, P, SCENE.camera, DUR);
+  v7.envProxy(tl, P, SID, ENV, DUR);
+tl.fromTo("#s06-paper-forest-for-t0-0",{attr:{transform:"translate(-210 1180)"}},{attr:{transform:"translate(-222.8 1180)"}},0);
+tl.fromTo("#s06-paper-forest-for-t0-1",{attr:{transform:"translate(-20 1180)"}},{attr:{transform:"translate(-32.8 1180)"}},0);
+tl.fromTo("#s06-paper-forest-for-t0-2",{attr:{transform:"translate(170 1180)"}},{attr:{transform:"translate(157.2 1180)"}},0);
+tl.fromTo("#s06-paper-forest-for-t0-3",{attr:{transform:"translate(360 1180)"}},{attr:{transform:"translate(347.2 1180)"}},0);
+tl.fromTo("#s06-paper-forest-for-t0-4",{attr:{transform:"translate(550 1180)"}},{attr:{transform:"translate(537.2 1180)"}},0);
+tl.fromTo("#s06-paper-forest-for-t0-5",{attr:{transform:"translate(740 1180)"}},{attr:{transform:"translate(727.2 1180)"}},0);
+tl.fromTo("#s06-paper-forest-for-t0-6",{attr:{transform:"translate(930 1180)"}},{attr:{transform:"translate(917.2 1180)"}},0);
+tl.fromTo("#s06-paper-forest-for-t1-0",{attr:{transform:"translate(-210 1380)"}},{attr:{transform:"translate(-235.6 1380)"}},0);
+tl.fromTo("#s06-paper-forest-for-t1-1",{attr:{transform:"translate(-20 1380)"}},{attr:{transform:"translate(-45.6 1380)"}},0);
+tl.fromTo("#s06-paper-forest-for-t1-2",{attr:{transform:"translate(170 1380)"}},{attr:{transform:"translate(144.4 1380)"}},0);
+tl.fromTo("#s06-paper-forest-for-t1-3",{attr:{transform:"translate(360 1380)"}},{attr:{transform:"translate(334.4 1380)"}},0);
+tl.fromTo("#s06-paper-forest-for-t1-4",{attr:{transform:"translate(550 1380)"}},{attr:{transform:"translate(524.4 1380)"}},0);
+tl.fromTo("#s06-paper-forest-for-t1-5",{attr:{transform:"translate(740 1380)"}},{attr:{transform:"translate(714.4 1380)"}},0);
+tl.fromTo("#s06-paper-forest-for-t1-6",{attr:{transform:"translate(930 1380)"}},{attr:{transform:"translate(904.4 1380)"}},0);
+tl.fromTo("#s06-paper-forest-for-t2-0",{attr:{transform:"translate(-210 1600)"}},{attr:{transform:"translate(-252.67 1600)"}},0);
+tl.fromTo("#s06-paper-forest-for-t2-1",{attr:{transform:"translate(-20 1600)"}},{attr:{transform:"translate(-62.67 1600)"}},0);
+tl.fromTo("#s06-paper-forest-for-t2-2",{attr:{transform:"translate(170 1600)"}},{attr:{transform:"translate(127.33 1600)"}},0);
+tl.fromTo("#s06-paper-forest-for-t2-3",{attr:{transform:"translate(360 1600)"}},{attr:{transform:"translate(317.33 1600)"}},0);
+tl.fromTo("#s06-paper-forest-for-t2-4",{attr:{transform:"translate(550 1600)"}},{attr:{transform:"translate(507.33 1600)"}},0);
+tl.fromTo("#s06-paper-forest-for-t2-5",{attr:{transform:"translate(740 1600)"}},{attr:{transform:"translate(697.33 1600)"}},0);
+tl.fromTo("#s06-paper-forest-for-t2-6",{attr:{transform:"translate(930 1600)"}},{attr:{transform:"translate(887.33 1600)"}},0);
+tl.fromTo("#s06-paper-forest-for-fog0",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(420 0)"},duration:2.13,ease:"none"},0);
+tl.fromTo("#s06-paper-forest-for-fog1",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(420 0)"},duration:2.13,ease:"none"},0);
+tl.fromTo("#s06-paper-forest-for-fog2",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(420 0)"},duration:2.13,ease:"none"},0);
+tl.fromTo("#s06-paper-forest-for-fog3",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(420 0)"},duration:2.13,ease:"none"},0);
+tl.fromTo("#s06-paper-forest-for-c0",{opacity:0,scale:0.3},{opacity:1,scale:1,duration:0.5,ease:"back.out(2.5)",transformOrigin:"50% 50%"},0.3);
+tl.fromTo("#s06-paper-forest-for-c1",{opacity:0,scale:0.3},{opacity:1,scale:1,duration:0.5,ease:"back.out(2.5)",transformOrigin:"50% 50%"},0.52);
+tl.fromTo("#s06-paper-forest-for-c2",{opacity:0,scale:0.3},{opacity:1,scale:1,duration:0.5,ease:"back.out(2.5)",transformOrigin:"50% 50%"},0.74);
+tl.fromTo("#s06-paper-forest-for-c3",{opacity:0,scale:0.3},{opacity:1,scale:1,duration:0.5,ease:"back.out(2.5)",transformOrigin:"50% 50%"},0.96);
+tl.fromTo("#s06-paper-forest-for-c4",{opacity:0,scale:0.3},{opacity:1,scale:1,duration:0.5,ease:"back.out(2.5)",transformOrigin:"50% 50%"},1.18);
+tl.fromTo("#s06-paper-forest-for-c5",{opacity:0,scale:0.3},{opacity:1,scale:1,duration:0.5,ease:"back.out(2.5)",transformOrigin:"50% 50%"},1.4);
+tl.fromTo("#s06-paper-forest-for-c6",{opacity:0,scale:0.3},{opacity:1,scale:1,duration:0.5,ease:"back.out(2.5)",transformOrigin:"50% 50%"},1.62);
+
+tl.fromTo("#s06-paper-forest-fx-d0",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(28.9 -57.1)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d1",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(25.3 -56.4)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d2",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(14.8 -60.0)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d3",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(26.7 -44.0)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d4",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-25.4 -65.8)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d5",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.9 -57.9)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d6",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(12.8 -49.9)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d7",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-28.0 -29.5)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d8",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(10.9 -35.2)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d9",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(5.8 -38.3)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d10",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(19.0 -33.4)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d11",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-30.0 -63.1)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d12",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(20.9 -44.8)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d13",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(29.6 -61.3)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d14",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-13.8 -44.0)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d15",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-28.3 -25.7)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d16",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(26.2 -25.8)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d17",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(19.8 -65.3)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d18",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-0.9 -59.9)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d19",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(15.2 -42.5)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d20",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-2.9 -45.0)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d21",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(6.6 -52.1)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d22",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-12.7 -55.8)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d23",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(11.2 -36.4)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d24",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(3.1 -25.7)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d25",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.6 -50.5)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d26",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(19.4 -26.3)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d27",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(15.7 -67.4)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d28",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(20.7 -44.1)"}},0);
+tl.fromTo("#s06-paper-forest-fx-d29",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(26.5 -43.5)"}},0);
+
+  v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
+v7.placeCharacter(P, [460,1760], 2, -1);
+  v7.character(tl, P, SCENE.action, DUR);
+  if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
+  if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);
+  if (SCENE.counter) v7.counter(tl, P, SCENE.counter, DUR);
+  if (SCENE.type !== "cta") v7.brand(tl, P, DUR);
+
+
+  window.__timelines[SID] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

@@ -244,24 +244,24 @@
    "camera": [
     {
      "t": 0,
-     "x": 0,
-     "y": 0,
-     "zoom": 1.06,
-     "rot": -1
+     "x": -26,
+     "y": 12,
+     "zoom": 1.07,
+     "rot": 0
     },
     {
      "t": 0.6814444444444439,
-     "x": 0,
-     "y": 10,
-     "zoom": 1.12,
-     "rot": 1
+     "x": 34,
+     "y": -8,
+     "zoom": 1.11,
+     "rot": -1
     }
    ],
-   "camSig": "0,0,1.06,-1;0,10,1.12,1",
-   "action": "victory",
+   "camSig": "-26,12,1.07,0;34,-8,1.11,-1",
+   "action": "point",
    "character": true,
    "charPos": [
-    540,
+    700,
     1790
    ],
    "charScale": 2,
@@ -310,7 +310,7 @@
     }
    ],
    "camSig": "40,0,1.06,1.2;-30,-14,1.12,-1.2",
-   "action": "point",
+   "action": "run",
    "character": true,
    "charPos": [
     260,

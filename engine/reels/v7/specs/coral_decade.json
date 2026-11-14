@@ -242,25 +242,25 @@
    "camera": [
     {
      "t": 0,
-     "x": 20,
-     "y": 0,
-     "zoom": 1.04,
-     "rot": 0
+     "x": 30,
+     "y": -10,
+     "zoom": 1.05,
+     "rot": 1
     },
     {
      "t": 1.156210526315789,
-     "x": -40,
-     "y": 10,
-     "zoom": 1.12,
-     "rot": 0
+     "x": -44,
+     "y": 20,
+     "zoom": 1.11,
+     "rot": -1
     }
    ],
-   "camSig": "20,0,1.04,0;-40,10,1.12,0",
-   "action": "idle",
+   "camSig": "30,-10,1.05,1;-44,20,1.11,-1",
+   "action": "meditate",
    "character": true,
    "charPos": [
-    380,
-    1785
+    540,
+    1790
    ],
    "charScale": 2,
    "lighting": {
@@ -312,11 +312,11 @@
     }
    ],
    "camSig": "20,0,1.04,0;-26,14,1.1,0",
-   "action": "meditate",
+   "action": "victory",
    "character": true,
    "charPos": [
-    540,
-    1670
+    660,
+    1650
    ],
    "charScale": 2,
    "lighting": {

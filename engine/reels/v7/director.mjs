@@ -54,49 +54,69 @@ const WORLD_LIGHT = {
 // camera templates per world — INDEXED BY VARIANT (cycled), so repeated
 // worlds get genuinely different camera paths (scene uniqueness).
 function cameraFor(world, d, variant) {
-  const v = variant % 2;
+  const v = variant % 3;
   const K = (t, x, y, zoom, rot) => ({ t, x, y, zoom, rot });
   switch (world) {
     case "iso-grid":
-      return v === 0
-        ? [K(0, 0, 0, 1.02, 0), K(d * 0.4, 30, 10, 1.08, 0), K(d, 0, -40, 1.16, 0)]
-        : [K(0, 0, 0, 1.03, 0), K(d * 0.5, -34, 14, 1.09, 0), K(d, 26, -30, 1.15, 0)];
+      return [
+        [K(0, 0, 0, 1.02, 0), K(d * 0.4, 30, 10, 1.08, 0), K(d, 0, -40, 1.16, 0)],
+        [K(0, 0, 0, 1.03, 0), K(d * 0.5, -34, 14, 1.09, 0), K(d, 26, -30, 1.15, 0)],
+        [K(0, -30, 20, 1.05, 0), K(d * 0.5, 30, -10, 1.1, 1), K(d, -10, -44, 1.17, -1)],
+      ][v];
     case "riso-poster":
-      return v === 0
-        ? [K(0, 0, 0, 1.04, 0), K(d, 0, 26, 1.1, 0)]
-        : [K(0, 40, 0, 1.06, 1.2), K(d, -30, -14, 1.12, -1.2)];
+      return [
+        [K(0, 0, 0, 1.04, 0), K(d, 0, 26, 1.1, 0)],
+        [K(0, 40, 0, 1.06, 1.2), K(d, -30, -14, 1.12, -1.2)],
+        [K(0, -40, 14, 1.05, -1), K(d * 0.6, 34, 0, 1.09, 1), K(d, 10, -30, 1.13, 0)],
+      ][v];
     case "ink-dawn":
-      return v === 0
-        ? [K(0, 20, 0, 1.04, 0), K(d, -40, 10, 1.12, 0)]
-        : [K(0, 0, 30, 1.06, 0), K(d, 50, -20, 1.12, 0)];
+      return [
+        [K(0, 20, 0, 1.04, 0), K(d, -40, 10, 1.12, 0)],
+        [K(0, 0, 30, 1.06, 0), K(d, 50, -20, 1.12, 0)],
+        [K(0, 30, -10, 1.05, 1), K(d, -44, 20, 1.11, -1)],
+      ][v];
     case "neon-city":
-      return v === 0
-        ? [K(0, 0, 20, 1.05, 0), K(d * 0.5, 24, 0, 1.09, 0), K(d, -20, -30, 1.14, 0)]
-        : [K(0, -30, 0, 1.06, 0), K(d * 0.6, 30, 16, 1.1, 0), K(d, -10, -36, 1.13, 0)];
+      return [
+        [K(0, 0, 20, 1.05, 0), K(d * 0.5, 24, 0, 1.09, 0), K(d, -20, -30, 1.14, 0)],
+        [K(0, -30, 0, 1.06, 0), K(d * 0.6, 30, 16, 1.1, 0), K(d, -10, -36, 1.13, 0)],
+        [K(0, 24, -16, 1.04, 1), K(d * 0.5, -26, 0, 1.08, -1), K(d, 36, -24, 1.15, 1)],
+      ][v];
     case "paper-forest":
-      return v === 0
-        ? [K(0, 0, 0, 1.05, 0), K(d, -50, -10, 1.13, 0)]
-        : [K(0, 40, 10, 1.04, 0), K(d, 20, -34, 1.12, 0)];
+      return [
+        [K(0, 0, 0, 1.05, 0), K(d, -50, -10, 1.13, 0)],
+        [K(0, 40, 10, 1.04, 0), K(d, 20, -34, 1.12, 0)],
+        [K(0, -36, 14, 1.06, -1), K(d, 44, -20, 1.14, 1)],
+      ][v];
     case "cosmic-orbit":
-      return v === 0
-        ? [K(0, 0, 0, 1.03, 0), K(d, 20, -60, 1.12, 1)]
-        : [K(0, 0, 0, 1.03, -1), K(d, -30, -40, 1.1, 1)];
+      return [
+        [K(0, 0, 0, 1.03, 0), K(d, 20, -60, 1.12, 1)],
+        [K(0, 0, 0, 1.03, -1), K(d, -30, -40, 1.1, 1)],
+        [K(0, 26, 16, 1.05, 1), K(d, -34, -54, 1.13, -1)],
+      ][v];
     case "blueprint-tech":
-      return v === 0
-        ? [K(0, 60, 0, 1.05, 0), K(d * 0.6, -40, 20, 1.08, 0), K(d, 30, -30, 1.12, 0)]
-        : [K(0, -50, 10, 1.06, 0), K(d * 0.5, 36, -6, 1.09, 0), K(d, -20, -34, 1.14, 0)];
+      return [
+        [K(0, 60, 0, 1.05, 0), K(d * 0.6, -40, 20, 1.08, 0), K(d, 30, -30, 1.12, 0)],
+        [K(0, -50, 10, 1.06, 0), K(d * 0.5, 36, -6, 1.09, 0), K(d, -20, -34, 1.14, 0)],
+        [K(0, 0, 30, 1.04, -1), K(d * 0.55, -44, 0, 1.1, 1), K(d, 40, -20, 1.13, -1)],
+      ][v];
     case "halftone-comic":
-      return v === 0
-        ? [K(0, 0, 0, 1.06, -1), K(d, 0, 10, 1.12, 1)]
-        : [K(0, 0, 0, 1.05, 1), K(d, 14, -18, 1.13, -1)];
+      return [
+        [K(0, 0, 0, 1.06, -1), K(d, 0, 10, 1.12, 1)],
+        [K(0, 0, 0, 1.05, 1), K(d, 14, -18, 1.13, -1)],
+        [K(0, -26, 12, 1.07, 0), K(d, 34, -8, 1.11, -1)],
+      ][v];
     case "liquid-grad":
-      return v === 0
-        ? [K(0, 0, 0, 1.03, 0), K(d, 20, 20, 1.08, 0)]
-        : [K(0, 20, 0, 1.04, 0), K(d, -26, 14, 1.1, 0)];
+      return [
+        [K(0, 0, 0, 1.03, 0), K(d, 20, 20, 1.08, 0)],
+        [K(0, 20, 0, 1.04, 0), K(d, -26, 14, 1.1, 0)],
+        [K(0, -22, 16, 1.05, 1), K(d, 28, -18, 1.09, -1)],
+      ][v];
     case "cel-stage":
-      return v === 0
-        ? [K(0, 0, 10, 1.04, 0), K(d, 0, -36, 1.13, 0)]
-        : [K(0, 24, 0, 1.05, 0), K(d, -18, -30, 1.12, 0)];
+      return [
+        [K(0, 0, 10, 1.04, 0), K(d, 0, -36, 1.13, 0)],
+        [K(0, 24, 0, 1.05, 0), K(d, -18, -30, 1.12, 0)],
+        [K(0, -26, 8, 1.06, -1), K(d, 14, -40, 1.11, 1)],
+      ][v];
     default:
       return [K(0, 0, 0, 1.04, 0), K(d, 0, -20, 1.1, 0)];
   }
@@ -138,18 +158,18 @@ const signature = (s) =>
 
 const camSig = (keys) => keys.map((k) => `${k.x},${k.y},${k.zoom},${k.rot}`).join(";");
 
-// Quadrant variants for character placement
+// Character placement variants (3 per world — indexed by variant % 3)
 const CHAR_SPOTS = {
-  "iso-grid":     { 0: [660, 1130], 1: [420, 1160] },
-  "riso-poster":  { 0: [820, 1600], 1: [260, 1600] },
-  "ink-dawn":     { 0: [380, 1785], 1: [700, 1780] },
-  "neon-city":    { 0: [540, 1408], 1: [440, 1408] },
-  "paper-forest": { 0: [620, 1760], 1: [460, 1760] },
-  "cosmic-orbit": { 0: [540, 820],  1: [540, 860] },
-  "blueprint-tech": { 0: [540, 1640], 1: [540, 1620] },
-  "halftone-comic": { 0: [540, 1790], 1: [540, 1770] },
-  "liquid-grad":  { 0: [540, 1650], 1: [540, 1670] },
-  "cel-stage":    { 0: [540, 1552], 1: [500, 1552] },
+  "iso-grid":       { 0: [660, 1130], 1: [420, 1160], 2: [540, 1090] },
+  "riso-poster":    { 0: [820, 1600], 1: [260, 1600], 2: [540, 1600] },
+  "ink-dawn":       { 0: [380, 1785], 380: [380, 1785], 1: [700, 1780], 2: [540, 1790] },
+  "neon-city":      { 0: [540, 1408], 1: [440, 1408], 2: [640, 1408] },
+  "paper-forest":   { 0: [620, 1760], 1: [460, 1760], 2: [540, 1740] },
+  "cosmic-orbit":   { 0: [540, 820], 1: [780, 820], 2: [300, 820] },
+  "blueprint-tech": { 0: [540, 1640], 1: [640, 1640], 2: [440, 1640] },
+  "halftone-comic": { 0: [540, 1790], 1: [540, 1770], 2: [700, 1790] },
+  "liquid-grad":    { 0: [540, 1650], 1: [660, 1650], 2: [420, 1650] },
+  "cel-stage":      { 0: [540, 1552], 1: [484, 1552], 2: [596, 1552] },
 };
 
 // ------------------------------------------------------------------- build
@@ -177,8 +197,10 @@ for (const reel of props.reels) {
   const ctaDur = reel.style === "cinematic" ? 4.2 : 2.8;
   const scenes = [];
 
-  // variant assignment: same-world scenes get incrementing variants
+  // variant assignment: same-world scenes get incrementing variants,
+  // and repeated world+action pairs get their action rotated (uniqueness)
   const worldUse = {};
+  const worldAction = {};
   timed.forEach((s, i) => {
     const startSec = i === 0 ? 0 : s.start - 0.2;
     const endSec = i === timed.length - 1 ? ctaStart - 0.05 : timed[i + 1].start - 0.15 + 0.1;
@@ -186,7 +208,15 @@ for (const reel of props.reels) {
     const variant = worldUse[world] ?? 0;
     worldUse[world] = variant + 1;
     const d = Math.max(0.5, endSec - startSec);
-    const action = dir.actions[i % dir.actions.length];
+    let action = dir.actions[i % dir.actions.length];
+    const wKey = world + ":" + action;
+    if (worldAction[wKey] !== undefined) {
+      // rotate to the next unused action for this world
+      const pool = dir.actions.filter((a) => worldAction[world + ":" + a] === undefined);
+      if (pool.length) action = pool[(worldAction[wKey] + 1) % pool.length];
+      else action = dir.actions[(worldAction[wKey] + 1) % dir.actions.length];
+    }
+    worldAction[wKey] = (worldAction[wKey] ?? -1) + 1;
     const wl = WORLD_LIGHT[world];
     const counterHit = (dir.counters ?? []).find((c) => c.at === i);
     const cam = cameraFor(world, d, variant);
@@ -201,7 +231,7 @@ for (const reel of props.reels) {
       camSig: camSig(cam),
       action,
       character: true,
-      charPos: spots[variant % 2],
+      charPos: spots[variant % 3],
       charScale: world === "neon-city" ? 2.4 : world === "cel-stage" ? 2.4 : 2.0,
       lighting: { tint: wl.tint, intensity: wl.intensity },
       fx: wl.fx,

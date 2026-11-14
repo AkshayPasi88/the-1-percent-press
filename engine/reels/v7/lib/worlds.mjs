@@ -94,7 +94,9 @@ function IsoGrid(scene, spec, p, ctx) {
 // ---------------------------------------------------------------- riso-poster
 function RisoPoster(scene, spec, p, ctx) {
   const th = spec.theme;
-  const flip = scene.variant % 2 === 1;
+  const v3 = (scene.variant || 0) % 3;
+  const flip = v3 === 1;
+  const sunY = v3 === 2 ? 560 : 720;
   const bars = [0.5, 0.75, 1, 0.62, 0.88, 0.4, 0.68];
   let barM = "";
   bars.forEach((hh, i) => {
@@ -113,13 +115,13 @@ function RisoPoster(scene, spec, p, ctx) {
   </defs>
   <rect x="0" y="0" width="${W}" height="${H}" fill="url(#${p}riso-dots)"/>
   <g id="${p}riso-sun">
-    <circle cx="544" cy="716" r="230" fill="${hexA(th.accentDeep, 0.5)}"/>
-    <circle cx="540" cy="720" r="230" fill="${hexA(th.accent, 0.55)}"/>
-    <circle cx="540" cy="720" r="230" fill="none" stroke="${th.ink}" stroke-width="3" opacity="0.25"/>
+    <circle cx="544" cy="${sunY - 4}" r="230" fill="${hexA(th.accentDeep, 0.5)}"/>
+    <circle cx="540" cy="${sunY}" r="230" fill="${hexA(th.accent, 0.55)}"/>
+    <circle cx="540" cy="${sunY}" r="230" fill="none" stroke="${th.ink}" stroke-width="3" opacity="0.25"/>
   </g>
-  <circle id="${p}riso-a0" cx="540" cy="720" r="310" fill="none" stroke="${hexA(th.inkSoft, 0.35)}" stroke-width="2" stroke-dasharray="30 22"/>
-  <circle id="${p}riso-a1" cx="540" cy="720" r="380" fill="none" stroke="${hexA(th.inkSoft, 0.35)}" stroke-width="2" stroke-dasharray="48 22"/>
-  <circle id="${p}riso-a2" cx="540" cy="720" r="450" fill="none" stroke="${hexA(th.inkSoft, 0.35)}" stroke-width="2" stroke-dasharray="66 22"/>
+  <circle id="${p}riso-a0" cx="540" cy="${sunY}" r="310" fill="none" stroke="${hexA(th.inkSoft, 0.35)}" stroke-width="2" stroke-dasharray="30 22"/>
+  <circle id="${p}riso-a1" cx="540" cy="${sunY}" r="380" fill="none" stroke="${hexA(th.inkSoft, 0.35)}" stroke-width="2" stroke-dasharray="48 22"/>
+  <circle id="${p}riso-a2" cx="540" cy="${sunY}" r="450" fill="none" stroke="${hexA(th.inkSoft, 0.35)}" stroke-width="2" stroke-dasharray="66 22"/>
   <rect x="0" y="980" width="${W}" height="330" fill="url(#${p}riso-hatch)" opacity="0.8"/>
   ${barM}
   <rect x="0" y="1600" width="${W}" height="320" fill="${th.panel}"/>
@@ -132,16 +134,18 @@ function RisoPoster(scene, spec, p, ctx) {
     anim += `tl.set("#${p}riso-bar${i}",{attr:{transform:"translate(${r2(x)} 1600) scale(1 0.01)"}},0.001);
     tl.fromTo("#${p}riso-bar${i}",{attr:{transform:"translate(${r2(x)} 1600) scale(1 0.01)"}},{attr:{transform:"translate(${r2(x)} 1600) scale(1 1)"},duration:1.1,ease:"back.out(1.4)"},${r2(t0)});\n`;
   });
-  anim += `tl.fromTo("#${p}riso-a0",{attr:{transform:"rotate(0 540 720)"}},{attr:{transform:"rotate(${r2(4 * d)} 540 720)"},duration:${r2(d)},ease:"none"},0);
-  tl.fromTo("#${p}riso-a1",{attr:{transform:"rotate(0 540 720)"}},{attr:{transform:"rotate(${-r2(7 * d)} 540 720)"},duration:${r2(d)},ease:"none"},0);
-  tl.fromTo("#${p}riso-a2",{attr:{transform:"rotate(0 540 720)"}},{attr:{transform:"rotate(${r2(10 * d)} 540 720)"},duration:${r2(d)},ease:"none"},0);
+  anim += `tl.fromTo("#${p}riso-a0",{attr:{transform:"rotate(0 540 ${sunY})"}},{attr:{transform:"rotate(${r2(4 * d)} 540 ${sunY})"},duration:${r2(d)},ease:"none"},0);
+  tl.fromTo("#${p}riso-a1",{attr:{transform:"rotate(0 540 ${sunY})"}},{attr:{transform:"rotate(${-r2(7 * d)} 540 ${sunY})"},duration:${r2(d)},ease:"none"},0);
+  tl.fromTo("#${p}riso-a2",{attr:{transform:"rotate(0 540 ${sunY})"}},{attr:{transform:"rotate(${r2(10 * d)} 540 ${sunY})"},duration:${r2(d)},ease:"none"},0);
   tl.fromTo("#${p}riso-sun",{attr:{transform:"scale(1)"}},{attr:{transform:"scale(1.04)"},duration:0.9,ease:"sine.inOut",yoyo:true,repeat:${Math.max(1, Math.ceil(d / 0.9)) - 1}},0);\n`;
-  return { markup, anim, char: { pos: [flip ? 260 : 820, 1600], scale: 2.1, facing: flip ? 1 : -1 } };
+  return { markup, anim, char: { pos: v3 === 1 ? [260, 1600] : v3 === 2 ? [540, 1600] : [820, 1600], scale: 2.1, facing: v3 === 1 ? 1 : -1 } };
 }
 
 // ------------------------------------------------------------------ ink-dawn
 function InkDawn(scene, spec, p, ctx) {
   const th = spec.theme;
+  const v3 = (scene.variant || 0) % 3;
+  const sunX = v3 === 0 ? 740 : v3 === 1 ? 300 : 540;
   const strata = [0.1, 0.28, 0.5, 0.72, 0.95].map((k, i) => {
     const R = mulberry32(hashStr(scene.id + ":mtn" + i + "v" + (scene.variant || 0)));
     const pts = [];
@@ -162,10 +166,10 @@ function InkDawn(scene, spec, p, ctx) {
   const markup = `
   <rect x="0" y="0" width="${W}" height="${H}" fill="${th.bg}"/>
   <g id="${p}ink-sun">
-    <circle cx="740" cy="1290" r="110" fill="${hexA(th.accent, 0.95)}"/>
-    <circle cx="740" cy="1290" r="126" fill="none" stroke="${hexA(th.accent, 0.5)}" stroke-width="2"/>
-    <circle cx="740" cy="1290" r="190" fill="none" stroke="${hexA(th.accent, 0.28)}" stroke-width="2" stroke-dasharray="10 14"/>
-    <circle cx="740" cy="1290" r="260" fill="none" stroke="${hexA(th.accent, 0.28)}" stroke-width="2" stroke-dasharray="10 14"/>
+    <circle cx="${sunX}" cy="1290" r="110" fill="${hexA(th.accent, 0.95)}"/>
+    <circle cx="${sunX}" cy="1290" r="126" fill="none" stroke="${hexA(th.accent, 0.5)}" stroke-width="2"/>
+    <circle cx="${sunX}" cy="1290" r="190" fill="none" stroke="${hexA(th.accent, 0.28)}" stroke-width="2" stroke-dasharray="10 14"/>
+    <circle cx="${sunX}" cy="1290" r="260" fill="none" stroke="${hexA(th.accent, 0.28)}" stroke-width="2" stroke-dasharray="10 14"/>
   </g>
   ${strata.map((s) => `<g id="${p}ink-m${s.i}"><path d="${s.d}" fill="${s.fill}"/></g>`).join("\n  ")}
   ${[0, 1, 2].map((i) => `<rect id="${p}ink-mist${i}" x="${-140 + i * 220}" y="${1060 + i * 120}" width="1400" height="54" rx="27" fill="${hexA(th.panel, 0.5)}"/>`).join("\n  ")}
@@ -184,14 +188,15 @@ function InkDawn(scene, spec, p, ctx) {
     anim += `tl.fromTo("#${p}ink-bird${i}",{attr:{transform:"translate(${r2(b.x0)} ${r2(b.y)}) scale(1 1)"}},{attr:{transform:"translate(${r2(xEnd)} ${r2(b.y - 40)}) scale(1 1)"},duration:${r2(d)},ease:"none"},0);
     tl.fromTo("#${p}ink-bird${i}",{attr:{transform:"translate(${r2(b.x0)} ${r2(b.y)}) scale(1 0.2)"}},{attr:{transform:"translate(${r2(b.x0)} ${r2(b.y)}) scale(1 1)"},duration:0.22,ease:"sine.inOut",yoyo:true,repeat:${Math.max(1, Math.ceil(d / 0.22)) - 1}},0);\n`;
   });
-  return { markup, anim, char: { pos: [380, 1785], scale: 2.0, facing: 1 } };
+  return { markup, anim, char: { pos: v3 === 0 ? [380, 1785] : v3 === 1 ? [700, 1780] : [540, 1790], scale: 2.0, facing: 1 } };
 }
 
 // ----------------------------------------------------------------- neon-city
 function NeonCity(scene, spec, p, ctx) {
   const th = spec.theme;
   const R = mulberry32(hashStr(scene.id + ":city" + (scene.variant || 0)));
-  const flip = scene.variant % 2 === 1;
+  const v3 = (scene.variant || 0) % 3;
+  const flip = v3 === 1;
   const far = Array.from({ length: 12 }, (_, i) => ({ w: 70 + R() * 110, h: 140 + R() * 320, x: -40 + i * 95 + R() * 30 }));
   const blds = Array.from({ length: 9 }, (_, i) => {
     const w = 90 + R() * 130;
@@ -222,7 +227,7 @@ function NeonCity(scene, spec, p, ctx) {
   drops.forEach((dr, i) => {
     rainM += `<line id="${p}neo-r${i}" x1="${r2(dr.x)}" y1="0" x2="${r2(dr.x - 7)}" y2="${r2(dr.len)}" stroke="${hexA(th.ink, 0.3)}" stroke-width="2"/>`;
   });
-  const signX = flip ? 830 : 96;
+  const signX = v3 === 0 ? 96 : v3 === 1 ? 830 : 380;
   const markup = `
   <rect x="0" y="0" width="${W}" height="${H}" fill="${th.bg}"/>
   <defs>
@@ -263,13 +268,14 @@ function NeonCity(scene, spec, p, ctx) {
       anim += `tl.fromTo("#${p}neo-sign",{opacity:1},{opacity:0.55,duration:0.05,yoyo:true,repeat:3,ease:"none"},${r2(t)});\n`;
     }
   });
-  return { markup, anim, char: { pos: [540, 1408], scale: 2.4, facing: 1 }, flashOn: true };
+  return { markup, anim, char: { pos: v3 === 0 ? [540, 1408] : v3 === 1 ? [440, 1408] : [640, 1408], scale: 2.4, facing: 1 }, flashOn: true };
 }
 
 // --------------------------------------------------------------- paper-forest
 function PaperForest(scene, spec, p, ctx) {
   const th = spec.theme;
-  const flip = scene.variant % 2 === 1;
+  const v3 = (scene.variant || 0) % 3;
+  const flip = v3 === 1;
   const rows = [
     { y: 1180, scale: 0.7, col: mixHex(th.bg, "#0A2214", 0.5), sp: 6 },
     { y: 1380, scale: 1.0, col: mixHex(th.bg, "#123324", 0.7), sp: 12 },
@@ -324,14 +330,17 @@ function PaperForest(scene, spec, p, ctx) {
       const t0 = 0.3 + i * 0.22;
       anim += `tl.fromTo("#${p}for-c${i}",{opacity:0,scale:0.3},{opacity:1,scale:1,duration:0.5,ease:"back.out(2.5)",transformOrigin:"50% 50%"},${r2(t0)});\n`;
     });
-  return { markup, anim, char: { pos: [flip ? 460 : 620, 1760], scale: 2.0, facing: flip ? -1 : 1 } };
+  return { markup, anim, char: { pos: v3 === 0 ? [620, 1760] : v3 === 1 ? [460, 1760] : [540, 1740], scale: 2.0, facing: v3 === 1 ? -1 : 1 } };
 }
 
 // --------------------------------------------------------------- cosmic-orbit
 function CosmicOrbit(scene, spec, p, ctx) {
   const th = spec.theme;
   const R = mulberry32(hashStr(scene.id + ":cosmos" + (scene.variant || 0)));
+  const v3 = (scene.variant || 0) % 3;
+  const planetX = v3 === 0 ? 540 : v3 === 1 ? 300 : 780;
   const planetY = 1560;
+  const ringRot = v3 === 2 ? 14 : -14;
   const stars = Array.from({ length: 150 }, () => ({ x: R() * W, y: R() * H * 0.9, r: 0.6 + R() * 1.8 }));
   const starGroups = [0, 1, 2].map((g) =>
     stars.filter((_, i) => i % 3 === g).map((s) => `<circle cx="${r2(s.x)}" cy="${r2(s.y)}" r="${r2(s.r)}" fill="${hexA(th.ink, 0.55)}"/>`).join("")
@@ -346,14 +355,14 @@ function CosmicOrbit(scene, spec, p, ctx) {
   <g id="${p}cos-sg2">${starGroups[2]}</g>
   <ellipse cx="260" cy="420" rx="300" ry="170" fill="${hexA(th.accentDeep, 0.1)}"/>
   <ellipse cx="820" cy="640" rx="260" ry="140" fill="${hexA(th.accent, 0.08)}"/>
-  <ellipse id="${p}cos-or0" cx="540" cy="${planetY - 40}" rx="430" ry="90" fill="none" stroke="${hexA(th.inkSoft, 0.4)}" stroke-width="2" stroke-dasharray="14 18"/>
-  <ellipse id="${p}cos-or1" cx="540" cy="${planetY - 40}" rx="310" ry="68" fill="none" stroke="${hexA(th.inkSoft, 0.4)}" stroke-width="2" stroke-dasharray="14 18"/>
-  <circle cx="540" cy="${planetY}" r="230" fill="url(#${p}cos-pl)"/>
-  <ellipse cx="540" cy="${planetY}" rx="380" ry="74" fill="none" stroke="${hexA(th.accent, 0.55)}" stroke-width="10" transform="rotate(-14 540 ${planetY})"/>
+  <ellipse id="${p}cos-or0" cx="${planetX}" cy="${planetY - 40}" rx="430" ry="90" fill="none" stroke="${hexA(th.inkSoft, 0.4)}" stroke-width="2" stroke-dasharray="14 18"/>
+  <ellipse id="${p}cos-or1" cx="${planetX}" cy="${planetY - 40}" rx="310" ry="68" fill="none" stroke="${hexA(th.inkSoft, 0.4)}" stroke-width="2" stroke-dasharray="14 18"/>
+  <circle cx="${planetX}" cy="${planetY}" r="230" fill="url(#${p}cos-pl)"/>
+  <ellipse cx="${planetX}" cy="${planetY}" rx="380" ry="74" fill="none" stroke="${hexA(th.accent, 0.55)}" stroke-width="10" transform="rotate(${ringRot} ${planetX} ${planetY})"/>
   <line id="${p}cos-shoot" x1="180" y1="240" x2="230" y2="200" stroke="${th.ink}" stroke-width="4" stroke-linecap="round" opacity="0"/>`;
   const d = ctx.dur;
-  let anim = `tl.fromTo("#${p}cos-or0",{attr:{transform:"rotate(0 540 ${planetY - 40})"}},{attr:{transform:"rotate(${r2(6 * d)} 540 ${planetY - 40})"}},0);
-  tl.fromTo("#${p}cos-or1",{attr:{transform:"rotate(0 540 ${planetY - 40})"}},{attr:{transform:"rotate(${-r2(10 * d)} 540 ${planetY - 40})"}},0);\n`;
+  let anim = `tl.fromTo("#${p}cos-or0",{attr:{transform:"rotate(0 ${planetX} ${planetY - 40})"}},{attr:{transform:"rotate(${r2(6 * d)} ${planetX} ${planetY - 40})"}},0);
+  tl.fromTo("#${p}cos-or1",{attr:{transform:"rotate(0 ${planetX} ${planetY - 40})"}},{attr:{transform:"rotate(${-r2(10 * d)} ${planetX} ${planetY - 40})"}},0);\n`;
   starGroups.forEach((_, g) => {
     const cyc = [2.2, 3.1, 2.7][g];
     anim += `tl.fromTo("#${p}cos-sg${g}",{opacity:0.35},{opacity:1,duration:${r2(cyc / 2)},ease:"sine.inOut",yoyo:true,repeat:${Math.max(1, Math.ceil(d / (cyc / 2))) - 1}},0);\n`;
@@ -364,13 +373,15 @@ function CosmicOrbit(scene, spec, p, ctx) {
     anim += `tl.fromTo("#${p}cos-shoot",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(440 320)"},duration:0.5,ease:"power2.in"},${r2(t0)});\n`;
     anim += `tl.fromTo("#${p}cos-shoot",{opacity:1},{opacity:0,duration:0.5,ease:"power2.out"},${r2(t0)});\n`;
   });
-  return { markup, anim, char: { pos: [540, 820], scale: 2.0, facing: 1 } };
+  return { markup, anim, char: { pos: v3 === 0 ? [540, 820] : v3 === 1 ? [780, 820] : [300, 820], scale: 2.0, facing: v3 === 1 ? -1 : 1 } };
 }
 
 // -------------------------------------------------------------- blueprint-tech
 function BlueprintTech(scene, spec, p, ctx) {
   const th = spec.theme;
-  const flip = scene.variant % 2 === 1;
+  const v3 = (scene.variant || 0) % 3;
+  const flip = v3 === 1;
+  const gx = v3 === 0 ? 0 : v3 === 1 ? -90 : 90; // gear cluster x-shift
   let grid = "";
   for (let x = 0; x <= W; x += 60) grid += `<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="${hexA(th.inkSoft, x % 180 === 0 ? 0.22 : 0.1)}" stroke-width="1.5"/>`;
   for (let y = 0; y <= H; y += 60) grid += `<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="${hexA(th.inkSoft, y % 180 === 0 ? 0.22 : 0.1)}" stroke-width="1.5"/>`;
@@ -387,18 +398,18 @@ function BlueprintTech(scene, spec, p, ctx) {
   ${grid}
   <circle id="${p}bp-p0" cx="540" cy="880" r="320" fill="none" stroke="${hexA(th.inkSoft, 0.5)}" stroke-width="2" stroke-dasharray="8 12"/>
   <circle id="${p}bp-p1" cx="540" cy="880" r="460" fill="none" stroke="${hexA(th.inkSoft, 0.5)}" stroke-width="2" stroke-dasharray="8 12"/>
-  ${gear(540, 880, 150, 12)}
-  ${gear(320, 1240, 90, 10)}
-  ${gear(780, 1260, 110, 12)}
+  ${gear(540 + gx, 880, 150, 12)}
+  ${gear(320 + gx, 1240, 90, 10)}
+  ${gear(780 + gx, 1260, 110, 12)}
   ${[0, 1, 2, 3, 4].map((i) => `<rect id="${p}bp-st${i}" x="420" y="${1560 + i * 26}" width="240" height="22" rx="6" fill="${hexA(th.panel, 0.95)}" stroke="${hexA(th.ink, 0.5)}" stroke-width="2"/>`).join("\n  ")}
   <g stroke="${hexA(th.accent, 0.6)}" stroke-width="2.5" fill="none">
     <path d="M 700 880 L 940 880 L 970 850"/><path d="M 860 1260 L 990 1260 L 1020 1230"/>
     <circle cx="970" cy="850" r="4" fill="${th.accent}" stroke="none"/><circle cx="1020" cy="1230" r="4" fill="${th.accent}" stroke="none"/>
   </g>`;
   const d = ctx.dur;
-  let anim = `tl.fromTo("#${p}bp-g540-880",{attr:{transform:"rotate(0 540 880)"}},{attr:{transform:"rotate(${r2(360 * 1.8 * d / 12)} 540 880)"},duration:${r2(d)},ease:"none"},0);
-  tl.fromTo("#${p}bp-g320-1240",{attr:{transform:"rotate(0 320 1240)"}},{attr:{transform:"rotate(${-r2(360 * 1.8 * d / 10)} 320 1240)"},duration:${r2(d)},ease:"none"},0);
-  tl.fromTo("#${p}bp-g780-1260",{attr:{transform:"rotate(0 780 1260)"}},{attr:{transform:"rotate(${-r2(360 * 1.8 * d / 12)} 780 1260)"},duration:${r2(d)},ease:"none"},0);
+  let anim = `tl.fromTo("#${p}bp-g${540 + gx}-880",{attr:{transform:"rotate(0 ${540 + gx} 880)"}},{attr:{transform:"rotate(${r2(360 * 1.8 * d / 12)} ${540 + gx} 880)"},duration:${r2(d)},ease:"none"},0);
+  tl.fromTo("#${p}bp-g${320 + gx}-1240",{attr:{transform:"rotate(0 ${320 + gx} 1240)"}},{attr:{transform:"rotate(${-r2(360 * 1.8 * d / 10)} ${320 + gx} 1240)"},duration:${r2(d)},ease:"none"},0);
+  tl.fromTo("#${p}bp-g${780 + gx}-1260",{attr:{transform:"rotate(0 ${780 + gx} 1260)"}},{attr:{transform:"rotate(${-r2(360 * 1.8 * d / 12)} ${780 + gx} 1260)"},duration:${r2(d)},ease:"none"},0);
   tl.fromTo("#${p}bp-p0",{attr:{transform:"rotate(0 540 880)"}},{attr:{transform:"rotate(${r2(2 * d)} 540 880)"},duration:${r2(d)},ease:"none"},0);
   tl.fromTo("#${p}bp-p1",{attr:{transform:"rotate(0 540 880)"}},{attr:{transform:"rotate(${-r2(3 * d)} 540 880)"},duration:${r2(d)},ease:"none"},0);\n`;
   const sgn = flip ? -1 : 1;
@@ -407,14 +418,15 @@ function BlueprintTech(scene, spec, p, ctx) {
     const dx = (i - 2) * 150 * sgn;
     anim += `tl.fromTo("#${p}bp-st${i}",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(${r2(dx)} ${-180})"},duration:0.5,ease:"back.out(1.6)"},${r2(t0)});\n`;
   });
-  return { markup, anim, char: { pos: [540, 1640], scale: 1.9, facing: 1 } };
+  return { markup, anim, char: { pos: v3 === 0 ? [540, 1640] : v3 === 1 ? [640, 1640] : [440, 1640], scale: 1.9, facing: 1 } };
 }
 
 // -------------------------------------------------------------- halftone-comic
 function HalftoneComic(scene, spec, p, ctx) {
   const th = spec.theme;
-  const flip = scene.variant % 2 === 1;
-  const rot = flip ? 2 : -2;
+  const v3 = (scene.variant || 0) % 3;
+  const rot = v3 === 0 ? -2 : v3 === 1 ? 2 : 0;
+  const motifX = v3 === 2 ? 380 : 540;
   const markup = `
   <rect x="0" y="0" width="${W}" height="${H}" fill="${th.bg}"/>
   <defs><pattern id="${p}hal-dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="4.2" fill="${hexA(th.ink, 0.16)}"/></pattern></defs>
@@ -426,7 +438,7 @@ function HalftoneComic(scene, spec, p, ctx) {
   <g id="${p}hal-panel" transform="rotate(${rot} 540 1150)">
     <rect x="150" y="880" width="780" height="520" rx="26" fill="${th.panel}" stroke="${th.ink}" stroke-width="10"/>
     <rect x="178" y="908" width="724" height="464" rx="14" fill="url(#${p}hal-dots)"/>
-    <g id="${p}hal-motif" transform="translate(540 1140)">
+    <g id="${p}hal-motif" transform="translate(${motifX} 1140)">
       ${scene.motif === "bolt"
         ? `<path d="M -30 -160 L 60 -160 L 20 -40 L 90 -40 L -50 160 L -10 10 L -70 10 Z" fill="${hexA(th.accent, 0.6)}" transform="translate(5 5)"/><path d="M -30 -160 L 60 -160 L 20 -40 L 90 -40 L -50 160 L -10 10 L -70 10 Z" fill="${th.accent}"/>`
         : `<circle r="110" fill="${hexA(th.accent, 0.9)}" transform="translate(6 6)"/><circle r="110" fill="${th.accent}"/><path d="M 0 -60 L 18 -18 L 60 0 L 18 18 L 0 60 L -18 18 L -60 0 L -18 -18 Z" fill="${th.ink}"/>`}
@@ -435,24 +447,26 @@ function HalftoneComic(scene, spec, p, ctx) {
   ${[0, 1].map((k) => Array.from({ length: 6 }, (_, i) => `<line x1="${k ? W - 40 : 40}" y1="${200 + i * 60}" x2="${k ? W - 200 : 200}" y2="${180 + i * 60}" stroke="${hexA(th.ink, 0.3)}" stroke-width="6" stroke-linecap="round"/>`).join("")).join("\n  ")}`;
   const d = ctx.dur;
   let anim = `tl.fromTo("#${p}hal-panel",{attr:{transform:"rotate(${r2(rot * 2)} 540 1150) scale(0.92)"}},{attr:{transform:"rotate(${rot} 540 1150) scale(1)"},duration:0.6,ease:"back.out(1.7)"},0.02);
-  tl.fromTo("#${p}hal-motif",{attr:{transform:"translate(540 1140) scale(0.5)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.5,ease:"back.out(2.4)"},0.15);\n`;
+  tl.fromTo("#${p}hal-motif",{attr:{transform:"translate(${motifX} 1140) scale(0.5)"}},{attr:{transform:"translate(${motifX} 1140) scale(1)"},duration:0.5,ease:"back.out(2.4)"},0.15);\n`;
   ctx.onsets.forEach((t0) => {
     if (t0 <= 0.05 || t0 >= d - 0.5) return;
     anim += `tl.fromTo("#${p}hal-burst",{opacity:0.9},{opacity:0,duration:0.45,ease:"power2.out"},${r2(t0)});\n`;
     anim += `tl.fromTo("#${p}hal-burst",{attr:{transform:"rotate(0 540 760) scale(1.25)"}},{attr:{transform:"rotate(${r2(24)} 540 760) scale(0.85)"},duration:0.45,ease:"power2.out"},${r2(t0)});\n`;
-    anim += `tl.fromTo("#${p}hal-motif",{attr:{transform:"translate(540 1140) scale(1.12)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.3,ease:"back.out(3)"},${r2(t0)});\n`;
+    anim += `tl.fromTo("#${p}hal-motif",{attr:{transform:"translate(${motifX} 1140) scale(1.12)"}},{attr:{transform:"translate(${motifX} 1140) scale(1)"},duration:0.3,ease:"back.out(3)"},${r2(t0)});\n`;
   });
-  return { markup, anim, char: { pos: [540, 1790], scale: 2.0, facing: 1 } };
+  return { markup, anim, char: { pos: v3 === 0 ? [540, 1790] : v3 === 1 ? [540, 1770] : [700, 1790], scale: 2.0, facing: v3 === 2 ? -1 : 1 } };
 }
 
 // ----------------------------------------------------------------- liquid-grad
 function LiquidGrad(scene, spec, p, ctx) {
   const th = spec.theme;
+  const v3 = (scene.variant || 0) % 3;
+  const bx = v3 === 0 ? 0 : v3 === 1 ? 180 : -180;
   const blobs = [
-    { cx: 340, cy: 520, r: 360, col: th.accent, f: 0.11, ph: 0 },
-    { cx: 760, cy: 880, r: 420, col: th.accentDeep, f: 0.09, ph: 2.1 },
-    { cx: 420, cy: 1360, r: 380, col: th.panel, f: 0.13, ph: 4.2 },
-    { cx: 880, cy: 1600, r: 300, col: th.accent, f: 0.12, ph: 1.2 },
+    { cx: 340 + bx, cy: 520, r: 360, col: th.accent, f: 0.11, ph: 0 },
+    { cx: 760 - bx, cy: 880, r: 420, col: th.accentDeep, f: 0.09, ph: 2.1 },
+    { cx: 420 + bx, cy: 1360, r: 380, col: th.panel, f: 0.13, ph: 4.2 },
+    { cx: 880 - bx, cy: 1600, r: 300, col: th.accent, f: 0.12, ph: 1.2 },
   ];
   let blobM = "", defs = "";
   blobs.forEach((b, i) => {
@@ -473,13 +487,14 @@ function LiquidGrad(scene, spec, p, ctx) {
     const dy = Math.cos(b.f * 1.3 * d * Math.PI * 2 + b.ph) * 38;
     anim += `tl.fromTo("#${p}liq-b${i}",{attr:{transform:"translate(0 0) scale(1)"}},{attr:{transform:"translate(${r2(dx)} ${r2(dy)}) scale(${r2(1 + 0.06 * Math.sin(b.f * 2 * d * Math.PI * 2 + b.ph))})"}},0);\n`;
   });
-  return { markup, anim, char: { pos: [540, 1650], scale: 1.9, facing: 1 } };
+  return { markup, anim, char: { pos: v3 === 0 ? [540, 1650] : v3 === 1 ? [660, 1650] : [420, 1650], scale: 1.9, facing: 1 } };
 }
 
 // ------------------------------------------------------------------- cel-stage
 function CelStage(scene, spec, p, ctx) {
   const th = spec.theme;
-  const flip = scene.variant % 2 === 1;
+  const v3 = (scene.variant || 0) % 3;
+  const coneX = v3 === 0 ? 0 : v3 === 1 ? -140 : 140;
   const motes = Array.from({ length: 22 }, (_, i) => {
     const R = mulberry32(hashStr(scene.id + ":mote" + i));
     return { x: 540 + (R() - 0.5) * 640, y0: 1500 - R() * 1500, sp: 10 + R() * 18 };
@@ -491,9 +506,9 @@ function CelStage(scene, spec, p, ctx) {
     <stop offset="0" stop-color="${hexA(th.accent, 0.5)}"/><stop offset="1" stop-color="${hexA(th.accent, 0.02)}"/>
   </linearGradient></defs>
   ${Array.from({ length: 12 }, (_, i) => `<line x1="0" y1="${120 + i * 110}" x2="${W}" y2="${120 + i * 110}" stroke="${hexA(th.inkSoft, 0.06)}" stroke-width="2"/>`).join("\n  ")}
-  <polygon points="${flip ? 440 : 440},0 640,0 940,1560 140,1560" fill="url(#${p}cel-cone)" opacity="0.55" style="opacity:calc(0.55 + var(--pulse,0)*0.2)"/>
-  <ellipse cx="540" cy="1560" rx="400" ry="74" fill="${hexA(th.accent, 0.3)}" style="opacity:calc(0.8 + var(--pulse,0)*0.4)"/>
-  <ellipse cx="540" cy="1560" rx="240" ry="44" fill="${hexA(th.accent, 0.35)}"/>
+  <polygon points="${440 + coneX},0 ${640 + coneX},0 ${940 + coneX},1560 ${140 + coneX},1560" fill="url(#${p}cel-cone)" opacity="0.55" style="opacity:calc(0.55 + var(--pulse,0)*0.2)"/>
+  <ellipse cx="${540 + coneX * 0.4}" cy="1560" rx="400" ry="74" fill="${hexA(th.accent, 0.3)}" style="opacity:calc(0.8 + var(--pulse,0)*0.4)"/>
+  <ellipse cx="${540 + coneX * 0.4}" cy="1560" rx="240" ry="44" fill="${hexA(th.accent, 0.35)}"/>
   ${Array.from({ length: 7 }, (_, i) => `<line x1="${540 + (i - 3) * 90}" y1="1560" x2="${540 + (i - 3) * 320}" y2="${H}" stroke="${hexA(th.ink, 0.1)}" stroke-width="2"/>`).join("\n  ")}
   ${motes.map((m, i) => `<circle id="${p}cel-m${i}" cx="${r2(m.x)}" cy="${r2(m.y0)}" r="3.5" fill="${hexA(th.ink, 0.3)}"/>`).join("")}
   ${[0, 1, 2].map((i) => `<circle id="${p}cel-puff${i}" cx="${540 + (i - 1) * 130}" cy="1548" r="20" fill="${hexA(th.ink, 0.2)}" opacity="0"/>`).join("")}`;
@@ -509,7 +524,7 @@ function CelStage(scene, spec, p, ctx) {
       anim += `tl.fromTo("#${p}cel-puff${i}",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},${r2(t0)});\n`;
     });
   });
-  return { markup, anim, char: { pos: [540, 1552], scale: 2.4, facing: 1 } };
+  return { markup, anim, char: { pos: [540 + Math.round(coneX * 0.4), 1552], scale: 2.4, facing: 1 } };
 }
 
 // ---------------------------------------------------------------- cta (book)

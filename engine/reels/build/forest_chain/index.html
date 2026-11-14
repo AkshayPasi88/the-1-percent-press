@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>forest_chain</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+.clip{position:absolute;inset:0;overflow:hidden}
+#root{position:absolute;inset:0;background:#0D1A12}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="root" data-start="0" data-duration="13.7000" data-width="1080" data-height="1920" data-fps="30">
+  <div id="s00-paper-forest" class="clip" data-composition-id="s00-paper-forest" data-composition-src="compositions/s00-paper-forest.html" data-start="0.0000" data-duration="1.0667" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="0"></div>
+  <div id="s01-paper-forest" class="clip" data-composition-id="s01-paper-forest" data-composition-src="compositions/s01-paper-forest.html" data-start="1.0667" data-duration="1.1333" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="1"></div>
+  <div id="s02-cosmic-orbit" class="clip" data-composition-id="s02-cosmic-orbit" data-composition-src="compositions/s02-cosmic-orbit.html" data-start="2.2000" data-duration="1.1333" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="2"></div>
+  <div id="s03-paper-forest" class="clip" data-composition-id="s03-paper-forest" data-composition-src="compositions/s03-paper-forest.html" data-start="3.3333" data-duration="2.8000" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="3"></div>
+  <div id="s04-paper-forest" class="clip" data-composition-id="s04-paper-forest" data-composition-src="compositions/s04-paper-forest.html" data-start="6.1333" data-duration="1.1333" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="4"></div>
+  <div id="s05-cosmic-orbit" class="clip" data-composition-id="s05-cosmic-orbit" data-composition-src="compositions/s05-cosmic-orbit.html" data-start="7.2667" data-duration="1.1333" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="5"></div>
+  <div id="s06-paper-forest" class="clip" data-composition-id="s06-paper-forest" data-composition-src="compositions/s06-paper-forest.html" data-start="8.4000" data-duration="2.1333" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="6"></div>
+  <div id="s07-cta" class="clip" data-composition-id="s07-cta" data-composition-src="compositions/s07-cta.html" data-start="10.5333" data-duration="3.1667" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="7"></div>
+  <audio id="narration" class="clip" src="assets/audio/hype_07.mp3" data-start="0" data-duration="10.2400" data-volume="1" data-track-index="9"></audio>
+</div>
+<script>
+(function () {
+  const tl = gsap.timeline({ paused: true });
+  window.__timelines["root"] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

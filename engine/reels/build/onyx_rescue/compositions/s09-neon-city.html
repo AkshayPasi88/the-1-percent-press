@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>s09-neon-city</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+@font-face{font-family:'Anton';src:url('assets/fonts/Anton-Regular.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-400.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-600.ttf');font-weight:600;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-700.ttf');font-weight:700;font-display:block}
+.clip{position:absolute;inset:0;overflow:hidden}
+#s09-neon-city{position:absolute;inset:0;font-family:'Source Sans 3',sans-serif;background:#0A0A0C;--pulse:0;--acc:#FF6B4A}
+#s09-neon-city-camera{position:absolute;inset:0;will-change:transform}
+#s09-neon-city-world{position:absolute;left:0;top:0}
+#s09-neon-city-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
+  radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.24) 100%),
+  linear-gradient(180deg, rgba(58,86,200,0.112), rgba(58,86,200,0.045));}
+#s09-neon-city-wipe{position:absolute;inset:0;z-index:50;background:linear-gradient(180deg,#D44A2E,#FF6B4A);transform:translateY(0)}
+#s09-neon-city-wipe .wipe-edge{position:absolute;left:0;right:0;bottom:0;height:26px;background:#F5F2ED;opacity:0.9}
+#s09-neon-city-fade{position:absolute;inset:0;z-index:60;background:#000;opacity:0}
+#s09-neon-city-cap{position:absolute;bottom:172px;left:80px;right:80px;display:flex;justify-content:center;z-index:10}
+.cap-box{max-width:860px;background:rgba(8,8,10,0.62);border:2px solid rgba(255,107,74,0.350);border-radius:26px;padding:22px 34px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 14px}
+.cw{font-family:'Source Sans 3';font-weight:700;font-size:47px;line-height:1.25;color:rgba(245,242,237,0.620);display:inline-block}#s09-neon-city-brand{position:absolute;top:92px;left:0;right:0;display:flex;justify-content:center;z-index:11}
+#s09-neon-city-brand{font-family:'Source Sans 3';font-weight:600;font-size:34px;letter-spacing:4px;color:#9B968F;background:rgba(8,8,10,0.4);border-radius:999px;padding:10px 28px;width:max-content;margin:0 auto}
+.bdot{width:12px;height:12px;border-radius:6px;background:#FF6B4A;display:inline-block}
+</style>
+</head>
+<body>
+<div id="s09-neon-city" data-composition-id="s09-neon-city" data-width="1080" data-height="1920">
+  <div id="s09-neon-city-camera">
+    <svg id="s09-neon-city-world" viewBox="0 0 1080 1920" width="1080" height="1920">
+
+  <rect x="0" y="0" width="1080" height="1920" fill="#0A0A0C"/>
+  <defs>
+    <filter id="s09-neon-city-neo-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="s09-neon-city-neo-ng" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgba(255,107,74,0.160)"/><stop offset="1" stop-color="rgba(255,107,74,0.000)"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1080" height="540" fill="url(#s09-neon-city-neo-ng)" style="opacity:calc(1 + var(--pulse,0)*0.6)"/>
+  <g id="s09-neon-city-neo-far" opacity="0.55"><rect x="-31.94" y="1110.09" width="143.97" height="319.91" fill="rgba(21,21,26,0.900)"/><rect x="76.63" y="1159.79" width="135.66" height="270.21" fill="rgba(21,21,26,0.900)"/><rect x="178.02" y="1214.67" width="110.84" height="215.33" fill="rgba(21,21,26,0.900)"/><rect x="255.23" y="1170.33" width="70.39" height="259.67" fill="rgba(21,21,26,0.900)"/><rect x="360.58" y="1255.24" width="123.73" height="174.76" fill="rgba(21,21,26,0.900)"/><rect x="446.32" y="974.36" width="131.16" height="455.64" fill="rgba(21,21,26,0.900)"/><rect x="530.34" y="1062.6" width="120.97" height="367.4" fill="rgba(21,21,26,0.900)"/><rect x="647.02" y="1095.02" width="133.04" height="334.98" fill="rgba(21,21,26,0.900)"/><rect x="722.15" y="1054.94" width="131.39" height="375.06" fill="rgba(21,21,26,0.900)"/><rect x="843.06" y="1005.23" width="168.93" height="424.77" fill="rgba(21,21,26,0.900)"/><rect x="920.91" y="1279.26" width="76.59" height="150.74" fill="rgba(21,21,26,0.900)"/><rect x="1016.66" y="1161.74" width="158.7" height="268.26" fill="rgba(21,21,26,0.900)"/></g>
+  <g id="s09-neon-city-neo-b0">
+      <rect x="-27.83" y="841.58" width="94.73" height="588.42" fill="#0E0F16"/>
+      <rect x="-27.83" y="841.58" width="94.73" height="4" fill="rgba(245,242,237,0.100)"/>
+      <rect x="-15.83" y="859.58" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="-15.83" y="911.58" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="-15.83" y="1119.58" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="-15.83" y="1275.58" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="-15.83" y="1327.58" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="-15.83" y="1379.58" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="18.17" y="1171.58" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="18.17" y="1223.58" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="18.17" y="1379.58" width="14" height="20" fill="rgba(255,107,74,0.600)"/>
+    </g><g id="s09-neon-city-neo-b1">
+      <rect x="100.73" y="638.49" width="161.31" height="791.51" fill="#0E0F16"/>
+      <rect x="100.73" y="638.49" width="161.31" height="4" fill="rgba(245,242,237,0.100)"/>
+      <rect x="112.73" y="708.49" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="112.73" y="760.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="112.73" y="812.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="112.73" y="916.49" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="112.73" y="1020.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="112.73" y="1072.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="112.73" y="1228.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="112.73" y="1280.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="112.73" y="1332.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="146.73" y="708.49" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="146.73" y="760.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="146.73" y="812.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="146.73" y="864.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="146.73" y="916.49" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="146.73" y="1176.49" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="180.73" y="656.49" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="180.73" y="760.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="180.73" y="864.49" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="180.73" y="916.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="180.73" y="968.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="180.73" y="1020.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="180.73" y="1124.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="180.73" y="1280.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="214.73" y="760.49" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="214.73" y="812.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="214.73" y="1020.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="214.73" y="1072.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="214.73" y="1124.49" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="214.73" y="1280.49" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="214.73" y="1332.49" width="14" height="20" fill="rgba(232,184,75,0.750)"/>
+    </g><g id="s09-neon-city-neo-b2">
+      <rect x="230.22" y="1110.39" width="112.35" height="319.61" fill="#0E0F16"/>
+      <rect x="230.22" y="1110.39" width="112.35" height="4" fill="rgba(245,242,237,0.100)"/>
+      <rect x="242.22" y="1128.39" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="242.22" y="1180.39" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="242.22" y="1232.39" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="242.22" y="1284.39" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="242.22" y="1336.39" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="242.22" y="1388.39" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="276.22" y="1128.39" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="276.22" y="1180.39" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="276.22" y="1284.39" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="276.22" y="1336.39" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="310.22" y="1128.39" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="310.22" y="1180.39" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="310.22" y="1232.39" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="310.22" y="1284.39" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="310.22" y="1336.39" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="310.22" y="1388.39" width="14" height="20" fill="rgba(255,107,74,0.600)"/>
+    </g><g id="s09-neon-city-neo-b3">
+      <rect x="355.41" y="655.74" width="179.94" height="774.26" fill="#0E0F16"/>
+      <rect x="355.41" y="655.74" width="179.94" height="4" fill="rgba(245,242,237,0.100)"/>
+      <rect x="367.41" y="673.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="367.41" y="725.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="367.41" y="777.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="367.41" y="829.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="367.41" y="985.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="367.41" y="1037.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="367.41" y="1349.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="401.41" y="673.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="401.41" y="725.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="401.41" y="777.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="401.41" y="829.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="401.41" y="985.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="401.41" y="1037.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="401.41" y="1297.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="435.41" y="673.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="435.41" y="725.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="435.41" y="777.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="435.41" y="985.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="435.41" y="1089.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="435.41" y="1349.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="469.41" y="673.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="469.41" y="881.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="469.41" y="1037.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="469.41" y="1089.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="469.41" y="1193.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="469.41" y="1297.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="503.41" y="725.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="503.41" y="933.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="503.41" y="1037.74" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="503.41" y="1349.74" width="14" height="20" fill="rgba(232,184,75,0.750)"/>
+    </g><g id="s09-neon-city-neo-b4">
+      <rect x="464.73" y="920.48" width="155.73" height="509.52" fill="#0E0F16"/>
+      <rect x="464.73" y="920.48" width="155.73" height="4" fill="rgba(245,242,237,0.100)"/>
+      <rect x="476.73" y="990.48" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="476.73" y="1094.48" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="476.73" y="1250.48" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="476.73" y="1302.48" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="510.73" y="1198.48" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="510.73" y="1250.48" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="510.73" y="1354.48" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="544.73" y="990.48" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="544.73" y="1042.48" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="544.73" y="1094.48" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="544.73" y="1146.48" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="544.73" y="1250.48" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="544.73" y="1354.48" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="578.73" y="1042.48" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="578.73" y="1094.48" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="578.73" y="1302.48" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="578.73" y="1354.48" width="14" height="20" fill="rgba(232,184,75,0.750)"/>
+    </g><g id="s09-neon-city-neo-b5">
+      <rect x="606" y="640.67" width="115.49" height="789.33" fill="#0E0F16"/>
+      <rect x="606" y="640.67" width="115.49" height="4" fill="rgba(245,242,237,0.100)"/>
+      <rect x="618" y="658.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="618" y="762.67" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="618" y="866.67" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="618" y="918.67" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="618" y="1022.67" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="618" y="1074.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="618" y="1178.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="618" y="1282.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="652" y="658.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="652" y="710.67" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="652" y="814.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="652" y="918.67" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="652" y="1126.67" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="652" y="1282.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="652" y="1334.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="686" y="762.67" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="686" y="814.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="686" y="918.67" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="686" y="970.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="686" y="1074.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="686" y="1126.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="686" y="1178.67" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="686" y="1230.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="686" y="1334.67" width="14" height="20" fill="rgba(232,184,75,0.750)"/>
+    </g><g id="s09-neon-city-neo-b6">
+      <rect x="733.61" y="573.64" width="179.5" height="856.36" fill="#0E0F16"/>
+      <rect x="733.61" y="573.64" width="179.5" height="4" fill="rgba(245,242,237,0.100)"/>
+      <rect x="745.61" y="747.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="745.61" y="799.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="745.61" y="955.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="745.61" y="1007.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="745.61" y="1059.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="745.61" y="1371.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="779.61" y="643.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="779.61" y="747.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="779.61" y="799.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="779.61" y="851.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="779.61" y="1007.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="779.61" y="1319.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="779.61" y="1371.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="813.61" y="591.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="813.61" y="695.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="813.61" y="851.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="813.61" y="955.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="813.61" y="1007.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="813.61" y="1059.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="813.61" y="1163.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="813.61" y="1371.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="847.61" y="695.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="847.61" y="747.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="847.61" y="799.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="847.61" y="851.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="847.61" y="955.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="847.61" y="1111.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="847.61" y="1319.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="881.61" y="643.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="881.61" y="695.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="881.61" y="1007.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="881.61" y="1059.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="881.61" y="1111.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="881.61" y="1163.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="881.61" y="1215.64" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="881.61" y="1319.64" width="14" height="20" fill="rgba(255,107,74,0.600)"/>
+    </g><g id="s09-neon-city-neo-b7">
+      <rect x="862.83" y="1103.5" width="115.17" height="326.5" fill="#0E0F16"/>
+      <rect x="862.83" y="1103.5" width="115.17" height="4" fill="rgba(245,242,237,0.100)"/>
+      <rect x="874.83" y="1173.5" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="874.83" y="1329.5" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="874.83" y="1381.5" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="908.83" y="1121.5" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="942.83" y="1121.5" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="942.83" y="1225.5" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="942.83" y="1277.5" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="942.83" y="1381.5" width="14" height="20" fill="rgba(232,184,75,0.750)"/>
+    </g><g id="s09-neon-city-neo-b8">
+      <rect x="1003.13" y="1036.82" width="117.34" height="393.18" fill="#0E0F16"/>
+      <rect x="1003.13" y="1036.82" width="117.34" height="4" fill="rgba(245,242,237,0.100)"/>
+      <rect x="1015.13" y="1054.82" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="1015.13" y="1158.82" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="1015.13" y="1314.82" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="1049.13" y="1106.82" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="1049.13" y="1210.82" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="1049.13" y="1314.82" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="1049.13" y="1366.82" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="1083.13" y="1054.82" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="1083.13" y="1106.82" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="1083.13" y="1158.82" width="14" height="20" fill="rgba(255,107,74,0.600)"/><rect x="1083.13" y="1210.82" width="14" height="20" fill="rgba(232,184,75,0.750)"/><rect x="1083.13" y="1366.82" width="14" height="20" fill="rgba(255,107,74,0.600)"/>
+    </g>
+  <g transform="translate(0 1430) scale(1 -0.28)" opacity="0.22"><rect x="-27.83" y="0" width="94.73" height="588.42" fill="#15151A"/><rect x="100.73" y="0" width="161.31" height="791.51" fill="#15151A"/><rect x="230.22" y="0" width="112.35" height="319.61" fill="#15151A"/><rect x="355.41" y="0" width="179.94" height="774.26" fill="#15151A"/><rect x="464.73" y="0" width="155.73" height="509.52" fill="#15151A"/><rect x="606" y="0" width="115.49" height="789.33" fill="#15151A"/></g>
+  <rect x="0" y="1430" width="1080" height="490" fill="#0B0C12"/>
+  <rect x="140" y="1408" width="800" height="16" rx="8" fill="#14151D"/>
+  <line x1="140" y1="1416" x2="940" y2="1416" stroke="rgba(255,107,74,0.700)" stroke-width="3"/>
+  <g stroke="rgba(245,242,237,0.400)" stroke-width="6">
+    <line x1="843" y1="960" x2="843" y2="1408"/>
+    <line x1="109" y1="880" x2="109" y2="1408"/>
+  </g>
+  <g id="s09-neon-city-neo-sign" filter="url(#s09-neon-city-neo-glow)">
+    <rect x="830" y="560" width="26" height="300" rx="12" fill="none" stroke="#FF6B4A" stroke-width="6"/>
+    <rect x="830" y="700" width="26" height="240" rx="12" fill="none" stroke="#FF6B4A" stroke-width="6"/>
+    <rect x="804" y="640" width="80" height="7" rx="3" fill="#FF6B4A" opacity="0.8"/><rect x="804" y="700" width="80" height="7" rx="3" fill="#FF6B4A" opacity="0.8"/><rect x="804" y="760" width="80" height="7" rx="3" fill="#FF6B4A" opacity="0.8"/>
+  </g>
+  <line id="s09-neon-city-neo-r0" x1="299.91" y1="0" x2="292.91" y2="57.09" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r1" x1="1039.78" y1="0" x2="1032.78" y2="59.42" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r2" x1="424.94" y1="0" x2="417.94" y2="36.53" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r3" x1="1052.79" y1="0" x2="1045.79" y2="31.28" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r4" x1="991.42" y1="0" x2="984.42" y2="59.23" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r5" x1="593.37" y1="0" x2="586.37" y2="43.08" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r6" x1="494.08" y1="0" x2="487.08" y2="41.9" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r7" x1="157.87" y1="0" x2="150.87" y2="54.07" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r8" x1="590.79" y1="0" x2="583.79" y2="43.92" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r9" x1="103.92" y1="0" x2="96.92" y2="29.14" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r10" x1="509.69" y1="0" x2="502.69" y2="39.12" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r11" x1="237.13" y1="0" x2="230.13" y2="44.28" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r12" x1="625.19" y1="0" x2="618.19" y2="31" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r13" x1="89.21" y1="0" x2="82.21" y2="30.25" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r14" x1="651.63" y1="0" x2="644.63" y2="30.17" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r15" x1="166.69" y1="0" x2="159.69" y2="38.62" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r16" x1="582.81" y1="0" x2="575.81" y2="33.47" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r17" x1="723.37" y1="0" x2="716.37" y2="36.59" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r18" x1="228.73" y1="0" x2="221.73" y2="45.42" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r19" x1="248.36" y1="0" x2="241.36" y2="57.86" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r20" x1="77.02" y1="0" x2="70.02" y2="34.26" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r21" x1="922.54" y1="0" x2="915.54" y2="50.62" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r22" x1="313.08" y1="0" x2="306.08" y2="37.86" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r23" x1="227.37" y1="0" x2="220.37" y2="46.31" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r24" x1="460.83" y1="0" x2="453.83" y2="29.15" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r25" x1="115.35" y1="0" x2="108.35" y2="55.38" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r26" x1="458.5" y1="0" x2="451.5" y2="30.39" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r27" x1="487.96" y1="0" x2="480.96" y2="52.73" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r28" x1="978.72" y1="0" x2="971.72" y2="58.17" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r29" x1="162.53" y1="0" x2="155.53" y2="48.43" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r30" x1="937.68" y1="0" x2="930.68" y2="55.94" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r31" x1="165.72" y1="0" x2="158.72" y2="43" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r32" x1="604.45" y1="0" x2="597.45" y2="58.66" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r33" x1="297.38" y1="0" x2="290.38" y2="39.25" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r34" x1="40.08" y1="0" x2="33.08" y2="28.5" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r35" x1="381.09" y1="0" x2="374.09" y2="43.44" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r36" x1="485.51" y1="0" x2="478.51" y2="31.57" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r37" x1="345.68" y1="0" x2="338.68" y2="48.64" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r38" x1="555.97" y1="0" x2="548.97" y2="36.43" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r39" x1="644.01" y1="0" x2="637.01" y2="42.07" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r40" x1="832.39" y1="0" x2="825.39" y2="45.54" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r41" x1="1074.52" y1="0" x2="1067.52" y2="53.13" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r42" x1="238.64" y1="0" x2="231.64" y2="28.27" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r43" x1="560.22" y1="0" x2="553.22" y2="29.65" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r44" x1="727.39" y1="0" x2="720.39" y2="48.23" stroke="rgba(245,242,237,0.300)" stroke-width="2"/><line id="s09-neon-city-neo-r45" x1="25.08" y1="0" x2="18.08" y2="33.91" stroke="rgba(245,242,237,0.300)" stroke-width="2"/>
+  <rect id="s09-neon-city-fx-flash" x="0" y="0" width="1080" height="1920" fill="rgba(255,107,74,1.000)" opacity="0"/>
+<circle id="s09-neon-city-fx-ring" cx="540" cy="820" r="60" fill="none" stroke="rgba(255,107,74,0.500)" stroke-width="14" opacity="0"/><rect id="s09-neon-city-fx-flash" x="0" y="0" width="1080" height="1920" fill="rgba(255,107,74,1.000)" opacity="0"/>
+<g id="s09-neon-city-char"><g id="s09-neon-city-to-root">
+  <ellipse id="s09-neon-city-to-shadow" cx="0" cy="7" rx="64" ry="12" fill="#000000" opacity="0.38"/>
+  <ellipse id="s09-neon-city-to-halo" cx="0" cy="-116" rx="130" ry="182" fill="var(--acc)" style="opacity:calc(0.07 + var(--pulse, 0) * 0.07)"/>
+
+  <g id="s09-neon-city-to-bob" transform="translate(0 0)">
+    <g id="s09-neon-city-to-squash" style="transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(calc(1 + var(--pulse, 0) * 0.033))">
+      <g id="s09-neon-city-to-lean" transform="rotate(0)">
+
+        
+        <g id="s09-neon-city-to-legsStand">
+          <g transform="translate(-17 -96)">
+            <g id="s09-neon-city-to-legL">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="4" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(17 -96)">
+            <g id="s09-neon-city-to-legR">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="-11" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(-3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <g id="s09-neon-city-to-legsSit" opacity="0">
+          <path d="M 0 -96 q -42 -12 -62 12 q 30 16 62 6 z" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+          <path d="M 0 -96 q 42 -12 62 12 q -30 16 -62 6 z" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+          <ellipse cx="-54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="-54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+          <ellipse cx="54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+        </g>
+
+        
+        <g transform="translate(0 -96)">
+          <g id="s09-neon-city-to-torso">
+            <path d="M -37 10 Q -45 -50 -30 -70 L 30 -70 Q 45 -50 37 10 Q 0 20 -37 10 Z"
+                  fill="#262731" stroke="#0D0E13" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M -22 -8 Q 0 0 22 -8" stroke="#17181F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M -9 -63 q -2 15 -5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 9 -63 q 2 15 5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="0" cy="-24" r="7" fill="#E8B84B"/>
+            <circle cx="0" cy="-24" r="7" fill="none" stroke="#17181F" stroke-width="2"/>
+            <path id="s09-neon-city-to-rimT" d="M -37 10 Q -45 -50 -30 -70" fill="none" stroke="var(--acc)"
+                  stroke-width="4" stroke-linecap="round" style="opacity:calc(0.5 + var(--pulse, 0) * 0.3)"/>
+
+            
+            <g id="s09-neon-city-to-barbell" opacity="0" transform="translate(0 -78)">
+              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
+              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+            </g>
+
+            
+            <g transform="translate(-33 -62)">
+              <g id="s09-neon-city-to-armL">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s09-neon-city-to-forearmL">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(33 -62)">
+              <g id="s09-neon-city-to-armR">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s09-neon-city-to-forearmR">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            
+            <g transform="translate(0 -70)">
+              <g id="s09-neon-city-to-head">
+                <ellipse cx="0" cy="-34" rx="33" ry="33" fill="#17181F" stroke="#0D0E13" stroke-width="3.5"/>
+                <ellipse cx="8" cy="-30" rx="20" ry="17" fill="#0B0C10" opacity="0.92"/>
+                <path d="M -33 -38 Q 0 -76 33 -38 Z" fill="#262731" stroke="#0D0E13" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M -33 -38 Q 0 -76 33 -38" fill="none" stroke="#E8B84B" stroke-width="3"/>
+                <rect x="6" y="-40" width="42" height="11" rx="5.5" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                <circle cx="-2" cy="-49" r="5.5" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <path id="s09-neon-city-to-rimL" d="M -28 -88 L -28 -28" stroke="var(--acc)" stroke-width="3"
+              stroke-linecap="round" fill="none" style="opacity:calc(0.45 + var(--pulse, 0) * 0.3)"/>
+      </g>
+    </g>
+  </g>
+</g></g>
+    </svg>
+  </div>
+  <div id="s09-neon-city-grade"></div>
+  <div id="s09-neon-city-cap"><div class="cap-box"><span class="cw" id="s09-neon-city-cw-0">One</span><span class="cw" id="s09-neon-city-cw-1">day,</span><span class="cw" id="s09-neon-city-cw-2">your</span><span class="cw" id="s09-neon-city-cw-3">discipline</span><span class="cw" id="s09-neon-city-cw-4">will</span><span class="cw" id="s09-neon-city-cw-5">introduce</span><span class="cw" id="s09-neon-city-cw-6">you,</span><span class="cw" id="s09-neon-city-cw-7">where</span><span class="cw" id="s09-neon-city-cw-8">your</span><span class="cw" id="s09-neon-city-cw-9">excuses</span><span class="cw" id="s09-neon-city-cw-10">once</span><span class="cw" id="s09-neon-city-cw-11">held</span><span class="cw" id="s09-neon-city-cw-12">you</span><span class="cw" id="s09-neon-city-cw-13">back.</span></div></div><div id="s09-neon-city-brand"><span class="bdot"></span>@SELF_EFFICIENT_DAILY</div>
+  <div id="s09-neon-city-wipe"><div class="wipe-edge"></div></div>
+  <div id="s09-neon-city-fade"></div>
+</div>
+<script>
+(function () {
+  const v7 = {};
+// v7 scene-kit — shared browser runtime inlined into every scene by build.mjs.
+// Camera creep, audio-envelope proxy (--pulse CSS var), hook slam, karaoke
+// captions, counters, brand tag, onset fx, flood wipe-in, grade veil.
+// Everything is a pure function of the paused GSAP timeline (deterministic).
+/* global v7 */
+(function () {
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+
+  // ---- audio envelope proxy: one tween drives the --pulse CSS var -------
+  v7.envProxy = function (tl, p, rootId, env, dur) {
+    if (!env || env.length === 0 || dur <= 0.02) return;
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const prox = { t: 0 };
+    tl.to(prox, {
+      t: dur,
+      duration: dur,
+      ease: "none",
+      onUpdate: function () {
+        const f = Math.min(env.length - 1, Math.max(0, Math.round(prox.t * 30)));
+        root.style.setProperty("--pulse", env[f].toFixed(3));
+      },
+    }, 0);
+  };
+
+  // ---- camera: keyed [t,x,y,zoom,rot] -> sequential fromTo on #camera ----
+  v7.camera = function (tl, p, keys, dur) {
+    if (!keys || keys.length === 0) return;
+    const cam = "#" + p + "camera";
+    if (keys.length === 1) {
+      const k = keys[0];
+      tl.set(cam, { x: -k.x, y: -k.y, scale: k.zoom, rotation: k.rot }, 0.001);
+      return;
+    }
+    for (let i = 0; i < keys.length - 1; i++) {
+      const a = keys[i];
+      const b = keys[i + 1];
+      const span = Math.max(0.05, b.t - a.t);
+      tl.fromTo(cam,
+        { x: -a.x, y: -a.y, scale: a.zoom, rotation: a.rot },
+        { x: -b.x, y: -b.y, scale: b.zoom, rotation: b.rot, duration: span, ease: "power2.inOut" },
+        Math.max(0, a.t));
+    }
+  };
+
+  // ---- hook type: per-character spring slam --------------------------------
+  v7.hook = function (tl, p, lines, th, dur) {
+    const box = "#" + p + "hook";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+    let delay = 0.05;
+    lines.forEach((line, li) => {
+      const chars = line.split("");
+      chars.forEach((ch, ci) => {
+        const sel = `#${p}hk-${li}-${ci}`;
+        if (ch === " ") return;
+        tl.fromTo(sel,
+          { opacity: 0, scale: 0.6, y: 26 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" },
+          delay + ci * 0.035);
+      });
+      delay += 0.14 + Math.min(0.5, chars.length * 0.035);
+    });
+    // hold, then shrink away just before scene end
+    tl.to(box, { scale: 0.94, duration: 0.3, ease: "power2.in" }, Math.max(0.1, dur - 0.32));
+  };
+
+  // ---- karaoke captions: word-level color/scale sync -----------------------
+  v7.captions = function (tl, p, words, th, sceneDur, sceneStart) {
+    const box = "#" + p + "cap";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.02);
+    words.forEach((w, i) => {
+      const sel = `#${p}cw-${i}`;
+      const ws = Math.max(0, w.start - sceneStart);
+      const we = Math.min(sceneDur - 0.05, w.end - sceneStart);
+      if (we <= ws) return;
+      // upcoming -> active (white, pop)
+      tl.fromTo(sel,
+        { color: th.inkSoft, scale: 1 },
+        { color: "#FFFFFF", scale: 1.1, duration: 0.09, ease: "power2.out" },
+        ws);
+      // active -> spoken (accent, settle)
+      tl.to(sel, { color: th.accent, scale: 1, duration: 0.12, ease: "power2.out" }, we);
+    });
+  };
+
+  // ---- animated counter ------------------------------------------------------
+  v7.counter = function (tl, p, counter, dur) {
+    const box = "#" + p + "ctr";
+    const numEl = document.getElementById(p + "ctr-num");
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 0.05);
+    const dec = counter.decimals || 0;
+    const prox = { v: counter.from };
+    tl.fromTo(prox,
+      { v: counter.from },
+      { v: counter.to, duration: dur * 0.7, ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = (counter.prefix || "") + prox.v.toFixed(dec) + (counter.suffix || "");
+        } },
+      0.08);
+  };
+
+  // ---- brand tag: settle-in + tiny bob ---------------------------------------
+  v7.brand = function (tl, p, dur) {
+    const tag = "#" + p + "brand";
+    tl.set(tag, { opacity: 0 }, 0.001);
+    tl.fromTo(tag, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo(tag, { y: 0 }, { y: -4, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.6)) - 1 }, 0.5);
+  };
+
+  // ---- onset fx ---------------------------------------------------------------
+  // shockwave ring + speed lines + flash, placed at scene-local onset times
+  v7.onsetFx = function (tl, p, th, onsets, fxKeys, dur) {
+    const has = (k) => fxKeys && fxKeys.indexOf(k) >= 0;
+    onsets.forEach((t0) => {
+      if (t0 <= 0.05 || t0 >= dur - 0.05) return;
+      if (has("shockwave")) {
+        const ring = "#" + p + "fx-ring";
+        tl.set(ring, { attr: { r: 60, opacity: 0 } }, t0 - 0.001);
+        tl.fromTo(ring,
+          { attr: { r: 60, opacity: 0.5 } },
+          { attr: { r: 700, opacity: 0 }, duration: 0.55, ease: "power2.out" },
+          t0);
+      }
+      if (has("speedlines")) {
+        const g = "#" + p + "fx-speed";
+        tl.set(g, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(g,
+          { opacity: 0.55, scale: 1.15 },
+          { opacity: 0, scale: 1, duration: 0.4, ease: "power2.out", transformOrigin: "50% 51%" },
+          t0);
+      }
+      if (has("flash")) {
+        const f = "#" + p + "fx-flash";
+        tl.set(f, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(f, { opacity: 0.16 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, t0);
+      }
+    });
+  };
+
+  // ---- flood wipe-in at scene start -------------------------------------------
+  v7.wipe = function (tl, p, isFirst, dur) {
+    const panel = "#" + p + "wipe";
+    if (isFirst) {
+      const fade = "#" + p + "fade";
+      tl.set(fade, { opacity: 1 }, 0.001);
+      tl.fromTo(fade, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.02);
+      tl.set(panel, { opacity: 0 }, 0.001);
+      return;
+    }
+    tl.set(panel, { opacity: 1 }, 0.001);
+    tl.fromTo(panel,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.46, ease: "power3.inOut" },
+      0.02);
+    // trailing edge accent line
+    const edge = "#" + p + "wipe-edge";
+    tl.fromTo(edge,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.5, ease: "power3.inOut" },
+      0.02);
+  };
+
+  // ---- character: place rig wrapper (static) and run action ------------------
+  v7.placeCharacter = function (p, pos, scale, facing) {
+    const el = document.getElementById(p + "char");
+    if (!el) return;
+    el.setAttribute("transform",
+      `translate(${pos[0]} ${pos[1]}) scale(${(scale * (facing || 1)).toFixed(3)} ${scale.toFixed(3)})`);
+  };
+})();
+
+// TheOne character runtime — inlined into every scene by build.mjs.
+// Applies GSAP tweens to the canonical rig. The rig markup is byte-identical
+// in every scene (only ids get a scene prefix); these joint rotations are the
+// ONLY per-scene variation, so identity and proportions cannot drift.
+// Determinism: finite repeats only, absolute times, pure function of timeline.
+/* global v7 */
+(function () {
+  // Joint oscillation around `base` between base+amp and base-amp.
+  // yoyo with sine.inOut approximates sin(t) closely at joint scale.
+  function swing(tl, sel, base, amp, cycleSec, dur, phase) {
+    if (amp === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    const from = base + (phase >= 0 ? amp : -amp);
+    tl.fromTo(
+      sel,
+      { attr: { transform: `rotate(${from.toFixed(2)})` } },
+      { attr: { transform: `rotate(${(2 * base - from).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+  // Bounded bounce (0 -> -depth -> 0) on the bob wrapper.
+  function bounce(tl, sel, depth, cycleSec, dur) {
+    if (depth === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    tl.fromTo(
+      sel,
+      { attr: { transform: "translate(0 0)" } },
+      { attr: { transform: `translate(0 ${(-depth).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+
+  // p = scene id prefix, e.g. "s01-" (rig ids are `${p}to-…`)
+  v7.character = function (tl, p, action, dur) {
+    const g = (n) => "#" + p + n;
+    const seated = action === "meditate" || action === "levitate";
+
+    tl.set(g("to-legsStand"), { attr: { opacity: seated ? 0 : 1 } }, 0.001);
+    tl.set(g("to-legsSit"), { attr: { opacity: seated ? 1 : 0 } }, 0.001);
+
+    const S = {
+      idle:     { lean: 0,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      walk:     { lean: 2,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      run:      { lean: -9,  head: -3, fArmL: 42,  fArmR: 42,  barbell: 0 },
+      climb:    { lean: 14,  head: -6, fArmL: 8,   fArmR: 8,   barbell: 0 },
+      lift:     { lean: 0,   head: 0,  fArmL: 6,   fArmR: 6,   barbell: 1 },
+      meditate: { lean: 0,   head: 2,  fArmL: 32,  fArmR: -32, barbell: 0 },
+      levitate: { lean: 0,   head: -2, fArmL: 14,  fArmR: -14, barbell: 0 },
+      victory:  { lean: 0,   head: -2, fArmL: 6,   fArmR: 6,   barbell: 0 },
+      point:    { lean: 3,   head: 4,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+    }[action] || { lean: 0, head: 0, fArmL: 0, fArmR: 0, barbell: 0 };
+
+    tl.set(g("to-lean"), { attr: { transform: `rotate(${S.lean})` } }, 0.001);
+    tl.set(g("to-head"), { attr: { transform: `rotate(${S.head})` } }, 0.001);
+    tl.set(g("to-forearmL"), { attr: { transform: `rotate(${S.fArmL})` } }, 0.001);
+    tl.set(g("to-forearmR"), { attr: { transform: `rotate(${S.fArmR})` } }, 0.001);
+    tl.set(g("to-barbell"), { attr: { opacity: S.barbell } }, 0.001);
+
+    switch (action) {
+      case "idle":
+        swing(tl, g("to-armL"), 0, 4, 1.1, dur, 1);
+        swing(tl, g("to-armR"), 0, 4, 1.1, dur, -1);
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+        break;
+      case "walk":
+        swing(tl, g("to-legL"), 0, 24, 0.667, dur, 1);
+        swing(tl, g("to-legR"), 0, 24, 0.667, dur, -1);
+        swing(tl, g("to-armL"), 0, 16, 0.667, dur, -1);
+        swing(tl, g("to-armR"), 0, 16, 0.667, dur, 1);
+        bounce(tl, g("to-bob"), 5, 0.333, dur);
+        break;
+      case "run":
+        swing(tl, g("to-legL"), 0, 40, 0.385, dur, 1);
+        swing(tl, g("to-legR"), 0, 40, 0.385, dur, -1);
+        swing(tl, g("to-armL"), 0, 34, 0.385, dur, -1);
+        swing(tl, g("to-armR"), 0, 34, 0.385, dur, 1);
+        bounce(tl, g("to-bob"), 7, 0.192, dur);
+        break;
+      case "climb":
+        // arms reach up alternately around 150°, knees step
+        swing(tl, g("to-armL"), 150, 26, 1.11, dur, 1);
+        swing(tl, g("to-armR"), 150, 26, 1.11, dur, -1);
+        swing(tl, g("to-legL"), 28, 16, 1.11, dur, 1);
+        swing(tl, g("to-legR"), 28, 16, 1.11, dur, -1);
+        bounce(tl, g("to-bob"), 3, 1.11, dur);
+        break;
+      case "lift": {
+        const cyc = 1.82;
+        const reps = Math.max(1, Math.ceil(dur / cyc));
+        for (let i = 0; i < reps; i++) {
+          const t0 = i * cyc;
+          tl.fromTo(g("to-armL"),
+            { attr: { transform: "rotate(168)" } },
+            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.fromTo(g("to-armR"),
+            { attr: { transform: "rotate(-168)" } },
+            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-barbell"),
+            { attr: { transform: "translate(0 -108)" } },
+            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-bob"),
+            { attr: { transform: "translate(0 0)" } },
+            { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+        }
+        break;
+      }
+      case "meditate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(38)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-38)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 2.0, dur);
+        break;
+      case "levitate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(62)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-62)" } }, 0.002);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 -14)" } },
+          { attr: { transform: "translate(0 -23)" }, duration: 1.11, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.11)) - 1 },
+          0);
+        break;
+      case "victory":
+        // arms held up (~160°) with a slight sway + one hop
+        tl.fromTo(g("to-armL"),
+          { attr: { transform: "rotate(158)" } },
+          { attr: { transform: "rotate(163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-armR"),
+          { attr: { transform: "rotate(-158)" } },
+          { attr: { transform: "rotate(-163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 0)" } },
+          { attr: { transform: "translate(0 -12)" }, duration: 0.36, ease: "sine.out" },
+          0);
+        tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: 0.36, ease: "bounce.in" }, 0.36);
+        break;
+      case "point":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 1.4, dur);
+        break;
+      default:
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+    }
+  };
+})();
+
+  const SID = "s09-neon-city";
+  const P = "s09-neon-city-";
+  const DUR = 5.867;
+  const ENV = [0.046,0.078,0.41,0.656,0.894,1,1,0.972,1,0.924,0.758,0.621,0.548,0.45,0.369,0.302,0.248,0.203,0.167,0.137,0.112,0.092,0.075,0.062,0.051,0.042,0.034,0.028,0.198,0.485,0.563,0.627,0.514,0.421,0.346,0.299,0.991,0.835,0.685,0.561,0.46,0.784,0.643,0.527,0.432,0.355,0.427,0.35,0.287,0.279,0.258,0.29,0.403,0.33,0.368,0.452,0.505,0.437,0.358,0.294,0.241,0.405,0.332,0.272,0.522,0.638,0.666,0.547,0.448,0.367,0.301,0.247,0.315,0.258,0.212,0.174,0.142,0.117,0.096,0.079,0.064,0.053,0.043,0.036,0.029,0.024,0.02,0.016,0.013,0.011,0.009,0.007,0.006,0.005,0.004,0.003,0.003,0.002,0.324,0.776,0.945,0.861,0.706,0.579,0.475,0.443,0.583,0.517,0.5,0.413,0.339,0.278,0.228,0.187,0.153,0.126,0.103,0.43,1,0.985,0.807,0.662,0.543,0.445,0.394,0.323,0.265,0.217,0.178,0.146,0.12,0.285,0.366,0.371,0.335,0.328,0.269,0.221,0.181,0.148,0.222,0.534,0.547,0.545,0.447,0.366,0.3,0.246,0.451,0.37,0.303,0.248,0.409,0.342,0.368,0.32,0.262,0.215,0.176,0.145,0.119,0.097,0.08,0.065,0.054,0.044,0.036,0.03,0,0,0,0,0,0,0,0];
+  const ONSETS = [0.067,0.967,1.367,2.133,3.267,3.533,3.933,4.7];
+  const SCENE = {"action":"victory","type":"caption","camera":[{"t":0,"x":-30,"y":0,"zoom":1.06,"rot":0},{"t":3.4932900000000005,"x":30,"y":16,"zoom":1.1,"rot":0},{"t":5.822150000000001,"x":-10,"y":-36,"zoom":1.13,"rot":0}],"fx":["shockwave","flash"],"counter":null,"hookLines":null,"words":[{"w":"One","start":0.19585000000000719,"end":0.4516666666666751},{"w":"day,","start":0.4516666666666751,"end":0.7714375000000082},{"w":"your","start":0.7714375000000082,"end":1.0912083333333413},{"w":"discipline","start":1.0912083333333413,"end":1.7947041666666763},{"w":"will","start":1.7947041666666763,"end":2.1144750000000094},{"w":"introduce","start":2.1144750000000094,"end":2.7540166666666757},{"w":"you,","start":2.7540166666666757,"end":3.0737875000000088},{"w":"where","start":3.0737875000000088,"end":3.4575125000000106},{"w":"your","start":3.4575125000000106,"end":3.7772833333333438},{"w":"excuses","start":3.7772833333333438,"end":4.288916666666676},{"w":"once","start":4.288916666666676,"end":4.608687500000009},{"w":"held","start":4.608687500000009,"end":4.928458333333342},{"w":"you","start":4.928458333333342,"end":5.18427500000001},{"w":"back.","start":5.18427500000001,"end":5.5680000000000085}],"startSec":25.7};
+  const TH = {"bg":"#0A0A0C","panel":"#15151A","accent":"#FF6B4A","accentDeep":"#D44A2E","ink":"#F5F2ED","inkSoft":"#9B968F"};
+  const gsap = window.gsap;
+  const tl = gsap.timeline({ paused: true });
+
+  v7.wipe(tl, P, false, DUR);
+  v7.camera(tl, P, SCENE.camera, DUR);
+  v7.envProxy(tl, P, SID, ENV, DUR);
+tl.fromTo("#s09-neon-city-neo-far",{attr:{transform:"translate(-18 0)"}},{attr:{transform:"translate(18 0)"},duration:2.93,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s09-neon-city-neo-r0",{attr:{transform:"translate(0 -1828.28)"}},{attr:{transform:"translate(0 2953.6)"}},0);
+tl.fromTo("#s09-neon-city-neo-r1",{attr:{transform:"translate(0 -818.77)"}},{attr:{transform:"translate(0 3651.97)"}},0);
+tl.fromTo("#s09-neon-city-neo-r2",{attr:{transform:"translate(0 -1161.35)"}},{attr:{transform:"translate(0 3624.61)"}},0);
+tl.fromTo("#s09-neon-city-neo-r3",{attr:{transform:"translate(0 -1861.58)"}},{attr:{transform:"translate(0 3075.39)"}},0);
+tl.fromTo("#s09-neon-city-neo-r4",{attr:{transform:"translate(0 -1584)"}},{attr:{transform:"translate(0 3112.86)"}},0);
+tl.fromTo("#s09-neon-city-neo-r5",{attr:{transform:"translate(0 -1752.29)"}},{attr:{transform:"translate(0 3938.91)"}},0);
+tl.fromTo("#s09-neon-city-neo-r6",{attr:{transform:"translate(0 -346.07)"}},{attr:{transform:"translate(0 4166.95)"}},0);
+tl.fromTo("#s09-neon-city-neo-r7",{attr:{transform:"translate(0 -278.41)"}},{attr:{transform:"translate(0 4101.21)"}},0);
+tl.fromTo("#s09-neon-city-neo-r8",{attr:{transform:"translate(0 -1282.71)"}},{attr:{transform:"translate(0 3368.81)"}},0);
+tl.fromTo("#s09-neon-city-neo-r9",{attr:{transform:"translate(0 -1868.49)"}},{attr:{transform:"translate(0 3526.11)"}},0);
+tl.fromTo("#s09-neon-city-neo-r10",{attr:{transform:"translate(0 -29.28)"}},{attr:{transform:"translate(0 4280.43)"}},0);
+tl.fromTo("#s09-neon-city-neo-r11",{attr:{transform:"translate(0 -1818.77)"}},{attr:{transform:"translate(0 3488.04)"}},0);
+tl.fromTo("#s09-neon-city-neo-r12",{attr:{transform:"translate(0 -1762.28)"}},{attr:{transform:"translate(0 2530.56)"}},0);
+tl.fromTo("#s09-neon-city-neo-r13",{attr:{transform:"translate(0 -1015.66)"}},{attr:{transform:"translate(0 4073.8)"}},0);
+tl.fromTo("#s09-neon-city-neo-r14",{attr:{transform:"translate(0 -998.1)"}},{attr:{transform:"translate(0 4413.1)"}},0);
+tl.fromTo("#s09-neon-city-neo-r15",{attr:{transform:"translate(0 -835.57)"}},{attr:{transform:"translate(0 4015.85)"}},0);
+tl.fromTo("#s09-neon-city-neo-r16",{attr:{transform:"translate(0 -1348.14)"}},{attr:{transform:"translate(0 4272.58)"}},0);
+tl.fromTo("#s09-neon-city-neo-r17",{attr:{transform:"translate(0 -858.86)"}},{attr:{transform:"translate(0 3368.61)"}},0);
+tl.fromTo("#s09-neon-city-neo-r18",{attr:{transform:"translate(0 -80.92)"}},{attr:{transform:"translate(0 4644.37)"}},0);
+tl.fromTo("#s09-neon-city-neo-r19",{attr:{transform:"translate(0 -1743.55)"}},{attr:{transform:"translate(0 3394.97)"}},0);
+tl.fromTo("#s09-neon-city-neo-r20",{attr:{transform:"translate(0 -1762.21)"}},{attr:{transform:"translate(0 2507.23)"}},0);
+tl.fromTo("#s09-neon-city-neo-r21",{attr:{transform:"translate(0 -536.42)"}},{attr:{transform:"translate(0 4814.99)"}},0);
+tl.fromTo("#s09-neon-city-neo-r22",{attr:{transform:"translate(0 -1694.9)"}},{attr:{transform:"translate(0 2766.22)"}},0);
+tl.fromTo("#s09-neon-city-neo-r23",{attr:{transform:"translate(0 -639.15)"}},{attr:{transform:"translate(0 4340.63)"}},0);
+tl.fromTo("#s09-neon-city-neo-r24",{attr:{transform:"translate(0 -1313.39)"}},{attr:{transform:"translate(0 3568.4)"}},0);
+tl.fromTo("#s09-neon-city-neo-r25",{attr:{transform:"translate(0 -708.43)"}},{attr:{transform:"translate(0 3760.91)"}},0);
+tl.fromTo("#s09-neon-city-neo-r26",{attr:{transform:"translate(0 -1647.9)"}},{attr:{transform:"translate(0 3091.94)"}},0);
+tl.fromTo("#s09-neon-city-neo-r27",{attr:{transform:"translate(0 -317.06)"}},{attr:{transform:"translate(0 4459.74)"}},0);
+tl.fromTo("#s09-neon-city-neo-r28",{attr:{transform:"translate(0 -1476.18)"}},{attr:{transform:"translate(0 3100.37)"}},0);
+tl.fromTo("#s09-neon-city-neo-r29",{attr:{transform:"translate(0 -1683.37)"}},{attr:{transform:"translate(0 4006.01)"}},0);
+tl.fromTo("#s09-neon-city-neo-r30",{attr:{transform:"translate(0 -948.44)"}},{attr:{transform:"translate(0 3895.97)"}},0);
+tl.fromTo("#s09-neon-city-neo-r31",{attr:{transform:"translate(0 -1062.2)"}},{attr:{transform:"translate(0 3795.42)"}},0);
+tl.fromTo("#s09-neon-city-neo-r32",{attr:{transform:"translate(0 -76.63)"}},{attr:{transform:"translate(0 4049.12)"}},0);
+tl.fromTo("#s09-neon-city-neo-r33",{attr:{transform:"translate(0 -1335.02)"}},{attr:{transform:"translate(0 4001.44)"}},0);
+tl.fromTo("#s09-neon-city-neo-r34",{attr:{transform:"translate(0 -625.35)"}},{attr:{transform:"translate(0 4544.32)"}},0);
+tl.fromTo("#s09-neon-city-neo-r35",{attr:{transform:"translate(0 -528.06)"}},{attr:{transform:"translate(0 5114.97)"}},0);
+tl.fromTo("#s09-neon-city-neo-r36",{attr:{transform:"translate(0 -784.39)"}},{attr:{transform:"translate(0 4100.21)"}},0);
+tl.fromTo("#s09-neon-city-neo-r37",{attr:{transform:"translate(0 -1827.93)"}},{attr:{transform:"translate(0 3637.78)"}},0);
+tl.fromTo("#s09-neon-city-neo-r38",{attr:{transform:"translate(0 -1127.74)"}},{attr:{transform:"translate(0 3276.13)"}},0);
+tl.fromTo("#s09-neon-city-neo-r39",{attr:{transform:"translate(0 -569.73)"}},{attr:{transform:"translate(0 5126.28)"}},0);
+tl.fromTo("#s09-neon-city-neo-r40",{attr:{transform:"translate(0 -1375.7)"}},{attr:{transform:"translate(0 2882.13)"}},0);
+tl.fromTo("#s09-neon-city-neo-r41",{attr:{transform:"translate(0 -1018.02)"}},{attr:{transform:"translate(0 3815.77)"}},0);
+tl.fromTo("#s09-neon-city-neo-r42",{attr:{transform:"translate(0 -32.18)"}},{attr:{transform:"translate(0 4970.03)"}},0);
+tl.fromTo("#s09-neon-city-neo-r43",{attr:{transform:"translate(0 -498.28)"}},{attr:{transform:"translate(0 5249.29)"}},0);
+tl.fromTo("#s09-neon-city-neo-r44",{attr:{transform:"translate(0 -300.53)"}},{attr:{transform:"translate(0 3909.2)"}},0);
+tl.fromTo("#s09-neon-city-neo-r45",{attr:{transform:"translate(0 -200.73)"}},{attr:{transform:"translate(0 3957.2)"}},0);
+tl.fromTo("#s09-neon-city-neo-sign",{opacity:1},{opacity:0.55,duration:0.05,yoyo:true,repeat:3,ease:"none"},0.5);
+tl.fromTo("#s09-neon-city-neo-sign",{opacity:1},{opacity:0.55,duration:0.05,yoyo:true,repeat:3,ease:"none"},1.3);
+tl.fromTo("#s09-neon-city-neo-sign",{opacity:1},{opacity:0.55,duration:0.05,yoyo:true,repeat:3,ease:"none"},2.1);
+tl.fromTo("#s09-neon-city-neo-sign",{opacity:1},{opacity:0.55,duration:0.05,yoyo:true,repeat:3,ease:"none"},2.9);
+tl.fromTo("#s09-neon-city-neo-sign",{opacity:1},{opacity:0.55,duration:0.05,yoyo:true,repeat:3,ease:"none"},3.7);
+
+
+  v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
+v7.placeCharacter(P, [440,1408], 2.4, 1);
+  v7.character(tl, P, SCENE.action, DUR);
+  if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
+  if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);
+  if (SCENE.counter) v7.counter(tl, P, SCENE.counter, DUR);
+  if (SCENE.type !== "cta") v7.brand(tl, P, DUR);
+
+
+  window.__timelines[SID] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

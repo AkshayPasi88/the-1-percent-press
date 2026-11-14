@@ -155,11 +155,11 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
 
             
             <g id="s05-neon-city-to-barbell" opacity="0" transform="translate(0 -78)">
-              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
-              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
-              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
-              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
-              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+              <rect x="-76" y="-4.5" width="152" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-70" cy="0" r="22" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="70" cy="0" r="22" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-70" cy="0" r="9" fill="#0B0C10"/>
+              <circle cx="70" cy="0" r="9" fill="#0B0C10"/>
             </g>
 
             
@@ -482,22 +482,24 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
         bounce(tl, g("to-bob"), 3, 1.11, dur);
         break;
       case "lift": {
+        // overhead press, v6 geometry: arms sweep 138°↔72°, barbell tracks
+        // hand height: hand_y(torso) = -62 + 74*cos(θ)  →  -117 (top) ↔ -39 (bottom)
         const cyc = 1.82;
         const reps = Math.max(1, Math.ceil(dur / cyc));
         for (let i = 0; i < reps; i++) {
           const t0 = i * cyc;
           tl.fromTo(g("to-armL"),
-            { attr: { transform: "rotate(168)" } },
-            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+            { attr: { transform: "rotate(138)" } },
+            { attr: { transform: "rotate(72)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
           tl.fromTo(g("to-armR"),
-            { attr: { transform: "rotate(-168)" } },
-            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
-          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
-          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+            { attr: { transform: "rotate(-138)" } },
+            { attr: { transform: "rotate(-72)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(138)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-138)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
           tl.fromTo(g("to-barbell"),
-            { attr: { transform: "translate(0 -108)" } },
-            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
-          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+            { attr: { transform: "translate(0 -117)" } },
+            { attr: { transform: "translate(0 -39)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -117)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
           tl.fromTo(g("to-bob"),
             { attr: { transform: "translate(0 0)" } },
             { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
@@ -550,7 +552,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
   const DUR = 3.033;
   const ENV = [0.412,0.338,0.277,0.227,0.186,0.153,0.125,0.103,0.084,0.069,0.057,0.046,0.038,0.031,0.539,0.899,1,1,1,1,0.82,0.672,0.876,0.718,0.589,0.483,0.396,0.325,0.266,0.218,0.179,0.395,0.565,0.511,0.489,0.401,0.329,0.269,0.231,0.356,0.292,0.24,0.196,0.161,0.6,0.493,0.501,0.636,0.681,0.699,0.573,0.485,0.619,0.656,0.698,0.722,0.592,0.63,0.781,0.859,0.73,0.708,0.58,0.476,0.39,0.32,0.365,0.377,0.309,0.254,0.208,0.17,0.14,0.134,0.11,0.09,0.074,0.061,0.05,0.041,0.033,0.027,0.022,0.018,0.015,0.012,0.01,0.008,0.007,0.006,0.005];
   const ONSETS = [0.467,0.733,1.467,1.733];
-  const SCENE = {"action":"run","type":"caption","camera":[{"t":0,"x":-30,"y":0,"zoom":1.06,"rot":0},{"t":1.8963565217391305,"x":30,"y":16,"zoom":1.1,"rot":0},{"t":3.160594202898551,"x":-10,"y":-36,"zoom":1.13,"rot":0}],"fx":["shockwave","flash"],"counter":null,"hookLines":null,"words":[{"w":"Nobody","start":0.21237681159420418,"end":0.840381642512078},{"w":"sees","start":0.840381642512078,"end":1.2889565217391308},{"w":"the","start":1.2889565217391308,"end":1.647816425120773},{"w":"five","start":1.647816425120773,"end":2.0963913043478257},{"w":"A","start":2.0963913043478257,"end":2.275821256038647},{"w":"M","start":2.275821256038647,"end":2.455251207729468},{"w":"alarms.","start":2.455251207729468,"end":3.1729710144927523}],"startSec":12};
+  const SCENE = {"action":"lift","type":"caption","camera":[{"t":0,"x":-30,"y":0,"zoom":1.06,"rot":0},{"t":1.8963565217391305,"x":30,"y":16,"zoom":1.1,"rot":0},{"t":3.160594202898551,"x":-10,"y":-36,"zoom":1.13,"rot":0}],"fx":["shockwave","flash"],"counter":null,"hookLines":null,"words":[{"w":"Nobody","start":0.21237681159420418,"end":0.840381642512078},{"w":"sees","start":0.840381642512078,"end":1.2889565217391308},{"w":"the","start":1.2889565217391308,"end":1.647816425120773},{"w":"five","start":1.647816425120773,"end":2.0963913043478257},{"w":"A","start":2.0963913043478257,"end":2.275821256038647},{"w":"M","start":2.275821256038647,"end":2.455251207729468},{"w":"alarms.","start":2.455251207729468,"end":3.1729710144927523}],"startSec":12};
   const TH = {"bg":"#0A0D12","panel":"#141922","accent":"#FF4438","accentDeep":"#C02820","ink":"#F4F6F8","inkSoft":"#93A0AE"};
   const gsap = window.gsap;
   const tl = gsap.timeline({ paused: true });
@@ -612,7 +614,7 @@ tl.fromTo("#s05-neon-city-neo-sign",{opacity:1},{opacity:0.55,duration:0.05,yoyo
 
 
   v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
-v7.placeCharacter(P, [540,1408], 2.4, 1);
+v7.placeCharacter(P, [440,1408], 2.4, 1);
   v7.character(tl, P, SCENE.action, DUR);
   if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
   if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);

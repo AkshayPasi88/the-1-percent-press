@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>s02-iso-grid</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+@font-face{font-family:'Anton';src:url('assets/fonts/Anton-Regular.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-400.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-600.ttf');font-weight:600;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-700.ttf');font-weight:700;font-display:block}
+.clip{position:absolute;inset:0;overflow:hidden}
+#s02-iso-grid{position:absolute;inset:0;font-family:'Source Sans 3',sans-serif;background:#141009;--pulse:0;--acc:#E8B84B}
+#s02-iso-grid-camera{position:absolute;inset:0;will-change:transform}
+#s02-iso-grid-world{position:absolute;left:0;top:0}
+#s02-iso-grid-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
+  radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.17) 100%),
+  linear-gradient(180deg, rgba(232,184,75,0.080), rgba(232,184,75,0.032));}
+#s02-iso-grid-wipe{position:absolute;inset:0;z-index:50;background:linear-gradient(180deg,#C9A227,#E8B84B);transform:translateY(0)}
+#s02-iso-grid-wipe .wipe-edge{position:absolute;left:0;right:0;bottom:0;height:26px;background:#F5EDD8;opacity:0.9}
+#s02-iso-grid-fade{position:absolute;inset:0;z-index:60;background:#000;opacity:0}
+#s02-iso-grid-cap{position:absolute;bottom:172px;left:80px;right:80px;display:flex;justify-content:center;z-index:10}
+.cap-box{max-width:860px;background:rgba(8,8,10,0.62);border:2px solid rgba(232,184,75,0.350);border-radius:26px;padding:22px 34px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 14px}
+.cw{font-family:'Source Sans 3';font-weight:700;font-size:47px;line-height:1.25;color:rgba(245,237,216,0.620);display:inline-block}#s02-iso-grid-brand{position:absolute;top:92px;left:0;right:0;display:flex;justify-content:center;z-index:11}
+#s02-iso-grid-brand{font-family:'Source Sans 3';font-weight:600;font-size:34px;letter-spacing:4px;color:#A89468;background:rgba(8,8,10,0.4);border-radius:999px;padding:10px 28px;width:max-content;margin:0 auto}
+.bdot{width:12px;height:12px;border-radius:6px;background:#E8B84B;display:inline-block}
+</style>
+</head>
+<body>
+<div id="s02-iso-grid" data-composition-id="s02-iso-grid" data-width="1080" data-height="1920">
+  <div id="s02-iso-grid-camera">
+    <svg id="s02-iso-grid-world" viewBox="0 0 1080 1920" width="1080" height="1920">
+
+  <rect x="0" y="0" width="1080" height="1920" fill="#141009"/>
+  <rect x="0" y="560" width="1080" height="240" fill="rgba(232,184,75,0.070)" style="opacity:calc(1 + var(--pulse,0)*0.6)"/>
+  <polygon points="540,640 466,677 540,714 614,677" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="466,677 392,714 466,751 540,714" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="392,714 318,751 392,788 466,751" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="318,751 244,788 318,825 392,788" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="244,788 170,825 244,862 318,825" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="170,825 96,862 170,899 244,862" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="96,862 22,899 96,936 170,899" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="22,899 -52,936 22,973 96,936" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="-52,936 -126,973 -52,1010 22,973" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="614,677 540,714 614,751 688,714" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="540,714 466,751 540,788 614,751" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="466,751 392,788 466,825 540,788" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="392,788 318,825 392,862 466,825" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="318,825 244,862 318,899 392,862" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="244,862 170,899 244,936 318,899" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="170,899 96,936 170,973 244,936" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="96,936 22,973 96,1010 170,973" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="22,973 -52,1010 22,1047 96,1010" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="688,714 614,751 688,788 762,751" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="614,751 540,788 614,825 688,788" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="540,788 466,825 540,862 614,825" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="466,825 392,862 466,899 540,862" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="392,862 318,899 392,936 466,899" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="318,899 244,936 318,973 392,936" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="244,936 170,973 244,1010 318,973" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="170,973 96,1010 170,1047 244,1010" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="96,1010 22,1047 96,1084 170,1047" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="762,751 688,788 762,825 836,788" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="688,788 614,825 688,862 762,825" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="614,825 540,862 614,899 688,862" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="540,862 466,899 540,936 614,899" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="466,899 392,936 466,973 540,936" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="392,936 318,973 392,1010 466,973" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="318,973 244,1010 318,1047 392,1010" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="244,1010 170,1047 244,1084 318,1047" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="170,1047 96,1084 170,1121 244,1084" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="836,788 762,825 836,862 910,825" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="762,825 688,862 762,899 836,862" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="688,862 614,899 688,936 762,899" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="614,899 540,936 614,973 688,936" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="540,936 466,973 540,1010 614,973" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="466,973 392,1010 466,1047 540,1010" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="392,1010 318,1047 392,1084 466,1047" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="318,1047 244,1084 318,1121 392,1084" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="244,1084 170,1121 244,1158 318,1121" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="910,825 836,862 910,899 984,862" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="836,862 762,899 836,936 910,899" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="762,899 688,936 762,973 836,936" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="688,936 614,973 688,1010 762,973" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="614,973 540,1010 614,1047 688,1010" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="540,1010 466,1047 540,1084 614,1047" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="466,1047 392,1084 466,1121 540,1084" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="392,1084 318,1121 392,1158 466,1121" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="318,1121 244,1158 318,1195 392,1158" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="984,862 910,899 984,936 1058,899" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="910,899 836,936 910,973 984,936" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="836,936 762,973 836,1010 910,973" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="762,973 688,1010 762,1047 836,1010" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="688,1010 614,1047 688,1084 762,1047" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="614,1047 540,1084 614,1121 688,1084" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="540,1084 466,1121 540,1158 614,1121" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="466,1121 392,1158 466,1195 540,1158" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="392,1158 318,1195 392,1232 466,1195" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1058,899 984,936 1058,973 1132,936" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="984,936 910,973 984,1010 1058,973" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="910,973 836,1010 910,1047 984,1010" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="836,1010 762,1047 836,1084 910,1047" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="762,1047 688,1084 762,1121 836,1084" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="688,1084 614,1121 688,1158 762,1121" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="614,1121 540,1158 614,1195 688,1158" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="540,1158 466,1195 540,1232 614,1195" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="466,1195 392,1232 466,1269 540,1232" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1132,936 1058,973 1132,1010 1206,973" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1058,973 984,1010 1058,1047 1132,1010" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="984,1010 910,1047 984,1084 1058,1047" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="910,1047 836,1084 910,1121 984,1084" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="836,1084 762,1121 836,1158 910,1121" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="762,1121 688,1158 762,1195 836,1158" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="688,1158 614,1195 688,1232 762,1195" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="614,1195 540,1232 614,1269 688,1232" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="540,1232 466,1269 540,1306 614,1269" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1132,1010 1058,1047 1132,1084 1206,1047" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1058,1047 984,1084 1058,1121 1132,1084" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="984,1084 910,1121 984,1158 1058,1121" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="910,1121 836,1158 910,1195 984,1158" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="836,1158 762,1195 836,1232 910,1195" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="762,1195 688,1232 762,1269 836,1232" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="688,1232 614,1269 688,1306 762,1269" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="614,1269 540,1306 614,1343 688,1306" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1132,1084 1058,1121 1132,1158 1206,1121" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="1058,1121 984,1158 1058,1195 1132,1158" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="984,1158 910,1195 984,1232 1058,1195" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="910,1195 836,1232 910,1269 984,1232" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="836,1232 762,1269 836,1306 910,1269" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="762,1269 688,1306 762,1343 836,1306" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="688,1306 614,1343 688,1380 762,1343" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1132,1158 1058,1195 1132,1232 1206,1195" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1058,1195 984,1232 1058,1269 1132,1232" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="984,1232 910,1269 984,1306 1058,1269" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="910,1269 836,1306 910,1343 984,1306" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="836,1306 762,1343 836,1380 910,1343" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="762,1343 688,1380 762,1417 836,1380" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1132,1232 1058,1269 1132,1306 1206,1269" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1058,1269 984,1306 1058,1343 1132,1306" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="984,1306 910,1343 984,1380 1058,1343" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/><polygon points="910,1343 836,1380 910,1417 984,1380" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="836,1380 762,1417 836,1454 910,1417" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1132,1306 1058,1343 1132,1380 1206,1343" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="1058,1343 984,1380 1058,1417 1132,1380" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="984,1380 910,1417 984,1454 1058,1417" fill="#322c24" stroke="rgba(168,148,104,0.300)" stroke-width="2"/><polygon points="910,1417 836,1454 910,1491 984,1454" fill="#322c24" stroke="rgba(232,184,75,0.350)" stroke-width="3"/>
+  <g id="s02-iso-grid-iso-b0" transform="translate(318 751)">
+      <polygon points="0,0 74,37 74,74 0,74" fill="#1C1710" stroke="#E8B84B" stroke-width="3"/>
+      <polygon points="0,0 74,37 74,97 0,60" fill="#18130c"/>
+      <polygon points="0,0 -74,37 -74,97 0,60" fill="#19150e"/>
+      <line x1="-74" y1="37" x2="0" y2="0" stroke="#E8B84B" stroke-width="2" opacity="0.5"/>
+    </g><g id="s02-iso-grid-iso-b1" transform="translate(318 825)">
+      <polygon points="0,0 74,37 74,74 0,74" fill="#1C1710" stroke="#E8B84B" stroke-width="3"/>
+      <polygon points="0,0 74,37 74,131 0,94" fill="#18130c"/>
+      <polygon points="0,0 -74,37 -74,131 0,94" fill="#19150e"/>
+      <line x1="-74" y1="37" x2="0" y2="0" stroke="#E8B84B" stroke-width="2" opacity="0.5"/>
+    </g><g id="s02-iso-grid-iso-b2" transform="translate(318 899)">
+      <polygon points="0,0 74,37 74,74 0,74" fill="#1C1710" stroke="#E8B84B" stroke-width="3"/>
+      <polygon points="0,0 74,37 74,165 0,128" fill="#18130c"/>
+      <polygon points="0,0 -74,37 -74,165 0,128" fill="#19150e"/>
+      <line x1="-74" y1="37" x2="0" y2="0" stroke="#E8B84B" stroke-width="2" opacity="0.5"/>
+    </g><g id="s02-iso-grid-iso-b3" transform="translate(318 973)">
+      <polygon points="0,0 74,37 74,74 0,74" fill="#1C1710" stroke="#E8B84B" stroke-width="3"/>
+      <polygon points="0,0 74,37 74,199 0,162" fill="#18130c"/>
+      <polygon points="0,0 -74,37 -74,199 0,162" fill="#19150e"/>
+      <line x1="-74" y1="37" x2="0" y2="0" stroke="#E8B84B" stroke-width="2" opacity="0.5"/>
+    </g><g id="s02-iso-grid-iso-b4" transform="translate(318 1047)">
+      <polygon points="0,0 74,37 74,74 0,74" fill="#1C1710" stroke="#E8B84B" stroke-width="3"/>
+      <polygon points="0,0 74,37 74,233 0,196" fill="#18130c"/>
+      <polygon points="0,0 -74,37 -74,233 0,196" fill="#19150e"/>
+      <line x1="-74" y1="37" x2="0" y2="0" stroke="#E8B84B" stroke-width="2" opacity="0.5"/>
+    </g><g id="s02-iso-grid-iso-b5" transform="translate(318 1121)">
+      <polygon points="0,0 74,37 74,74 0,74" fill="#1C1710" stroke="#E8B84B" stroke-width="3"/>
+      <polygon points="0,0 74,37 74,267 0,230" fill="#18130c"/>
+      <polygon points="0,0 -74,37 -74,267 0,230" fill="#19150e"/>
+      <line x1="-74" y1="37" x2="0" y2="0" stroke="#E8B84B" stroke-width="2" opacity="0.5"/>
+    </g>
+  <polygon id="s02-iso-grid-iso-d0" points="540,580 780,700 540,760 300,700" fill="none" stroke="rgba(168,148,104,0.300)" stroke-width="2" stroke-dasharray="12 16"/>
+  <polygon id="s02-iso-grid-iso-d1" points="540,530 880,700 540,800 200,700" fill="none" stroke="rgba(168,148,104,0.300)" stroke-width="2" stroke-dasharray="12 16"/>
+  <rect id="s02-iso-grid-iso-sq0" x="0" y="0" width="10.07" height="10.07" rx="3" fill="rgba(232,184,75,0.450)" transform="translate(700.59 528.82) rotate(0)"/><rect id="s02-iso-grid-iso-sq1" x="0" y="0" width="11.51" height="11.51" rx="3" fill="rgba(232,184,75,0.450)" transform="translate(337.39 251.47) rotate(45)"/><rect id="s02-iso-grid-iso-sq2" x="0" y="0" width="9.41" height="9.41" rx="3" fill="rgba(232,184,75,0.450)" transform="translate(876.75 1289.23) rotate(90)"/><rect id="s02-iso-grid-iso-sq3" x="0" y="0" width="8.71" height="8.71" rx="3" fill="rgba(232,184,75,0.450)" transform="translate(614.49 329.73) rotate(135)"/><rect id="s02-iso-grid-iso-sq4" x="0" y="0" width="11.04" height="11.04" rx="3" fill="rgba(232,184,75,0.450)" transform="translate(445.35 279.18) rotate(180)"/><rect id="s02-iso-grid-iso-sq5" x="0" y="0" width="11.85" height="11.85" rx="3" fill="rgba(232,184,75,0.450)" transform="translate(677.14 768.94) rotate(225)"/><rect id="s02-iso-grid-iso-sq6" x="0" y="0" width="15.32" height="15.32" rx="3" fill="rgba(232,184,75,0.450)" transform="translate(369.37 1106.54) rotate(270)"/><rect id="s02-iso-grid-iso-sq7" x="0" y="0" width="15.31" height="15.31" rx="3" fill="rgba(232,184,75,0.450)" transform="translate(400.81 132.33) rotate(315)"/>
+<circle id="s02-iso-grid-fx-ring" cx="540" cy="820" r="60" fill="none" stroke="rgba(232,184,75,0.500)" stroke-width="14" opacity="0"/><g id="s02-iso-grid-fx-speed" opacity="0"><line x1="840.0" y1="824.8" x2="1223.7" y2="830.9" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="767.2" y1="1015.9" x2="972.7" y2="1193.0" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="640.3" y1="1102.8" x2="797.7" y2="1546.9" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="500.3" y1="1117.4" x2="450.4" y2="1490.6" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="380.6" y1="1074.2" x2="132.7" y2="1469.5" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="266.7" y1="943.6" x2="17.0" y2="1056.6" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="250.0" y1="743.3" x2="-157.1" y2="635.6" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="282.8" y1="665.6" x2="28.1" y2="512.6" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="403.7" y1="552.8" x2="212.7" y2="178.5" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="605.6" y1="527.3" x2="678.1" y2="203.7" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="762.7" y1="618.9" x2="961.5" y2="439.4" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="836.4" y1="773.6" x2="1170.9" y2="721.2" stroke="rgba(245,237,216,0.400)" stroke-width="7" stroke-linecap="round"/></g>
+<g id="s02-iso-grid-char"><g id="s02-iso-grid-to-root">
+  <ellipse id="s02-iso-grid-to-shadow" cx="0" cy="7" rx="64" ry="12" fill="#000000" opacity="0.38"/>
+  <ellipse id="s02-iso-grid-to-halo" cx="0" cy="-116" rx="130" ry="182" fill="var(--acc)" style="opacity:calc(0.07 + var(--pulse, 0) * 0.07)"/>
+
+  <g id="s02-iso-grid-to-bob" transform="translate(0 0)">
+    <g id="s02-iso-grid-to-squash" style="transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(calc(1 + var(--pulse, 0) * 0.033))">
+      <g id="s02-iso-grid-to-lean" transform="rotate(0)">
+
+        
+        <g id="s02-iso-grid-to-legsStand">
+          <g transform="translate(-17 -96)">
+            <g id="s02-iso-grid-to-legL">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="4" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(17 -96)">
+            <g id="s02-iso-grid-to-legR">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="-11" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(-3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <g id="s02-iso-grid-to-legsSit" opacity="0">
+          <path d="M 0 -96 q -42 -12 -62 12 q 30 16 62 6 z" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+          <path d="M 0 -96 q 42 -12 62 12 q -30 16 -62 6 z" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+          <ellipse cx="-54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="-54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+          <ellipse cx="54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+        </g>
+
+        
+        <g transform="translate(0 -96)">
+          <g id="s02-iso-grid-to-torso">
+            <path d="M -37 10 Q -45 -50 -30 -70 L 30 -70 Q 45 -50 37 10 Q 0 20 -37 10 Z"
+                  fill="#262731" stroke="#0D0E13" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M -22 -8 Q 0 0 22 -8" stroke="#17181F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M -9 -63 q -2 15 -5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 9 -63 q 2 15 5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="0" cy="-24" r="7" fill="#E8B84B"/>
+            <circle cx="0" cy="-24" r="7" fill="none" stroke="#17181F" stroke-width="2"/>
+            <path id="s02-iso-grid-to-rimT" d="M -37 10 Q -45 -50 -30 -70" fill="none" stroke="var(--acc)"
+                  stroke-width="4" stroke-linecap="round" style="opacity:calc(0.5 + var(--pulse, 0) * 0.3)"/>
+
+            
+            <g id="s02-iso-grid-to-barbell" opacity="0" transform="translate(0 -78)">
+              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
+              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+            </g>
+
+            
+            <g transform="translate(-33 -62)">
+              <g id="s02-iso-grid-to-armL">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s02-iso-grid-to-forearmL">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(33 -62)">
+              <g id="s02-iso-grid-to-armR">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s02-iso-grid-to-forearmR">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            
+            <g transform="translate(0 -70)">
+              <g id="s02-iso-grid-to-head">
+                <ellipse cx="0" cy="-34" rx="33" ry="33" fill="#17181F" stroke="#0D0E13" stroke-width="3.5"/>
+                <ellipse cx="8" cy="-30" rx="20" ry="17" fill="#0B0C10" opacity="0.92"/>
+                <path d="M -33 -38 Q 0 -76 33 -38 Z" fill="#262731" stroke="#0D0E13" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M -33 -38 Q 0 -76 33 -38" fill="none" stroke="#E8B84B" stroke-width="3"/>
+                <rect x="6" y="-40" width="42" height="11" rx="5.5" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                <circle cx="-2" cy="-49" r="5.5" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <path id="s02-iso-grid-to-rimL" d="M -28 -88 L -28 -28" stroke="var(--acc)" stroke-width="3"
+              stroke-linecap="round" fill="none" style="opacity:calc(0.45 + var(--pulse, 0) * 0.3)"/>
+      </g>
+    </g>
+  </g>
+</g></g>
+    </svg>
+  </div>
+  <div id="s02-iso-grid-grade"></div>
+  <div id="s02-iso-grid-cap"><div class="cap-box"><span class="cw" id="s02-iso-grid-cw-0">Thirty-seven</span><span class="cw" id="s02-iso-grid-cw-1">times</span><span class="cw" id="s02-iso-grid-cw-2">better.</span></div></div><div id="s02-iso-grid-brand"><span class="bdot"></span>@SELF_EFFICIENT_DAILY</div>
+  <div id="s02-iso-grid-wipe"><div class="wipe-edge"></div></div>
+  <div id="s02-iso-grid-fade"></div>
+</div>
+<script>
+(function () {
+  const v7 = {};
+// v7 scene-kit — shared browser runtime inlined into every scene by build.mjs.
+// Camera creep, audio-envelope proxy (--pulse CSS var), hook slam, karaoke
+// captions, counters, brand tag, onset fx, flood wipe-in, grade veil.
+// Everything is a pure function of the paused GSAP timeline (deterministic).
+/* global v7 */
+(function () {
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+
+  // ---- audio envelope proxy: one tween drives the --pulse CSS var -------
+  v7.envProxy = function (tl, p, rootId, env, dur) {
+    if (!env || env.length === 0 || dur <= 0.02) return;
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const prox = { t: 0 };
+    tl.to(prox, {
+      t: dur,
+      duration: dur,
+      ease: "none",
+      onUpdate: function () {
+        const f = Math.min(env.length - 1, Math.max(0, Math.round(prox.t * 30)));
+        root.style.setProperty("--pulse", env[f].toFixed(3));
+      },
+    }, 0);
+  };
+
+  // ---- camera: keyed [t,x,y,zoom,rot] -> sequential fromTo on #camera ----
+  v7.camera = function (tl, p, keys, dur) {
+    if (!keys || keys.length === 0) return;
+    const cam = "#" + p + "camera";
+    if (keys.length === 1) {
+      const k = keys[0];
+      tl.set(cam, { x: -k.x, y: -k.y, scale: k.zoom, rotation: k.rot }, 0.001);
+      return;
+    }
+    for (let i = 0; i < keys.length - 1; i++) {
+      const a = keys[i];
+      const b = keys[i + 1];
+      const span = Math.max(0.05, b.t - a.t);
+      tl.fromTo(cam,
+        { x: -a.x, y: -a.y, scale: a.zoom, rotation: a.rot },
+        { x: -b.x, y: -b.y, scale: b.zoom, rotation: b.rot, duration: span, ease: "power2.inOut" },
+        Math.max(0, a.t));
+    }
+  };
+
+  // ---- hook type: per-character spring slam --------------------------------
+  v7.hook = function (tl, p, lines, th, dur) {
+    const box = "#" + p + "hook";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+    let delay = 0.05;
+    lines.forEach((line, li) => {
+      const chars = line.split("");
+      chars.forEach((ch, ci) => {
+        const sel = `#${p}hk-${li}-${ci}`;
+        if (ch === " ") return;
+        tl.fromTo(sel,
+          { opacity: 0, scale: 0.6, y: 26 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" },
+          delay + ci * 0.035);
+      });
+      delay += 0.14 + Math.min(0.5, chars.length * 0.035);
+    });
+    // hold, then shrink away just before scene end
+    tl.to(box, { scale: 0.94, duration: 0.3, ease: "power2.in" }, Math.max(0.1, dur - 0.32));
+  };
+
+  // ---- karaoke captions: word-level color/scale sync -----------------------
+  v7.captions = function (tl, p, words, th, sceneDur, sceneStart) {
+    const box = "#" + p + "cap";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.02);
+    words.forEach((w, i) => {
+      const sel = `#${p}cw-${i}`;
+      const ws = Math.max(0, w.start - sceneStart);
+      const we = Math.min(sceneDur - 0.05, w.end - sceneStart);
+      if (we <= ws) return;
+      // upcoming -> active (white, pop)
+      tl.fromTo(sel,
+        { color: th.inkSoft, scale: 1 },
+        { color: "#FFFFFF", scale: 1.1, duration: 0.09, ease: "power2.out" },
+        ws);
+      // active -> spoken (accent, settle)
+      tl.to(sel, { color: th.accent, scale: 1, duration: 0.12, ease: "power2.out" }, we);
+    });
+  };
+
+  // ---- animated counter ------------------------------------------------------
+  v7.counter = function (tl, p, counter, dur) {
+    const box = "#" + p + "ctr";
+    const numEl = document.getElementById(p + "ctr-num");
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 0.05);
+    const dec = counter.decimals || 0;
+    const prox = { v: counter.from };
+    tl.fromTo(prox,
+      { v: counter.from },
+      { v: counter.to, duration: dur * 0.7, ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = (counter.prefix || "") + prox.v.toFixed(dec) + (counter.suffix || "");
+        } },
+      0.08);
+  };
+
+  // ---- brand tag: settle-in + tiny bob ---------------------------------------
+  v7.brand = function (tl, p, dur) {
+    const tag = "#" + p + "brand";
+    tl.set(tag, { opacity: 0 }, 0.001);
+    tl.fromTo(tag, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo(tag, { y: 0 }, { y: -4, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.6)) - 1 }, 0.5);
+  };
+
+  // ---- onset fx ---------------------------------------------------------------
+  // shockwave ring + speed lines + flash, placed at scene-local onset times
+  v7.onsetFx = function (tl, p, th, onsets, fxKeys, dur) {
+    const has = (k) => fxKeys && fxKeys.indexOf(k) >= 0;
+    onsets.forEach((t0) => {
+      if (t0 <= 0.05 || t0 >= dur - 0.05) return;
+      if (has("shockwave")) {
+        const ring = "#" + p + "fx-ring";
+        tl.set(ring, { attr: { r: 60, opacity: 0 } }, t0 - 0.001);
+        tl.fromTo(ring,
+          { attr: { r: 60, opacity: 0.5 } },
+          { attr: { r: 700, opacity: 0 }, duration: 0.55, ease: "power2.out" },
+          t0);
+      }
+      if (has("speedlines")) {
+        const g = "#" + p + "fx-speed";
+        tl.set(g, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(g,
+          { opacity: 0.55, scale: 1.15 },
+          { opacity: 0, scale: 1, duration: 0.4, ease: "power2.out", transformOrigin: "50% 51%" },
+          t0);
+      }
+      if (has("flash")) {
+        const f = "#" + p + "fx-flash";
+        tl.set(f, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(f, { opacity: 0.16 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, t0);
+      }
+    });
+  };
+
+  // ---- flood wipe-in at scene start -------------------------------------------
+  v7.wipe = function (tl, p, isFirst, dur) {
+    const panel = "#" + p + "wipe";
+    if (isFirst) {
+      const fade = "#" + p + "fade";
+      tl.set(fade, { opacity: 1 }, 0.001);
+      tl.fromTo(fade, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.02);
+      tl.set(panel, { opacity: 0 }, 0.001);
+      return;
+    }
+    tl.set(panel, { opacity: 1 }, 0.001);
+    tl.fromTo(panel,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.46, ease: "power3.inOut" },
+      0.02);
+    // trailing edge accent line
+    const edge = "#" + p + "wipe-edge";
+    tl.fromTo(edge,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.5, ease: "power3.inOut" },
+      0.02);
+  };
+
+  // ---- character: place rig wrapper (static) and run action ------------------
+  v7.placeCharacter = function (p, pos, scale, facing) {
+    const el = document.getElementById(p + "char");
+    if (!el) return;
+    el.setAttribute("transform",
+      `translate(${pos[0]} ${pos[1]}) scale(${(scale * (facing || 1)).toFixed(3)} ${scale.toFixed(3)})`);
+  };
+})();
+
+// TheOne character runtime — inlined into every scene by build.mjs.
+// Applies GSAP tweens to the canonical rig. The rig markup is byte-identical
+// in every scene (only ids get a scene prefix); these joint rotations are the
+// ONLY per-scene variation, so identity and proportions cannot drift.
+// Determinism: finite repeats only, absolute times, pure function of timeline.
+/* global v7 */
+(function () {
+  // Joint oscillation around `base` between base+amp and base-amp.
+  // yoyo with sine.inOut approximates sin(t) closely at joint scale.
+  function swing(tl, sel, base, amp, cycleSec, dur, phase) {
+    if (amp === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    const from = base + (phase >= 0 ? amp : -amp);
+    tl.fromTo(
+      sel,
+      { attr: { transform: `rotate(${from.toFixed(2)})` } },
+      { attr: { transform: `rotate(${(2 * base - from).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+  // Bounded bounce (0 -> -depth -> 0) on the bob wrapper.
+  function bounce(tl, sel, depth, cycleSec, dur) {
+    if (depth === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    tl.fromTo(
+      sel,
+      { attr: { transform: "translate(0 0)" } },
+      { attr: { transform: `translate(0 ${(-depth).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+
+  // p = scene id prefix, e.g. "s01-" (rig ids are `${p}to-…`)
+  v7.character = function (tl, p, action, dur) {
+    const g = (n) => "#" + p + n;
+    const seated = action === "meditate" || action === "levitate";
+
+    tl.set(g("to-legsStand"), { attr: { opacity: seated ? 0 : 1 } }, 0.001);
+    tl.set(g("to-legsSit"), { attr: { opacity: seated ? 1 : 0 } }, 0.001);
+
+    const S = {
+      idle:     { lean: 0,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      walk:     { lean: 2,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      run:      { lean: -9,  head: -3, fArmL: 42,  fArmR: 42,  barbell: 0 },
+      climb:    { lean: 14,  head: -6, fArmL: 8,   fArmR: 8,   barbell: 0 },
+      lift:     { lean: 0,   head: 0,  fArmL: 6,   fArmR: 6,   barbell: 1 },
+      meditate: { lean: 0,   head: 2,  fArmL: 32,  fArmR: -32, barbell: 0 },
+      levitate: { lean: 0,   head: -2, fArmL: 14,  fArmR: -14, barbell: 0 },
+      victory:  { lean: 0,   head: -2, fArmL: 6,   fArmR: 6,   barbell: 0 },
+      point:    { lean: 3,   head: 4,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+    }[action] || { lean: 0, head: 0, fArmL: 0, fArmR: 0, barbell: 0 };
+
+    tl.set(g("to-lean"), { attr: { transform: `rotate(${S.lean})` } }, 0.001);
+    tl.set(g("to-head"), { attr: { transform: `rotate(${S.head})` } }, 0.001);
+    tl.set(g("to-forearmL"), { attr: { transform: `rotate(${S.fArmL})` } }, 0.001);
+    tl.set(g("to-forearmR"), { attr: { transform: `rotate(${S.fArmR})` } }, 0.001);
+    tl.set(g("to-barbell"), { attr: { opacity: S.barbell } }, 0.001);
+
+    switch (action) {
+      case "idle":
+        swing(tl, g("to-armL"), 0, 4, 1.1, dur, 1);
+        swing(tl, g("to-armR"), 0, 4, 1.1, dur, -1);
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+        break;
+      case "walk":
+        swing(tl, g("to-legL"), 0, 24, 0.667, dur, 1);
+        swing(tl, g("to-legR"), 0, 24, 0.667, dur, -1);
+        swing(tl, g("to-armL"), 0, 16, 0.667, dur, -1);
+        swing(tl, g("to-armR"), 0, 16, 0.667, dur, 1);
+        bounce(tl, g("to-bob"), 5, 0.333, dur);
+        break;
+      case "run":
+        swing(tl, g("to-legL"), 0, 40, 0.385, dur, 1);
+        swing(tl, g("to-legR"), 0, 40, 0.385, dur, -1);
+        swing(tl, g("to-armL"), 0, 34, 0.385, dur, -1);
+        swing(tl, g("to-armR"), 0, 34, 0.385, dur, 1);
+        bounce(tl, g("to-bob"), 7, 0.192, dur);
+        break;
+      case "climb":
+        // arms reach up alternately around 150°, knees step
+        swing(tl, g("to-armL"), 150, 26, 1.11, dur, 1);
+        swing(tl, g("to-armR"), 150, 26, 1.11, dur, -1);
+        swing(tl, g("to-legL"), 28, 16, 1.11, dur, 1);
+        swing(tl, g("to-legR"), 28, 16, 1.11, dur, -1);
+        bounce(tl, g("to-bob"), 3, 1.11, dur);
+        break;
+      case "lift": {
+        const cyc = 1.82;
+        const reps = Math.max(1, Math.ceil(dur / cyc));
+        for (let i = 0; i < reps; i++) {
+          const t0 = i * cyc;
+          tl.fromTo(g("to-armL"),
+            { attr: { transform: "rotate(168)" } },
+            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.fromTo(g("to-armR"),
+            { attr: { transform: "rotate(-168)" } },
+            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-barbell"),
+            { attr: { transform: "translate(0 -108)" } },
+            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-bob"),
+            { attr: { transform: "translate(0 0)" } },
+            { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+        }
+        break;
+      }
+      case "meditate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(38)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-38)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 2.0, dur);
+        break;
+      case "levitate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(62)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-62)" } }, 0.002);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 -14)" } },
+          { attr: { transform: "translate(0 -23)" }, duration: 1.11, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.11)) - 1 },
+          0);
+        break;
+      case "victory":
+        // arms held up (~160°) with a slight sway + one hop
+        tl.fromTo(g("to-armL"),
+          { attr: { transform: "rotate(158)" } },
+          { attr: { transform: "rotate(163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-armR"),
+          { attr: { transform: "rotate(-158)" } },
+          { attr: { transform: "rotate(-163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 0)" } },
+          { attr: { transform: "translate(0 -12)" }, duration: 0.36, ease: "sine.out" },
+          0);
+        tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: 0.36, ease: "bounce.in" }, 0.36);
+        break;
+      case "point":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 1.4, dur);
+        break;
+      default:
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+    }
+  };
+})();
+
+  const SID = "s02-iso-grid";
+  const P = "s02-iso-grid-";
+  const DUR = 1.567;
+  const ENV = [0.013,0.01,0.009,0.007,0.006,0.005,0.004,0.003,0.003,0.002,0.002,0.001,0.008,0.021,0.017,0.014,0.916,1,1,1,0.82,0.766,0.965,0.828,0.679,0.557,0.456,0.374,0.307,1,1,1,0.82,0.784,0.991,0.836,0.851,0.698,0.572,0.469,0.385,0.738,0.765,0.73,0.762,0.631,0.705];
+  const ONSETS = [0.533,0.967];
+  const SCENE = {"action":"walk","type":"caption","camera":[{"t":0,"x":0,"y":0,"zoom":1.03,"rot":0},{"t":0.849347826086956,"x":-34,"y":14,"zoom":1.09,"rot":0},{"t":1.698695652173912,"x":26,"y":-30,"zoom":1.15,"rot":0}],"fx":["shockwave","speedlines"],"counter":null,"hookLines":null,"words":[{"w":"Thirty-seven","start":0.2147826086956517,"end":0.9363768115942026},{"w":"times","start":0.9363768115942026,"end":1.2694202898550717},{"w":"better.","start":1.2694202898550717,"end":1.7134782608695645}],"startSec":6};
+  const TH = {"bg":"#141009","panel":"#1C1710","accent":"#E8B84B","accentDeep":"#C9A227","ink":"#F5EDD8","inkSoft":"#A89468"};
+  const gsap = window.gsap;
+  const tl = gsap.timeline({ paused: true });
+
+  v7.wipe(tl, P, false, DUR);
+  v7.camera(tl, P, SCENE.camera, DUR);
+  v7.envProxy(tl, P, SID, ENV, DUR);
+tl.set("#s02-iso-grid-iso-b0",{attr:{transform:"translate(318 751) scale(1 0.02)"}},0.001);
+    tl.fromTo("#s02-iso-grid-iso-b0",{attr:{transform:"translate(318 751) scale(1 0.02)"}},{attr:{transform:"translate(318 751) scale(1 1)"},duration:0.5,ease:"back.out(2)"},0.02);
+tl.set("#s02-iso-grid-iso-b1",{attr:{transform:"translate(318 825) scale(1 0.02)"}},0.001);
+    tl.fromTo("#s02-iso-grid-iso-b1",{attr:{transform:"translate(318 825) scale(1 0.02)"}},{attr:{transform:"translate(318 825) scale(1 1)"},duration:0.5,ease:"back.out(2)"},0.02);
+tl.set("#s02-iso-grid-iso-b2",{attr:{transform:"translate(318 899) scale(1 0.02)"}},0.001);
+    tl.fromTo("#s02-iso-grid-iso-b2",{attr:{transform:"translate(318 899) scale(1 0.02)"}},{attr:{transform:"translate(318 899) scale(1 1)"},duration:0.5,ease:"back.out(2)"},0.15);
+tl.set("#s02-iso-grid-iso-b3",{attr:{transform:"translate(318 973) scale(1 0.02)"}},0.001);
+    tl.fromTo("#s02-iso-grid-iso-b3",{attr:{transform:"translate(318 973) scale(1 0.02)"}},{attr:{transform:"translate(318 973) scale(1 1)"},duration:0.5,ease:"back.out(2)"},0.47);
+tl.set("#s02-iso-grid-iso-b4",{attr:{transform:"translate(318 1047) scale(1 0.02)"}},0.001);
+    tl.fromTo("#s02-iso-grid-iso-b4",{attr:{transform:"translate(318 1047) scale(1 0.02)"}},{attr:{transform:"translate(318 1047) scale(1 1)"},duration:0.5,ease:"back.out(2)"},0.79);
+tl.set("#s02-iso-grid-iso-b5",{attr:{transform:"translate(318 1121) scale(1 0.02)"}},0.001);
+    tl.fromTo("#s02-iso-grid-iso-b5",{attr:{transform:"translate(318 1121) scale(1 0.02)"}},{attr:{transform:"translate(318 1121) scale(1 1)"},duration:0.5,ease:"back.out(2)"},1.11);
+tl.fromTo("#s02-iso-grid-iso-d0",{attr:{transform:"rotate(0 540 700)"}},{attr:{transform:"rotate(3.13 540 700)"},duration:1.57,ease:"none"},0);
+  tl.fromTo("#s02-iso-grid-iso-d1",{attr:{transform:"rotate(0 540 700)"}},{attr:{transform:"rotate(-6.27 540 700)"},duration:1.57,ease:"none"},0);
+tl.fromTo("#s02-iso-grid-iso-sq0",{attr:{transform:"translate(700.59 528.82) rotate(0)"}},{attr:{transform:"translate(700.59 437.16) rotate(31.33)"}},0);
+    tl.fromTo("#s02-iso-grid-iso-sq0",{opacity:0.25},{opacity:0.8,duration:0.78,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s02-iso-grid-iso-sq1",{attr:{transform:"translate(337.39 251.47) rotate(45)"}},{attr:{transform:"translate(337.39 111.85) rotate(76.33)"}},0);
+    tl.fromTo("#s02-iso-grid-iso-sq1",{opacity:0.25},{opacity:0.8,duration:0.78,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s02-iso-grid-iso-sq2",{attr:{transform:"translate(876.75 1289.23) rotate(90)"}},{attr:{transform:"translate(876.75 1157.16) rotate(121.33)"}},0);
+    tl.fromTo("#s02-iso-grid-iso-sq2",{opacity:0.25},{opacity:0.8,duration:0.78,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s02-iso-grid-iso-sq3",{attr:{transform:"translate(614.49 329.73) rotate(135)"}},{attr:{transform:"translate(614.49 224.63) rotate(166.33)"}},0);
+    tl.fromTo("#s02-iso-grid-iso-sq3",{opacity:0.25},{opacity:0.8,duration:0.78,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s02-iso-grid-iso-sq4",{attr:{transform:"translate(445.35 279.18) rotate(180)"}},{attr:{transform:"translate(445.35 181.55) rotate(211.33)"}},0);
+    tl.fromTo("#s02-iso-grid-iso-sq4",{opacity:0.25},{opacity:0.8,duration:0.78,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s02-iso-grid-iso-sq5",{attr:{transform:"translate(677.14 768.94) rotate(225)"}},{attr:{transform:"translate(677.14 661.84) rotate(256.33)"}},0);
+    tl.fromTo("#s02-iso-grid-iso-sq5",{opacity:0.25},{opacity:0.8,duration:0.78,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s02-iso-grid-iso-sq6",{attr:{transform:"translate(369.37 1106.54) rotate(270)"}},{attr:{transform:"translate(369.37 1004.19) rotate(301.33)"}},0);
+    tl.fromTo("#s02-iso-grid-iso-sq6",{opacity:0.25},{opacity:0.8,duration:0.78,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s02-iso-grid-iso-sq7",{attr:{transform:"translate(400.81 132.33) rotate(315)"}},{attr:{transform:"translate(400.81 15.23) rotate(346.33)"}},0);
+    tl.fromTo("#s02-iso-grid-iso-sq7",{opacity:0.25},{opacity:0.8,duration:0.78,ease:"sine.inOut",yoyo:true,repeat:1},0);
+
+
+  v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
+v7.placeCharacter(P, [660,1130], 1.9, 1);
+  v7.character(tl, P, SCENE.action, DUR);
+  if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
+  if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);
+  if (SCENE.counter) v7.counter(tl, P, SCENE.counter, DUR);
+  if (SCENE.type !== "cta") v7.brand(tl, P, DUR);
+
+
+  window.__timelines[SID] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

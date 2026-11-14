@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>s06-blueprint-tech</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+@font-face{font-family:'Anton';src:url('assets/fonts/Anton-Regular.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-400.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-600.ttf');font-weight:600;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-700.ttf');font-weight:700;font-display:block}
+.clip{position:absolute;inset:0;overflow:hidden}
+#s06-blueprint-tech{position:absolute;inset:0;font-family:'Source Sans 3',sans-serif;background:#10151B;--pulse:0;--acc:#A8C5DE}
+#s06-blueprint-tech-camera{position:absolute;inset:0;will-change:transform}
+#s06-blueprint-tech-world{position:absolute;left:0;top:0}
+#s06-blueprint-tech-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
+  radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.14) 100%),
+  linear-gradient(180deg, rgba(58,86,200,0.064), rgba(58,86,200,0.026));}
+#s06-blueprint-tech-wipe{position:absolute;inset:0;z-index:50;background:linear-gradient(180deg,#E8B84B,#A8C5DE);transform:translateY(0)}
+#s06-blueprint-tech-wipe .wipe-edge{position:absolute;left:0;right:0;bottom:0;height:26px;background:#EDF2F7;opacity:0.9}
+#s06-blueprint-tech-fade{position:absolute;inset:0;z-index:60;background:#000;opacity:0}
+#s06-blueprint-tech-cap{position:absolute;bottom:172px;left:80px;right:80px;display:flex;justify-content:center;z-index:10}
+.cap-box{max-width:860px;background:rgba(8,8,10,0.62);border:2px solid rgba(168,197,222,0.350);border-radius:26px;padding:22px 34px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 14px}
+.cw{font-family:'Source Sans 3';font-weight:700;font-size:47px;line-height:1.25;color:rgba(237,242,247,0.620);display:inline-block}#s06-blueprint-tech-brand{position:absolute;top:92px;left:0;right:0;display:flex;justify-content:center;z-index:11}
+#s06-blueprint-tech-brand{font-family:'Source Sans 3';font-weight:600;font-size:34px;letter-spacing:4px;color:#7C8EA0;background:rgba(8,8,10,0.4);border-radius:999px;padding:10px 28px;width:max-content;margin:0 auto}
+.bdot{width:12px;height:12px;border-radius:6px;background:#A8C5DE;display:inline-block}
+</style>
+</head>
+<body>
+<div id="s06-blueprint-tech" data-composition-id="s06-blueprint-tech" data-width="1080" data-height="1920">
+  <div id="s06-blueprint-tech-camera">
+    <svg id="s06-blueprint-tech-world" viewBox="0 0 1080 1920" width="1080" height="1920">
+
+  <rect x="0" y="0" width="1080" height="1920" fill="#10151B"/>
+  <line x1="0" y1="0" x2="0" y2="1920" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="60" y1="0" x2="60" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="120" y1="0" x2="120" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="180" y1="0" x2="180" y2="1920" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="240" y1="0" x2="240" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="300" y1="0" x2="300" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="360" y1="0" x2="360" y2="1920" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="420" y1="0" x2="420" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="480" y1="0" x2="480" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="540" y1="0" x2="540" y2="1920" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="600" y1="0" x2="600" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="660" y1="0" x2="660" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="720" y1="0" x2="720" y2="1920" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="780" y1="0" x2="780" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="840" y1="0" x2="840" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="900" y1="0" x2="900" y2="1920" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="960" y1="0" x2="960" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="1020" y1="0" x2="1020" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="1080" y1="0" x2="1080" y2="1920" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="0" x2="1080" y2="0" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="60" x2="1080" y2="60" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="120" x2="1080" y2="120" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="180" x2="1080" y2="180" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="240" x2="1080" y2="240" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="300" x2="1080" y2="300" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="360" x2="1080" y2="360" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="420" x2="1080" y2="420" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="480" x2="1080" y2="480" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="540" x2="1080" y2="540" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="600" x2="1080" y2="600" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="660" x2="1080" y2="660" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="720" x2="1080" y2="720" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="780" x2="1080" y2="780" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="840" x2="1080" y2="840" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="900" x2="1080" y2="900" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="960" x2="1080" y2="960" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1020" x2="1080" y2="1020" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1080" x2="1080" y2="1080" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="1140" x2="1080" y2="1140" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1200" x2="1080" y2="1200" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1260" x2="1080" y2="1260" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="1320" x2="1080" y2="1320" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1380" x2="1080" y2="1380" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1440" x2="1080" y2="1440" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="1500" x2="1080" y2="1500" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1560" x2="1080" y2="1560" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1620" x2="1080" y2="1620" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="1680" x2="1080" y2="1680" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1740" x2="1080" y2="1740" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1800" x2="1080" y2="1800" stroke="rgba(124,142,160,0.220)" stroke-width="1.5"/><line x1="0" y1="1860" x2="1080" y2="1860" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/><line x1="0" y1="1920" x2="1080" y2="1920" stroke="rgba(124,142,160,0.100)" stroke-width="1.5"/>
+  <circle id="s06-blueprint-tech-bp-p0" cx="540" cy="880" r="320" fill="none" stroke="rgba(124,142,160,0.500)" stroke-width="2" stroke-dasharray="8 12"/>
+  <circle id="s06-blueprint-tech-bp-p1" cx="540" cy="880" r="460" fill="none" stroke="rgba(124,142,160,0.500)" stroke-width="2" stroke-dasharray="8 12"/>
+  <g id="s06-blueprint-tech-bp-g450-880"><circle cx="450" cy="880" r="150" fill="none" stroke="#EDF2F7" stroke-width="3"/><line x1="600" y1="880" x2="618" y2="880" stroke="#EDF2F7" stroke-width="6"/><line x1="579.9" y1="955" x2="595.49" y2="964" stroke="#EDF2F7" stroke-width="6"/><line x1="525" y1="1009.9" x2="534" y2="1025.49" stroke="#EDF2F7" stroke-width="6"/><line x1="450" y1="1030" x2="450" y2="1048" stroke="#EDF2F7" stroke-width="6"/><line x1="375" y1="1009.9" x2="366" y2="1025.49" stroke="#EDF2F7" stroke-width="6"/><line x1="320.1" y1="955" x2="304.51" y2="964" stroke="#EDF2F7" stroke-width="6"/><line x1="300" y1="880" x2="282" y2="880" stroke="#EDF2F7" stroke-width="6"/><line x1="320.1" y1="805" x2="304.51" y2="796" stroke="#EDF2F7" stroke-width="6"/><line x1="375" y1="750.1" x2="366" y2="734.51" stroke="#EDF2F7" stroke-width="6"/><line x1="450" y1="730" x2="450" y2="712" stroke="#EDF2F7" stroke-width="6"/><line x1="525" y1="750.1" x2="534" y2="734.51" stroke="#EDF2F7" stroke-width="6"/><line x1="579.9" y1="805" x2="595.49" y2="796" stroke="#EDF2F7" stroke-width="6"/><circle cx="450" cy="880" r="48" fill="none" stroke="#A8C5DE" stroke-width="4"/><circle cx="450" cy="880" r="9" fill="#A8C5DE"/></g>
+  <g id="s06-blueprint-tech-bp-g230-1240"><circle cx="230" cy="1240" r="90" fill="none" stroke="#EDF2F7" stroke-width="3"/><line x1="320" y1="1240" x2="338" y2="1240" stroke="#EDF2F7" stroke-width="6"/><line x1="302.81" y1="1292.9" x2="317.37" y2="1303.48" stroke="#EDF2F7" stroke-width="6"/><line x1="257.81" y1="1325.6" x2="263.37" y2="1342.71" stroke="#EDF2F7" stroke-width="6"/><line x1="202.19" y1="1325.6" x2="196.63" y2="1342.71" stroke="#EDF2F7" stroke-width="6"/><line x1="157.19" y1="1292.9" x2="142.63" y2="1303.48" stroke="#EDF2F7" stroke-width="6"/><line x1="140" y1="1240" x2="122" y2="1240" stroke="#EDF2F7" stroke-width="6"/><line x1="157.19" y1="1187.1" x2="142.63" y2="1176.52" stroke="#EDF2F7" stroke-width="6"/><line x1="202.19" y1="1154.4" x2="196.63" y2="1137.29" stroke="#EDF2F7" stroke-width="6"/><line x1="257.81" y1="1154.4" x2="263.37" y2="1137.29" stroke="#EDF2F7" stroke-width="6"/><line x1="302.81" y1="1187.1" x2="317.37" y2="1176.52" stroke="#EDF2F7" stroke-width="6"/><circle cx="230" cy="1240" r="28.8" fill="none" stroke="#A8C5DE" stroke-width="4"/><circle cx="230" cy="1240" r="5.4" fill="#A8C5DE"/></g>
+  <g id="s06-blueprint-tech-bp-g690-1260"><circle cx="690" cy="1260" r="110" fill="none" stroke="#EDF2F7" stroke-width="3"/><line x1="800" y1="1260" x2="818" y2="1260" stroke="#EDF2F7" stroke-width="6"/><line x1="785.26" y1="1315" x2="800.85" y2="1324" stroke="#EDF2F7" stroke-width="6"/><line x1="745" y1="1355.26" x2="754" y2="1370.85" stroke="#EDF2F7" stroke-width="6"/><line x1="690" y1="1370" x2="690" y2="1388" stroke="#EDF2F7" stroke-width="6"/><line x1="635" y1="1355.26" x2="626" y2="1370.85" stroke="#EDF2F7" stroke-width="6"/><line x1="594.74" y1="1315" x2="579.15" y2="1324" stroke="#EDF2F7" stroke-width="6"/><line x1="580" y1="1260" x2="562" y2="1260" stroke="#EDF2F7" stroke-width="6"/><line x1="594.74" y1="1205" x2="579.15" y2="1196" stroke="#EDF2F7" stroke-width="6"/><line x1="635" y1="1164.74" x2="626" y2="1149.15" stroke="#EDF2F7" stroke-width="6"/><line x1="690" y1="1150" x2="690" y2="1132" stroke="#EDF2F7" stroke-width="6"/><line x1="745" y1="1164.74" x2="754" y2="1149.15" stroke="#EDF2F7" stroke-width="6"/><line x1="785.26" y1="1205" x2="800.85" y2="1196" stroke="#EDF2F7" stroke-width="6"/><circle cx="690" cy="1260" r="35.2" fill="none" stroke="#A8C5DE" stroke-width="4"/><circle cx="690" cy="1260" r="6.6" fill="#A8C5DE"/></g>
+  <rect id="s06-blueprint-tech-bp-st0" x="420" y="1560" width="240" height="22" rx="6" fill="rgba(24,32,40,0.950)" stroke="rgba(237,242,247,0.500)" stroke-width="2"/>
+  <rect id="s06-blueprint-tech-bp-st1" x="420" y="1586" width="240" height="22" rx="6" fill="rgba(24,32,40,0.950)" stroke="rgba(237,242,247,0.500)" stroke-width="2"/>
+  <rect id="s06-blueprint-tech-bp-st2" x="420" y="1612" width="240" height="22" rx="6" fill="rgba(24,32,40,0.950)" stroke="rgba(237,242,247,0.500)" stroke-width="2"/>
+  <rect id="s06-blueprint-tech-bp-st3" x="420" y="1638" width="240" height="22" rx="6" fill="rgba(24,32,40,0.950)" stroke="rgba(237,242,247,0.500)" stroke-width="2"/>
+  <rect id="s06-blueprint-tech-bp-st4" x="420" y="1664" width="240" height="22" rx="6" fill="rgba(24,32,40,0.950)" stroke="rgba(237,242,247,0.500)" stroke-width="2"/>
+  <g stroke="rgba(168,197,222,0.600)" stroke-width="2.5" fill="none">
+    <path d="M 700 880 L 940 880 L 970 850"/><path d="M 860 1260 L 990 1260 L 1020 1230"/>
+    <circle cx="970" cy="850" r="4" fill="#A8C5DE" stroke="none"/><circle cx="1020" cy="1230" r="4" fill="#A8C5DE" stroke="none"/>
+  </g>
+<circle id="s06-blueprint-tech-fx-ring" cx="540" cy="820" r="60" fill="none" stroke="rgba(168,197,222,0.500)" stroke-width="14" opacity="0"/>
+<g id="s06-blueprint-tech-char"><g id="s06-blueprint-tech-to-root">
+  <ellipse id="s06-blueprint-tech-to-shadow" cx="0" cy="7" rx="64" ry="12" fill="#000000" opacity="0.38"/>
+  <ellipse id="s06-blueprint-tech-to-halo" cx="0" cy="-116" rx="130" ry="182" fill="var(--acc)" style="opacity:calc(0.07 + var(--pulse, 0) * 0.07)"/>
+
+  <g id="s06-blueprint-tech-to-bob" transform="translate(0 0)">
+    <g id="s06-blueprint-tech-to-squash" style="transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(calc(1 + var(--pulse, 0) * 0.033))">
+      <g id="s06-blueprint-tech-to-lean" transform="rotate(0)">
+
+        
+        <g id="s06-blueprint-tech-to-legsStand">
+          <g transform="translate(-17 -96)">
+            <g id="s06-blueprint-tech-to-legL">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="4" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(17 -96)">
+            <g id="s06-blueprint-tech-to-legR">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="-11" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(-3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <g id="s06-blueprint-tech-to-legsSit" opacity="0">
+          <path d="M 0 -96 q -42 -12 -62 12 q 30 16 62 6 z" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+          <path d="M 0 -96 q 42 -12 62 12 q -30 16 -62 6 z" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+          <ellipse cx="-54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="-54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+          <ellipse cx="54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+        </g>
+
+        
+        <g transform="translate(0 -96)">
+          <g id="s06-blueprint-tech-to-torso">
+            <path d="M -37 10 Q -45 -50 -30 -70 L 30 -70 Q 45 -50 37 10 Q 0 20 -37 10 Z"
+                  fill="#262731" stroke="#0D0E13" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M -22 -8 Q 0 0 22 -8" stroke="#17181F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M -9 -63 q -2 15 -5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 9 -63 q 2 15 5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="0" cy="-24" r="7" fill="#E8B84B"/>
+            <circle cx="0" cy="-24" r="7" fill="none" stroke="#17181F" stroke-width="2"/>
+            <path id="s06-blueprint-tech-to-rimT" d="M -37 10 Q -45 -50 -30 -70" fill="none" stroke="var(--acc)"
+                  stroke-width="4" stroke-linecap="round" style="opacity:calc(0.5 + var(--pulse, 0) * 0.3)"/>
+
+            
+            <g id="s06-blueprint-tech-to-barbell" opacity="0" transform="translate(0 -78)">
+              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
+              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+            </g>
+
+            
+            <g transform="translate(-33 -62)">
+              <g id="s06-blueprint-tech-to-armL">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s06-blueprint-tech-to-forearmL">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(33 -62)">
+              <g id="s06-blueprint-tech-to-armR">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s06-blueprint-tech-to-forearmR">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            
+            <g transform="translate(0 -70)">
+              <g id="s06-blueprint-tech-to-head">
+                <ellipse cx="0" cy="-34" rx="33" ry="33" fill="#17181F" stroke="#0D0E13" stroke-width="3.5"/>
+                <ellipse cx="8" cy="-30" rx="20" ry="17" fill="#0B0C10" opacity="0.92"/>
+                <path d="M -33 -38 Q 0 -76 33 -38 Z" fill="#262731" stroke="#0D0E13" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M -33 -38 Q 0 -76 33 -38" fill="none" stroke="#E8B84B" stroke-width="3"/>
+                <rect x="6" y="-40" width="42" height="11" rx="5.5" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                <circle cx="-2" cy="-49" r="5.5" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <path id="s06-blueprint-tech-to-rimL" d="M -28 -88 L -28 -28" stroke="var(--acc)" stroke-width="3"
+              stroke-linecap="round" fill="none" style="opacity:calc(0.45 + var(--pulse, 0) * 0.3)"/>
+      </g>
+    </g>
+  </g>
+</g></g>
+    </svg>
+  </div>
+  <div id="s06-blueprint-tech-grade"></div>
+  <div id="s06-blueprint-tech-cap"><div class="cap-box"><span class="cw" id="s06-blueprint-tech-cw-0">Link</span><span class="cw" id="s06-blueprint-tech-cw-1">in</span><span class="cw" id="s06-blueprint-tech-cw-2">bio.</span></div></div><div id="s06-blueprint-tech-brand"><span class="bdot"></span>@SELF_EFFICIENT_DAILY</div>
+  <div id="s06-blueprint-tech-wipe"><div class="wipe-edge"></div></div>
+  <div id="s06-blueprint-tech-fade"></div>
+</div>
+<script>
+(function () {
+  const v7 = {};
+// v7 scene-kit — shared browser runtime inlined into every scene by build.mjs.
+// Camera creep, audio-envelope proxy (--pulse CSS var), hook slam, karaoke
+// captions, counters, brand tag, onset fx, flood wipe-in, grade veil.
+// Everything is a pure function of the paused GSAP timeline (deterministic).
+/* global v7 */
+(function () {
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+
+  // ---- audio envelope proxy: one tween drives the --pulse CSS var -------
+  v7.envProxy = function (tl, p, rootId, env, dur) {
+    if (!env || env.length === 0 || dur <= 0.02) return;
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const prox = { t: 0 };
+    tl.to(prox, {
+      t: dur,
+      duration: dur,
+      ease: "none",
+      onUpdate: function () {
+        const f = Math.min(env.length - 1, Math.max(0, Math.round(prox.t * 30)));
+        root.style.setProperty("--pulse", env[f].toFixed(3));
+      },
+    }, 0);
+  };
+
+  // ---- camera: keyed [t,x,y,zoom,rot] -> sequential fromTo on #camera ----
+  v7.camera = function (tl, p, keys, dur) {
+    if (!keys || keys.length === 0) return;
+    const cam = "#" + p + "camera";
+    if (keys.length === 1) {
+      const k = keys[0];
+      tl.set(cam, { x: -k.x, y: -k.y, scale: k.zoom, rotation: k.rot }, 0.001);
+      return;
+    }
+    for (let i = 0; i < keys.length - 1; i++) {
+      const a = keys[i];
+      const b = keys[i + 1];
+      const span = Math.max(0.05, b.t - a.t);
+      tl.fromTo(cam,
+        { x: -a.x, y: -a.y, scale: a.zoom, rotation: a.rot },
+        { x: -b.x, y: -b.y, scale: b.zoom, rotation: b.rot, duration: span, ease: "power2.inOut" },
+        Math.max(0, a.t));
+    }
+  };
+
+  // ---- hook type: per-character spring slam --------------------------------
+  v7.hook = function (tl, p, lines, th, dur) {
+    const box = "#" + p + "hook";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+    let delay = 0.05;
+    lines.forEach((line, li) => {
+      const chars = line.split("");
+      chars.forEach((ch, ci) => {
+        const sel = `#${p}hk-${li}-${ci}`;
+        if (ch === " ") return;
+        tl.fromTo(sel,
+          { opacity: 0, scale: 0.6, y: 26 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" },
+          delay + ci * 0.035);
+      });
+      delay += 0.14 + Math.min(0.5, chars.length * 0.035);
+    });
+    // hold, then shrink away just before scene end
+    tl.to(box, { scale: 0.94, duration: 0.3, ease: "power2.in" }, Math.max(0.1, dur - 0.32));
+  };
+
+  // ---- karaoke captions: word-level color/scale sync -----------------------
+  v7.captions = function (tl, p, words, th, sceneDur, sceneStart) {
+    const box = "#" + p + "cap";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.02);
+    words.forEach((w, i) => {
+      const sel = `#${p}cw-${i}`;
+      const ws = Math.max(0, w.start - sceneStart);
+      const we = Math.min(sceneDur - 0.05, w.end - sceneStart);
+      if (we <= ws) return;
+      // upcoming -> active (white, pop)
+      tl.fromTo(sel,
+        { color: th.inkSoft, scale: 1 },
+        { color: "#FFFFFF", scale: 1.1, duration: 0.09, ease: "power2.out" },
+        ws);
+      // active -> spoken (accent, settle)
+      tl.to(sel, { color: th.accent, scale: 1, duration: 0.12, ease: "power2.out" }, we);
+    });
+  };
+
+  // ---- animated counter ------------------------------------------------------
+  v7.counter = function (tl, p, counter, dur) {
+    const box = "#" + p + "ctr";
+    const numEl = document.getElementById(p + "ctr-num");
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 0.05);
+    const dec = counter.decimals || 0;
+    const prox = { v: counter.from };
+    tl.fromTo(prox,
+      { v: counter.from },
+      { v: counter.to, duration: dur * 0.7, ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = (counter.prefix || "") + prox.v.toFixed(dec) + (counter.suffix || "");
+        } },
+      0.08);
+  };
+
+  // ---- brand tag: settle-in + tiny bob ---------------------------------------
+  v7.brand = function (tl, p, dur) {
+    const tag = "#" + p + "brand";
+    tl.set(tag, { opacity: 0 }, 0.001);
+    tl.fromTo(tag, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo(tag, { y: 0 }, { y: -4, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.6)) - 1 }, 0.5);
+  };
+
+  // ---- onset fx ---------------------------------------------------------------
+  // shockwave ring + speed lines + flash, placed at scene-local onset times
+  v7.onsetFx = function (tl, p, th, onsets, fxKeys, dur) {
+    const has = (k) => fxKeys && fxKeys.indexOf(k) >= 0;
+    onsets.forEach((t0) => {
+      if (t0 <= 0.05 || t0 >= dur - 0.05) return;
+      if (has("shockwave")) {
+        const ring = "#" + p + "fx-ring";
+        tl.set(ring, { attr: { r: 60, opacity: 0 } }, t0 - 0.001);
+        tl.fromTo(ring,
+          { attr: { r: 60, opacity: 0.5 } },
+          { attr: { r: 700, opacity: 0 }, duration: 0.55, ease: "power2.out" },
+          t0);
+      }
+      if (has("speedlines")) {
+        const g = "#" + p + "fx-speed";
+        tl.set(g, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(g,
+          { opacity: 0.55, scale: 1.15 },
+          { opacity: 0, scale: 1, duration: 0.4, ease: "power2.out", transformOrigin: "50% 51%" },
+          t0);
+      }
+      if (has("flash")) {
+        const f = "#" + p + "fx-flash";
+        tl.set(f, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(f, { opacity: 0.16 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, t0);
+      }
+    });
+  };
+
+  // ---- flood wipe-in at scene start -------------------------------------------
+  v7.wipe = function (tl, p, isFirst, dur) {
+    const panel = "#" + p + "wipe";
+    if (isFirst) {
+      const fade = "#" + p + "fade";
+      tl.set(fade, { opacity: 1 }, 0.001);
+      tl.fromTo(fade, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.02);
+      tl.set(panel, { opacity: 0 }, 0.001);
+      return;
+    }
+    tl.set(panel, { opacity: 1 }, 0.001);
+    tl.fromTo(panel,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.46, ease: "power3.inOut" },
+      0.02);
+    // trailing edge accent line
+    const edge = "#" + p + "wipe-edge";
+    tl.fromTo(edge,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.5, ease: "power3.inOut" },
+      0.02);
+  };
+
+  // ---- character: place rig wrapper (static) and run action ------------------
+  v7.placeCharacter = function (p, pos, scale, facing) {
+    const el = document.getElementById(p + "char");
+    if (!el) return;
+    el.setAttribute("transform",
+      `translate(${pos[0]} ${pos[1]}) scale(${(scale * (facing || 1)).toFixed(3)} ${scale.toFixed(3)})`);
+  };
+})();
+
+// TheOne character runtime — inlined into every scene by build.mjs.
+// Applies GSAP tweens to the canonical rig. The rig markup is byte-identical
+// in every scene (only ids get a scene prefix); these joint rotations are the
+// ONLY per-scene variation, so identity and proportions cannot drift.
+// Determinism: finite repeats only, absolute times, pure function of timeline.
+/* global v7 */
+(function () {
+  // Joint oscillation around `base` between base+amp and base-amp.
+  // yoyo with sine.inOut approximates sin(t) closely at joint scale.
+  function swing(tl, sel, base, amp, cycleSec, dur, phase) {
+    if (amp === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    const from = base + (phase >= 0 ? amp : -amp);
+    tl.fromTo(
+      sel,
+      { attr: { transform: `rotate(${from.toFixed(2)})` } },
+      { attr: { transform: `rotate(${(2 * base - from).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+  // Bounded bounce (0 -> -depth -> 0) on the bob wrapper.
+  function bounce(tl, sel, depth, cycleSec, dur) {
+    if (depth === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    tl.fromTo(
+      sel,
+      { attr: { transform: "translate(0 0)" } },
+      { attr: { transform: `translate(0 ${(-depth).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+
+  // p = scene id prefix, e.g. "s01-" (rig ids are `${p}to-…`)
+  v7.character = function (tl, p, action, dur) {
+    const g = (n) => "#" + p + n;
+    const seated = action === "meditate" || action === "levitate";
+
+    tl.set(g("to-legsStand"), { attr: { opacity: seated ? 0 : 1 } }, 0.001);
+    tl.set(g("to-legsSit"), { attr: { opacity: seated ? 1 : 0 } }, 0.001);
+
+    const S = {
+      idle:     { lean: 0,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      walk:     { lean: 2,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      run:      { lean: -9,  head: -3, fArmL: 42,  fArmR: 42,  barbell: 0 },
+      climb:    { lean: 14,  head: -6, fArmL: 8,   fArmR: 8,   barbell: 0 },
+      lift:     { lean: 0,   head: 0,  fArmL: 6,   fArmR: 6,   barbell: 1 },
+      meditate: { lean: 0,   head: 2,  fArmL: 32,  fArmR: -32, barbell: 0 },
+      levitate: { lean: 0,   head: -2, fArmL: 14,  fArmR: -14, barbell: 0 },
+      victory:  { lean: 0,   head: -2, fArmL: 6,   fArmR: 6,   barbell: 0 },
+      point:    { lean: 3,   head: 4,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+    }[action] || { lean: 0, head: 0, fArmL: 0, fArmR: 0, barbell: 0 };
+
+    tl.set(g("to-lean"), { attr: { transform: `rotate(${S.lean})` } }, 0.001);
+    tl.set(g("to-head"), { attr: { transform: `rotate(${S.head})` } }, 0.001);
+    tl.set(g("to-forearmL"), { attr: { transform: `rotate(${S.fArmL})` } }, 0.001);
+    tl.set(g("to-forearmR"), { attr: { transform: `rotate(${S.fArmR})` } }, 0.001);
+    tl.set(g("to-barbell"), { attr: { opacity: S.barbell } }, 0.001);
+
+    switch (action) {
+      case "idle":
+        swing(tl, g("to-armL"), 0, 4, 1.1, dur, 1);
+        swing(tl, g("to-armR"), 0, 4, 1.1, dur, -1);
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+        break;
+      case "walk":
+        swing(tl, g("to-legL"), 0, 24, 0.667, dur, 1);
+        swing(tl, g("to-legR"), 0, 24, 0.667, dur, -1);
+        swing(tl, g("to-armL"), 0, 16, 0.667, dur, -1);
+        swing(tl, g("to-armR"), 0, 16, 0.667, dur, 1);
+        bounce(tl, g("to-bob"), 5, 0.333, dur);
+        break;
+      case "run":
+        swing(tl, g("to-legL"), 0, 40, 0.385, dur, 1);
+        swing(tl, g("to-legR"), 0, 40, 0.385, dur, -1);
+        swing(tl, g("to-armL"), 0, 34, 0.385, dur, -1);
+        swing(tl, g("to-armR"), 0, 34, 0.385, dur, 1);
+        bounce(tl, g("to-bob"), 7, 0.192, dur);
+        break;
+      case "climb":
+        // arms reach up alternately around 150°, knees step
+        swing(tl, g("to-armL"), 150, 26, 1.11, dur, 1);
+        swing(tl, g("to-armR"), 150, 26, 1.11, dur, -1);
+        swing(tl, g("to-legL"), 28, 16, 1.11, dur, 1);
+        swing(tl, g("to-legR"), 28, 16, 1.11, dur, -1);
+        bounce(tl, g("to-bob"), 3, 1.11, dur);
+        break;
+      case "lift": {
+        const cyc = 1.82;
+        const reps = Math.max(1, Math.ceil(dur / cyc));
+        for (let i = 0; i < reps; i++) {
+          const t0 = i * cyc;
+          tl.fromTo(g("to-armL"),
+            { attr: { transform: "rotate(168)" } },
+            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.fromTo(g("to-armR"),
+            { attr: { transform: "rotate(-168)" } },
+            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-barbell"),
+            { attr: { transform: "translate(0 -108)" } },
+            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-bob"),
+            { attr: { transform: "translate(0 0)" } },
+            { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+        }
+        break;
+      }
+      case "meditate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(38)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-38)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 2.0, dur);
+        break;
+      case "levitate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(62)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-62)" } }, 0.002);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 -14)" } },
+          { attr: { transform: "translate(0 -23)" }, duration: 1.11, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.11)) - 1 },
+          0);
+        break;
+      case "victory":
+        // arms held up (~160°) with a slight sway + one hop
+        tl.fromTo(g("to-armL"),
+          { attr: { transform: "rotate(158)" } },
+          { attr: { transform: "rotate(163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-armR"),
+          { attr: { transform: "rotate(-158)" } },
+          { attr: { transform: "rotate(-163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 0)" } },
+          { attr: { transform: "translate(0 -12)" }, duration: 0.36, ease: "sine.out" },
+          0);
+        tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: 0.36, ease: "bounce.in" }, 0.36);
+        break;
+      case "point":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 1.4, dur);
+        break;
+      default:
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+    }
+  };
+})();
+
+  const SID = "s06-blueprint-tech";
+  const P = "s06-blueprint-tech-";
+  const DUR = 2.033;
+  const ENV = [0.172,0.141,0.115,0.095,0.078,0.064,0.052,0.043,0.035,0.029,0.024,0.019,0.016,0.013,0.011,0.009,0.007,0.006,0.068,0.444,0.654,0.954,1,1,0.985,0.808,0.663,0.815,0.745,0.611,0.518,0.424,0.348,0.604,0.568,0.59,0.643,0.727,0.692,0.568,0.465,0.382,0.313,0.257,0.21,0.173,0.142,0.116,0.095,0.078,0.064,0.052,0,0,0,0,0,0,0,0,0];
+  const ONSETS = [0.633,0.9];
+  const SCENE = {"action":"point","type":"caption","camera":[{"t":0,"x":-50,"y":10,"zoom":1.06,"rot":0},{"t":0.994891304347826,"x":36,"y":-6,"zoom":1.09,"rot":0},{"t":1.989782608695652,"x":-20,"y":-34,"zoom":1.14,"rot":0}],"fx":["shockwave"],"counter":null,"hookLines":null,"words":[{"w":"Link","start":0.18521739130434867,"end":0.7774414715719082},{"w":"in","start":0.7774414715719082,"end":1.1327759197324436},{"w":"bio.","start":1.1327759197324436,"end":1.7250000000000032}],"startSec":10.5};
+  const TH = {"bg":"#10151B","panel":"#182028","accent":"#A8C5DE","accentDeep":"#E8B84B","ink":"#EDF2F7","inkSoft":"#7C8EA0"};
+  const gsap = window.gsap;
+  const tl = gsap.timeline({ paused: true });
+
+  v7.wipe(tl, P, false, DUR);
+  v7.camera(tl, P, SCENE.camera, DUR);
+  v7.envProxy(tl, P, SID, ENV, DUR);
+tl.fromTo("#s06-blueprint-tech-bp-g450-880",{attr:{transform:"rotate(0 450 880)"}},{attr:{transform:"rotate(109.8 450 880)"},duration:2.03,ease:"none"},0);
+  tl.fromTo("#s06-blueprint-tech-bp-g230-1240",{attr:{transform:"rotate(0 230 1240)"}},{attr:{transform:"rotate(-131.76 230 1240)"},duration:2.03,ease:"none"},0);
+  tl.fromTo("#s06-blueprint-tech-bp-g690-1260",{attr:{transform:"rotate(0 690 1260)"}},{attr:{transform:"rotate(-109.8 690 1260)"},duration:2.03,ease:"none"},0);
+  tl.fromTo("#s06-blueprint-tech-bp-p0",{attr:{transform:"rotate(0 540 880)"}},{attr:{transform:"rotate(4.07 540 880)"},duration:2.03,ease:"none"},0);
+  tl.fromTo("#s06-blueprint-tech-bp-p1",{attr:{transform:"rotate(0 540 880)"}},{attr:{transform:"rotate(-6.1 540 880)"},duration:2.03,ease:"none"},0);
+tl.fromTo("#s06-blueprint-tech-bp-st0",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(300 -180)"},duration:0.5,ease:"back.out(1.6)"},0);
+tl.fromTo("#s06-blueprint-tech-bp-st1",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(150 -180)"},duration:0.5,ease:"back.out(1.6)"},0.15);
+tl.fromTo("#s06-blueprint-tech-bp-st2",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(0 -180)"},duration:0.5,ease:"back.out(1.6)"},0.3);
+tl.fromTo("#s06-blueprint-tech-bp-st3",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-150 -180)"},duration:0.5,ease:"back.out(1.6)"},0.45);
+tl.fromTo("#s06-blueprint-tech-bp-st4",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-300 -180)"},duration:0.5,ease:"back.out(1.6)"},0.6);
+
+
+  v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
+v7.placeCharacter(P, [640,1640], 1.9, 1);
+  v7.character(tl, P, SCENE.action, DUR);
+  if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
+  if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);
+  if (SCENE.counter) v7.counter(tl, P, SCENE.counter, DUR);
+  if (SCENE.type !== "cta") v7.brand(tl, P, DUR);
+
+
+  window.__timelines[SID] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

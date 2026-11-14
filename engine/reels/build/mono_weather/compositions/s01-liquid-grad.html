@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>s01-liquid-grad</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+@font-face{font-family:'Anton';src:url('assets/fonts/Anton-Regular.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-400.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-600.ttf');font-weight:600;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-700.ttf');font-weight:700;font-display:block}
+.clip{position:absolute;inset:0;overflow:hidden}
+#s01-liquid-grad{position:absolute;inset:0;font-family:'Source Sans 3',sans-serif;background:#F5F1E8;--pulse:0;--acc:#16130C}
+#s01-liquid-grad-camera{position:absolute;inset:0;will-change:transform}
+#s01-liquid-grad-world{position:absolute;left:0;top:0}
+#s01-liquid-grad-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
+  radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.17) 100%),
+  linear-gradient(180deg, rgba(22,19,12,0.080), rgba(22,19,12,0.032));}
+#s01-liquid-grad-wipe{position:absolute;inset:0;z-index:50;background:linear-gradient(180deg,#16130C,#16130C);transform:translateY(0)}
+#s01-liquid-grad-wipe .wipe-edge{position:absolute;left:0;right:0;bottom:0;height:26px;background:#16130C;opacity:0.9}
+#s01-liquid-grad-fade{position:absolute;inset:0;z-index:60;background:#000;opacity:0}
+#s01-liquid-grad-cap{position:absolute;bottom:172px;left:80px;right:80px;display:flex;justify-content:center;z-index:10}
+.cap-box{max-width:860px;background:rgba(8,8,10,0.62);border:2px solid rgba(22,19,12,0.350);border-radius:26px;padding:22px 34px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 14px}
+.cw{font-family:'Source Sans 3';font-weight:700;font-size:47px;line-height:1.25;color:rgba(22,19,12,0.620);display:inline-block}#s01-liquid-grad-ctr{position:absolute;top:250px;left:0;right:0;display:flex;flex-direction:column;align-items:center;z-index:10}
+.ctr-label{font-family:'Source Sans 3';font-weight:600;font-size:44px;letter-spacing:10px;color:#6B6455;text-transform:uppercase;background:rgba(8,8,10,0.45);border-radius:999px;padding:8px 30px}
+.ctr-num{font-family:'Anton';font-size:200px;letter-spacing:4px;color:#16130C;margin-top:10px}#s01-liquid-grad-brand{position:absolute;top:92px;left:0;right:0;display:flex;justify-content:center;z-index:11}
+#s01-liquid-grad-brand{font-family:'Source Sans 3';font-weight:600;font-size:34px;letter-spacing:4px;color:#6B6455;background:rgba(8,8,10,0.4);border-radius:999px;padding:10px 28px;width:max-content;margin:0 auto}
+.bdot{width:12px;height:12px;border-radius:6px;background:#16130C;display:inline-block}
+</style>
+</head>
+<body>
+<div id="s01-liquid-grad" data-composition-id="s01-liquid-grad" data-width="1080" data-height="1920">
+  <div id="s01-liquid-grad-camera">
+    <svg id="s01-liquid-grad-world" viewBox="0 0 1080 1920" width="1080" height="1920">
+
+  <rect x="0" y="0" width="1080" height="1920" fill="#F5F1E8"/>
+  <defs><radialGradient id="s01-liquid-grad-lg-0"><stop offset="0" stop-color="rgba(22,19,12,0.500)"/><stop offset="0.6" stop-color="rgba(22,19,12,0.220)"/><stop offset="1" stop-color="rgba(22,19,12,0.000)"/></radialGradient><radialGradient id="s01-liquid-grad-lg-1"><stop offset="0" stop-color="rgba(22,19,12,0.500)"/><stop offset="0.6" stop-color="rgba(22,19,12,0.220)"/><stop offset="1" stop-color="rgba(22,19,12,0.000)"/></radialGradient><radialGradient id="s01-liquid-grad-lg-2"><stop offset="0" stop-color="rgba(237,231,217,0.500)"/><stop offset="0.6" stop-color="rgba(237,231,217,0.220)"/><stop offset="1" stop-color="rgba(237,231,217,0.000)"/></radialGradient><radialGradient id="s01-liquid-grad-lg-3"><stop offset="0" stop-color="rgba(22,19,12,0.500)"/><stop offset="0.6" stop-color="rgba(22,19,12,0.220)"/><stop offset="1" stop-color="rgba(22,19,12,0.000)"/></radialGradient><pattern id="s01-liquid-grad-lgd" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="1.2" fill="rgba(22,19,12,0.080)"/></pattern></defs>
+  <circle id="s01-liquid-grad-liq-b0" cx="340" cy="520" r="360" fill="url(#s01-liquid-grad-lg-0)" style="opacity:calc(1 + var(--pulse,0)*0.25)"/><circle id="s01-liquid-grad-liq-b1" cx="760" cy="880" r="420" fill="url(#s01-liquid-grad-lg-1)" style="opacity:calc(1 + var(--pulse,0)*0.25)"/><circle id="s01-liquid-grad-liq-b2" cx="420" cy="1360" r="380" fill="url(#s01-liquid-grad-lg-2)" style="opacity:calc(1 + var(--pulse,0)*0.25)"/><circle id="s01-liquid-grad-liq-b3" cx="880" cy="1600" r="300" fill="url(#s01-liquid-grad-lg-3)" style="opacity:calc(1 + var(--pulse,0)*0.25)"/>
+  <rect x="0" y="0" width="1080" height="1920" fill="url(#s01-liquid-grad-lgd)"/>
+  <line x1="120" y1="1660" x2="960" y2="1660" stroke="rgba(22,19,12,0.250)" stroke-width="3"/>
+  <circle cx="300" cy="1660" r="6" fill="rgba(22,19,12,0.400)"/><circle cx="540" cy="1660" r="6" fill="rgba(22,19,12,0.400)"/><circle cx="780" cy="1660" r="6" fill="rgba(22,19,12,0.400)"/>
+<g id="s01-liquid-grad-fx-dust"><circle id="s01-liquid-grad-fx-d0" cx="70.8" cy="527.8" r="2.9" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d1" cx="113.2" cy="220.1" r="3.2" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d2" cx="725.1" cy="-20.2" r="2.5" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d3" cx="481.2" cy="1087.6" r="3.2" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d4" cx="1072.5" cy="817.5" r="1.5" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d5" cx="116.2" cy="1756.5" r="2.3" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d6" cx="106.1" cy="1394.8" r="2.4" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d7" cx="234.3" cy="156.6" r="3.6" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d8" cx="1049.0" cy="1448.2" r="1.7" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d9" cx="763.8" cy="-31.0" r="3.7" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d10" cx="985.7" cy="1588.7" r="4.0" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d11" cx="566.6" cy="935.4" r="2.6" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d12" cx="220.4" cy="972.7" r="2.2" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d13" cx="843.0" cy="1875.5" r="3.2" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d14" cx="461.1" cy="1145.3" r="3.7" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d15" cx="319.0" cy="150.7" r="2.2" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d16" cx="420.2" cy="1811.1" r="3.3" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d17" cx="-27.4" cy="66.9" r="2.8" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d18" cx="297.5" cy="1887.3" r="3.5" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d19" cx="474.2" cy="581.8" r="2.1" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d20" cx="877.2" cy="1177.4" r="3.7" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d21" cx="918.9" cy="1660.1" r="2.7" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d22" cx="-51.7" cy="101.1" r="2.5" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d23" cx="312.8" cy="1159.8" r="2.3" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d24" cx="730.9" cy="1086.3" r="2.2" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d25" cx="991.2" cy="1146.4" r="3.0" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d26" cx="829.7" cy="1052.5" r="1.7" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d27" cx="298.2" cy="512.6" r="1.8" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d28" cx="1093.8" cy="341.9" r="2.1" fill="rgba(22,19,12,0.300)"/><circle id="s01-liquid-grad-fx-d29" cx="22.4" cy="489.1" r="3.5" fill="rgba(22,19,12,0.300)"/></g>
+<g id="s01-liquid-grad-char"><g id="s01-liquid-grad-to-root">
+  <ellipse id="s01-liquid-grad-to-shadow" cx="0" cy="7" rx="64" ry="12" fill="#000000" opacity="0.38"/>
+  <ellipse id="s01-liquid-grad-to-halo" cx="0" cy="-116" rx="130" ry="182" fill="var(--acc)" style="opacity:calc(0.07 + var(--pulse, 0) * 0.07)"/>
+
+  <g id="s01-liquid-grad-to-bob" transform="translate(0 0)">
+    <g id="s01-liquid-grad-to-squash" style="transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(calc(1 + var(--pulse, 0) * 0.033))">
+      <g id="s01-liquid-grad-to-lean" transform="rotate(0)">
+
+        
+        <g id="s01-liquid-grad-to-legsStand">
+          <g transform="translate(-17 -96)">
+            <g id="s01-liquid-grad-to-legL">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="4" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(17 -96)">
+            <g id="s01-liquid-grad-to-legR">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="-11" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(-3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <g id="s01-liquid-grad-to-legsSit" opacity="0">
+          <path d="M 0 -96 q -42 -12 -62 12 q 30 16 62 6 z" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+          <path d="M 0 -96 q 42 -12 62 12 q -30 16 -62 6 z" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+          <ellipse cx="-54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="-54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+          <ellipse cx="54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+        </g>
+
+        
+        <g transform="translate(0 -96)">
+          <g id="s01-liquid-grad-to-torso">
+            <path d="M -37 10 Q -45 -50 -30 -70 L 30 -70 Q 45 -50 37 10 Q 0 20 -37 10 Z"
+                  fill="#262731" stroke="#0D0E13" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M -22 -8 Q 0 0 22 -8" stroke="#17181F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M -9 -63 q -2 15 -5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 9 -63 q 2 15 5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="0" cy="-24" r="7" fill="#E8B84B"/>
+            <circle cx="0" cy="-24" r="7" fill="none" stroke="#17181F" stroke-width="2"/>
+            <path id="s01-liquid-grad-to-rimT" d="M -37 10 Q -45 -50 -30 -70" fill="none" stroke="var(--acc)"
+                  stroke-width="4" stroke-linecap="round" style="opacity:calc(0.5 + var(--pulse, 0) * 0.3)"/>
+
+            
+            <g id="s01-liquid-grad-to-barbell" opacity="0" transform="translate(0 -78)">
+              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
+              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+            </g>
+
+            
+            <g transform="translate(-33 -62)">
+              <g id="s01-liquid-grad-to-armL">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s01-liquid-grad-to-forearmL">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(33 -62)">
+              <g id="s01-liquid-grad-to-armR">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s01-liquid-grad-to-forearmR">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            
+            <g transform="translate(0 -70)">
+              <g id="s01-liquid-grad-to-head">
+                <ellipse cx="0" cy="-34" rx="33" ry="33" fill="#17181F" stroke="#0D0E13" stroke-width="3.5"/>
+                <ellipse cx="8" cy="-30" rx="20" ry="17" fill="#0B0C10" opacity="0.92"/>
+                <path d="M -33 -38 Q 0 -76 33 -38 Z" fill="#262731" stroke="#0D0E13" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M -33 -38 Q 0 -76 33 -38" fill="none" stroke="#E8B84B" stroke-width="3"/>
+                <rect x="6" y="-40" width="42" height="11" rx="5.5" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                <circle cx="-2" cy="-49" r="5.5" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <path id="s01-liquid-grad-to-rimL" d="M -28 -88 L -28 -28" stroke="var(--acc)" stroke-width="3"
+              stroke-linecap="round" fill="none" style="opacity:calc(0.45 + var(--pulse, 0) * 0.3)"/>
+      </g>
+    </g>
+  </g>
+</g></g>
+    </svg>
+  </div>
+  <div id="s01-liquid-grad-grade"></div>
+  <div id="s01-liquid-grad-cap"><div class="cap-box"><span class="cw" id="s01-liquid-grad-cw-0">Systems</span><span class="cw" id="s01-liquid-grad-cw-1">are</span><span class="cw" id="s01-liquid-grad-cw-2">climate.</span></div></div><div id="s01-liquid-grad-ctr"><div class="ctr-label">SYSTEM BUILT FOR</div><div class="ctr-num" id="s01-liquid-grad-ctr-num">DAY 1</div></div><div id="s01-liquid-grad-brand"><span class="bdot"></span>@SELF_EFFICIENT_DAILY</div>
+  <div id="s01-liquid-grad-wipe"><div class="wipe-edge"></div></div>
+  <div id="s01-liquid-grad-fade"></div>
+</div>
+<script>
+(function () {
+  const v7 = {};
+// v7 scene-kit — shared browser runtime inlined into every scene by build.mjs.
+// Camera creep, audio-envelope proxy (--pulse CSS var), hook slam, karaoke
+// captions, counters, brand tag, onset fx, flood wipe-in, grade veil.
+// Everything is a pure function of the paused GSAP timeline (deterministic).
+/* global v7 */
+(function () {
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+
+  // ---- audio envelope proxy: one tween drives the --pulse CSS var -------
+  v7.envProxy = function (tl, p, rootId, env, dur) {
+    if (!env || env.length === 0 || dur <= 0.02) return;
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const prox = { t: 0 };
+    tl.to(prox, {
+      t: dur,
+      duration: dur,
+      ease: "none",
+      onUpdate: function () {
+        const f = Math.min(env.length - 1, Math.max(0, Math.round(prox.t * 30)));
+        root.style.setProperty("--pulse", env[f].toFixed(3));
+      },
+    }, 0);
+  };
+
+  // ---- camera: keyed [t,x,y,zoom,rot] -> sequential fromTo on #camera ----
+  v7.camera = function (tl, p, keys, dur) {
+    if (!keys || keys.length === 0) return;
+    const cam = "#" + p + "camera";
+    if (keys.length === 1) {
+      const k = keys[0];
+      tl.set(cam, { x: -k.x, y: -k.y, scale: k.zoom, rotation: k.rot }, 0.001);
+      return;
+    }
+    for (let i = 0; i < keys.length - 1; i++) {
+      const a = keys[i];
+      const b = keys[i + 1];
+      const span = Math.max(0.05, b.t - a.t);
+      tl.fromTo(cam,
+        { x: -a.x, y: -a.y, scale: a.zoom, rotation: a.rot },
+        { x: -b.x, y: -b.y, scale: b.zoom, rotation: b.rot, duration: span, ease: "power2.inOut" },
+        Math.max(0, a.t));
+    }
+  };
+
+  // ---- hook type: per-character spring slam --------------------------------
+  v7.hook = function (tl, p, lines, th, dur) {
+    const box = "#" + p + "hook";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+    let delay = 0.05;
+    lines.forEach((line, li) => {
+      const chars = line.split("");
+      chars.forEach((ch, ci) => {
+        const sel = `#${p}hk-${li}-${ci}`;
+        if (ch === " ") return;
+        tl.fromTo(sel,
+          { opacity: 0, scale: 0.6, y: 26 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" },
+          delay + ci * 0.035);
+      });
+      delay += 0.14 + Math.min(0.5, chars.length * 0.035);
+    });
+    // hold, then shrink away just before scene end
+    tl.to(box, { scale: 0.94, duration: 0.3, ease: "power2.in" }, Math.max(0.1, dur - 0.32));
+  };
+
+  // ---- karaoke captions: word-level color/scale sync -----------------------
+  v7.captions = function (tl, p, words, th, sceneDur, sceneStart) {
+    const box = "#" + p + "cap";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.02);
+    words.forEach((w, i) => {
+      const sel = `#${p}cw-${i}`;
+      const ws = Math.max(0, w.start - sceneStart);
+      const we = Math.min(sceneDur - 0.05, w.end - sceneStart);
+      if (we <= ws) return;
+      // upcoming -> active (white, pop)
+      tl.fromTo(sel,
+        { color: th.inkSoft, scale: 1 },
+        { color: "#FFFFFF", scale: 1.1, duration: 0.09, ease: "power2.out" },
+        ws);
+      // active -> spoken (accent, settle)
+      tl.to(sel, { color: th.accent, scale: 1, duration: 0.12, ease: "power2.out" }, we);
+    });
+  };
+
+  // ---- animated counter ------------------------------------------------------
+  v7.counter = function (tl, p, counter, dur) {
+    const box = "#" + p + "ctr";
+    const numEl = document.getElementById(p + "ctr-num");
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 0.05);
+    const dec = counter.decimals || 0;
+    const prox = { v: counter.from };
+    tl.fromTo(prox,
+      { v: counter.from },
+      { v: counter.to, duration: dur * 0.7, ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = (counter.prefix || "") + prox.v.toFixed(dec) + (counter.suffix || "");
+        } },
+      0.08);
+  };
+
+  // ---- brand tag: settle-in + tiny bob ---------------------------------------
+  v7.brand = function (tl, p, dur) {
+    const tag = "#" + p + "brand";
+    tl.set(tag, { opacity: 0 }, 0.001);
+    tl.fromTo(tag, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo(tag, { y: 0 }, { y: -4, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.6)) - 1 }, 0.5);
+  };
+
+  // ---- onset fx ---------------------------------------------------------------
+  // shockwave ring + speed lines + flash, placed at scene-local onset times
+  v7.onsetFx = function (tl, p, th, onsets, fxKeys, dur) {
+    const has = (k) => fxKeys && fxKeys.indexOf(k) >= 0;
+    onsets.forEach((t0) => {
+      if (t0 <= 0.05 || t0 >= dur - 0.05) return;
+      if (has("shockwave")) {
+        const ring = "#" + p + "fx-ring";
+        tl.set(ring, { attr: { r: 60, opacity: 0 } }, t0 - 0.001);
+        tl.fromTo(ring,
+          { attr: { r: 60, opacity: 0.5 } },
+          { attr: { r: 700, opacity: 0 }, duration: 0.55, ease: "power2.out" },
+          t0);
+      }
+      if (has("speedlines")) {
+        const g = "#" + p + "fx-speed";
+        tl.set(g, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(g,
+          { opacity: 0.55, scale: 1.15 },
+          { opacity: 0, scale: 1, duration: 0.4, ease: "power2.out", transformOrigin: "50% 51%" },
+          t0);
+      }
+      if (has("flash")) {
+        const f = "#" + p + "fx-flash";
+        tl.set(f, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(f, { opacity: 0.16 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, t0);
+      }
+    });
+  };
+
+  // ---- flood wipe-in at scene start -------------------------------------------
+  v7.wipe = function (tl, p, isFirst, dur) {
+    const panel = "#" + p + "wipe";
+    if (isFirst) {
+      const fade = "#" + p + "fade";
+      tl.set(fade, { opacity: 1 }, 0.001);
+      tl.fromTo(fade, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.02);
+      tl.set(panel, { opacity: 0 }, 0.001);
+      return;
+    }
+    tl.set(panel, { opacity: 1 }, 0.001);
+    tl.fromTo(panel,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.46, ease: "power3.inOut" },
+      0.02);
+    // trailing edge accent line
+    const edge = "#" + p + "wipe-edge";
+    tl.fromTo(edge,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.5, ease: "power3.inOut" },
+      0.02);
+  };
+
+  // ---- character: place rig wrapper (static) and run action ------------------
+  v7.placeCharacter = function (p, pos, scale, facing) {
+    const el = document.getElementById(p + "char");
+    if (!el) return;
+    el.setAttribute("transform",
+      `translate(${pos[0]} ${pos[1]}) scale(${(scale * (facing || 1)).toFixed(3)} ${scale.toFixed(3)})`);
+  };
+})();
+
+// TheOne character runtime — inlined into every scene by build.mjs.
+// Applies GSAP tweens to the canonical rig. The rig markup is byte-identical
+// in every scene (only ids get a scene prefix); these joint rotations are the
+// ONLY per-scene variation, so identity and proportions cannot drift.
+// Determinism: finite repeats only, absolute times, pure function of timeline.
+/* global v7 */
+(function () {
+  // Joint oscillation around `base` between base+amp and base-amp.
+  // yoyo with sine.inOut approximates sin(t) closely at joint scale.
+  function swing(tl, sel, base, amp, cycleSec, dur, phase) {
+    if (amp === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    const from = base + (phase >= 0 ? amp : -amp);
+    tl.fromTo(
+      sel,
+      { attr: { transform: `rotate(${from.toFixed(2)})` } },
+      { attr: { transform: `rotate(${(2 * base - from).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+  // Bounded bounce (0 -> -depth -> 0) on the bob wrapper.
+  function bounce(tl, sel, depth, cycleSec, dur) {
+    if (depth === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    tl.fromTo(
+      sel,
+      { attr: { transform: "translate(0 0)" } },
+      { attr: { transform: `translate(0 ${(-depth).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+
+  // p = scene id prefix, e.g. "s01-" (rig ids are `${p}to-…`)
+  v7.character = function (tl, p, action, dur) {
+    const g = (n) => "#" + p + n;
+    const seated = action === "meditate" || action === "levitate";
+
+    tl.set(g("to-legsStand"), { attr: { opacity: seated ? 0 : 1 } }, 0.001);
+    tl.set(g("to-legsSit"), { attr: { opacity: seated ? 1 : 0 } }, 0.001);
+
+    const S = {
+      idle:     { lean: 0,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      walk:     { lean: 2,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      run:      { lean: -9,  head: -3, fArmL: 42,  fArmR: 42,  barbell: 0 },
+      climb:    { lean: 14,  head: -6, fArmL: 8,   fArmR: 8,   barbell: 0 },
+      lift:     { lean: 0,   head: 0,  fArmL: 6,   fArmR: 6,   barbell: 1 },
+      meditate: { lean: 0,   head: 2,  fArmL: 32,  fArmR: -32, barbell: 0 },
+      levitate: { lean: 0,   head: -2, fArmL: 14,  fArmR: -14, barbell: 0 },
+      victory:  { lean: 0,   head: -2, fArmL: 6,   fArmR: 6,   barbell: 0 },
+      point:    { lean: 3,   head: 4,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+    }[action] || { lean: 0, head: 0, fArmL: 0, fArmR: 0, barbell: 0 };
+
+    tl.set(g("to-lean"), { attr: { transform: `rotate(${S.lean})` } }, 0.001);
+    tl.set(g("to-head"), { attr: { transform: `rotate(${S.head})` } }, 0.001);
+    tl.set(g("to-forearmL"), { attr: { transform: `rotate(${S.fArmL})` } }, 0.001);
+    tl.set(g("to-forearmR"), { attr: { transform: `rotate(${S.fArmR})` } }, 0.001);
+    tl.set(g("to-barbell"), { attr: { opacity: S.barbell } }, 0.001);
+
+    switch (action) {
+      case "idle":
+        swing(tl, g("to-armL"), 0, 4, 1.1, dur, 1);
+        swing(tl, g("to-armR"), 0, 4, 1.1, dur, -1);
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+        break;
+      case "walk":
+        swing(tl, g("to-legL"), 0, 24, 0.667, dur, 1);
+        swing(tl, g("to-legR"), 0, 24, 0.667, dur, -1);
+        swing(tl, g("to-armL"), 0, 16, 0.667, dur, -1);
+        swing(tl, g("to-armR"), 0, 16, 0.667, dur, 1);
+        bounce(tl, g("to-bob"), 5, 0.333, dur);
+        break;
+      case "run":
+        swing(tl, g("to-legL"), 0, 40, 0.385, dur, 1);
+        swing(tl, g("to-legR"), 0, 40, 0.385, dur, -1);
+        swing(tl, g("to-armL"), 0, 34, 0.385, dur, -1);
+        swing(tl, g("to-armR"), 0, 34, 0.385, dur, 1);
+        bounce(tl, g("to-bob"), 7, 0.192, dur);
+        break;
+      case "climb":
+        // arms reach up alternately around 150°, knees step
+        swing(tl, g("to-armL"), 150, 26, 1.11, dur, 1);
+        swing(tl, g("to-armR"), 150, 26, 1.11, dur, -1);
+        swing(tl, g("to-legL"), 28, 16, 1.11, dur, 1);
+        swing(tl, g("to-legR"), 28, 16, 1.11, dur, -1);
+        bounce(tl, g("to-bob"), 3, 1.11, dur);
+        break;
+      case "lift": {
+        const cyc = 1.82;
+        const reps = Math.max(1, Math.ceil(dur / cyc));
+        for (let i = 0; i < reps; i++) {
+          const t0 = i * cyc;
+          tl.fromTo(g("to-armL"),
+            { attr: { transform: "rotate(168)" } },
+            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.fromTo(g("to-armR"),
+            { attr: { transform: "rotate(-168)" } },
+            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-barbell"),
+            { attr: { transform: "translate(0 -108)" } },
+            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-bob"),
+            { attr: { transform: "translate(0 0)" } },
+            { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+        }
+        break;
+      }
+      case "meditate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(38)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-38)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 2.0, dur);
+        break;
+      case "levitate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(62)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-62)" } }, 0.002);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 -14)" } },
+          { attr: { transform: "translate(0 -23)" }, duration: 1.11, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.11)) - 1 },
+          0);
+        break;
+      case "victory":
+        // arms held up (~160°) with a slight sway + one hop
+        tl.fromTo(g("to-armL"),
+          { attr: { transform: "rotate(158)" } },
+          { attr: { transform: "rotate(163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-armR"),
+          { attr: { transform: "rotate(-158)" } },
+          { attr: { transform: "rotate(-163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 0)" } },
+          { attr: { transform: "translate(0 -12)" }, duration: 0.36, ease: "sine.out" },
+          0);
+        tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: 0.36, ease: "bounce.in" }, 0.36);
+        break;
+      case "point":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 1.4, dur);
+        break;
+      default:
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+    }
+  };
+})();
+
+  const SID = "s01-liquid-grad";
+  const P = "s01-liquid-grad-";
+  const DUR = 1.667;
+  const ENV = [0.029,0.024,0.02,0.016,0.013,0.011,0.009,0.007,0.006,0.005,0.004,0.003,0.003,0.002,0.044,0.074,0.092,0.109,0.939,1,0.82,0.672,0.551,0.452,0.371,1,1,1,0.82,0.672,0.641,0.526,0.431,0.354,0.302,0.248,0.203,0.839,0.715,0.814,0.917,0.854,0.701,0.575,0.471,0.386,0.317,0.26,0.213,0.175];
+  const ONSETS = [0.6,0.867,1.233];
+  const SCENE = {"action":"walk","type":"caption","camera":[{"t":0,"x":0,"y":0,"zoom":1.03,"rot":0},{"t":1.8274999999999997,"x":20,"y":20,"zoom":1.08,"rot":0}],"fx":["dust"],"counter":{"label":"SYSTEM BUILT FOR","from":1,"to":365,"prefix":"DAY "},"hookLines":null,"words":[{"w":"Systems","start":0.1975,"end":0.8174999999999999},{"w":"are","start":0.8174999999999999,"end":1.1275},{"w":"climate.","start":1.1275,"end":1.8249999999999997}],"startSec":1.6};
+  const TH = {"bg":"#F5F1E8","panel":"#EDE7D9","accent":"#16130C","accentDeep":"#16130C","ink":"#16130C","inkSoft":"#6B6455"};
+  const gsap = window.gsap;
+  const tl = gsap.timeline({ paused: true });
+
+  v7.wipe(tl, P, false, DUR);
+  v7.camera(tl, P, SCENE.camera, DUR);
+  v7.envProxy(tl, P, SID, ENV, DUR);
+tl.fromTo("#s01-liquid-grad-liq-b0",{attr:{transform:"translate(0 0) scale(1)"}},{attr:{transform:"translate(42.02 2.78) scale(1.04)"}},0);
+tl.fromTo("#s01-liquid-grad-liq-b1",{attr:{transform:"translate(0 0) scale(1)"}},{attr:{transform:"translate(4.55 -37.36) scale(0.96)"}},0);
+tl.fromTo("#s01-liquid-grad-liq-b2",{attr:{transform:"translate(0 0) scale(1)"}},{attr:{transform:"translate(-30.39 36.15) scale(1.04)"}},0);
+tl.fromTo("#s01-liquid-grad-liq-b3",{attr:{transform:"translate(0 0) scale(1)"}},{attr:{transform:"translate(29.1 -36.21) scale(0.97)"}},0);
+
+tl.fromTo("#s01-liquid-grad-fx-d0",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(10.3 -31.5)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d1",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(8.2 -24.8)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d2",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-15.0 -39.2)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d3",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(7.0 -37.3)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d4",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(18.6 -38.6)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d5",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(10.8 -42.5)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d6",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-11.4 -41.3)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d7",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(15.7 -29.2)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d8",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(29.5 -35.8)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d9",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(12.8 -36.7)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d10",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-18.0 -32.4)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d11",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-27.6 -52.5)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d12",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(29.0 -31.0)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d13",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-8.5 -44.3)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d14",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(21.0 -32.7)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d15",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-24.7 -27.9)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d16",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(29.6 -51.7)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d17",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(23.0 -42.4)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d18",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(21.1 -23.0)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d19",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(21.6 -20.9)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d20",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(22.8 -39.0)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d21",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(29.1 -35.3)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d22",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(16.3 -45.4)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d23",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(16.6 -32.7)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d24",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(27.8 -44.2)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d25",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(13.8 -20.9)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d26",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-2.3 -23.8)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d27",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(18.6 -49.2)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d28",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(28.6 -29.2)"}},0);
+tl.fromTo("#s01-liquid-grad-fx-d29",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-24.2 -53.3)"}},0);
+
+  v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
+v7.placeCharacter(P, [540,1650], 1.9, 1);
+  v7.character(tl, P, SCENE.action, DUR);
+  if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
+  if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);
+  if (SCENE.counter) v7.counter(tl, P, SCENE.counter, DUR);
+  if (SCENE.type !== "cta") v7.brand(tl, P, DUR);
+
+
+  window.__timelines[SID] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

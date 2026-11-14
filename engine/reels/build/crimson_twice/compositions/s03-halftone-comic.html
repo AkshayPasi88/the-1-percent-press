@@ -38,10 +38,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
   <defs><pattern id="s03-halftone-comic-hal-dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="4.2" fill="rgba(255,240,235,0.160)"/></pattern></defs>
   <rect x="0" y="0" width="1080" height="1920" fill="url(#s03-halftone-comic-hal-dots)"/>
   <g id="s03-halftone-comic-hal-burst" opacity="0"><line x1="1040" y1="760" x2="1380" y2="760" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="990.48" y1="976.94" x2="1296.81" y2="1124.46" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="851.74" y1="1150.92" x2="1063.73" y2="1416.74" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="651.26" y1="1247.46" x2="726.92" y2="1578.94" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="428.74" y1="1247.46" x2="353.08" y2="1578.94" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="228.26" y1="1150.92" x2="16.27" y2="1416.74" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="89.52" y1="976.94" x2="-216.81" y2="1124.46" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="40" y1="760" x2="-300" y2="760" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="89.52" y1="543.06" x2="-216.81" y2="395.54" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="228.26" y1="369.08" x2="16.27" y2="103.26" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="428.74" y1="272.54" x2="353.08" y2="-58.94" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="651.26" y1="272.54" x2="726.92" y2="-58.94" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="851.74" y1="369.08" x2="1063.73" y2="103.26" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="990.48" y1="543.06" x2="1296.81" y2="395.54" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/></g>
-  <g id="s03-halftone-comic-hal-panel" transform="rotate(-2 540 1150)">
+  <g id="s03-halftone-comic-hal-panel" transform="rotate(0 540 1150)">
     <rect x="150" y="880" width="780" height="520" rx="26" fill="#261216" stroke="#FFF0EB" stroke-width="10"/>
     <rect x="178" y="908" width="724" height="464" rx="14" fill="url(#s03-halftone-comic-hal-dots)"/>
-    <g id="s03-halftone-comic-hal-motif" transform="translate(540 1140)">
+    <g id="s03-halftone-comic-hal-motif" transform="translate(380 1140)">
       <circle r="110" fill="rgba(255,75,62,0.900)" transform="translate(6 6)"/><circle r="110" fill="#FF4B3E"/><path d="M 0 -60 L 18 -18 L 60 0 L 18 18 L 0 60 L -18 18 L -60 0 L -18 -18 Z" fill="#FFF0EB"/>
     </g>
   </g>
@@ -500,7 +500,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
   const DUR = 1.967;
   const ENV = [0.504,0.413,0.339,0.278,0.228,0.187,0.153,0.126,0.103,0.085,0.069,0.057,0.047,0.038,0.034,0.144,0.179,0.421,0.393,0.427,0.509,0.417,0.548,0.45,0.369,0.302,0.248,0.353,0.508,0.417,0.342,0.379,0.537,0.582,0.477,0.391,0.321,0.263,0.216,0.177,0.145,0.119,0.098,0.08,0.066,0.054,0.044,0.036,0.03,0.024,0.02,0.016,0.013,0.011,0.009,0.013,0.04,0.051,0.042];
   const ONSETS = [0.567,0.933];
-  const SCENE = {"action":"run","type":"caption","camera":[{"t":0,"x":0,"y":0,"zoom":1.06,"rot":-1},{"t":2.1294117647058814,"x":0,"y":10,"zoom":1.12,"rot":1}],"fx":["speedlines","shockwave"],"counter":null,"hookLines":null,"words":[{"w":"That","start":0.19745098039215625,"end":0.7333986928104568},{"w":"is","start":0.7333986928104568,"end":1.0549673202614374},{"w":"the","start":1.0549673202614374,"end":1.4837254901960781},{"w":"rule.","start":1.4837254901960781,"end":2.1268627450980393}],"startSec":2.966666666666667};
+  const SCENE = {"action":"climb","type":"caption","camera":[{"t":0,"x":-26,"y":12,"zoom":1.07,"rot":0},{"t":2.1294117647058814,"x":34,"y":-8,"zoom":1.11,"rot":-1}],"fx":["speedlines","shockwave"],"counter":null,"hookLines":null,"words":[{"w":"That","start":0.19745098039215625,"end":0.7333986928104568},{"w":"is","start":0.7333986928104568,"end":1.0549673202614374},{"w":"the","start":1.0549673202614374,"end":1.4837254901960781},{"w":"rule.","start":1.4837254901960781,"end":2.1268627450980393}],"startSec":2.966666666666667};
   const TH = {"bg":"#1A0D0F","panel":"#261216","accent":"#FF4B3E","accentDeep":"#D93A2F","ink":"#FFF0EB","inkSoft":"#B08580"};
   const gsap = window.gsap;
   const tl = gsap.timeline({ paused: true });
@@ -508,18 +508,18 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
   v7.wipe(tl, P, false, DUR);
   v7.camera(tl, P, SCENE.camera, DUR);
   v7.envProxy(tl, P, SID, ENV, DUR);
-tl.fromTo("#s03-halftone-comic-hal-panel",{attr:{transform:"rotate(-4 540 1150) scale(0.92)"}},{attr:{transform:"rotate(-2 540 1150) scale(1)"},duration:0.6,ease:"back.out(1.7)"},0.02);
-  tl.fromTo("#s03-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) scale(0.5)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.5,ease:"back.out(2.4)"},0.15);
+tl.fromTo("#s03-halftone-comic-hal-panel",{attr:{transform:"rotate(0 540 1150) scale(0.92)"}},{attr:{transform:"rotate(0 540 1150) scale(1)"},duration:0.6,ease:"back.out(1.7)"},0.02);
+  tl.fromTo("#s03-halftone-comic-hal-motif",{attr:{transform:"translate(380 1140) scale(0.5)"}},{attr:{transform:"translate(380 1140) scale(1)"},duration:0.5,ease:"back.out(2.4)"},0.15);
 tl.fromTo("#s03-halftone-comic-hal-burst",{opacity:0.9},{opacity:0,duration:0.45,ease:"power2.out"},0.57);
 tl.fromTo("#s03-halftone-comic-hal-burst",{attr:{transform:"rotate(0 540 760) scale(1.25)"}},{attr:{transform:"rotate(24 540 760) scale(0.85)"},duration:0.45,ease:"power2.out"},0.57);
-tl.fromTo("#s03-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) scale(1.12)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.3,ease:"back.out(3)"},0.57);
+tl.fromTo("#s03-halftone-comic-hal-motif",{attr:{transform:"translate(380 1140) scale(1.12)"}},{attr:{transform:"translate(380 1140) scale(1)"},duration:0.3,ease:"back.out(3)"},0.57);
 tl.fromTo("#s03-halftone-comic-hal-burst",{opacity:0.9},{opacity:0,duration:0.45,ease:"power2.out"},0.93);
 tl.fromTo("#s03-halftone-comic-hal-burst",{attr:{transform:"rotate(0 540 760) scale(1.25)"}},{attr:{transform:"rotate(24 540 760) scale(0.85)"},duration:0.45,ease:"power2.out"},0.93);
-tl.fromTo("#s03-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) scale(1.12)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.3,ease:"back.out(3)"},0.93);
+tl.fromTo("#s03-halftone-comic-hal-motif",{attr:{transform:"translate(380 1140) scale(1.12)"}},{attr:{transform:"translate(380 1140) scale(1)"},duration:0.3,ease:"back.out(3)"},0.93);
 
 
   v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
-v7.placeCharacter(P, [540,1790], 2, 1);
+v7.placeCharacter(P, [700,1790], 2, -1);
   v7.character(tl, P, SCENE.action, DUR);
   if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
   if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);

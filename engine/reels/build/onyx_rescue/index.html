@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>onyx_rescue</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+.clip{position:absolute;inset:0;overflow:hidden}
+#root{position:absolute;inset:0;background:#0A0A0C}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="root" data-start="0" data-duration="36.1333" data-width="1080" data-height="1920" data-fps="30">
+  <div id="s00-neon-city" class="clip" data-composition-id="s00-neon-city" data-composition-src="compositions/s00-neon-city.html" data-start="0.0000" data-duration="2.2667" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="0"></div>
+  <div id="s01-neon-city" class="clip" data-composition-id="s01-neon-city" data-composition-src="compositions/s01-neon-city.html" data-start="2.2667" data-duration="3.5000" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="1"></div>
+  <div id="s02-neon-city" class="clip" data-composition-id="s02-neon-city" data-composition-src="compositions/s02-neon-city.html" data-start="5.7667" data-duration="2.3667" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="2"></div>
+  <div id="s03-cel-stage" class="clip" data-composition-id="s03-cel-stage" data-composition-src="compositions/s03-cel-stage.html" data-start="8.1333" data-duration="3.1000" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="3"></div>
+  <div id="s04-neon-city" class="clip" data-composition-id="s04-neon-city" data-composition-src="compositions/s04-neon-city.html" data-start="11.2333" data-duration="1.9667" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="4"></div>
+  <div id="s05-neon-city" class="clip" data-composition-id="s05-neon-city" data-composition-src="compositions/s05-neon-city.html" data-start="13.2000" data-duration="3.9000" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="5"></div>
+  <div id="s06-neon-city" class="clip" data-composition-id="s06-neon-city" data-composition-src="compositions/s06-neon-city.html" data-start="17.1000" data-duration="2.3667" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="6"></div>
+  <div id="s07-cel-stage" class="clip" data-composition-id="s07-cel-stage" data-composition-src="compositions/s07-cel-stage.html" data-start="19.4667" data-duration="3.1000" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="7"></div>
+  <div id="s08-neon-city" class="clip" data-composition-id="s08-neon-city" data-composition-src="compositions/s08-neon-city.html" data-start="22.5667" data-duration="3.1333" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="8"></div>
+  <div id="s09-neon-city" class="clip" data-composition-id="s09-neon-city" data-composition-src="compositions/s09-neon-city.html" data-start="25.7000" data-duration="5.8667" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="9"></div>
+  <div id="s10-cta" class="clip" data-composition-id="s10-cta" data-composition-src="compositions/s10-cta.html" data-start="31.5667" data-duration="4.5667" data-width="1080" data-height="1920" data-track-kind="graphics" data-track-index="10"></div>
+  <audio id="narration" class="clip" src="assets/audio/hype_13.mp3" data-start="0" data-duration="31.2680" data-volume="1" data-track-index="9"></audio>
+</div>
+<script>
+(function () {
+  const tl = gsap.timeline({ paused: true });
+  window.__timelines["root"] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

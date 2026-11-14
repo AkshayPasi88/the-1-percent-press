@@ -170,7 +170,7 @@
     }
    ],
    "camSig": "0,30,1.06,0;50,-20,1.12,0",
-   "action": "idle",
+   "action": "walk",
    "character": true,
    "charPos": [
     700,
@@ -217,25 +217,25 @@
    "camera": [
     {
      "t": 0,
-     "x": 20,
-     "y": 0,
-     "zoom": 1.04,
-     "rot": 0
+     "x": 30,
+     "y": -10,
+     "zoom": 1.05,
+     "rot": 1
     },
     {
      "t": 1.2849999999999993,
-     "x": -40,
-     "y": 10,
-     "zoom": 1.12,
-     "rot": 0
+     "x": -44,
+     "y": 20,
+     "zoom": 1.11,
+     "rot": -1
     }
    ],
-   "camSig": "20,0,1.04,0;-40,10,1.12,0",
-   "action": "idle",
+   "camSig": "30,-10,1.05,1;-44,20,1.11,-1",
+   "action": "walk",
    "character": true,
    "charPos": [
-    380,
-    1785
+    540,
+    1790
    ],
    "charScale": 2,
    "lighting": {
@@ -287,11 +287,11 @@
     }
    ],
    "camSig": "20,0,1.04,0;-26,14,1.1,0",
-   "action": "walk",
+   "action": "idle",
    "character": true,
    "charPos": [
-    540,
-    1670
+    660,
+    1650
    ],
    "charScale": 2,
    "lighting": {

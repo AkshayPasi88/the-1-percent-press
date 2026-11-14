@@ -500,7 +500,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
   const DUR = 1.5;
   const ENV = [0.783,0.767,0.629,0.516,0.423,0.347,0.285,0.233,0.191,0.157,0.129,0.105,0.086,0.071,0.058,0.048,0.039,0.032,0.126,0.348,0.518,0.832,1,1,0.953,0.782,0.932,1,0.829,0.914,0.833,0.881,1,1,0.82,0.672,0.551,0.452,0.371,0.304,0.249,0.204,0.738,0.75,0.615];
   const ONSETS = [0.633,0.9];
-  const SCENE = {"action":"run","type":"caption","camera":[{"t":0,"x":0,"y":0,"zoom":1.05,"rot":1},{"t":1.6470588235294117,"x":14,"y":-18,"zoom":1.13,"rot":-1}],"fx":["speedlines","shockwave"],"counter":null,"hookLines":null,"words":[{"w":"Never","start":0.20039215686274492,"end":0.6827450980392153},{"w":"miss","start":0.6827450980392153,"end":1.0847058823529407},{"w":"twice.","start":1.0847058823529407,"end":1.6474509803921562}],"startSec":1.4666666666666666};
+  const SCENE = {"action":"climb","type":"caption","camera":[{"t":0,"x":0,"y":0,"zoom":1.05,"rot":1},{"t":1.6470588235294117,"x":14,"y":-18,"zoom":1.13,"rot":-1}],"fx":["speedlines","shockwave"],"counter":null,"hookLines":null,"words":[{"w":"Never","start":0.20039215686274492,"end":0.6827450980392153},{"w":"miss","start":0.6827450980392153,"end":1.0847058823529407},{"w":"twice.","start":1.0847058823529407,"end":1.6474509803921562}],"startSec":1.4666666666666666};
   const TH = {"bg":"#1A0D0F","panel":"#261216","accent":"#FF4B3E","accentDeep":"#D93A2F","ink":"#FFF0EB","inkSoft":"#B08580"};
   const gsap = window.gsap;
   const tl = gsap.timeline({ paused: true });
@@ -519,7 +519,7 @@ tl.fromTo("#s02-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) 
 
 
   v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
-v7.placeCharacter(P, [540,1790], 2, 1);
+v7.placeCharacter(P, [540,1770], 2, 1);
   v7.character(tl, P, SCENE.action, DUR);
   if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
   if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);

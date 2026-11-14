@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>s00-halftone-comic</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+@font-face{font-family:'Anton';src:url('assets/fonts/Anton-Regular.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-400.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-600.ttf');font-weight:600;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-700.ttf');font-weight:700;font-display:block}
+.clip{position:absolute;inset:0;overflow:hidden}
+#s00-halftone-comic{position:absolute;inset:0;font-family:'Source Sans 3',sans-serif;background:#201008;--pulse:0;--acc:#FF9E45}
+#s00-halftone-comic-camera{position:absolute;inset:0;will-change:transform}
+#s00-halftone-comic-world{position:absolute;left:0;top:0}
+#s00-halftone-comic-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
+  radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.07) 100%),
+  linear-gradient(180deg, rgba(255,243,232,0.032), rgba(255,243,232,0.013));}
+#s00-halftone-comic-wipe{position:absolute;inset:0;z-index:50;background:linear-gradient(180deg,#D97E2B,#FF9E45);transform:translateY(0)}
+#s00-halftone-comic-wipe .wipe-edge{position:absolute;left:0;right:0;bottom:0;height:26px;background:#FFF3E8;opacity:0.9}
+#s00-halftone-comic-fade{position:absolute;inset:0;z-index:60;background:#000;opacity:0}
+#s00-halftone-comic-hook{position:absolute;top:220px;left:60px;right:60px;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:10}
+.hk-line{font-family:'Anton';line-height:1.04;color:#FFF3E8;text-transform:uppercase;text-align:center;letter-spacing:2px;text-shadow:5px 4px 0 #7a4c21}
+.hk-ch{display:inline-block;opacity:0}
+.hk-ch.sp{width:0.35em}#s00-halftone-comic-brand{position:absolute;top:92px;left:0;right:0;display:flex;justify-content:center;z-index:11}
+#s00-halftone-comic-brand{font-family:'Source Sans 3';font-weight:600;font-size:34px;letter-spacing:4px;color:#B08D72;background:rgba(8,8,10,0.4);border-radius:999px;padding:10px 28px;width:max-content;margin:0 auto}
+.bdot{width:12px;height:12px;border-radius:6px;background:#FF9E45;display:inline-block}
+</style>
+</head>
+<body>
+<div id="s00-halftone-comic" data-composition-id="s00-halftone-comic" data-width="1080" data-height="1920">
+  <div id="s00-halftone-comic-camera">
+    <svg id="s00-halftone-comic-world" viewBox="0 0 1080 1920" width="1080" height="1920">
+
+  <rect x="0" y="0" width="1080" height="1920" fill="#201008"/>
+  <defs><pattern id="s00-halftone-comic-hal-dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="4.2" fill="rgba(255,243,232,0.160)"/></pattern></defs>
+  <rect x="0" y="0" width="1080" height="1920" fill="url(#s00-halftone-comic-hal-dots)"/>
+  <g id="s00-halftone-comic-hal-burst" opacity="0"><line x1="1040" y1="760" x2="1380" y2="760" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="990.48" y1="976.94" x2="1296.81" y2="1124.46" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="851.74" y1="1150.92" x2="1063.73" y2="1416.74" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="651.26" y1="1247.46" x2="726.92" y2="1578.94" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="428.74" y1="1247.46" x2="353.08" y2="1578.94" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="228.26" y1="1150.92" x2="16.27" y2="1416.74" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="89.52" y1="976.94" x2="-216.81" y2="1124.46" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="40" y1="760" x2="-300" y2="760" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="89.52" y1="543.06" x2="-216.81" y2="395.54" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="228.26" y1="369.08" x2="16.27" y2="103.26" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="428.74" y1="272.54" x2="353.08" y2="-58.94" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="651.26" y1="272.54" x2="726.92" y2="-58.94" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="851.74" y1="369.08" x2="1063.73" y2="103.26" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="990.48" y1="543.06" x2="1296.81" y2="395.54" stroke="rgba(255,243,232,0.500)" stroke-width="10" stroke-linecap="round"/></g>
+  <g id="s00-halftone-comic-hal-panel" transform="rotate(-2 540 1150)">
+    <rect x="150" y="880" width="780" height="520" rx="26" fill="#2E180C" stroke="#FFF3E8" stroke-width="10"/>
+    <rect x="178" y="908" width="724" height="464" rx="14" fill="url(#s00-halftone-comic-hal-dots)"/>
+    <g id="s00-halftone-comic-hal-motif" transform="translate(540 1140)">
+      <circle r="110" fill="rgba(255,158,69,0.900)" transform="translate(6 6)"/><circle r="110" fill="#FF9E45"/><path d="M 0 -60 L 18 -18 L 60 0 L 18 18 L 0 60 L -18 18 L -60 0 L -18 -18 Z" fill="#FFF3E8"/>
+    </g>
+  </g>
+  <line x1="40" y1="200" x2="200" y2="180" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/><line x1="40" y1="260" x2="200" y2="240" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/><line x1="40" y1="320" x2="200" y2="300" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/><line x1="40" y1="380" x2="200" y2="360" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/><line x1="40" y1="440" x2="200" y2="420" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/><line x1="40" y1="500" x2="200" y2="480" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/>
+  <line x1="1040" y1="200" x2="880" y2="180" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/><line x1="1040" y1="260" x2="880" y2="240" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/><line x1="1040" y1="320" x2="880" y2="300" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/><line x1="1040" y1="380" x2="880" y2="360" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/><line x1="1040" y1="440" x2="880" y2="420" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/><line x1="1040" y1="500" x2="880" y2="480" stroke="rgba(255,243,232,0.300)" stroke-width="6" stroke-linecap="round"/>
+<circle id="s00-halftone-comic-fx-ring" cx="540" cy="820" r="60" fill="none" stroke="rgba(255,158,69,0.500)" stroke-width="14" opacity="0"/><g id="s00-halftone-comic-fx-speed" opacity="0"><line x1="824.1" y1="916.3" x2="1140.2" y2="1023.5" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="787.3" y1="989.9" x2="1004.7" y2="1139.2" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="686.6" y1="1081.7" x2="892.5" y2="1449.3" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="444.3" y1="1104.3" x2="329.6" y2="1445.5" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="342.3" y1="1045.6" x2="17.0" y2="1416.9" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="249.9" y1="896.6" x2="-222.1" y2="1021.3" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="247.2" y1="754.7" x2="-60.9" y2="686.1" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="320.2" y1="615.9" x2="10.7" y2="328.5" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="432.6" y1="539.9" x2="293.4" y2="176.4" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="613.3" y1="529.1" x2="709.4" y2="147.5" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="758.4" y1="614.4" x2="1006.2" y2="381.2" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/><line x1="817.4" y1="705.8" x2="1225.4" y2="537.8" stroke="rgba(255,243,232,0.400)" stroke-width="7" stroke-linecap="round"/></g>
+<g id="s00-halftone-comic-char"><g id="s00-halftone-comic-to-root">
+  <ellipse id="s00-halftone-comic-to-shadow" cx="0" cy="7" rx="64" ry="12" fill="#000000" opacity="0.38"/>
+  <ellipse id="s00-halftone-comic-to-halo" cx="0" cy="-116" rx="130" ry="182" fill="var(--acc)" style="opacity:calc(0.07 + var(--pulse, 0) * 0.07)"/>
+
+  <g id="s00-halftone-comic-to-bob" transform="translate(0 0)">
+    <g id="s00-halftone-comic-to-squash" style="transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(calc(1 + var(--pulse, 0) * 0.033))">
+      <g id="s00-halftone-comic-to-lean" transform="rotate(0)">
+
+        
+        <g id="s00-halftone-comic-to-legsStand">
+          <g transform="translate(-17 -96)">
+            <g id="s00-halftone-comic-to-legL">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="4" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(17 -96)">
+            <g id="s00-halftone-comic-to-legR">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="-11" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(-3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <g id="s00-halftone-comic-to-legsSit" opacity="0">
+          <path d="M 0 -96 q -42 -12 -62 12 q 30 16 62 6 z" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+          <path d="M 0 -96 q 42 -12 62 12 q -30 16 -62 6 z" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+          <ellipse cx="-54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="-54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+          <ellipse cx="54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+        </g>
+
+        
+        <g transform="translate(0 -96)">
+          <g id="s00-halftone-comic-to-torso">
+            <path d="M -37 10 Q -45 -50 -30 -70 L 30 -70 Q 45 -50 37 10 Q 0 20 -37 10 Z"
+                  fill="#262731" stroke="#0D0E13" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M -22 -8 Q 0 0 22 -8" stroke="#17181F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M -9 -63 q -2 15 -5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 9 -63 q 2 15 5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="0" cy="-24" r="7" fill="#E8B84B"/>
+            <circle cx="0" cy="-24" r="7" fill="none" stroke="#17181F" stroke-width="2"/>
+            <path id="s00-halftone-comic-to-rimT" d="M -37 10 Q -45 -50 -30 -70" fill="none" stroke="var(--acc)"
+                  stroke-width="4" stroke-linecap="round" style="opacity:calc(0.5 + var(--pulse, 0) * 0.3)"/>
+
+            
+            <g id="s00-halftone-comic-to-barbell" opacity="0" transform="translate(0 -78)">
+              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
+              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+            </g>
+
+            
+            <g transform="translate(-33 -62)">
+              <g id="s00-halftone-comic-to-armL">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s00-halftone-comic-to-forearmL">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(33 -62)">
+              <g id="s00-halftone-comic-to-armR">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s00-halftone-comic-to-forearmR">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            
+            <g transform="translate(0 -70)">
+              <g id="s00-halftone-comic-to-head">
+                <ellipse cx="0" cy="-34" rx="33" ry="33" fill="#17181F" stroke="#0D0E13" stroke-width="3.5"/>
+                <ellipse cx="8" cy="-30" rx="20" ry="17" fill="#0B0C10" opacity="0.92"/>
+                <path d="M -33 -38 Q 0 -76 33 -38 Z" fill="#262731" stroke="#0D0E13" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M -33 -38 Q 0 -76 33 -38" fill="none" stroke="#E8B84B" stroke-width="3"/>
+                <rect x="6" y="-40" width="42" height="11" rx="5.5" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                <circle cx="-2" cy="-49" r="5.5" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <path id="s00-halftone-comic-to-rimL" d="M -28 -88 L -28 -28" stroke="var(--acc)" stroke-width="3"
+              stroke-linecap="round" fill="none" style="opacity:calc(0.45 + var(--pulse, 0) * 0.3)"/>
+      </g>
+    </g>
+  </g>
+</g></g>
+    </svg>
+  </div>
+  <div id="s00-halftone-comic-grade"></div>
+  <div id="s00-halftone-comic-hook"><div class="hk-line" style="font-size:128px"><span class="hk-ch" id="s00-halftone-comic-hk-0-0">Y</span><span class="hk-ch" id="s00-halftone-comic-hk-0-1">O</span><span class="hk-ch" id="s00-halftone-comic-hk-0-2">U</span><span class="hk-ch sp">&nbsp;</span><span class="hk-ch" id="s00-halftone-comic-hk-0-4">D</span><span class="hk-ch" id="s00-halftone-comic-hk-0-5">O</span><span class="hk-ch" id="s00-halftone-comic-hk-0-6">N</span><span class="hk-ch" id="s00-halftone-comic-hk-0-7">'</span><span class="hk-ch" id="s00-halftone-comic-hk-0-8">T</span><span class="hk-ch sp">&nbsp;</span><span class="hk-ch" id="s00-halftone-comic-hk-0-10">N</span><span class="hk-ch" id="s00-halftone-comic-hk-0-11">E</span><span class="hk-ch" id="s00-halftone-comic-hk-0-12">E</span><span class="hk-ch" id="s00-halftone-comic-hk-0-13">D</span></div><div class="hk-line" style="font-size:96px"><span class="hk-ch" id="s00-halftone-comic-hk-1-0">M</span><span class="hk-ch" id="s00-halftone-comic-hk-1-1">O</span><span class="hk-ch" id="s00-halftone-comic-hk-1-2">R</span><span class="hk-ch" id="s00-halftone-comic-hk-1-3">E</span><span class="hk-ch sp">&nbsp;</span><span class="hk-ch" id="s00-halftone-comic-hk-1-5">M</span><span class="hk-ch" id="s00-halftone-comic-hk-1-6">O</span><span class="hk-ch" id="s00-halftone-comic-hk-1-7">T</span><span class="hk-ch" id="s00-halftone-comic-hk-1-8">I</span><span class="hk-ch" id="s00-halftone-comic-hk-1-9">V</span><span class="hk-ch" id="s00-halftone-comic-hk-1-10">A</span><span class="hk-ch" id="s00-halftone-comic-hk-1-11">T</span><span class="hk-ch" id="s00-halftone-comic-hk-1-12">I</span><span class="hk-ch" id="s00-halftone-comic-hk-1-13">O</span><span class="hk-ch" id="s00-halftone-comic-hk-1-14">N</span><span class="hk-ch" id="s00-halftone-comic-hk-1-15">.</span></div></div><div id="s00-halftone-comic-brand"><span class="bdot"></span>@SELF_EFFICIENT_DAILY</div>
+  <div id="s00-halftone-comic-wipe"><div class="wipe-edge"></div></div>
+  <div id="s00-halftone-comic-fade"></div>
+</div>
+<script>
+(function () {
+  const v7 = {};
+// v7 scene-kit — shared browser runtime inlined into every scene by build.mjs.
+// Camera creep, audio-envelope proxy (--pulse CSS var), hook slam, karaoke
+// captions, counters, brand tag, onset fx, flood wipe-in, grade veil.
+// Everything is a pure function of the paused GSAP timeline (deterministic).
+/* global v7 */
+(function () {
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+
+  // ---- audio envelope proxy: one tween drives the --pulse CSS var -------
+  v7.envProxy = function (tl, p, rootId, env, dur) {
+    if (!env || env.length === 0 || dur <= 0.02) return;
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const prox = { t: 0 };
+    tl.to(prox, {
+      t: dur,
+      duration: dur,
+      ease: "none",
+      onUpdate: function () {
+        const f = Math.min(env.length - 1, Math.max(0, Math.round(prox.t * 30)));
+        root.style.setProperty("--pulse", env[f].toFixed(3));
+      },
+    }, 0);
+  };
+
+  // ---- camera: keyed [t,x,y,zoom,rot] -> sequential fromTo on #camera ----
+  v7.camera = function (tl, p, keys, dur) {
+    if (!keys || keys.length === 0) return;
+    const cam = "#" + p + "camera";
+    if (keys.length === 1) {
+      const k = keys[0];
+      tl.set(cam, { x: -k.x, y: -k.y, scale: k.zoom, rotation: k.rot }, 0.001);
+      return;
+    }
+    for (let i = 0; i < keys.length - 1; i++) {
+      const a = keys[i];
+      const b = keys[i + 1];
+      const span = Math.max(0.05, b.t - a.t);
+      tl.fromTo(cam,
+        { x: -a.x, y: -a.y, scale: a.zoom, rotation: a.rot },
+        { x: -b.x, y: -b.y, scale: b.zoom, rotation: b.rot, duration: span, ease: "power2.inOut" },
+        Math.max(0, a.t));
+    }
+  };
+
+  // ---- hook type: per-character spring slam --------------------------------
+  v7.hook = function (tl, p, lines, th, dur) {
+    const box = "#" + p + "hook";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+    let delay = 0.05;
+    lines.forEach((line, li) => {
+      const chars = line.split("");
+      chars.forEach((ch, ci) => {
+        const sel = `#${p}hk-${li}-${ci}`;
+        if (ch === " ") return;
+        tl.fromTo(sel,
+          { opacity: 0, scale: 0.6, y: 26 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" },
+          delay + ci * 0.035);
+      });
+      delay += 0.14 + Math.min(0.5, chars.length * 0.035);
+    });
+    // hold, then shrink away just before scene end
+    tl.to(box, { scale: 0.94, duration: 0.3, ease: "power2.in" }, Math.max(0.1, dur - 0.32));
+  };
+
+  // ---- karaoke captions: word-level color/scale sync -----------------------
+  v7.captions = function (tl, p, words, th, sceneDur, sceneStart) {
+    const box = "#" + p + "cap";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.02);
+    words.forEach((w, i) => {
+      const sel = `#${p}cw-${i}`;
+      const ws = Math.max(0, w.start - sceneStart);
+      const we = Math.min(sceneDur - 0.05, w.end - sceneStart);
+      if (we <= ws) return;
+      // upcoming -> active (white, pop)
+      tl.fromTo(sel,
+        { color: th.inkSoft, scale: 1 },
+        { color: "#FFFFFF", scale: 1.1, duration: 0.09, ease: "power2.out" },
+        ws);
+      // active -> spoken (accent, settle)
+      tl.to(sel, { color: th.accent, scale: 1, duration: 0.12, ease: "power2.out" }, we);
+    });
+  };
+
+  // ---- animated counter ------------------------------------------------------
+  v7.counter = function (tl, p, counter, dur) {
+    const box = "#" + p + "ctr";
+    const numEl = document.getElementById(p + "ctr-num");
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 0.05);
+    const dec = counter.decimals || 0;
+    const prox = { v: counter.from };
+    tl.fromTo(prox,
+      { v: counter.from },
+      { v: counter.to, duration: dur * 0.7, ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = (counter.prefix || "") + prox.v.toFixed(dec) + (counter.suffix || "");
+        } },
+      0.08);
+  };
+
+  // ---- brand tag: settle-in + tiny bob ---------------------------------------
+  v7.brand = function (tl, p, dur) {
+    const tag = "#" + p + "brand";
+    tl.set(tag, { opacity: 0 }, 0.001);
+    tl.fromTo(tag, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo(tag, { y: 0 }, { y: -4, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.6)) - 1 }, 0.5);
+  };
+
+  // ---- onset fx ---------------------------------------------------------------
+  // shockwave ring + speed lines + flash, placed at scene-local onset times
+  v7.onsetFx = function (tl, p, th, onsets, fxKeys, dur) {
+    const has = (k) => fxKeys && fxKeys.indexOf(k) >= 0;
+    onsets.forEach((t0) => {
+      if (t0 <= 0.05 || t0 >= dur - 0.05) return;
+      if (has("shockwave")) {
+        const ring = "#" + p + "fx-ring";
+        tl.set(ring, { attr: { r: 60, opacity: 0 } }, t0 - 0.001);
+        tl.fromTo(ring,
+          { attr: { r: 60, opacity: 0.5 } },
+          { attr: { r: 700, opacity: 0 }, duration: 0.55, ease: "power2.out" },
+          t0);
+      }
+      if (has("speedlines")) {
+        const g = "#" + p + "fx-speed";
+        tl.set(g, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(g,
+          { opacity: 0.55, scale: 1.15 },
+          { opacity: 0, scale: 1, duration: 0.4, ease: "power2.out", transformOrigin: "50% 51%" },
+          t0);
+      }
+      if (has("flash")) {
+        const f = "#" + p + "fx-flash";
+        tl.set(f, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(f, { opacity: 0.16 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, t0);
+      }
+    });
+  };
+
+  // ---- flood wipe-in at scene start -------------------------------------------
+  v7.wipe = function (tl, p, isFirst, dur) {
+    const panel = "#" + p + "wipe";
+    if (isFirst) {
+      const fade = "#" + p + "fade";
+      tl.set(fade, { opacity: 1 }, 0.001);
+      tl.fromTo(fade, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.02);
+      tl.set(panel, { opacity: 0 }, 0.001);
+      return;
+    }
+    tl.set(panel, { opacity: 1 }, 0.001);
+    tl.fromTo(panel,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.46, ease: "power3.inOut" },
+      0.02);
+    // trailing edge accent line
+    const edge = "#" + p + "wipe-edge";
+    tl.fromTo(edge,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.5, ease: "power3.inOut" },
+      0.02);
+  };
+
+  // ---- character: place rig wrapper (static) and run action ------------------
+  v7.placeCharacter = function (p, pos, scale, facing) {
+    const el = document.getElementById(p + "char");
+    if (!el) return;
+    el.setAttribute("transform",
+      `translate(${pos[0]} ${pos[1]}) scale(${(scale * (facing || 1)).toFixed(3)} ${scale.toFixed(3)})`);
+  };
+})();
+
+// TheOne character runtime — inlined into every scene by build.mjs.
+// Applies GSAP tweens to the canonical rig. The rig markup is byte-identical
+// in every scene (only ids get a scene prefix); these joint rotations are the
+// ONLY per-scene variation, so identity and proportions cannot drift.
+// Determinism: finite repeats only, absolute times, pure function of timeline.
+/* global v7 */
+(function () {
+  // Joint oscillation around `base` between base+amp and base-amp.
+  // yoyo with sine.inOut approximates sin(t) closely at joint scale.
+  function swing(tl, sel, base, amp, cycleSec, dur, phase) {
+    if (amp === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    const from = base + (phase >= 0 ? amp : -amp);
+    tl.fromTo(
+      sel,
+      { attr: { transform: `rotate(${from.toFixed(2)})` } },
+      { attr: { transform: `rotate(${(2 * base - from).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+  // Bounded bounce (0 -> -depth -> 0) on the bob wrapper.
+  function bounce(tl, sel, depth, cycleSec, dur) {
+    if (depth === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    tl.fromTo(
+      sel,
+      { attr: { transform: "translate(0 0)" } },
+      { attr: { transform: `translate(0 ${(-depth).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+
+  // p = scene id prefix, e.g. "s01-" (rig ids are `${p}to-…`)
+  v7.character = function (tl, p, action, dur) {
+    const g = (n) => "#" + p + n;
+    const seated = action === "meditate" || action === "levitate";
+
+    tl.set(g("to-legsStand"), { attr: { opacity: seated ? 0 : 1 } }, 0.001);
+    tl.set(g("to-legsSit"), { attr: { opacity: seated ? 1 : 0 } }, 0.001);
+
+    const S = {
+      idle:     { lean: 0,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      walk:     { lean: 2,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      run:      { lean: -9,  head: -3, fArmL: 42,  fArmR: 42,  barbell: 0 },
+      climb:    { lean: 14,  head: -6, fArmL: 8,   fArmR: 8,   barbell: 0 },
+      lift:     { lean: 0,   head: 0,  fArmL: 6,   fArmR: 6,   barbell: 1 },
+      meditate: { lean: 0,   head: 2,  fArmL: 32,  fArmR: -32, barbell: 0 },
+      levitate: { lean: 0,   head: -2, fArmL: 14,  fArmR: -14, barbell: 0 },
+      victory:  { lean: 0,   head: -2, fArmL: 6,   fArmR: 6,   barbell: 0 },
+      point:    { lean: 3,   head: 4,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+    }[action] || { lean: 0, head: 0, fArmL: 0, fArmR: 0, barbell: 0 };
+
+    tl.set(g("to-lean"), { attr: { transform: `rotate(${S.lean})` } }, 0.001);
+    tl.set(g("to-head"), { attr: { transform: `rotate(${S.head})` } }, 0.001);
+    tl.set(g("to-forearmL"), { attr: { transform: `rotate(${S.fArmL})` } }, 0.001);
+    tl.set(g("to-forearmR"), { attr: { transform: `rotate(${S.fArmR})` } }, 0.001);
+    tl.set(g("to-barbell"), { attr: { opacity: S.barbell } }, 0.001);
+
+    switch (action) {
+      case "idle":
+        swing(tl, g("to-armL"), 0, 4, 1.1, dur, 1);
+        swing(tl, g("to-armR"), 0, 4, 1.1, dur, -1);
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+        break;
+      case "walk":
+        swing(tl, g("to-legL"), 0, 24, 0.667, dur, 1);
+        swing(tl, g("to-legR"), 0, 24, 0.667, dur, -1);
+        swing(tl, g("to-armL"), 0, 16, 0.667, dur, -1);
+        swing(tl, g("to-armR"), 0, 16, 0.667, dur, 1);
+        bounce(tl, g("to-bob"), 5, 0.333, dur);
+        break;
+      case "run":
+        swing(tl, g("to-legL"), 0, 40, 0.385, dur, 1);
+        swing(tl, g("to-legR"), 0, 40, 0.385, dur, -1);
+        swing(tl, g("to-armL"), 0, 34, 0.385, dur, -1);
+        swing(tl, g("to-armR"), 0, 34, 0.385, dur, 1);
+        bounce(tl, g("to-bob"), 7, 0.192, dur);
+        break;
+      case "climb":
+        // arms reach up alternately around 150°, knees step
+        swing(tl, g("to-armL"), 150, 26, 1.11, dur, 1);
+        swing(tl, g("to-armR"), 150, 26, 1.11, dur, -1);
+        swing(tl, g("to-legL"), 28, 16, 1.11, dur, 1);
+        swing(tl, g("to-legR"), 28, 16, 1.11, dur, -1);
+        bounce(tl, g("to-bob"), 3, 1.11, dur);
+        break;
+      case "lift": {
+        const cyc = 1.82;
+        const reps = Math.max(1, Math.ceil(dur / cyc));
+        for (let i = 0; i < reps; i++) {
+          const t0 = i * cyc;
+          tl.fromTo(g("to-armL"),
+            { attr: { transform: "rotate(168)" } },
+            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.fromTo(g("to-armR"),
+            { attr: { transform: "rotate(-168)" } },
+            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-barbell"),
+            { attr: { transform: "translate(0 -108)" } },
+            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-bob"),
+            { attr: { transform: "translate(0 0)" } },
+            { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+        }
+        break;
+      }
+      case "meditate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(38)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-38)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 2.0, dur);
+        break;
+      case "levitate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(62)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-62)" } }, 0.002);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 -14)" } },
+          { attr: { transform: "translate(0 -23)" }, duration: 1.11, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.11)) - 1 },
+          0);
+        break;
+      case "victory":
+        // arms held up (~160°) with a slight sway + one hop
+        tl.fromTo(g("to-armL"),
+          { attr: { transform: "rotate(158)" } },
+          { attr: { transform: "rotate(163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-armR"),
+          { attr: { transform: "rotate(-158)" } },
+          { attr: { transform: "rotate(-163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 0)" } },
+          { attr: { transform: "translate(0 -12)" }, duration: 0.36, ease: "sine.out" },
+          0);
+        tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: 0.36, ease: "bounce.in" }, 0.36);
+        break;
+      case "point":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 1.4, dur);
+        break;
+      default:
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+    }
+  };
+})();
+
+  const SID = "s00-halftone-comic";
+  const P = "s00-halftone-comic-";
+  const DUR = 2.867;
+  const ENV = [0,0.006,0.351,0.665,0.668,0.548,0.449,0.557,0.509,0.471,0.453,0.563,0.6,0.663,0.667,0.547,0.449,0.368,0.407,0.516,0.586,0.8,0.998,0.907,0.744,0.61,0.5,0.41,0.336,0.276,0.335,0.374,0.379,0.408,0.368,0.324,0.319,0.383,0.46,0.498,0.49,0.402,0.425,0.348,0.286,0.3,0.508,0.548,0.569,0.556,0.456,0.374,0.306,0.251,0.206,0.169,0.139,0.114,0.093,0.076,0.063,0.051,0.042,0.035,0.028,0.023,0.019,0.016,0.013,0.011,0.009,0.007,0.006,0.005,0.004,0.003,0.003,0.002,0.002,0.001,0.001,0.001,0.001,0.001,0.004,0.408];
+  const ONSETS = [0.067,0.433,0.7,1.567,2.833];
+  const SCENE = {"action":"victory","type":"hook","camera":[{"t":0,"x":0,"y":0,"zoom":1.06,"rot":-1},{"t":3.0086666666666675,"x":0,"y":10,"zoom":1.12,"rot":1}],"fx":["speedlines","shockwave"],"counter":null,"hookLines":["YOU DON'T NEED","MORE MOTIVATION."],"words":[{"w":"You","start":0.12,"end":0.47014141414141425},{"w":"do","start":0.47014141414141425,"end":0.7327474747474749},{"w":"not","start":0.7327474747474749,"end":1.0828888888888892},{"w":"need","start":1.0828888888888892,"end":1.520565656565657},{"w":"more","start":1.520565656565657,"end":1.9582424242424246},{"w":"motivation.","start":1.9582424242424246,"end":3.0086666666666675}],"startSec":0};
+  const TH = {"bg":"#201008","panel":"#2E180C","accent":"#FF9E45","accentDeep":"#D97E2B","ink":"#FFF3E8","inkSoft":"#B08D72"};
+  const gsap = window.gsap;
+  const tl = gsap.timeline({ paused: true });
+
+  v7.wipe(tl, P, true, DUR);
+  v7.camera(tl, P, SCENE.camera, DUR);
+  v7.envProxy(tl, P, SID, ENV, DUR);
+tl.fromTo("#s00-halftone-comic-hal-panel",{attr:{transform:"rotate(-4 540 1150) scale(0.92)"}},{attr:{transform:"rotate(-2 540 1150) scale(1)"},duration:0.6,ease:"back.out(1.7)"},0.02);
+  tl.fromTo("#s00-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) scale(0.5)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.5,ease:"back.out(2.4)"},0.15);
+tl.fromTo("#s00-halftone-comic-hal-burst",{opacity:0.9},{opacity:0,duration:0.45,ease:"power2.out"},0.07);
+tl.fromTo("#s00-halftone-comic-hal-burst",{attr:{transform:"rotate(0 540 760) scale(1.25)"}},{attr:{transform:"rotate(24 540 760) scale(0.85)"},duration:0.45,ease:"power2.out"},0.07);
+tl.fromTo("#s00-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) scale(1.12)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.3,ease:"back.out(3)"},0.07);
+tl.fromTo("#s00-halftone-comic-hal-burst",{opacity:0.9},{opacity:0,duration:0.45,ease:"power2.out"},0.43);
+tl.fromTo("#s00-halftone-comic-hal-burst",{attr:{transform:"rotate(0 540 760) scale(1.25)"}},{attr:{transform:"rotate(24 540 760) scale(0.85)"},duration:0.45,ease:"power2.out"},0.43);
+tl.fromTo("#s00-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) scale(1.12)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.3,ease:"back.out(3)"},0.43);
+tl.fromTo("#s00-halftone-comic-hal-burst",{opacity:0.9},{opacity:0,duration:0.45,ease:"power2.out"},0.7);
+tl.fromTo("#s00-halftone-comic-hal-burst",{attr:{transform:"rotate(0 540 760) scale(1.25)"}},{attr:{transform:"rotate(24 540 760) scale(0.85)"},duration:0.45,ease:"power2.out"},0.7);
+tl.fromTo("#s00-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) scale(1.12)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.3,ease:"back.out(3)"},0.7);
+tl.fromTo("#s00-halftone-comic-hal-burst",{opacity:0.9},{opacity:0,duration:0.45,ease:"power2.out"},1.57);
+tl.fromTo("#s00-halftone-comic-hal-burst",{attr:{transform:"rotate(0 540 760) scale(1.25)"}},{attr:{transform:"rotate(24 540 760) scale(0.85)"},duration:0.45,ease:"power2.out"},1.57);
+tl.fromTo("#s00-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) scale(1.12)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.3,ease:"back.out(3)"},1.57);
+
+
+  v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
+v7.placeCharacter(P, [540,1790], 2, 1);
+  v7.character(tl, P, SCENE.action, DUR);
+  if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
+  if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);
+  if (SCENE.counter) v7.counter(tl, P, SCENE.counter, DUR);
+  if (SCENE.type !== "cta") v7.brand(tl, P, DUR);
+
+
+  window.__timelines[SID] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

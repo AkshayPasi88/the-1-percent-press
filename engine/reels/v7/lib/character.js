@@ -87,22 +87,24 @@
         bounce(tl, g("to-bob"), 3, 1.11, dur);
         break;
       case "lift": {
+        // overhead press, v6 geometry: arms sweep 138°↔72°, barbell tracks
+        // hand height: hand_y(torso) = -62 + 74*cos(θ)  →  -117 (top) ↔ -39 (bottom)
         const cyc = 1.82;
         const reps = Math.max(1, Math.ceil(dur / cyc));
         for (let i = 0; i < reps; i++) {
           const t0 = i * cyc;
           tl.fromTo(g("to-armL"),
-            { attr: { transform: "rotate(168)" } },
-            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+            { attr: { transform: "rotate(138)" } },
+            { attr: { transform: "rotate(72)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
           tl.fromTo(g("to-armR"),
-            { attr: { transform: "rotate(-168)" } },
-            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
-          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
-          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+            { attr: { transform: "rotate(-138)" } },
+            { attr: { transform: "rotate(-72)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(138)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-138)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
           tl.fromTo(g("to-barbell"),
-            { attr: { transform: "translate(0 -108)" } },
-            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
-          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+            { attr: { transform: "translate(0 -117)" } },
+            { attr: { transform: "translate(0 -39)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -117)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
           tl.fromTo(g("to-bob"),
             { attr: { transform: "translate(0 0)" } },
             { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);

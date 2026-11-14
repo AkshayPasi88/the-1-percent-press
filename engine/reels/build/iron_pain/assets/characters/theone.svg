@@ -84,11 +84,11 @@
 
             <!-- barbell (lift) -->
             <g id="to-barbell" opacity="0" transform="translate(0 -78)">
-              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
-              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
-              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
-              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
-              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+              <rect x="-76" y="-4.5" width="152" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-70" cy="0" r="22" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="70" cy="0" r="22" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-70" cy="0" r="9" fill="#0B0C10"/>
+              <circle cx="70" cy="0" r="9" fill="#0B0C10"/>
             </g>
 
             <!-- arms: shoulder pivots -->

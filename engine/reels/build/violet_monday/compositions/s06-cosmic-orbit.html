@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>s06-cosmic-orbit</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+@font-face{font-family:'Anton';src:url('assets/fonts/Anton-Regular.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-400.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-600.ttf');font-weight:600;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-700.ttf');font-weight:700;font-display:block}
+.clip{position:absolute;inset:0;overflow:hidden}
+#s06-cosmic-orbit{position:absolute;inset:0;font-family:'Source Sans 3',sans-serif;background:#160E2A;--pulse:0;--acc:#B990FF}
+#s06-cosmic-orbit-camera{position:absolute;inset:0;will-change:transform}
+#s06-cosmic-orbit-world{position:absolute;left:0;top:0}
+#s06-cosmic-orbit-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
+  radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.20) 100%),
+  linear-gradient(180deg, rgba(58,86,200,0.096), rgba(58,86,200,0.038));}
+#s06-cosmic-orbit-wipe{position:absolute;inset:0;z-index:50;background:linear-gradient(180deg,#8F5FE8,#B990FF);transform:translateY(0)}
+#s06-cosmic-orbit-wipe .wipe-edge{position:absolute;left:0;right:0;bottom:0;height:26px;background:#F2ECFF;opacity:0.9}
+#s06-cosmic-orbit-fade{position:absolute;inset:0;z-index:60;background:#000;opacity:0}
+#s06-cosmic-orbit-cap{position:absolute;bottom:172px;left:80px;right:80px;display:flex;justify-content:center;z-index:10}
+.cap-box{max-width:860px;background:rgba(8,8,10,0.62);border:2px solid rgba(185,144,255,0.350);border-radius:26px;padding:22px 34px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 14px}
+.cw{font-family:'Source Sans 3';font-weight:700;font-size:47px;line-height:1.25;color:rgba(242,236,255,0.620);display:inline-block}#s06-cosmic-orbit-brand{position:absolute;top:92px;left:0;right:0;display:flex;justify-content:center;z-index:11}
+#s06-cosmic-orbit-brand{font-family:'Source Sans 3';font-weight:600;font-size:34px;letter-spacing:4px;color:#8D82B5;background:rgba(8,8,10,0.4);border-radius:999px;padding:10px 28px;width:max-content;margin:0 auto}
+.bdot{width:12px;height:12px;border-radius:6px;background:#B990FF;display:inline-block}
+</style>
+</head>
+<body>
+<div id="s06-cosmic-orbit" data-composition-id="s06-cosmic-orbit" data-width="1080" data-height="1920">
+  <div id="s06-cosmic-orbit-camera">
+    <svg id="s06-cosmic-orbit-world" viewBox="0 0 1080 1920" width="1080" height="1920">
+
+  <rect x="0" y="0" width="1080" height="1920" fill="#160E2A"/>
+  <defs><radialGradient id="s06-cosmic-orbit-cos-pl">
+    <stop offset="0" stop-color="rgba(185,144,255,0.900)"/><stop offset="0.7" stop-color="rgba(143,95,232,0.800)"/><stop offset="1" stop-color="rgba(143,95,232,0.100)"/>
+  </radialGradient></defs>
+  <g id="s06-cosmic-orbit-cos-sg0"><circle cx="19.41" cy="1693.77" r="1.9" fill="rgba(242,236,255,0.550)"/><circle cx="305.75" cy="1347.01" r="0.82" fill="rgba(242,236,255,0.550)"/><circle cx="289" cy="1146.78" r="0.62" fill="rgba(242,236,255,0.550)"/><circle cx="697.2" cy="400.07" r="1.65" fill="rgba(242,236,255,0.550)"/><circle cx="77.52" cy="266.34" r="1.13" fill="rgba(242,236,255,0.550)"/><circle cx="843.97" cy="996.71" r="2.33" fill="rgba(242,236,255,0.550)"/><circle cx="970.9" cy="692.89" r="0.9" fill="rgba(242,236,255,0.550)"/><circle cx="247.09" cy="1547.96" r="0.76" fill="rgba(242,236,255,0.550)"/><circle cx="74.47" cy="537.96" r="0.82" fill="rgba(242,236,255,0.550)"/><circle cx="159.26" cy="993.78" r="0.61" fill="rgba(242,236,255,0.550)"/><circle cx="159.77" cy="952.62" r="1.58" fill="rgba(242,236,255,0.550)"/><circle cx="868.06" cy="1186.33" r="2.26" fill="rgba(242,236,255,0.550)"/><circle cx="673.14" cy="1160.9" r="0.95" fill="rgba(242,236,255,0.550)"/><circle cx="688.19" cy="912.68" r="0.99" fill="rgba(242,236,255,0.550)"/><circle cx="68.12" cy="119.77" r="1.9" fill="rgba(242,236,255,0.550)"/><circle cx="342.45" cy="1045.88" r="0.68" fill="rgba(242,236,255,0.550)"/><circle cx="218.83" cy="354.44" r="1.01" fill="rgba(242,236,255,0.550)"/><circle cx="75.9" cy="7.65" r="0.66" fill="rgba(242,236,255,0.550)"/><circle cx="663.93" cy="1178.88" r="1.47" fill="rgba(242,236,255,0.550)"/><circle cx="518.11" cy="964.06" r="2.19" fill="rgba(242,236,255,0.550)"/><circle cx="1021.83" cy="1373.45" r="1.79" fill="rgba(242,236,255,0.550)"/><circle cx="471.18" cy="63.71" r="0.85" fill="rgba(242,236,255,0.550)"/><circle cx="216.01" cy="1647.08" r="0.72" fill="rgba(242,236,255,0.550)"/><circle cx="660.26" cy="1713.25" r="1.15" fill="rgba(242,236,255,0.550)"/><circle cx="486.2" cy="1584.89" r="1.75" fill="rgba(242,236,255,0.550)"/><circle cx="285.26" cy="1363.75" r="0.8" fill="rgba(242,236,255,0.550)"/><circle cx="502.59" cy="73.97" r="2.3" fill="rgba(242,236,255,0.550)"/><circle cx="571.64" cy="1154.23" r="1.22" fill="rgba(242,236,255,0.550)"/><circle cx="264.65" cy="838.28" r="1.03" fill="rgba(242,236,255,0.550)"/><circle cx="499.73" cy="475.46" r="1.14" fill="rgba(242,236,255,0.550)"/><circle cx="218.9" cy="157.08" r="0.9" fill="rgba(242,236,255,0.550)"/><circle cx="527.25" cy="1070.54" r="2.21" fill="rgba(242,236,255,0.550)"/><circle cx="675.41" cy="319.52" r="1.34" fill="rgba(242,236,255,0.550)"/><circle cx="569.97" cy="401.64" r="1.47" fill="rgba(242,236,255,0.550)"/><circle cx="877.99" cy="1435.7" r="1.17" fill="rgba(242,236,255,0.550)"/><circle cx="1001.88" cy="794.85" r="1.98" fill="rgba(242,236,255,0.550)"/><circle cx="713.29" cy="1616.47" r="1.06" fill="rgba(242,236,255,0.550)"/><circle cx="250.6" cy="237.43" r="0.81" fill="rgba(242,236,255,0.550)"/><circle cx="562.4" cy="1055.59" r="1.13" fill="rgba(242,236,255,0.550)"/><circle cx="718.86" cy="1069.94" r="1.79" fill="rgba(242,236,255,0.550)"/><circle cx="237.04" cy="1650.82" r="1.47" fill="rgba(242,236,255,0.550)"/><circle cx="194.92" cy="1712.07" r="0.73" fill="rgba(242,236,255,0.550)"/><circle cx="89.72" cy="643.48" r="0.84" fill="rgba(242,236,255,0.550)"/><circle cx="855.69" cy="262.18" r="1.49" fill="rgba(242,236,255,0.550)"/><circle cx="545.82" cy="1094.8" r="1.81" fill="rgba(242,236,255,0.550)"/><circle cx="238.88" cy="1726.64" r="0.68" fill="rgba(242,236,255,0.550)"/><circle cx="394.68" cy="83.83" r="2.22" fill="rgba(242,236,255,0.550)"/><circle cx="811.26" cy="844.59" r="2.08" fill="rgba(242,236,255,0.550)"/><circle cx="374.85" cy="706.63" r="0.97" fill="rgba(242,236,255,0.550)"/><circle cx="202.83" cy="1249.25" r="1.48" fill="rgba(242,236,255,0.550)"/></g>
+  <g id="s06-cosmic-orbit-cos-sg1"><circle cx="325.35" cy="374.79" r="1.21" fill="rgba(242,236,255,0.550)"/><circle cx="902.44" cy="1325.17" r="2.37" fill="rgba(242,236,255,0.550)"/><circle cx="1055.86" cy="105.71" r="2.07" fill="rgba(242,236,255,0.550)"/><circle cx="980.68" cy="789.22" r="1.49" fill="rgba(242,236,255,0.550)"/><circle cx="184.37" cy="1403.81" r="1.93" fill="rgba(242,236,255,0.550)"/><circle cx="137.87" cy="305.79" r="0.81" fill="rgba(242,236,255,0.550)"/><circle cx="489.56" cy="334.94" r="1.94" fill="rgba(242,236,255,0.550)"/><circle cx="939.71" cy="771.36" r="1.66" fill="rgba(242,236,255,0.550)"/><circle cx="826.27" cy="1013.27" r="1.23" fill="rgba(242,236,255,0.550)"/><circle cx="1078.63" cy="754.32" r="1.81" fill="rgba(242,236,255,0.550)"/><circle cx="542.11" cy="1508.54" r="1.63" fill="rgba(242,236,255,0.550)"/><circle cx="43.71" cy="394.77" r="1.35" fill="rgba(242,236,255,0.550)"/><circle cx="917.95" cy="256.04" r="0.97" fill="rgba(242,236,255,0.550)"/><circle cx="366.35" cy="684.73" r="1.51" fill="rgba(242,236,255,0.550)"/><circle cx="587.63" cy="1318.58" r="1.98" fill="rgba(242,236,255,0.550)"/><circle cx="441.19" cy="1381.99" r="0.62" fill="rgba(242,236,255,0.550)"/><circle cx="670.84" cy="87.02" r="0.65" fill="rgba(242,236,255,0.550)"/><circle cx="673.1" cy="791.21" r="1.07" fill="rgba(242,236,255,0.550)"/><circle cx="941.6" cy="1101.01" r="1.1" fill="rgba(242,236,255,0.550)"/><circle cx="943.89" cy="1430.39" r="1.94" fill="rgba(242,236,255,0.550)"/><circle cx="936.25" cy="589.52" r="1.07" fill="rgba(242,236,255,0.550)"/><circle cx="543.19" cy="121.54" r="1.76" fill="rgba(242,236,255,0.550)"/><circle cx="778.72" cy="1362.6" r="2.3" fill="rgba(242,236,255,0.550)"/><circle cx="858.43" cy="522.36" r="2.18" fill="rgba(242,236,255,0.550)"/><circle cx="402.74" cy="267.25" r="2.31" fill="rgba(242,236,255,0.550)"/><circle cx="247.41" cy="824.91" r="1.46" fill="rgba(242,236,255,0.550)"/><circle cx="620.94" cy="992.2" r="1.05" fill="rgba(242,236,255,0.550)"/><circle cx="788.65" cy="1624.46" r="1.37" fill="rgba(242,236,255,0.550)"/><circle cx="1029.21" cy="1488.28" r="0.94" fill="rgba(242,236,255,0.550)"/><circle cx="85.76" cy="535.41" r="0.79" fill="rgba(242,236,255,0.550)"/><circle cx="339.39" cy="1474.92" r="1.95" fill="rgba(242,236,255,0.550)"/><circle cx="630.54" cy="147.31" r="1.14" fill="rgba(242,236,255,0.550)"/><circle cx="886.6" cy="738.21" r="0.62" fill="rgba(242,236,255,0.550)"/><circle cx="118.6" cy="1566.76" r="0.97" fill="rgba(242,236,255,0.550)"/><circle cx="802.95" cy="489.02" r="1.85" fill="rgba(242,236,255,0.550)"/><circle cx="1012.35" cy="687.96" r="1.89" fill="rgba(242,236,255,0.550)"/><circle cx="284.66" cy="472.19" r="2.02" fill="rgba(242,236,255,0.550)"/><circle cx="497.86" cy="358.17" r="1.04" fill="rgba(242,236,255,0.550)"/><circle cx="113.49" cy="153.8" r="1.45" fill="rgba(242,236,255,0.550)"/><circle cx="325.91" cy="702.58" r="0.8" fill="rgba(242,236,255,0.550)"/><circle cx="112.06" cy="1307.67" r="0.63" fill="rgba(242,236,255,0.550)"/><circle cx="57.91" cy="1613.34" r="1.24" fill="rgba(242,236,255,0.550)"/><circle cx="178.86" cy="590.13" r="1.04" fill="rgba(242,236,255,0.550)"/><circle cx="431.41" cy="1724.82" r="1.64" fill="rgba(242,236,255,0.550)"/><circle cx="769.02" cy="493.46" r="0.71" fill="rgba(242,236,255,0.550)"/><circle cx="758.13" cy="1313.55" r="2.35" fill="rgba(242,236,255,0.550)"/><circle cx="509.91" cy="184.69" r="1.71" fill="rgba(242,236,255,0.550)"/><circle cx="924.87" cy="347.57" r="2.14" fill="rgba(242,236,255,0.550)"/><circle cx="723.33" cy="1.33" r="1.03" fill="rgba(242,236,255,0.550)"/><circle cx="1046.98" cy="862.42" r="1.17" fill="rgba(242,236,255,0.550)"/></g>
+  <g id="s06-cosmic-orbit-cos-sg2"><circle cx="476.99" cy="884.54" r="1.66" fill="rgba(242,236,255,0.550)"/><circle cx="999.24" cy="811.95" r="1.14" fill="rgba(242,236,255,0.550)"/><circle cx="192.39" cy="1598.99" r="2.09" fill="rgba(242,236,255,0.550)"/><circle cx="812.06" cy="1463.12" r="2.16" fill="rgba(242,236,255,0.550)"/><circle cx="726.68" cy="308.29" r="1.72" fill="rgba(242,236,255,0.550)"/><circle cx="280.83" cy="661.91" r="2.13" fill="rgba(242,236,255,0.550)"/><circle cx="345.8" cy="1711.14" r="1.12" fill="rgba(242,236,255,0.550)"/><circle cx="200.21" cy="1547.39" r="2.14" fill="rgba(242,236,255,0.550)"/><circle cx="617.66" cy="334.03" r="1.63" fill="rgba(242,236,255,0.550)"/><circle cx="354.87" cy="236.94" r="2.19" fill="rgba(242,236,255,0.550)"/><circle cx="526.36" cy="488.33" r="0.7" fill="rgba(242,236,255,0.550)"/><circle cx="470.26" cy="1676.1" r="1" fill="rgba(242,236,255,0.550)"/><circle cx="452.3" cy="1694.64" r="1.81" fill="rgba(242,236,255,0.550)"/><circle cx="298.19" cy="834.3" r="1.28" fill="rgba(242,236,255,0.550)"/><circle cx="152.24" cy="429.47" r="1.47" fill="rgba(242,236,255,0.550)"/><circle cx="550.33" cy="1037.58" r="1.36" fill="rgba(242,236,255,0.550)"/><circle cx="336.11" cy="1179.82" r="0.78" fill="rgba(242,236,255,0.550)"/><circle cx="723.78" cy="624.19" r="0.83" fill="rgba(242,236,255,0.550)"/><circle cx="820.77" cy="383.92" r="2.38" fill="rgba(242,236,255,0.550)"/><circle cx="631.39" cy="1295.11" r="0.66" fill="rgba(242,236,255,0.550)"/><circle cx="1049.35" cy="81.88" r="1.25" fill="rgba(242,236,255,0.550)"/><circle cx="128.98" cy="308.95" r="0.97" fill="rgba(242,236,255,0.550)"/><circle cx="805.47" cy="1272.41" r="1.16" fill="rgba(242,236,255,0.550)"/><circle cx="838.13" cy="911.08" r="1.74" fill="rgba(242,236,255,0.550)"/><circle cx="18.33" cy="977.63" r="0.88" fill="rgba(242,236,255,0.550)"/><circle cx="206.83" cy="1033.19" r="0.62" fill="rgba(242,236,255,0.550)"/><circle cx="293.57" cy="572.71" r="2.1" fill="rgba(242,236,255,0.550)"/><circle cx="391.99" cy="1446.23" r="0.76" fill="rgba(242,236,255,0.550)"/><circle cx="9.55" cy="1202.52" r="1.01" fill="rgba(242,236,255,0.550)"/><circle cx="998.23" cy="1533.79" r="1.09" fill="rgba(242,236,255,0.550)"/><circle cx="164.84" cy="183.11" r="1.79" fill="rgba(242,236,255,0.550)"/><circle cx="153.43" cy="648.04" r="2.17" fill="rgba(242,236,255,0.550)"/><circle cx="808.62" cy="583.36" r="0.98" fill="rgba(242,236,255,0.550)"/><circle cx="798.49" cy="1320.17" r="2.37" fill="rgba(242,236,255,0.550)"/><circle cx="910.82" cy="275.41" r="0.86" fill="rgba(242,236,255,0.550)"/><circle cx="849.14" cy="331.45" r="2.33" fill="rgba(242,236,255,0.550)"/><circle cx="900.66" cy="1456.66" r="0.86" fill="rgba(242,236,255,0.550)"/><circle cx="850.95" cy="700.23" r="0.86" fill="rgba(242,236,255,0.550)"/><circle cx="936.29" cy="1636.22" r="2.21" fill="rgba(242,236,255,0.550)"/><circle cx="131.76" cy="1034.27" r="1.18" fill="rgba(242,236,255,0.550)"/><circle cx="180.52" cy="1293.77" r="1.46" fill="rgba(242,236,255,0.550)"/><circle cx="33.6" cy="373.76" r="1.69" fill="rgba(242,236,255,0.550)"/><circle cx="70.06" cy="405.44" r="0.95" fill="rgba(242,236,255,0.550)"/><circle cx="583.73" cy="384.94" r="1.66" fill="rgba(242,236,255,0.550)"/><circle cx="956.58" cy="1420.24" r="0.97" fill="rgba(242,236,255,0.550)"/><circle cx="34.05" cy="421" r="2.19" fill="rgba(242,236,255,0.550)"/><circle cx="135.61" cy="109.79" r="1.08" fill="rgba(242,236,255,0.550)"/><circle cx="72.45" cy="1387.18" r="1.27" fill="rgba(242,236,255,0.550)"/><circle cx="594.77" cy="1523.41" r="1.83" fill="rgba(242,236,255,0.550)"/><circle cx="847.77" cy="546.84" r="1.33" fill="rgba(242,236,255,0.550)"/></g>
+  <ellipse cx="260" cy="420" rx="300" ry="170" fill="rgba(143,95,232,0.100)"/>
+  <ellipse cx="820" cy="640" rx="260" ry="140" fill="rgba(185,144,255,0.080)"/>
+  <ellipse id="s06-cosmic-orbit-cos-or0" cx="300" cy="1520" rx="430" ry="90" fill="none" stroke="rgba(141,130,181,0.400)" stroke-width="2" stroke-dasharray="14 18"/>
+  <ellipse id="s06-cosmic-orbit-cos-or1" cx="300" cy="1520" rx="310" ry="68" fill="none" stroke="rgba(141,130,181,0.400)" stroke-width="2" stroke-dasharray="14 18"/>
+  <circle cx="300" cy="1560" r="230" fill="url(#s06-cosmic-orbit-cos-pl)"/>
+  <ellipse cx="300" cy="1560" rx="380" ry="74" fill="none" stroke="rgba(185,144,255,0.550)" stroke-width="10" transform="rotate(-14 300 1560)"/>
+  <line id="s06-cosmic-orbit-cos-shoot" x1="180" y1="240" x2="230" y2="200" stroke="#F2ECFF" stroke-width="4" stroke-linecap="round" opacity="0"/>
+<circle id="s06-cosmic-orbit-fx-ring" cx="540" cy="820" r="60" fill="none" stroke="rgba(185,144,255,0.500)" stroke-width="14" opacity="0"/>
+<g id="s06-cosmic-orbit-char"><g id="s06-cosmic-orbit-to-root">
+  <ellipse id="s06-cosmic-orbit-to-shadow" cx="0" cy="7" rx="64" ry="12" fill="#000000" opacity="0.38"/>
+  <ellipse id="s06-cosmic-orbit-to-halo" cx="0" cy="-116" rx="130" ry="182" fill="var(--acc)" style="opacity:calc(0.07 + var(--pulse, 0) * 0.07)"/>
+
+  <g id="s06-cosmic-orbit-to-bob" transform="translate(0 0)">
+    <g id="s06-cosmic-orbit-to-squash" style="transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(calc(1 + var(--pulse, 0) * 0.033))">
+      <g id="s06-cosmic-orbit-to-lean" transform="rotate(0)">
+
+        
+        <g id="s06-cosmic-orbit-to-legsStand">
+          <g transform="translate(-17 -96)">
+            <g id="s06-cosmic-orbit-to-legL">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="4" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(17 -96)">
+            <g id="s06-cosmic-orbit-to-legR">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="-11" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(-3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <g id="s06-cosmic-orbit-to-legsSit" opacity="0">
+          <path d="M 0 -96 q -42 -12 -62 12 q 30 16 62 6 z" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+          <path d="M 0 -96 q 42 -12 62 12 q -30 16 -62 6 z" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+          <ellipse cx="-54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="-54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+          <ellipse cx="54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+        </g>
+
+        
+        <g transform="translate(0 -96)">
+          <g id="s06-cosmic-orbit-to-torso">
+            <path d="M -37 10 Q -45 -50 -30 -70 L 30 -70 Q 45 -50 37 10 Q 0 20 -37 10 Z"
+                  fill="#262731" stroke="#0D0E13" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M -22 -8 Q 0 0 22 -8" stroke="#17181F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M -9 -63 q -2 15 -5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 9 -63 q 2 15 5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="0" cy="-24" r="7" fill="#E8B84B"/>
+            <circle cx="0" cy="-24" r="7" fill="none" stroke="#17181F" stroke-width="2"/>
+            <path id="s06-cosmic-orbit-to-rimT" d="M -37 10 Q -45 -50 -30 -70" fill="none" stroke="var(--acc)"
+                  stroke-width="4" stroke-linecap="round" style="opacity:calc(0.5 + var(--pulse, 0) * 0.3)"/>
+
+            
+            <g id="s06-cosmic-orbit-to-barbell" opacity="0" transform="translate(0 -78)">
+              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
+              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+            </g>
+
+            
+            <g transform="translate(-33 -62)">
+              <g id="s06-cosmic-orbit-to-armL">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s06-cosmic-orbit-to-forearmL">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(33 -62)">
+              <g id="s06-cosmic-orbit-to-armR">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s06-cosmic-orbit-to-forearmR">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            
+            <g transform="translate(0 -70)">
+              <g id="s06-cosmic-orbit-to-head">
+                <ellipse cx="0" cy="-34" rx="33" ry="33" fill="#17181F" stroke="#0D0E13" stroke-width="3.5"/>
+                <ellipse cx="8" cy="-30" rx="20" ry="17" fill="#0B0C10" opacity="0.92"/>
+                <path d="M -33 -38 Q 0 -76 33 -38 Z" fill="#262731" stroke="#0D0E13" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M -33 -38 Q 0 -76 33 -38" fill="none" stroke="#E8B84B" stroke-width="3"/>
+                <rect x="6" y="-40" width="42" height="11" rx="5.5" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                <circle cx="-2" cy="-49" r="5.5" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <path id="s06-cosmic-orbit-to-rimL" d="M -28 -88 L -28 -28" stroke="var(--acc)" stroke-width="3"
+              stroke-linecap="round" fill="none" style="opacity:calc(0.45 + var(--pulse, 0) * 0.3)"/>
+      </g>
+    </g>
+  </g>
+</g></g>
+    </svg>
+  </div>
+  <div id="s06-cosmic-orbit-grade"></div>
+  <div id="s06-cosmic-orbit-cap"><div class="cap-box"><span class="cw" id="s06-cosmic-orbit-cw-0">Link</span><span class="cw" id="s06-cosmic-orbit-cw-1">in</span><span class="cw" id="s06-cosmic-orbit-cw-2">bio.</span></div></div><div id="s06-cosmic-orbit-brand"><span class="bdot"></span>@SELF_EFFICIENT_DAILY</div>
+  <div id="s06-cosmic-orbit-wipe"><div class="wipe-edge"></div></div>
+  <div id="s06-cosmic-orbit-fade"></div>
+</div>
+<script>
+(function () {
+  const v7 = {};
+// v7 scene-kit — shared browser runtime inlined into every scene by build.mjs.
+// Camera creep, audio-envelope proxy (--pulse CSS var), hook slam, karaoke
+// captions, counters, brand tag, onset fx, flood wipe-in, grade veil.
+// Everything is a pure function of the paused GSAP timeline (deterministic).
+/* global v7 */
+(function () {
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+
+  // ---- audio envelope proxy: one tween drives the --pulse CSS var -------
+  v7.envProxy = function (tl, p, rootId, env, dur) {
+    if (!env || env.length === 0 || dur <= 0.02) return;
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const prox = { t: 0 };
+    tl.to(prox, {
+      t: dur,
+      duration: dur,
+      ease: "none",
+      onUpdate: function () {
+        const f = Math.min(env.length - 1, Math.max(0, Math.round(prox.t * 30)));
+        root.style.setProperty("--pulse", env[f].toFixed(3));
+      },
+    }, 0);
+  };
+
+  // ---- camera: keyed [t,x,y,zoom,rot] -> sequential fromTo on #camera ----
+  v7.camera = function (tl, p, keys, dur) {
+    if (!keys || keys.length === 0) return;
+    const cam = "#" + p + "camera";
+    if (keys.length === 1) {
+      const k = keys[0];
+      tl.set(cam, { x: -k.x, y: -k.y, scale: k.zoom, rotation: k.rot }, 0.001);
+      return;
+    }
+    for (let i = 0; i < keys.length - 1; i++) {
+      const a = keys[i];
+      const b = keys[i + 1];
+      const span = Math.max(0.05, b.t - a.t);
+      tl.fromTo(cam,
+        { x: -a.x, y: -a.y, scale: a.zoom, rotation: a.rot },
+        { x: -b.x, y: -b.y, scale: b.zoom, rotation: b.rot, duration: span, ease: "power2.inOut" },
+        Math.max(0, a.t));
+    }
+  };
+
+  // ---- hook type: per-character spring slam --------------------------------
+  v7.hook = function (tl, p, lines, th, dur) {
+    const box = "#" + p + "hook";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+    let delay = 0.05;
+    lines.forEach((line, li) => {
+      const chars = line.split("");
+      chars.forEach((ch, ci) => {
+        const sel = `#${p}hk-${li}-${ci}`;
+        if (ch === " ") return;
+        tl.fromTo(sel,
+          { opacity: 0, scale: 0.6, y: 26 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" },
+          delay + ci * 0.035);
+      });
+      delay += 0.14 + Math.min(0.5, chars.length * 0.035);
+    });
+    // hold, then shrink away just before scene end
+    tl.to(box, { scale: 0.94, duration: 0.3, ease: "power2.in" }, Math.max(0.1, dur - 0.32));
+  };
+
+  // ---- karaoke captions: word-level color/scale sync -----------------------
+  v7.captions = function (tl, p, words, th, sceneDur, sceneStart) {
+    const box = "#" + p + "cap";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.02);
+    words.forEach((w, i) => {
+      const sel = `#${p}cw-${i}`;
+      const ws = Math.max(0, w.start - sceneStart);
+      const we = Math.min(sceneDur - 0.05, w.end - sceneStart);
+      if (we <= ws) return;
+      // upcoming -> active (white, pop)
+      tl.fromTo(sel,
+        { color: th.inkSoft, scale: 1 },
+        { color: "#FFFFFF", scale: 1.1, duration: 0.09, ease: "power2.out" },
+        ws);
+      // active -> spoken (accent, settle)
+      tl.to(sel, { color: th.accent, scale: 1, duration: 0.12, ease: "power2.out" }, we);
+    });
+  };
+
+  // ---- animated counter ------------------------------------------------------
+  v7.counter = function (tl, p, counter, dur) {
+    const box = "#" + p + "ctr";
+    const numEl = document.getElementById(p + "ctr-num");
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 0.05);
+    const dec = counter.decimals || 0;
+    const prox = { v: counter.from };
+    tl.fromTo(prox,
+      { v: counter.from },
+      { v: counter.to, duration: dur * 0.7, ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = (counter.prefix || "") + prox.v.toFixed(dec) + (counter.suffix || "");
+        } },
+      0.08);
+  };
+
+  // ---- brand tag: settle-in + tiny bob ---------------------------------------
+  v7.brand = function (tl, p, dur) {
+    const tag = "#" + p + "brand";
+    tl.set(tag, { opacity: 0 }, 0.001);
+    tl.fromTo(tag, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo(tag, { y: 0 }, { y: -4, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.6)) - 1 }, 0.5);
+  };
+
+  // ---- onset fx ---------------------------------------------------------------
+  // shockwave ring + speed lines + flash, placed at scene-local onset times
+  v7.onsetFx = function (tl, p, th, onsets, fxKeys, dur) {
+    const has = (k) => fxKeys && fxKeys.indexOf(k) >= 0;
+    onsets.forEach((t0) => {
+      if (t0 <= 0.05 || t0 >= dur - 0.05) return;
+      if (has("shockwave")) {
+        const ring = "#" + p + "fx-ring";
+        tl.set(ring, { attr: { r: 60, opacity: 0 } }, t0 - 0.001);
+        tl.fromTo(ring,
+          { attr: { r: 60, opacity: 0.5 } },
+          { attr: { r: 700, opacity: 0 }, duration: 0.55, ease: "power2.out" },
+          t0);
+      }
+      if (has("speedlines")) {
+        const g = "#" + p + "fx-speed";
+        tl.set(g, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(g,
+          { opacity: 0.55, scale: 1.15 },
+          { opacity: 0, scale: 1, duration: 0.4, ease: "power2.out", transformOrigin: "50% 51%" },
+          t0);
+      }
+      if (has("flash")) {
+        const f = "#" + p + "fx-flash";
+        tl.set(f, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(f, { opacity: 0.16 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, t0);
+      }
+    });
+  };
+
+  // ---- flood wipe-in at scene start -------------------------------------------
+  v7.wipe = function (tl, p, isFirst, dur) {
+    const panel = "#" + p + "wipe";
+    if (isFirst) {
+      const fade = "#" + p + "fade";
+      tl.set(fade, { opacity: 1 }, 0.001);
+      tl.fromTo(fade, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.02);
+      tl.set(panel, { opacity: 0 }, 0.001);
+      return;
+    }
+    tl.set(panel, { opacity: 1 }, 0.001);
+    tl.fromTo(panel,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.46, ease: "power3.inOut" },
+      0.02);
+    // trailing edge accent line
+    const edge = "#" + p + "wipe-edge";
+    tl.fromTo(edge,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.5, ease: "power3.inOut" },
+      0.02);
+  };
+
+  // ---- character: place rig wrapper (static) and run action ------------------
+  v7.placeCharacter = function (p, pos, scale, facing) {
+    const el = document.getElementById(p + "char");
+    if (!el) return;
+    el.setAttribute("transform",
+      `translate(${pos[0]} ${pos[1]}) scale(${(scale * (facing || 1)).toFixed(3)} ${scale.toFixed(3)})`);
+  };
+})();
+
+// TheOne character runtime — inlined into every scene by build.mjs.
+// Applies GSAP tweens to the canonical rig. The rig markup is byte-identical
+// in every scene (only ids get a scene prefix); these joint rotations are the
+// ONLY per-scene variation, so identity and proportions cannot drift.
+// Determinism: finite repeats only, absolute times, pure function of timeline.
+/* global v7 */
+(function () {
+  // Joint oscillation around `base` between base+amp and base-amp.
+  // yoyo with sine.inOut approximates sin(t) closely at joint scale.
+  function swing(tl, sel, base, amp, cycleSec, dur, phase) {
+    if (amp === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    const from = base + (phase >= 0 ? amp : -amp);
+    tl.fromTo(
+      sel,
+      { attr: { transform: `rotate(${from.toFixed(2)})` } },
+      { attr: { transform: `rotate(${(2 * base - from).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+  // Bounded bounce (0 -> -depth -> 0) on the bob wrapper.
+  function bounce(tl, sel, depth, cycleSec, dur) {
+    if (depth === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    tl.fromTo(
+      sel,
+      { attr: { transform: "translate(0 0)" } },
+      { attr: { transform: `translate(0 ${(-depth).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+
+  // p = scene id prefix, e.g. "s01-" (rig ids are `${p}to-…`)
+  v7.character = function (tl, p, action, dur) {
+    const g = (n) => "#" + p + n;
+    const seated = action === "meditate" || action === "levitate";
+
+    tl.set(g("to-legsStand"), { attr: { opacity: seated ? 0 : 1 } }, 0.001);
+    tl.set(g("to-legsSit"), { attr: { opacity: seated ? 1 : 0 } }, 0.001);
+
+    const S = {
+      idle:     { lean: 0,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      walk:     { lean: 2,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      run:      { lean: -9,  head: -3, fArmL: 42,  fArmR: 42,  barbell: 0 },
+      climb:    { lean: 14,  head: -6, fArmL: 8,   fArmR: 8,   barbell: 0 },
+      lift:     { lean: 0,   head: 0,  fArmL: 6,   fArmR: 6,   barbell: 1 },
+      meditate: { lean: 0,   head: 2,  fArmL: 32,  fArmR: -32, barbell: 0 },
+      levitate: { lean: 0,   head: -2, fArmL: 14,  fArmR: -14, barbell: 0 },
+      victory:  { lean: 0,   head: -2, fArmL: 6,   fArmR: 6,   barbell: 0 },
+      point:    { lean: 3,   head: 4,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+    }[action] || { lean: 0, head: 0, fArmL: 0, fArmR: 0, barbell: 0 };
+
+    tl.set(g("to-lean"), { attr: { transform: `rotate(${S.lean})` } }, 0.001);
+    tl.set(g("to-head"), { attr: { transform: `rotate(${S.head})` } }, 0.001);
+    tl.set(g("to-forearmL"), { attr: { transform: `rotate(${S.fArmL})` } }, 0.001);
+    tl.set(g("to-forearmR"), { attr: { transform: `rotate(${S.fArmR})` } }, 0.001);
+    tl.set(g("to-barbell"), { attr: { opacity: S.barbell } }, 0.001);
+
+    switch (action) {
+      case "idle":
+        swing(tl, g("to-armL"), 0, 4, 1.1, dur, 1);
+        swing(tl, g("to-armR"), 0, 4, 1.1, dur, -1);
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+        break;
+      case "walk":
+        swing(tl, g("to-legL"), 0, 24, 0.667, dur, 1);
+        swing(tl, g("to-legR"), 0, 24, 0.667, dur, -1);
+        swing(tl, g("to-armL"), 0, 16, 0.667, dur, -1);
+        swing(tl, g("to-armR"), 0, 16, 0.667, dur, 1);
+        bounce(tl, g("to-bob"), 5, 0.333, dur);
+        break;
+      case "run":
+        swing(tl, g("to-legL"), 0, 40, 0.385, dur, 1);
+        swing(tl, g("to-legR"), 0, 40, 0.385, dur, -1);
+        swing(tl, g("to-armL"), 0, 34, 0.385, dur, -1);
+        swing(tl, g("to-armR"), 0, 34, 0.385, dur, 1);
+        bounce(tl, g("to-bob"), 7, 0.192, dur);
+        break;
+      case "climb":
+        // arms reach up alternately around 150°, knees step
+        swing(tl, g("to-armL"), 150, 26, 1.11, dur, 1);
+        swing(tl, g("to-armR"), 150, 26, 1.11, dur, -1);
+        swing(tl, g("to-legL"), 28, 16, 1.11, dur, 1);
+        swing(tl, g("to-legR"), 28, 16, 1.11, dur, -1);
+        bounce(tl, g("to-bob"), 3, 1.11, dur);
+        break;
+      case "lift": {
+        const cyc = 1.82;
+        const reps = Math.max(1, Math.ceil(dur / cyc));
+        for (let i = 0; i < reps; i++) {
+          const t0 = i * cyc;
+          tl.fromTo(g("to-armL"),
+            { attr: { transform: "rotate(168)" } },
+            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.fromTo(g("to-armR"),
+            { attr: { transform: "rotate(-168)" } },
+            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-barbell"),
+            { attr: { transform: "translate(0 -108)" } },
+            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-bob"),
+            { attr: { transform: "translate(0 0)" } },
+            { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+        }
+        break;
+      }
+      case "meditate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(38)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-38)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 2.0, dur);
+        break;
+      case "levitate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(62)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-62)" } }, 0.002);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 -14)" } },
+          { attr: { transform: "translate(0 -23)" }, duration: 1.11, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.11)) - 1 },
+          0);
+        break;
+      case "victory":
+        // arms held up (~160°) with a slight sway + one hop
+        tl.fromTo(g("to-armL"),
+          { attr: { transform: "rotate(158)" } },
+          { attr: { transform: "rotate(163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-armR"),
+          { attr: { transform: "rotate(-158)" } },
+          { attr: { transform: "rotate(-163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 0)" } },
+          { attr: { transform: "translate(0 -12)" }, duration: 0.36, ease: "sine.out" },
+          0);
+        tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: 0.36, ease: "bounce.in" }, 0.36);
+        break;
+      case "point":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 1.4, dur);
+        break;
+      default:
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+    }
+  };
+})();
+
+  const SID = "s06-cosmic-orbit";
+  const P = "s06-cosmic-orbit-";
+  const DUR = 2.1;
+  const ENV = [0.181,0.148,0.122,0.1,0.082,0.067,0.055,0.045,0.037,0.03,0.025,0.02,0.017,0.014,0.011,0.009,0.008,0.006,0.005,0.004,0.069,0.365,0.388,0.527,0.892,1,1,1,0.82,0.672,0.981,1,1,1,0.82,0.672,0.844,0.692,0.605,0.496,0.407,0.385,0.35,0.287,0.237,0.198,0.162,0.133,0.109,0.089,0.073,0.06,0.049,0.04,0.033,0,0,0,0,0,0,0,0];
+  const ONSETS = [0.7,1];
+  const SCENE = {"action":"victory","type":"caption","camera":[{"t":0,"x":0,"y":0,"zoom":1.03,"rot":-1},{"t":2.0474999999999994,"x":-30,"y":-40,"zoom":1.1,"rot":1}],"fx":["shockwave"],"counter":null,"hookLines":null,"words":[{"w":"Link","start":0.20750000000000135,"end":0.8219230769230776},{"w":"in","start":0.8219230769230776,"end":1.1905769230769234},{"w":"bio.","start":1.1905769230769234,"end":1.8049999999999997}],"startSec":8.2};
+  const TH = {"bg":"#160E2A","panel":"#201543","accent":"#B990FF","accentDeep":"#8F5FE8","ink":"#F2ECFF","inkSoft":"#8D82B5"};
+  const gsap = window.gsap;
+  const tl = gsap.timeline({ paused: true });
+
+  v7.wipe(tl, P, false, DUR);
+  v7.camera(tl, P, SCENE.camera, DUR);
+  v7.envProxy(tl, P, SID, ENV, DUR);
+tl.fromTo("#s06-cosmic-orbit-cos-or0",{attr:{transform:"rotate(0 300 1520)"}},{attr:{transform:"rotate(12.6 300 1520)"}},0);
+  tl.fromTo("#s06-cosmic-orbit-cos-or1",{attr:{transform:"rotate(0 300 1520)"}},{attr:{transform:"rotate(-21 300 1520)"}},0);
+tl.fromTo("#s06-cosmic-orbit-cos-sg0",{opacity:0.35},{opacity:1,duration:1.1,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s06-cosmic-orbit-cos-sg1",{opacity:0.35},{opacity:1,duration:1.55,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s06-cosmic-orbit-cos-sg2",{opacity:0.35},{opacity:1,duration:1.35,ease:"sine.inOut",yoyo:true,repeat:1},0);
+tl.fromTo("#s06-cosmic-orbit-cos-shoot",{opacity:0},{opacity:1,duration:0.06},0.7);
+tl.fromTo("#s06-cosmic-orbit-cos-shoot",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(440 320)"},duration:0.5,ease:"power2.in"},0.7);
+tl.fromTo("#s06-cosmic-orbit-cos-shoot",{opacity:1},{opacity:0,duration:0.5,ease:"power2.out"},0.7);
+tl.fromTo("#s06-cosmic-orbit-cos-shoot",{opacity:0},{opacity:1,duration:0.06},1);
+tl.fromTo("#s06-cosmic-orbit-cos-shoot",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(440 320)"},duration:0.5,ease:"power2.in"},1);
+tl.fromTo("#s06-cosmic-orbit-cos-shoot",{opacity:1},{opacity:0,duration:0.5,ease:"power2.out"},1);
+
+
+  v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
+v7.placeCharacter(P, [780,820], 2, -1);
+  v7.character(tl, P, SCENE.action, DUR);
+  if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
+  if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);
+  if (SCENE.counter) v7.counter(tl, P, SCENE.counter, DUR);
+  if (SCENE.type !== "cta") v7.brand(tl, P, DUR);
+
+
+  window.__timelines[SID] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

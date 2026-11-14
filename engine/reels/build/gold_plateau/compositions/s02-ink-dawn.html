@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>s02-ink-dawn</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+@font-face{font-family:'Anton';src:url('assets/fonts/Anton-Regular.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-400.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-600.ttf');font-weight:600;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-700.ttf');font-weight:700;font-display:block}
+.clip{position:absolute;inset:0;overflow:hidden}
+#s02-ink-dawn{position:absolute;inset:0;font-family:'Source Sans 3',sans-serif;background:#141009;--pulse:0;--acc:#E8B84B}
+#s02-ink-dawn-camera{position:absolute;inset:0;will-change:transform}
+#s02-ink-dawn-world{position:absolute;left:0;top:0}
+#s02-ink-dawn-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
+  radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.20) 100%),
+  linear-gradient(180deg, rgba(232,184,75,0.096), rgba(232,184,75,0.038));}
+#s02-ink-dawn-wipe{position:absolute;inset:0;z-index:50;background:linear-gradient(180deg,#C9A227,#E8B84B);transform:translateY(0)}
+#s02-ink-dawn-wipe .wipe-edge{position:absolute;left:0;right:0;bottom:0;height:26px;background:#F5EDD8;opacity:0.9}
+#s02-ink-dawn-fade{position:absolute;inset:0;z-index:60;background:#000;opacity:0}
+#s02-ink-dawn-cap{position:absolute;bottom:172px;left:80px;right:80px;display:flex;justify-content:center;z-index:10}
+.cap-box{max-width:860px;background:rgba(8,8,10,0.62);border:2px solid rgba(232,184,75,0.350);border-radius:26px;padding:22px 34px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 14px}
+.cw{font-family:'Source Sans 3';font-weight:700;font-size:47px;line-height:1.25;color:rgba(245,237,216,0.620);display:inline-block}#s02-ink-dawn-brand{position:absolute;top:92px;left:0;right:0;display:flex;justify-content:center;z-index:11}
+#s02-ink-dawn-brand{font-family:'Source Sans 3';font-weight:600;font-size:34px;letter-spacing:4px;color:#A89468;background:rgba(8,8,10,0.4);border-radius:999px;padding:10px 28px;width:max-content;margin:0 auto}
+.bdot{width:12px;height:12px;border-radius:6px;background:#E8B84B;display:inline-block}
+</style>
+</head>
+<body>
+<div id="s02-ink-dawn" data-composition-id="s02-ink-dawn" data-width="1080" data-height="1920">
+  <div id="s02-ink-dawn-camera">
+    <svg id="s02-ink-dawn-world" viewBox="0 0 1080 1920" width="1080" height="1920">
+
+  <rect x="0" y="0" width="1080" height="1920" fill="#141009"/>
+  <g id="s02-ink-dawn-ink-sun">
+    <circle cx="740" cy="1290" r="110" fill="rgba(232,184,75,0.950)"/>
+    <circle cx="740" cy="1290" r="126" fill="none" stroke="rgba(232,184,75,0.500)" stroke-width="2"/>
+    <circle cx="740" cy="1290" r="190" fill="none" stroke="rgba(232,184,75,0.280)" stroke-width="2" stroke-dasharray="10 14"/>
+    <circle cx="740" cy="1290" r="260" fill="none" stroke="rgba(232,184,75,0.280)" stroke-width="2" stroke-dasharray="10 14"/>
+  </g>
+  <g id="s02-ink-dawn-ink-m0"><path d="M -240 1930 L -240 950 -120,922.01 L 45,903.61 L 210,929.07 L 375,843.86 L 540,917.75 L 705,918.65 L 870,946.98 L 1035,940.72 L 1200,854.66 L 1320 950 L 1320 1930 Z" fill="#413c32"/></g>
+  <g id="s02-ink-dawn-ink-m1"><path d="M -240 1930 L -240 1130 -120,1129.37 L 45,1071.02 L 210,993.64 L 375,1049.42 L 540,1107.33 L 705,946.47 L 870,1110.64 L 1035,1087.27 L 1200,995.45 L 1320 1130 L 1320 1930 Z" fill="#615c50"/></g>
+  <g id="s02-ink-dawn-ink-m2"><path d="M -240 1930 L -240 1310 -120,1235.48 L 45,1170.07 L 210,1240.86 L 375,1088.33 L 540,1186.36 L 705,1296.09 L 870,1144.56 L 1035,1169.71 L 1200,1133.38 L 1320 1310 L 1320 1930 Z" fill="#898375"/></g>
+  <g id="s02-ink-dawn-ink-m3"><path d="M -240 1930 L -240 1490 -120,1357.51 L 45,1334.32 L 210,1419.75 L 375,1345.33 L 540,1184.02 L 705,1417.7 L 870,1240.88 L 1035,1230.58 L 1200,1374.54 L 1320 1490 L 1320 1930 Z" fill="#b1aa99"/></g>
+  <g id="s02-ink-dawn-ink-m4"><path d="M -240 1930 L -240 1670 -120,1430.43 L 45,1367.79 L 210,1668.16 L 375,1451.21 L 540,1592.71 L 705,1527.66 L 870,1466.23 L 1035,1648.42 L 1200,1495.05 L 1320 1670 L 1320 1930 Z" fill="#dad2bf"/></g>
+  <rect id="s02-ink-dawn-ink-mist0" x="-140" y="1060" width="1400" height="54" rx="27" fill="rgba(28,23,16,0.500)"/>
+  <rect id="s02-ink-dawn-ink-mist1" x="80" y="1180" width="1400" height="54" rx="27" fill="rgba(28,23,16,0.500)"/>
+  <rect id="s02-ink-dawn-ink-mist2" x="300" y="1300" width="1400" height="54" rx="27" fill="rgba(28,23,16,0.500)"/>
+  <g id="s02-ink-dawn-ink-bird0"><path d="M -14 -6 Q 0 8 14 -6" stroke="#F5EDD8" stroke-width="4" fill="none" stroke-linecap="round"/></g><g id="s02-ink-dawn-ink-bird1"><path d="M -14 -6 Q 0 8 14 -6" stroke="#F5EDD8" stroke-width="4" fill="none" stroke-linecap="round"/></g><g id="s02-ink-dawn-ink-bird2"><path d="M -14 -6 Q 0 8 14 -6" stroke="#F5EDD8" stroke-width="4" fill="none" stroke-linecap="round"/></g><g id="s02-ink-dawn-ink-bird3"><path d="M -14 -6 Q 0 8 14 -6" stroke="#F5EDD8" stroke-width="4" fill="none" stroke-linecap="round"/></g><g id="s02-ink-dawn-ink-bird4"><path d="M -14 -6 Q 0 8 14 -6" stroke="#F5EDD8" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+<g id="s02-ink-dawn-fx-dust"><circle id="s02-ink-dawn-fx-d0" cx="-37.8" cy="162.6" r="3.0" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d1" cx="1107.5" cy="1471.5" r="1.7" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d2" cx="242.1" cy="1910.0" r="3.2" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d3" cx="920.1" cy="1113.7" r="3.4" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d4" cx="1083.8" cy="1876.5" r="1.9" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d5" cx="493.3" cy="100.5" r="3.8" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d6" cx="169.9" cy="273.8" r="1.6" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d7" cx="810.7" cy="530.3" r="1.6" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d8" cx="862.7" cy="207.7" r="3.2" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d9" cx="78.6" cy="378.3" r="1.9" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d10" cx="602.4" cy="194.0" r="3.9" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d11" cx="331.1" cy="191.8" r="2.9" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d12" cx="876.9" cy="1258.3" r="3.7" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d13" cx="626.9" cy="-33.2" r="2.2" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d14" cx="247.5" cy="1561.2" r="3.5" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d15" cx="1111.7" cy="1432.5" r="1.6" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d16" cx="425.8" cy="560.4" r="2.4" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d17" cx="940.5" cy="880.7" r="2.7" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d18" cx="1081.7" cy="742.8" r="3.6" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d19" cx="445.4" cy="243.6" r="1.7" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d20" cx="871.4" cy="1009.7" r="3.0" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d21" cx="265.8" cy="538.0" r="1.9" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d22" cx="1139.4" cy="-46.8" r="2.3" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d23" cx="609.1" cy="58.9" r="1.5" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d24" cx="443.2" cy="1326.6" r="1.7" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d25" cx="648.5" cy="744.8" r="3.3" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d26" cx="546.0" cy="86.1" r="3.7" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d27" cx="498.2" cy="459.5" r="1.9" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d28" cx="245.1" cy="1288.8" r="2.5" fill="rgba(245,237,216,0.300)"/><circle id="s02-ink-dawn-fx-d29" cx="208.4" cy="1905.7" r="2.6" fill="rgba(245,237,216,0.300)"/></g>
+<g id="s02-ink-dawn-char"><g id="s02-ink-dawn-to-root">
+  <ellipse id="s02-ink-dawn-to-shadow" cx="0" cy="7" rx="64" ry="12" fill="#000000" opacity="0.38"/>
+  <ellipse id="s02-ink-dawn-to-halo" cx="0" cy="-116" rx="130" ry="182" fill="var(--acc)" style="opacity:calc(0.07 + var(--pulse, 0) * 0.07)"/>
+
+  <g id="s02-ink-dawn-to-bob" transform="translate(0 0)">
+    <g id="s02-ink-dawn-to-squash" style="transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(calc(1 + var(--pulse, 0) * 0.033))">
+      <g id="s02-ink-dawn-to-lean" transform="rotate(0)">
+
+        
+        <g id="s02-ink-dawn-to-legsStand">
+          <g transform="translate(-17 -96)">
+            <g id="s02-ink-dawn-to-legL">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="4" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(17 -96)">
+            <g id="s02-ink-dawn-to-legR">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="-11" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(-3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <g id="s02-ink-dawn-to-legsSit" opacity="0">
+          <path d="M 0 -96 q -42 -12 -62 12 q 30 16 62 6 z" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+          <path d="M 0 -96 q 42 -12 62 12 q -30 16 -62 6 z" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+          <ellipse cx="-54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="-54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+          <ellipse cx="54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+        </g>
+
+        
+        <g transform="translate(0 -96)">
+          <g id="s02-ink-dawn-to-torso">
+            <path d="M -37 10 Q -45 -50 -30 -70 L 30 -70 Q 45 -50 37 10 Q 0 20 -37 10 Z"
+                  fill="#262731" stroke="#0D0E13" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M -22 -8 Q 0 0 22 -8" stroke="#17181F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M -9 -63 q -2 15 -5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 9 -63 q 2 15 5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="0" cy="-24" r="7" fill="#E8B84B"/>
+            <circle cx="0" cy="-24" r="7" fill="none" stroke="#17181F" stroke-width="2"/>
+            <path id="s02-ink-dawn-to-rimT" d="M -37 10 Q -45 -50 -30 -70" fill="none" stroke="var(--acc)"
+                  stroke-width="4" stroke-linecap="round" style="opacity:calc(0.5 + var(--pulse, 0) * 0.3)"/>
+
+            
+            <g id="s02-ink-dawn-to-barbell" opacity="0" transform="translate(0 -78)">
+              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
+              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+            </g>
+
+            
+            <g transform="translate(-33 -62)">
+              <g id="s02-ink-dawn-to-armL">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s02-ink-dawn-to-forearmL">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(33 -62)">
+              <g id="s02-ink-dawn-to-armR">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s02-ink-dawn-to-forearmR">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            
+            <g transform="translate(0 -70)">
+              <g id="s02-ink-dawn-to-head">
+                <ellipse cx="0" cy="-34" rx="33" ry="33" fill="#17181F" stroke="#0D0E13" stroke-width="3.5"/>
+                <ellipse cx="8" cy="-30" rx="20" ry="17" fill="#0B0C10" opacity="0.92"/>
+                <path d="M -33 -38 Q 0 -76 33 -38 Z" fill="#262731" stroke="#0D0E13" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M -33 -38 Q 0 -76 33 -38" fill="none" stroke="#E8B84B" stroke-width="3"/>
+                <rect x="6" y="-40" width="42" height="11" rx="5.5" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                <circle cx="-2" cy="-49" r="5.5" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <path id="s02-ink-dawn-to-rimL" d="M -28 -88 L -28 -28" stroke="var(--acc)" stroke-width="3"
+              stroke-linecap="round" fill="none" style="opacity:calc(0.45 + var(--pulse, 0) * 0.3)"/>
+      </g>
+    </g>
+  </g>
+</g></g>
+    </svg>
+  </div>
+  <div id="s02-ink-dawn-grade"></div>
+  <div id="s02-ink-dawn-cap"><div class="cap-box"><span class="cw" id="s02-ink-dawn-cw-0">The</span><span class="cw" id="s02-ink-dawn-cw-1">workout</span><span class="cw" id="s02-ink-dawn-cw-2">that</span><span class="cw" id="s02-ink-dawn-cw-3">changes</span><span class="cw" id="s02-ink-dawn-cw-4">nothing.</span></div></div><div id="s02-ink-dawn-brand"><span class="bdot"></span>@SELF_EFFICIENT_DAILY</div>
+  <div id="s02-ink-dawn-wipe"><div class="wipe-edge"></div></div>
+  <div id="s02-ink-dawn-fade"></div>
+</div>
+<script>
+(function () {
+  const v7 = {};
+// v7 scene-kit — shared browser runtime inlined into every scene by build.mjs.
+// Camera creep, audio-envelope proxy (--pulse CSS var), hook slam, karaoke
+// captions, counters, brand tag, onset fx, flood wipe-in, grade veil.
+// Everything is a pure function of the paused GSAP timeline (deterministic).
+/* global v7 */
+(function () {
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+
+  // ---- audio envelope proxy: one tween drives the --pulse CSS var -------
+  v7.envProxy = function (tl, p, rootId, env, dur) {
+    if (!env || env.length === 0 || dur <= 0.02) return;
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const prox = { t: 0 };
+    tl.to(prox, {
+      t: dur,
+      duration: dur,
+      ease: "none",
+      onUpdate: function () {
+        const f = Math.min(env.length - 1, Math.max(0, Math.round(prox.t * 30)));
+        root.style.setProperty("--pulse", env[f].toFixed(3));
+      },
+    }, 0);
+  };
+
+  // ---- camera: keyed [t,x,y,zoom,rot] -> sequential fromTo on #camera ----
+  v7.camera = function (tl, p, keys, dur) {
+    if (!keys || keys.length === 0) return;
+    const cam = "#" + p + "camera";
+    if (keys.length === 1) {
+      const k = keys[0];
+      tl.set(cam, { x: -k.x, y: -k.y, scale: k.zoom, rotation: k.rot }, 0.001);
+      return;
+    }
+    for (let i = 0; i < keys.length - 1; i++) {
+      const a = keys[i];
+      const b = keys[i + 1];
+      const span = Math.max(0.05, b.t - a.t);
+      tl.fromTo(cam,
+        { x: -a.x, y: -a.y, scale: a.zoom, rotation: a.rot },
+        { x: -b.x, y: -b.y, scale: b.zoom, rotation: b.rot, duration: span, ease: "power2.inOut" },
+        Math.max(0, a.t));
+    }
+  };
+
+  // ---- hook type: per-character spring slam --------------------------------
+  v7.hook = function (tl, p, lines, th, dur) {
+    const box = "#" + p + "hook";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+    let delay = 0.05;
+    lines.forEach((line, li) => {
+      const chars = line.split("");
+      chars.forEach((ch, ci) => {
+        const sel = `#${p}hk-${li}-${ci}`;
+        if (ch === " ") return;
+        tl.fromTo(sel,
+          { opacity: 0, scale: 0.6, y: 26 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" },
+          delay + ci * 0.035);
+      });
+      delay += 0.14 + Math.min(0.5, chars.length * 0.035);
+    });
+    // hold, then shrink away just before scene end
+    tl.to(box, { scale: 0.94, duration: 0.3, ease: "power2.in" }, Math.max(0.1, dur - 0.32));
+  };
+
+  // ---- karaoke captions: word-level color/scale sync -----------------------
+  v7.captions = function (tl, p, words, th, sceneDur, sceneStart) {
+    const box = "#" + p + "cap";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.02);
+    words.forEach((w, i) => {
+      const sel = `#${p}cw-${i}`;
+      const ws = Math.max(0, w.start - sceneStart);
+      const we = Math.min(sceneDur - 0.05, w.end - sceneStart);
+      if (we <= ws) return;
+      // upcoming -> active (white, pop)
+      tl.fromTo(sel,
+        { color: th.inkSoft, scale: 1 },
+        { color: "#FFFFFF", scale: 1.1, duration: 0.09, ease: "power2.out" },
+        ws);
+      // active -> spoken (accent, settle)
+      tl.to(sel, { color: th.accent, scale: 1, duration: 0.12, ease: "power2.out" }, we);
+    });
+  };
+
+  // ---- animated counter ------------------------------------------------------
+  v7.counter = function (tl, p, counter, dur) {
+    const box = "#" + p + "ctr";
+    const numEl = document.getElementById(p + "ctr-num");
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 0.05);
+    const dec = counter.decimals || 0;
+    const prox = { v: counter.from };
+    tl.fromTo(prox,
+      { v: counter.from },
+      { v: counter.to, duration: dur * 0.7, ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = (counter.prefix || "") + prox.v.toFixed(dec) + (counter.suffix || "");
+        } },
+      0.08);
+  };
+
+  // ---- brand tag: settle-in + tiny bob ---------------------------------------
+  v7.brand = function (tl, p, dur) {
+    const tag = "#" + p + "brand";
+    tl.set(tag, { opacity: 0 }, 0.001);
+    tl.fromTo(tag, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo(tag, { y: 0 }, { y: -4, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.6)) - 1 }, 0.5);
+  };
+
+  // ---- onset fx ---------------------------------------------------------------
+  // shockwave ring + speed lines + flash, placed at scene-local onset times
+  v7.onsetFx = function (tl, p, th, onsets, fxKeys, dur) {
+    const has = (k) => fxKeys && fxKeys.indexOf(k) >= 0;
+    onsets.forEach((t0) => {
+      if (t0 <= 0.05 || t0 >= dur - 0.05) return;
+      if (has("shockwave")) {
+        const ring = "#" + p + "fx-ring";
+        tl.set(ring, { attr: { r: 60, opacity: 0 } }, t0 - 0.001);
+        tl.fromTo(ring,
+          { attr: { r: 60, opacity: 0.5 } },
+          { attr: { r: 700, opacity: 0 }, duration: 0.55, ease: "power2.out" },
+          t0);
+      }
+      if (has("speedlines")) {
+        const g = "#" + p + "fx-speed";
+        tl.set(g, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(g,
+          { opacity: 0.55, scale: 1.15 },
+          { opacity: 0, scale: 1, duration: 0.4, ease: "power2.out", transformOrigin: "50% 51%" },
+          t0);
+      }
+      if (has("flash")) {
+        const f = "#" + p + "fx-flash";
+        tl.set(f, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(f, { opacity: 0.16 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, t0);
+      }
+    });
+  };
+
+  // ---- flood wipe-in at scene start -------------------------------------------
+  v7.wipe = function (tl, p, isFirst, dur) {
+    const panel = "#" + p + "wipe";
+    if (isFirst) {
+      const fade = "#" + p + "fade";
+      tl.set(fade, { opacity: 1 }, 0.001);
+      tl.fromTo(fade, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.02);
+      tl.set(panel, { opacity: 0 }, 0.001);
+      return;
+    }
+    tl.set(panel, { opacity: 1 }, 0.001);
+    tl.fromTo(panel,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.46, ease: "power3.inOut" },
+      0.02);
+    // trailing edge accent line
+    const edge = "#" + p + "wipe-edge";
+    tl.fromTo(edge,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.5, ease: "power3.inOut" },
+      0.02);
+  };
+
+  // ---- character: place rig wrapper (static) and run action ------------------
+  v7.placeCharacter = function (p, pos, scale, facing) {
+    const el = document.getElementById(p + "char");
+    if (!el) return;
+    el.setAttribute("transform",
+      `translate(${pos[0]} ${pos[1]}) scale(${(scale * (facing || 1)).toFixed(3)} ${scale.toFixed(3)})`);
+  };
+})();
+
+// TheOne character runtime — inlined into every scene by build.mjs.
+// Applies GSAP tweens to the canonical rig. The rig markup is byte-identical
+// in every scene (only ids get a scene prefix); these joint rotations are the
+// ONLY per-scene variation, so identity and proportions cannot drift.
+// Determinism: finite repeats only, absolute times, pure function of timeline.
+/* global v7 */
+(function () {
+  // Joint oscillation around `base` between base+amp and base-amp.
+  // yoyo with sine.inOut approximates sin(t) closely at joint scale.
+  function swing(tl, sel, base, amp, cycleSec, dur, phase) {
+    if (amp === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    const from = base + (phase >= 0 ? amp : -amp);
+    tl.fromTo(
+      sel,
+      { attr: { transform: `rotate(${from.toFixed(2)})` } },
+      { attr: { transform: `rotate(${(2 * base - from).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+  // Bounded bounce (0 -> -depth -> 0) on the bob wrapper.
+  function bounce(tl, sel, depth, cycleSec, dur) {
+    if (depth === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    tl.fromTo(
+      sel,
+      { attr: { transform: "translate(0 0)" } },
+      { attr: { transform: `translate(0 ${(-depth).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+
+  // p = scene id prefix, e.g. "s01-" (rig ids are `${p}to-…`)
+  v7.character = function (tl, p, action, dur) {
+    const g = (n) => "#" + p + n;
+    const seated = action === "meditate" || action === "levitate";
+
+    tl.set(g("to-legsStand"), { attr: { opacity: seated ? 0 : 1 } }, 0.001);
+    tl.set(g("to-legsSit"), { attr: { opacity: seated ? 1 : 0 } }, 0.001);
+
+    const S = {
+      idle:     { lean: 0,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      walk:     { lean: 2,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      run:      { lean: -9,  head: -3, fArmL: 42,  fArmR: 42,  barbell: 0 },
+      climb:    { lean: 14,  head: -6, fArmL: 8,   fArmR: 8,   barbell: 0 },
+      lift:     { lean: 0,   head: 0,  fArmL: 6,   fArmR: 6,   barbell: 1 },
+      meditate: { lean: 0,   head: 2,  fArmL: 32,  fArmR: -32, barbell: 0 },
+      levitate: { lean: 0,   head: -2, fArmL: 14,  fArmR: -14, barbell: 0 },
+      victory:  { lean: 0,   head: -2, fArmL: 6,   fArmR: 6,   barbell: 0 },
+      point:    { lean: 3,   head: 4,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+    }[action] || { lean: 0, head: 0, fArmL: 0, fArmR: 0, barbell: 0 };
+
+    tl.set(g("to-lean"), { attr: { transform: `rotate(${S.lean})` } }, 0.001);
+    tl.set(g("to-head"), { attr: { transform: `rotate(${S.head})` } }, 0.001);
+    tl.set(g("to-forearmL"), { attr: { transform: `rotate(${S.fArmL})` } }, 0.001);
+    tl.set(g("to-forearmR"), { attr: { transform: `rotate(${S.fArmR})` } }, 0.001);
+    tl.set(g("to-barbell"), { attr: { opacity: S.barbell } }, 0.001);
+
+    switch (action) {
+      case "idle":
+        swing(tl, g("to-armL"), 0, 4, 1.1, dur, 1);
+        swing(tl, g("to-armR"), 0, 4, 1.1, dur, -1);
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+        break;
+      case "walk":
+        swing(tl, g("to-legL"), 0, 24, 0.667, dur, 1);
+        swing(tl, g("to-legR"), 0, 24, 0.667, dur, -1);
+        swing(tl, g("to-armL"), 0, 16, 0.667, dur, -1);
+        swing(tl, g("to-armR"), 0, 16, 0.667, dur, 1);
+        bounce(tl, g("to-bob"), 5, 0.333, dur);
+        break;
+      case "run":
+        swing(tl, g("to-legL"), 0, 40, 0.385, dur, 1);
+        swing(tl, g("to-legR"), 0, 40, 0.385, dur, -1);
+        swing(tl, g("to-armL"), 0, 34, 0.385, dur, -1);
+        swing(tl, g("to-armR"), 0, 34, 0.385, dur, 1);
+        bounce(tl, g("to-bob"), 7, 0.192, dur);
+        break;
+      case "climb":
+        // arms reach up alternately around 150°, knees step
+        swing(tl, g("to-armL"), 150, 26, 1.11, dur, 1);
+        swing(tl, g("to-armR"), 150, 26, 1.11, dur, -1);
+        swing(tl, g("to-legL"), 28, 16, 1.11, dur, 1);
+        swing(tl, g("to-legR"), 28, 16, 1.11, dur, -1);
+        bounce(tl, g("to-bob"), 3, 1.11, dur);
+        break;
+      case "lift": {
+        const cyc = 1.82;
+        const reps = Math.max(1, Math.ceil(dur / cyc));
+        for (let i = 0; i < reps; i++) {
+          const t0 = i * cyc;
+          tl.fromTo(g("to-armL"),
+            { attr: { transform: "rotate(168)" } },
+            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.fromTo(g("to-armR"),
+            { attr: { transform: "rotate(-168)" } },
+            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-barbell"),
+            { attr: { transform: "translate(0 -108)" } },
+            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-bob"),
+            { attr: { transform: "translate(0 0)" } },
+            { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+        }
+        break;
+      }
+      case "meditate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(38)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-38)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 2.0, dur);
+        break;
+      case "levitate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(62)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-62)" } }, 0.002);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 -14)" } },
+          { attr: { transform: "translate(0 -23)" }, duration: 1.11, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.11)) - 1 },
+          0);
+        break;
+      case "victory":
+        // arms held up (~160°) with a slight sway + one hop
+        tl.fromTo(g("to-armL"),
+          { attr: { transform: "rotate(158)" } },
+          { attr: { transform: "rotate(163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-armR"),
+          { attr: { transform: "rotate(-158)" } },
+          { attr: { transform: "rotate(-163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 0)" } },
+          { attr: { transform: "translate(0 -12)" }, duration: 0.36, ease: "sine.out" },
+          0);
+        tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: 0.36, ease: "bounce.in" }, 0.36);
+        break;
+      case "point":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 1.4, dur);
+        break;
+      default:
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+    }
+  };
+})();
+
+  const SID = "s02-ink-dawn";
+  const P = "s02-ink-dawn-";
+  const DUR = 2.333;
+  const ENV = [0.258,0.212,0.237,0.555,0.832,0.915,0.75,0.615,0.505,0.414,0.422,0.346,0.284,0.281,0.23,0.189,0.155,0.127,0.307,0.252,0.206,0.169,0.206,0.359,0.294,0.668,0.796,0.805,0.839,0.785,0.643,0.528,0.6,0.492,0.404,0.331,0.351,0.322,0.445,0.546,0.622,0.51,0.418,0.343,0.281,0.231,0.189,0.155,0.127,0.104,0.086,0.07,0.058,0.047,0.039,0.032,0.026,0.021,0.017,0.014,0.012,0.01,0.008,0.006,0.005,0.004,0.004,0.003,0.002,0.002];
+  const ONSETS = [0.833];
+  const SCENE = {"action":"climb","type":"caption","camera":[{"t":0,"x":20,"y":0,"zoom":1.04,"rot":0},{"t":2.4658955223880596,"x":-40,"y":10,"zoom":1.12,"rot":0}],"fx":["dust"],"counter":null,"hookLines":null,"words":[{"w":"The","start":0.2113283582089549,"end":0.477904302019315},{"w":"workout","start":0.477904302019315,"end":1.0110561896400352},{"w":"that","start":1.0110561896400352,"end":1.344276119402985},{"w":"changes","start":1.344276119402985,"end":1.8774280070237053},{"w":"nothing.","start":1.8774280070237053,"end":2.4772238805970144}],"startSec":5.9};
+  const TH = {"bg":"#141009","panel":"#1C1710","accent":"#E8B84B","accentDeep":"#C9A227","ink":"#F5EDD8","inkSoft":"#A89468"};
+  const gsap = window.gsap;
+  const tl = gsap.timeline({ paused: true });
+
+  v7.wipe(tl, P, false, DUR);
+  v7.camera(tl, P, SCENE.camera, DUR);
+  v7.envProxy(tl, P, SID, ENV, DUR);
+tl.fromTo("#s02-ink-dawn-ink-sun",{attr:{transform:"translate(0 650)"}},{attr:{transform:"translate(0 0)"},duration:2.33,ease:"power2.inOut"},0);
+tl.fromTo("#s02-ink-dawn-ink-m0",{attr:{transform:"translate(-24 0)"}},{attr:{transform:"translate(-61.33 0)"},duration:2.33,ease:"none"},0);
+tl.fromTo("#s02-ink-dawn-ink-m1",{attr:{transform:"translate(-24 0)"}},{attr:{transform:"translate(-117.33 0)"},duration:2.33,ease:"none"},0);
+tl.fromTo("#s02-ink-dawn-ink-m2",{attr:{transform:"translate(-24 0)"}},{attr:{transform:"translate(-173.33 0)"},duration:2.33,ease:"none"},0);
+tl.fromTo("#s02-ink-dawn-ink-m3",{attr:{transform:"translate(-24 0)"}},{attr:{transform:"translate(-229.33 0)"},duration:2.33,ease:"none"},0);
+tl.fromTo("#s02-ink-dawn-ink-m4",{attr:{transform:"translate(-24 0)"}},{attr:{transform:"translate(-285.33 0)"},duration:2.33,ease:"none"},0);
+tl.fromTo("#s02-ink-dawn-ink-mist0",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(380 0)"},duration:2.33,ease:"none"},0);
+tl.fromTo("#s02-ink-dawn-ink-mist1",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(380 0)"},duration:2.33,ease:"none"},0);
+tl.fromTo("#s02-ink-dawn-ink-mist2",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(380 0)"},duration:2.33,ease:"none"},0);
+tl.fromTo("#s02-ink-dawn-ink-bird0",{attr:{transform:"translate(674.8 395.91) scale(1 1)"}},{attr:{transform:"translate(828.8 355.91) scale(1 1)"},duration:2.33,ease:"none"},0);
+    tl.fromTo("#s02-ink-dawn-ink-bird0",{attr:{transform:"translate(674.8 395.91) scale(1 0.2)"}},{attr:{transform:"translate(674.8 395.91) scale(1 1)"},duration:0.22,ease:"sine.inOut",yoyo:true,repeat:10},0);
+tl.fromTo("#s02-ink-dawn-ink-bird1",{attr:{transform:"translate(59.38 399.99) scale(1 1)"}},{attr:{transform:"translate(232.05 359.99) scale(1 1)"},duration:2.33,ease:"none"},0);
+    tl.fromTo("#s02-ink-dawn-ink-bird1",{attr:{transform:"translate(59.38 399.99) scale(1 0.2)"}},{attr:{transform:"translate(59.38 399.99) scale(1 1)"},duration:0.22,ease:"sine.inOut",yoyo:true,repeat:10},0);
+tl.fromTo("#s02-ink-dawn-ink-bird2",{attr:{transform:"translate(1128.62 553.98) scale(1 1)"}},{attr:{transform:"translate(1319.96 513.98) scale(1 1)"},duration:2.33,ease:"none"},0);
+    tl.fromTo("#s02-ink-dawn-ink-bird2",{attr:{transform:"translate(1128.62 553.98) scale(1 0.2)"}},{attr:{transform:"translate(1128.62 553.98) scale(1 1)"},duration:0.22,ease:"sine.inOut",yoyo:true,repeat:10},0);
+tl.fromTo("#s02-ink-dawn-ink-bird3",{attr:{transform:"translate(510.34 524.31) scale(1 1)"}},{attr:{transform:"translate(720.34 484.31) scale(1 1)"},duration:2.33,ease:"none"},0);
+    tl.fromTo("#s02-ink-dawn-ink-bird3",{attr:{transform:"translate(510.34 524.31) scale(1 0.2)"}},{attr:{transform:"translate(510.34 524.31) scale(1 1)"},duration:0.22,ease:"sine.inOut",yoyo:true,repeat:10},0);
+tl.fromTo("#s02-ink-dawn-ink-bird4",{attr:{transform:"translate(-141.94 597.42) scale(1 1)"}},{attr:{transform:"translate(86.72 557.42) scale(1 1)"},duration:2.33,ease:"none"},0);
+    tl.fromTo("#s02-ink-dawn-ink-bird4",{attr:{transform:"translate(-141.94 597.42) scale(1 0.2)"}},{attr:{transform:"translate(-141.94 597.42) scale(1 1)"},duration:0.22,ease:"sine.inOut",yoyo:true,repeat:10},0);
+
+tl.fromTo("#s02-ink-dawn-fx-d0",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.9 -30.6)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d1",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-27.1 -32.5)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d2",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-18.0 -59.7)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d3",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(11.1 -55.0)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d4",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.4 -52.3)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d5",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(27.0 -28.5)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d6",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-20.4 -61.9)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d7",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(0.1 -33.9)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d8",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(15.5 -60.2)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d9",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(25.7 -69.1)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d10",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(29.7 -67.5)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d11",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(13.1 -47.5)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d12",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-25.9 -67.7)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d13",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(12.6 -61.2)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d14",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-1.1 -49.7)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d15",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(3.0 -32.9)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d16",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(23.4 -39.9)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d17",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.1 -60.1)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d18",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(28.9 -67.2)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d19",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(7.5 -71.5)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d20",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(19.1 -30.3)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d21",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(1.4 -34.7)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d22",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-27.0 -63.9)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d23",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(29.8 -64.0)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d24",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(20.6 -67.0)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d25",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(6.0 -42.2)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d26",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-18.9 -31.5)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d27",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.8 -65.2)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d28",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(13.5 -52.8)"}},0);
+tl.fromTo("#s02-ink-dawn-fx-d29",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(27.7 -34.1)"}},0);
+
+  v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
+v7.placeCharacter(P, [380,1785], 2, 1);
+  v7.character(tl, P, SCENE.action, DUR);
+  if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
+  if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);
+  if (SCENE.counter) v7.counter(tl, P, SCENE.counter, DUR);
+  if (SCENE.type !== "cta") v7.brand(tl, P, DUR);
+
+
+  window.__timelines[SID] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

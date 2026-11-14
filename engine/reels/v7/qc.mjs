@@ -27,19 +27,20 @@ const shErr = (cmd, args) => {
   return (r.stdout ?? "") + (r.stderr ?? "");
 };
 
-// ---- dHash via ffmpeg: 8x8 grayscale raw bytes -> 64-bit hash -------------
+// ---- dHash via ffmpeg: 16x16 grayscale raw bytes -> 256-bit hash -------
+// (finer than 8x8: distinguishes layout variants within the same world)
 function dHash(file, t) {
   const buf = execFileSync("ffmpeg", [
     "-y", "-v", "error", "-ss", String(t), "-i", file,
-    "-frames:v", "1", "-vf", "scale=9:8", "-f", "rawvideo", "-pix_fmt", "gray", "-",
+    "-frames:v", "1", "-vf", "scale=17:16", "-f", "rawvideo", "-pix_fmt", "gray", "-",
   ], { maxBuffer: 1 << 22 });
-  if (buf.length < 72) return null;
+  if (buf.length < 272) return null;
   let h = 0n;
-  for (let y = 0; y < 8; y++) {
-    for (let x = 0; x < 8; x++) {
-      const a = buf[y * 9 + x];
-      const b = buf[y * 9 + x + 1];
-      if (a > b) h |= 1n << BigInt(y * 8 + x);
+  for (let y = 0; y < 16; y++) {
+    for (let x = 0; x < 16; x++) {
+      const a = buf[y * 17 + x];
+      const b = buf[y * 17 + x + 1];
+      if (a > b) h |= 1n << BigInt(y * 16 + x);
     }
   }
   return h;
@@ -100,7 +101,7 @@ for (const reel of props.reels) {
   for (let i = 0; i < sceneHashes.length; i++)
     for (let j = i + 1; j < sceneHashes.length; j++) {
       const d = hamming(sceneHashes[i].h, sceneHashes[j].h);
-      if (d < 10) dupPairs.push({ a: sceneHashes[i].id, b: sceneHashes[j].id, dist: d });
+      if (d < 26) dupPairs.push({ a: sceneHashes[i].id, b: sceneHashes[j].id, dist: d });
     }
   item.checks.scene_uniqueness = { scenes: sceneHashes.length, duplicates: dupPairs, ok: dupPairs.length === 0 };
 

@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>s03-cel-stage</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+@font-face{font-family:'Anton';src:url('assets/fonts/Anton-Regular.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-400.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-600.ttf');font-weight:600;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-700.ttf');font-weight:700;font-display:block}
+.clip{position:absolute;inset:0;overflow:hidden}
+#s03-cel-stage{position:absolute;inset:0;font-family:'Source Sans 3',sans-serif;background:#0A0A0C;--pulse:0;--acc:#FF6B4A}
+#s03-cel-stage-camera{position:absolute;inset:0;will-change:transform}
+#s03-cel-stage-world{position:absolute;left:0;top:0}
+#s03-cel-stage-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
+  radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.26) 100%),
+  linear-gradient(180deg, rgba(255,107,74,0.120), rgba(255,107,74,0.048));}
+#s03-cel-stage-wipe{position:absolute;inset:0;z-index:50;background:linear-gradient(180deg,#D44A2E,#FF6B4A);transform:translateY(0)}
+#s03-cel-stage-wipe .wipe-edge{position:absolute;left:0;right:0;bottom:0;height:26px;background:#F5F2ED;opacity:0.9}
+#s03-cel-stage-fade{position:absolute;inset:0;z-index:60;background:#000;opacity:0}
+#s03-cel-stage-cap{position:absolute;bottom:172px;left:80px;right:80px;display:flex;justify-content:center;z-index:10}
+.cap-box{max-width:860px;background:rgba(8,8,10,0.62);border:2px solid rgba(255,107,74,0.350);border-radius:26px;padding:22px 34px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 14px}
+.cw{font-family:'Source Sans 3';font-weight:700;font-size:47px;line-height:1.25;color:rgba(245,242,237,0.620);display:inline-block}#s03-cel-stage-brand{position:absolute;top:92px;left:0;right:0;display:flex;justify-content:center;z-index:11}
+#s03-cel-stage-brand{font-family:'Source Sans 3';font-weight:600;font-size:34px;letter-spacing:4px;color:#9B968F;background:rgba(8,8,10,0.4);border-radius:999px;padding:10px 28px;width:max-content;margin:0 auto}
+.bdot{width:12px;height:12px;border-radius:6px;background:#FF6B4A;display:inline-block}
+</style>
+</head>
+<body>
+<div id="s03-cel-stage" data-composition-id="s03-cel-stage" data-width="1080" data-height="1920">
+  <div id="s03-cel-stage-camera">
+    <svg id="s03-cel-stage-world" viewBox="0 0 1080 1920" width="1080" height="1920">
+
+  <rect x="0" y="0" width="1080" height="1920" fill="#0A0A0C"/>
+  <rect x="0" y="0" width="1080" height="1920" fill="#15151A" opacity="0.35"/>
+  <defs><linearGradient id="s03-cel-stage-cel-cone" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="rgba(255,107,74,0.500)"/><stop offset="1" stop-color="rgba(255,107,74,0.020)"/>
+  </linearGradient></defs>
+  <line x1="0" y1="120" x2="1080" y2="120" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="230" x2="1080" y2="230" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="340" x2="1080" y2="340" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="450" x2="1080" y2="450" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="560" x2="1080" y2="560" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="670" x2="1080" y2="670" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="780" x2="1080" y2="780" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="890" x2="1080" y2="890" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="1000" x2="1080" y2="1000" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="1110" x2="1080" y2="1110" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="1220" x2="1080" y2="1220" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <line x1="0" y1="1330" x2="1080" y2="1330" stroke="rgba(155,150,143,0.060)" stroke-width="2"/>
+  <polygon points="440,0 640,0 940,1560 140,1560" fill="url(#s03-cel-stage-cel-cone)" opacity="0.55" style="opacity:calc(0.55 + var(--pulse,0)*0.2)"/>
+  <ellipse cx="540" cy="1560" rx="400" ry="74" fill="rgba(255,107,74,0.300)" style="opacity:calc(0.8 + var(--pulse,0)*0.4)"/>
+  <ellipse cx="540" cy="1560" rx="240" ry="44" fill="rgba(255,107,74,0.350)"/>
+  <line x1="270" y1="1560" x2="-420" y2="1920" stroke="rgba(245,242,237,0.100)" stroke-width="2"/>
+  <line x1="360" y1="1560" x2="-100" y2="1920" stroke="rgba(245,242,237,0.100)" stroke-width="2"/>
+  <line x1="450" y1="1560" x2="220" y2="1920" stroke="rgba(245,242,237,0.100)" stroke-width="2"/>
+  <line x1="540" y1="1560" x2="540" y2="1920" stroke="rgba(245,242,237,0.100)" stroke-width="2"/>
+  <line x1="630" y1="1560" x2="860" y2="1920" stroke="rgba(245,242,237,0.100)" stroke-width="2"/>
+  <line x1="720" y1="1560" x2="1180" y2="1920" stroke="rgba(245,242,237,0.100)" stroke-width="2"/>
+  <line x1="810" y1="1560" x2="1500" y2="1920" stroke="rgba(245,242,237,0.100)" stroke-width="2"/>
+  <circle id="s03-cel-stage-cel-m0" cx="819.67" cy="945.17" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m1" cx="275.29" cy="487.27" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m2" cx="263.72" cy="1080.85" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m3" cx="490.59" cy="34.01" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m4" cx="476.22" cy="803.62" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m5" cx="837.15" cy="77.24" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m6" cx="400.47" cy="830.85" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m7" cx="334.78" cy="447.79" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m8" cx="561.08" cy="1393.15" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m9" cx="425.38" cy="111.11" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m10" cx="456.53" cy="1358.18" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m11" cx="319.61" cy="1079.3" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m12" cx="309.86" cy="1091.97" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m13" cx="746.08" cy="491.71" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m14" cx="680.06" cy="1070.97" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m15" cx="402.15" cy="964.88" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m16" cx="445.22" cy="810.42" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m17" cx="823.6" cy="934.39" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m18" cx="648.47" cy="1302.59" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m19" cx="728.37" cy="1021.05" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m20" cx="487.08" cy="556.73" r="3.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-cel-m21" cx="707.08" cy="1200.85" r="3.5" fill="rgba(245,242,237,0.300)"/>
+  <circle id="s03-cel-stage-cel-puff0" cx="410" cy="1548" r="20" fill="rgba(245,242,237,0.200)" opacity="0"/><circle id="s03-cel-stage-cel-puff1" cx="540" cy="1548" r="20" fill="rgba(245,242,237,0.200)" opacity="0"/><circle id="s03-cel-stage-cel-puff2" cx="670" cy="1548" r="20" fill="rgba(245,242,237,0.200)" opacity="0"/>
+<circle id="s03-cel-stage-fx-ring" cx="540" cy="820" r="60" fill="none" stroke="rgba(255,107,74,0.500)" stroke-width="14" opacity="0"/><g id="s03-cel-stage-fx-dust"><circle id="s03-cel-stage-fx-d0" cx="92.6" cy="751.4" r="2.6" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d1" cx="1020.1" cy="337.6" r="2.7" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d2" cx="137.7" cy="1824.6" r="3.4" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d3" cx="482.9" cy="274.6" r="2.2" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d4" cx="978.3" cy="249.3" r="2.3" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d5" cx="447.7" cy="1651.3" r="3.8" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d6" cx="578.3" cy="298.8" r="3.7" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d7" cx="131.2" cy="530.5" r="3.1" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d8" cx="915.9" cy="1730.1" r="2.4" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d9" cx="582.6" cy="171.5" r="3.9" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d10" cx="903.8" cy="729.9" r="1.7" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d11" cx="458.1" cy="1848.0" r="2.3" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d12" cx="527.5" cy="840.1" r="2.1" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d13" cx="1015.1" cy="1087.9" r="2.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d14" cx="448.9" cy="1606.1" r="2.2" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d15" cx="717.3" cy="1803.6" r="3.9" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d16" cx="62.3" cy="-37.6" r="2.9" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d17" cx="1086.3" cy="109.9" r="2.0" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d18" cx="389.5" cy="476.1" r="2.0" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d19" cx="290.8" cy="1400.2" r="1.8" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d20" cx="303.7" cy="567.9" r="2.1" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d21" cx="158.8" cy="785.5" r="2.0" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d22" cx="468.6" cy="166.7" r="2.5" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d23" cx="1000.5" cy="1142.0" r="1.7" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d24" cx="1036.3" cy="1287.3" r="2.8" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d25" cx="223.8" cy="1592.5" r="1.7" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d26" cx="-11.0" cy="937.5" r="2.1" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d27" cx="958.5" cy="412.6" r="3.6" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d28" cx="314.8" cy="1697.9" r="3.3" fill="rgba(245,242,237,0.300)"/><circle id="s03-cel-stage-fx-d29" cx="288.1" cy="1104.6" r="3.9" fill="rgba(245,242,237,0.300)"/></g>
+<g id="s03-cel-stage-char"><g id="s03-cel-stage-to-root">
+  <ellipse id="s03-cel-stage-to-shadow" cx="0" cy="7" rx="64" ry="12" fill="#000000" opacity="0.38"/>
+  <ellipse id="s03-cel-stage-to-halo" cx="0" cy="-116" rx="130" ry="182" fill="var(--acc)" style="opacity:calc(0.07 + var(--pulse, 0) * 0.07)"/>
+
+  <g id="s03-cel-stage-to-bob" transform="translate(0 0)">
+    <g id="s03-cel-stage-to-squash" style="transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(calc(1 + var(--pulse, 0) * 0.033))">
+      <g id="s03-cel-stage-to-lean" transform="rotate(0)">
+
+        
+        <g id="s03-cel-stage-to-legsStand">
+          <g transform="translate(-17 -96)">
+            <g id="s03-cel-stage-to-legL">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="4" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(17 -96)">
+            <g id="s03-cel-stage-to-legR">
+              <rect x="-11" y="-6" width="22" height="92" rx="10.5" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+              <rect x="-11" y="-2" width="4" height="42" rx="2" fill="#E8B84B" opacity="0.85"/>
+              <g transform="translate(-3 82)">
+                <rect x="-17" y="-13" width="43" height="16" rx="7" fill="#202128" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-17" y="1" width="43" height="4.5" rx="2.2" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <g id="s03-cel-stage-to-legsSit" opacity="0">
+          <path d="M 0 -96 q -42 -12 -62 12 q 30 16 62 6 z" fill="#1B1C26" stroke="#0D0E13" stroke-width="3"/>
+          <path d="M 0 -96 q 42 -12 62 12 q -30 16 -62 6 z" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+          <ellipse cx="-54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="54" cy="-82" rx="13" ry="8" fill="#202128" stroke="#0D0E13" stroke-width="2.5"/>
+          <ellipse cx="-54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+          <ellipse cx="54" cy="-77" rx="13" ry="3.2" fill="#E8B84B" opacity="0.85"/>
+        </g>
+
+        
+        <g transform="translate(0 -96)">
+          <g id="s03-cel-stage-to-torso">
+            <path d="M -37 10 Q -45 -50 -30 -70 L 30 -70 Q 45 -50 37 10 Q 0 20 -37 10 Z"
+                  fill="#262731" stroke="#0D0E13" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M -22 -8 Q 0 0 22 -8" stroke="#17181F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M -9 -63 q -2 15 -5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M 9 -63 q 2 15 5 20" stroke="#E8B84B" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="0" cy="-24" r="7" fill="#E8B84B"/>
+            <circle cx="0" cy="-24" r="7" fill="none" stroke="#17181F" stroke-width="2"/>
+            <path id="s03-cel-stage-to-rimT" d="M -37 10 Q -45 -50 -30 -70" fill="none" stroke="var(--acc)"
+                  stroke-width="4" stroke-linecap="round" style="opacity:calc(0.5 + var(--pulse, 0) * 0.3)"/>
+
+            
+            <g id="s03-cel-stage-to-barbell" opacity="0" transform="translate(0 -78)">
+              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
+              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+            </g>
+
+            
+            <g transform="translate(-33 -62)">
+              <g id="s03-cel-stage-to-armL">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s03-cel-stage-to-forearmL">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(33 -62)">
+              <g id="s03-cel-stage-to-armR">
+                <rect x="-10" y="-4" width="20" height="40" rx="9" fill="#262731" stroke="#0D0E13" stroke-width="3"/>
+                <rect x="-10" y="-4" width="20" height="6.5" rx="3.2" fill="#E8B84B" opacity="0.9"/>
+                <g transform="translate(0 34)">
+                  <g id="s03-cel-stage-to-forearmR">
+                    <rect x="-8.5" y="-3" width="17" height="34" rx="8" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                    <circle cx="0" cy="35" r="9" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            
+            <g transform="translate(0 -70)">
+              <g id="s03-cel-stage-to-head">
+                <ellipse cx="0" cy="-34" rx="33" ry="33" fill="#17181F" stroke="#0D0E13" stroke-width="3.5"/>
+                <ellipse cx="8" cy="-30" rx="20" ry="17" fill="#0B0C10" opacity="0.92"/>
+                <path d="M -33 -38 Q 0 -76 33 -38 Z" fill="#262731" stroke="#0D0E13" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M -33 -38 Q 0 -76 33 -38" fill="none" stroke="#E8B84B" stroke-width="3"/>
+                <rect x="6" y="-40" width="42" height="11" rx="5.5" fill="#17181F" stroke="#0D0E13" stroke-width="3"/>
+                <circle cx="-2" cy="-49" r="5.5" fill="#E8B84B"/>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        
+        <path id="s03-cel-stage-to-rimL" d="M -28 -88 L -28 -28" stroke="var(--acc)" stroke-width="3"
+              stroke-linecap="round" fill="none" style="opacity:calc(0.45 + var(--pulse, 0) * 0.3)"/>
+      </g>
+    </g>
+  </g>
+</g></g>
+    </svg>
+  </div>
+  <div id="s03-cel-stage-grade"></div>
+  <div id="s03-cel-stage-cap"><div class="cap-box"><span class="cw" id="s03-cel-stage-cw-0">Stop</span><span class="cw" id="s03-cel-stage-cw-1">waiting</span><span class="cw" id="s03-cel-stage-cw-2">for</span><span class="cw" id="s03-cel-stage-cw-3">someone</span><span class="cw" id="s03-cel-stage-cw-4">to</span><span class="cw" id="s03-cel-stage-cw-5">believe</span><span class="cw" id="s03-cel-stage-cw-6">in</span><span class="cw" id="s03-cel-stage-cw-7">you.</span></div></div><div id="s03-cel-stage-brand"><span class="bdot"></span>@SELF_EFFICIENT_DAILY</div>
+  <div id="s03-cel-stage-wipe"><div class="wipe-edge"></div></div>
+  <div id="s03-cel-stage-fade"></div>
+</div>
+<script>
+(function () {
+  const v7 = {};
+// v7 scene-kit — shared browser runtime inlined into every scene by build.mjs.
+// Camera creep, audio-envelope proxy (--pulse CSS var), hook slam, karaoke
+// captions, counters, brand tag, onset fx, flood wipe-in, grade veil.
+// Everything is a pure function of the paused GSAP timeline (deterministic).
+/* global v7 */
+(function () {
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+
+  // ---- audio envelope proxy: one tween drives the --pulse CSS var -------
+  v7.envProxy = function (tl, p, rootId, env, dur) {
+    if (!env || env.length === 0 || dur <= 0.02) return;
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const prox = { t: 0 };
+    tl.to(prox, {
+      t: dur,
+      duration: dur,
+      ease: "none",
+      onUpdate: function () {
+        const f = Math.min(env.length - 1, Math.max(0, Math.round(prox.t * 30)));
+        root.style.setProperty("--pulse", env[f].toFixed(3));
+      },
+    }, 0);
+  };
+
+  // ---- camera: keyed [t,x,y,zoom,rot] -> sequential fromTo on #camera ----
+  v7.camera = function (tl, p, keys, dur) {
+    if (!keys || keys.length === 0) return;
+    const cam = "#" + p + "camera";
+    if (keys.length === 1) {
+      const k = keys[0];
+      tl.set(cam, { x: -k.x, y: -k.y, scale: k.zoom, rotation: k.rot }, 0.001);
+      return;
+    }
+    for (let i = 0; i < keys.length - 1; i++) {
+      const a = keys[i];
+      const b = keys[i + 1];
+      const span = Math.max(0.05, b.t - a.t);
+      tl.fromTo(cam,
+        { x: -a.x, y: -a.y, scale: a.zoom, rotation: a.rot },
+        { x: -b.x, y: -b.y, scale: b.zoom, rotation: b.rot, duration: span, ease: "power2.inOut" },
+        Math.max(0, a.t));
+    }
+  };
+
+  // ---- hook type: per-character spring slam --------------------------------
+  v7.hook = function (tl, p, lines, th, dur) {
+    const box = "#" + p + "hook";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+    let delay = 0.05;
+    lines.forEach((line, li) => {
+      const chars = line.split("");
+      chars.forEach((ch, ci) => {
+        const sel = `#${p}hk-${li}-${ci}`;
+        if (ch === " ") return;
+        tl.fromTo(sel,
+          { opacity: 0, scale: 0.6, y: 26 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" },
+          delay + ci * 0.035);
+      });
+      delay += 0.14 + Math.min(0.5, chars.length * 0.035);
+    });
+    // hold, then shrink away just before scene end
+    tl.to(box, { scale: 0.94, duration: 0.3, ease: "power2.in" }, Math.max(0.1, dur - 0.32));
+  };
+
+  // ---- karaoke captions: word-level color/scale sync -----------------------
+  v7.captions = function (tl, p, words, th, sceneDur, sceneStart) {
+    const box = "#" + p + "cap";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.02);
+    words.forEach((w, i) => {
+      const sel = `#${p}cw-${i}`;
+      const ws = Math.max(0, w.start - sceneStart);
+      const we = Math.min(sceneDur - 0.05, w.end - sceneStart);
+      if (we <= ws) return;
+      // upcoming -> active (white, pop)
+      tl.fromTo(sel,
+        { color: th.inkSoft, scale: 1 },
+        { color: "#FFFFFF", scale: 1.1, duration: 0.09, ease: "power2.out" },
+        ws);
+      // active -> spoken (accent, settle)
+      tl.to(sel, { color: th.accent, scale: 1, duration: 0.12, ease: "power2.out" }, we);
+    });
+  };
+
+  // ---- animated counter ------------------------------------------------------
+  v7.counter = function (tl, p, counter, dur) {
+    const box = "#" + p + "ctr";
+    const numEl = document.getElementById(p + "ctr-num");
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 0.05);
+    const dec = counter.decimals || 0;
+    const prox = { v: counter.from };
+    tl.fromTo(prox,
+      { v: counter.from },
+      { v: counter.to, duration: dur * 0.7, ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = (counter.prefix || "") + prox.v.toFixed(dec) + (counter.suffix || "");
+        } },
+      0.08);
+  };
+
+  // ---- brand tag: settle-in + tiny bob ---------------------------------------
+  v7.brand = function (tl, p, dur) {
+    const tag = "#" + p + "brand";
+    tl.set(tag, { opacity: 0 }, 0.001);
+    tl.fromTo(tag, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo(tag, { y: 0 }, { y: -4, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.6)) - 1 }, 0.5);
+  };
+
+  // ---- onset fx ---------------------------------------------------------------
+  // shockwave ring + speed lines + flash, placed at scene-local onset times
+  v7.onsetFx = function (tl, p, th, onsets, fxKeys, dur) {
+    const has = (k) => fxKeys && fxKeys.indexOf(k) >= 0;
+    onsets.forEach((t0) => {
+      if (t0 <= 0.05 || t0 >= dur - 0.05) return;
+      if (has("shockwave")) {
+        const ring = "#" + p + "fx-ring";
+        tl.set(ring, { attr: { r: 60, opacity: 0 } }, t0 - 0.001);
+        tl.fromTo(ring,
+          { attr: { r: 60, opacity: 0.5 } },
+          { attr: { r: 700, opacity: 0 }, duration: 0.55, ease: "power2.out" },
+          t0);
+      }
+      if (has("speedlines")) {
+        const g = "#" + p + "fx-speed";
+        tl.set(g, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(g,
+          { opacity: 0.55, scale: 1.15 },
+          { opacity: 0, scale: 1, duration: 0.4, ease: "power2.out", transformOrigin: "50% 51%" },
+          t0);
+      }
+      if (has("flash")) {
+        const f = "#" + p + "fx-flash";
+        tl.set(f, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(f, { opacity: 0.16 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, t0);
+      }
+    });
+  };
+
+  // ---- flood wipe-in at scene start -------------------------------------------
+  v7.wipe = function (tl, p, isFirst, dur) {
+    const panel = "#" + p + "wipe";
+    if (isFirst) {
+      const fade = "#" + p + "fade";
+      tl.set(fade, { opacity: 1 }, 0.001);
+      tl.fromTo(fade, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.02);
+      tl.set(panel, { opacity: 0 }, 0.001);
+      return;
+    }
+    tl.set(panel, { opacity: 1 }, 0.001);
+    tl.fromTo(panel,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.46, ease: "power3.inOut" },
+      0.02);
+    // trailing edge accent line
+    const edge = "#" + p + "wipe-edge";
+    tl.fromTo(edge,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.5, ease: "power3.inOut" },
+      0.02);
+  };
+
+  // ---- character: place rig wrapper (static) and run action ------------------
+  v7.placeCharacter = function (p, pos, scale, facing) {
+    const el = document.getElementById(p + "char");
+    if (!el) return;
+    el.setAttribute("transform",
+      `translate(${pos[0]} ${pos[1]}) scale(${(scale * (facing || 1)).toFixed(3)} ${scale.toFixed(3)})`);
+  };
+})();
+
+// TheOne character runtime — inlined into every scene by build.mjs.
+// Applies GSAP tweens to the canonical rig. The rig markup is byte-identical
+// in every scene (only ids get a scene prefix); these joint rotations are the
+// ONLY per-scene variation, so identity and proportions cannot drift.
+// Determinism: finite repeats only, absolute times, pure function of timeline.
+/* global v7 */
+(function () {
+  // Joint oscillation around `base` between base+amp and base-amp.
+  // yoyo with sine.inOut approximates sin(t) closely at joint scale.
+  function swing(tl, sel, base, amp, cycleSec, dur, phase) {
+    if (amp === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    const from = base + (phase >= 0 ? amp : -amp);
+    tl.fromTo(
+      sel,
+      { attr: { transform: `rotate(${from.toFixed(2)})` } },
+      { attr: { transform: `rotate(${(2 * base - from).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+  // Bounded bounce (0 -> -depth -> 0) on the bob wrapper.
+  function bounce(tl, sel, depth, cycleSec, dur) {
+    if (depth === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    tl.fromTo(
+      sel,
+      { attr: { transform: "translate(0 0)" } },
+      { attr: { transform: `translate(0 ${(-depth).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+
+  // p = scene id prefix, e.g. "s01-" (rig ids are `${p}to-…`)
+  v7.character = function (tl, p, action, dur) {
+    const g = (n) => "#" + p + n;
+    const seated = action === "meditate" || action === "levitate";
+
+    tl.set(g("to-legsStand"), { attr: { opacity: seated ? 0 : 1 } }, 0.001);
+    tl.set(g("to-legsSit"), { attr: { opacity: seated ? 1 : 0 } }, 0.001);
+
+    const S = {
+      idle:     { lean: 0,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      walk:     { lean: 2,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      run:      { lean: -9,  head: -3, fArmL: 42,  fArmR: 42,  barbell: 0 },
+      climb:    { lean: 14,  head: -6, fArmL: 8,   fArmR: 8,   barbell: 0 },
+      lift:     { lean: 0,   head: 0,  fArmL: 6,   fArmR: 6,   barbell: 1 },
+      meditate: { lean: 0,   head: 2,  fArmL: 32,  fArmR: -32, barbell: 0 },
+      levitate: { lean: 0,   head: -2, fArmL: 14,  fArmR: -14, barbell: 0 },
+      victory:  { lean: 0,   head: -2, fArmL: 6,   fArmR: 6,   barbell: 0 },
+      point:    { lean: 3,   head: 4,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+    }[action] || { lean: 0, head: 0, fArmL: 0, fArmR: 0, barbell: 0 };
+
+    tl.set(g("to-lean"), { attr: { transform: `rotate(${S.lean})` } }, 0.001);
+    tl.set(g("to-head"), { attr: { transform: `rotate(${S.head})` } }, 0.001);
+    tl.set(g("to-forearmL"), { attr: { transform: `rotate(${S.fArmL})` } }, 0.001);
+    tl.set(g("to-forearmR"), { attr: { transform: `rotate(${S.fArmR})` } }, 0.001);
+    tl.set(g("to-barbell"), { attr: { opacity: S.barbell } }, 0.001);
+
+    switch (action) {
+      case "idle":
+        swing(tl, g("to-armL"), 0, 4, 1.1, dur, 1);
+        swing(tl, g("to-armR"), 0, 4, 1.1, dur, -1);
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+        break;
+      case "walk":
+        swing(tl, g("to-legL"), 0, 24, 0.667, dur, 1);
+        swing(tl, g("to-legR"), 0, 24, 0.667, dur, -1);
+        swing(tl, g("to-armL"), 0, 16, 0.667, dur, -1);
+        swing(tl, g("to-armR"), 0, 16, 0.667, dur, 1);
+        bounce(tl, g("to-bob"), 5, 0.333, dur);
+        break;
+      case "run":
+        swing(tl, g("to-legL"), 0, 40, 0.385, dur, 1);
+        swing(tl, g("to-legR"), 0, 40, 0.385, dur, -1);
+        swing(tl, g("to-armL"), 0, 34, 0.385, dur, -1);
+        swing(tl, g("to-armR"), 0, 34, 0.385, dur, 1);
+        bounce(tl, g("to-bob"), 7, 0.192, dur);
+        break;
+      case "climb":
+        // arms reach up alternately around 150°, knees step
+        swing(tl, g("to-armL"), 150, 26, 1.11, dur, 1);
+        swing(tl, g("to-armR"), 150, 26, 1.11, dur, -1);
+        swing(tl, g("to-legL"), 28, 16, 1.11, dur, 1);
+        swing(tl, g("to-legR"), 28, 16, 1.11, dur, -1);
+        bounce(tl, g("to-bob"), 3, 1.11, dur);
+        break;
+      case "lift": {
+        const cyc = 1.82;
+        const reps = Math.max(1, Math.ceil(dur / cyc));
+        for (let i = 0; i < reps; i++) {
+          const t0 = i * cyc;
+          tl.fromTo(g("to-armL"),
+            { attr: { transform: "rotate(168)" } },
+            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.fromTo(g("to-armR"),
+            { attr: { transform: "rotate(-168)" } },
+            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-barbell"),
+            { attr: { transform: "translate(0 -108)" } },
+            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-bob"),
+            { attr: { transform: "translate(0 0)" } },
+            { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+        }
+        break;
+      }
+      case "meditate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(38)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-38)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 2.0, dur);
+        break;
+      case "levitate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(62)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-62)" } }, 0.002);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 -14)" } },
+          { attr: { transform: "translate(0 -23)" }, duration: 1.11, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.11)) - 1 },
+          0);
+        break;
+      case "victory":
+        // arms held up (~160°) with a slight sway + one hop
+        tl.fromTo(g("to-armL"),
+          { attr: { transform: "rotate(158)" } },
+          { attr: { transform: "rotate(163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-armR"),
+          { attr: { transform: "rotate(-158)" } },
+          { attr: { transform: "rotate(-163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 0)" } },
+          { attr: { transform: "translate(0 -12)" }, duration: 0.36, ease: "sine.out" },
+          0);
+        tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: 0.36, ease: "bounce.in" }, 0.36);
+        break;
+      case "point":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 1.4, dur);
+        break;
+      default:
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+    }
+  };
+})();
+
+  const SID = "s03-cel-stage";
+  const P = "s03-cel-stage-";
+  const DUR = 3.1;
+  const ENV = [0.002,0.034,0.088,0.093,0.077,0.063,0.347,1,0.831,0.858,0.728,0.597,0.49,0.402,0.406,0.596,0.921,1,1,1,0.82,0.822,0.674,0.553,0.453,0.372,0.305,0.528,0.433,0.355,0.291,0.239,0.865,0.739,0.619,0.662,0.601,0.684,0.589,0.581,0.476,0.656,0.538,0.441,0.594,0.487,0.45,0.436,0.65,0.812,0.97,1,0.82,0.672,0.632,0.518,0.425,0.348,0.286,0.267,0.234,0.192,0.157,0.129,0.106,0.087,0.071,0.058,0.048,0.039,0.032,0.026,0.022,0.018,0.015,0.012,0.01,0.008,0.007,0.005,0.004,0.004,0.003,0.002,0.002,0.002,0.001,0.001,0.012,0.484,0.705,0.898,1];
+  const ONSETS = [0.2,0.5,1.067,1.633,2.967];
+  const SCENE = {"action":"victory","type":"caption","camera":[{"t":0,"x":0,"y":10,"zoom":1.04,"rot":0},{"t":3.2698,"x":0,"y":-36,"zoom":1.13,"rot":0}],"fx":["dust","shockwave"],"counter":null,"hookLines":null,"words":[{"w":"Stop","start":0.1948916666666669,"end":0.5437325757575753},{"w":"waiting","start":0.5437325757575753,"end":1.1018780303030304},{"w":"for","start":1.1018780303030304,"end":1.3809507575757571},{"w":"someone","start":1.3809507575757571,"end":1.9390962121212123},{"w":"to","start":1.9390962121212123,"end":2.1484007575757573},{"w":"believe","start":2.1484007575757573,"end":2.7065462121212125},{"w":"in","start":2.7065462121212125,"end":2.9158507575757575},{"w":"you.","start":2.9158507575757575,"end":3.264691666666666}],"startSec":8.133333333333333};
+  const TH = {"bg":"#0A0A0C","panel":"#15151A","accent":"#FF6B4A","accentDeep":"#D44A2E","ink":"#F5F2ED","inkSoft":"#9B968F"};
+  const gsap = window.gsap;
+  const tl = gsap.timeline({ paused: true });
+
+  v7.wipe(tl, P, false, DUR);
+  v7.camera(tl, P, SCENE.camera, DUR);
+  v7.envProxy(tl, P, SID, ENV, DUR);
+tl.fromTo("#s03-cel-stage-cel-m0",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -52.67)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m1",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -84.55)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m2",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -68.34)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m3",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -41.54)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m4",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -39.12)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m5",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -38.2)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m6",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -43.35)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m7",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -45.15)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m8",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -65.2)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m9",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -68.37)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m10",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -51.26)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m11",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -44.08)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m12",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -33.27)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m13",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -36.5)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m14",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -78.55)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m15",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -60.6)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m16",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -31.99)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m17",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -72.82)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m18",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -60.33)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m19",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -69.64)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m20",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -69.77)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-m21",{attr:{transform:"translate(0 0)"},opacity:0.2},{attr:{transform:"translate(0 -67.39)"},opacity:0.7,duration:3.1,ease:"none"},0);
+tl.fromTo("#s03-cel-stage-cel-puff0",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},0.2);
+tl.fromTo("#s03-cel-stage-cel-puff1",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},0.2);
+tl.fromTo("#s03-cel-stage-cel-puff2",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},0.2);
+tl.fromTo("#s03-cel-stage-cel-puff0",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},0.5);
+tl.fromTo("#s03-cel-stage-cel-puff1",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},0.5);
+tl.fromTo("#s03-cel-stage-cel-puff2",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},0.5);
+tl.fromTo("#s03-cel-stage-cel-puff0",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},1.07);
+tl.fromTo("#s03-cel-stage-cel-puff1",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},1.07);
+tl.fromTo("#s03-cel-stage-cel-puff2",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},1.07);
+tl.fromTo("#s03-cel-stage-cel-puff0",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},1.63);
+tl.fromTo("#s03-cel-stage-cel-puff1",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},1.63);
+tl.fromTo("#s03-cel-stage-cel-puff2",{attr:{r:20},opacity:0.22},{attr:{r:110},opacity:0,duration:0.55,ease:"power2.out"},1.63);
+
+tl.fromTo("#s03-cel-stage-fx-d0",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(23.2 -42.1)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d1",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.5 -55.7)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d2",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(10.1 -84.8)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d3",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-28.0 -42.5)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d4",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.2 -40.6)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d5",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(25.2 -37.3)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d6",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-12.3 -80.5)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d7",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(0.4 -76.7)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d8",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(28.4 -43.0)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d9",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(28.9 -59.7)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d10",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-11.2 -82.3)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d11",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-15.5 -38.5)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d12",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-26.8 -64.3)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d13",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.5 -57.8)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d14",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(18.3 -58.6)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d15",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(29.6 -85.5)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d16",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(29.8 -88.4)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d17",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(25.2 -92.1)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d18",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(26.0 -66.6)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d19",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.6 -56.1)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d20",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-29.2 -80.8)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d21",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-27.8 -55.7)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d22",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-28.1 -87.8)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d23",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(25.1 -57.6)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d24",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(27.9 -44.1)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d25",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(25.8 -39.7)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d26",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(14.1 -39.3)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d27",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(30.0 -51.6)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d28",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(-23.8 -46.2)"}},0);
+tl.fromTo("#s03-cel-stage-fx-d29",{attr:{transform:"translate(0 0)"}},{attr:{transform:"translate(27.7 -62.4)"}},0);
+
+  v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
+v7.placeCharacter(P, [540,1552], 2.4, 1);
+  v7.character(tl, P, SCENE.action, DUR);
+  if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
+  if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);
+  if (SCENE.counter) v7.counter(tl, P, SCENE.counter, DUR);
+  if (SCENE.type !== "cta") v7.brand(tl, P, DUR);
+
+
+  window.__timelines[SID] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

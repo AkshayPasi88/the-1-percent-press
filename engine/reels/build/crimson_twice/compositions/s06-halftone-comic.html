@@ -38,7 +38,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
   <defs><pattern id="s06-halftone-comic-hal-dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="4.2" fill="rgba(255,240,235,0.160)"/></pattern></defs>
   <rect x="0" y="0" width="1080" height="1920" fill="url(#s06-halftone-comic-hal-dots)"/>
   <g id="s06-halftone-comic-hal-burst" opacity="0"><line x1="1040" y1="760" x2="1380" y2="760" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="990.48" y1="976.94" x2="1296.81" y2="1124.46" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="851.74" y1="1150.92" x2="1063.73" y2="1416.74" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="651.26" y1="1247.46" x2="726.92" y2="1578.94" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="428.74" y1="1247.46" x2="353.08" y2="1578.94" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="228.26" y1="1150.92" x2="16.27" y2="1416.74" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="89.52" y1="976.94" x2="-216.81" y2="1124.46" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="40" y1="760" x2="-300" y2="760" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="89.52" y1="543.06" x2="-216.81" y2="395.54" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="228.26" y1="369.08" x2="16.27" y2="103.26" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="428.74" y1="272.54" x2="353.08" y2="-58.94" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="651.26" y1="272.54" x2="726.92" y2="-58.94" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="851.74" y1="369.08" x2="1063.73" y2="103.26" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/><line x1="990.48" y1="543.06" x2="1296.81" y2="395.54" stroke="rgba(255,240,235,0.500)" stroke-width="10" stroke-linecap="round"/></g>
-  <g id="s06-halftone-comic-hal-panel" transform="rotate(-2 540 1150)">
+  <g id="s06-halftone-comic-hal-panel" transform="rotate(2 540 1150)">
     <rect x="150" y="880" width="780" height="520" rx="26" fill="#261216" stroke="#FFF0EB" stroke-width="10"/>
     <rect x="178" y="908" width="724" height="464" rx="14" fill="url(#s06-halftone-comic-hal-dots)"/>
     <g id="s06-halftone-comic-hal-motif" transform="translate(540 1140)">
@@ -500,7 +500,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
   const DUR = 1.967;
   const ENV = [0.167,0.137,0.112,0.092,0.076,0.062,0.051,0.042,0.034,0.028,0.023,0.019,0.015,0.115,0.331,0.403,0.564,1,1,1,0.835,0.685,0.562,0.461,1,0.919,0.783,0.68,0.557,0.457,0.789,0.755,0.619,0.64,0.633,0.583,0.478,0.392,0.322,0.264,0.216,0.177,0.145,0.119,0.098,0.08,0.066,0.054,0.044,0.036,0,0,0,0,0,0,0,0,0];
   const ONSETS = [0.467,0.8];
-  const SCENE = {"action":"run","type":"caption","camera":[{"t":0,"x":0,"y":0,"zoom":1.06,"rot":-1},{"t":1.8970588235294121,"x":0,"y":10,"zoom":1.12,"rot":1}],"fx":["speedlines","shockwave"],"counter":null,"hookLines":null,"words":[{"w":"Link","start":0.20627450980392048,"end":0.762835595776771},{"w":"in","start":0.762835595776771,"end":1.096772247360482},{"w":"bio.","start":1.096772247360482,"end":1.6533333333333324}],"startSec":6.966666666666667};
+  const SCENE = {"action":"climb","type":"caption","camera":[{"t":0,"x":0,"y":0,"zoom":1.05,"rot":1},{"t":1.8970588235294121,"x":14,"y":-18,"zoom":1.13,"rot":-1}],"fx":["speedlines","shockwave"],"counter":null,"hookLines":null,"words":[{"w":"Link","start":0.20627450980392048,"end":0.762835595776771},{"w":"in","start":0.762835595776771,"end":1.096772247360482},{"w":"bio.","start":1.096772247360482,"end":1.6533333333333324}],"startSec":6.966666666666667};
   const TH = {"bg":"#1A0D0F","panel":"#261216","accent":"#FF4B3E","accentDeep":"#D93A2F","ink":"#FFF0EB","inkSoft":"#B08580"};
   const gsap = window.gsap;
   const tl = gsap.timeline({ paused: true });
@@ -508,7 +508,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
   v7.wipe(tl, P, false, DUR);
   v7.camera(tl, P, SCENE.camera, DUR);
   v7.envProxy(tl, P, SID, ENV, DUR);
-tl.fromTo("#s06-halftone-comic-hal-panel",{attr:{transform:"rotate(-4 540 1150) scale(0.92)"}},{attr:{transform:"rotate(-2 540 1150) scale(1)"},duration:0.6,ease:"back.out(1.7)"},0.02);
+tl.fromTo("#s06-halftone-comic-hal-panel",{attr:{transform:"rotate(4 540 1150) scale(0.92)"}},{attr:{transform:"rotate(2 540 1150) scale(1)"},duration:0.6,ease:"back.out(1.7)"},0.02);
   tl.fromTo("#s06-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) scale(0.5)"}},{attr:{transform:"translate(540 1140) scale(1)"},duration:0.5,ease:"back.out(2.4)"},0.15);
 tl.fromTo("#s06-halftone-comic-hal-burst",{opacity:0.9},{opacity:0,duration:0.45,ease:"power2.out"},0.47);
 tl.fromTo("#s06-halftone-comic-hal-burst",{attr:{transform:"rotate(0 540 760) scale(1.25)"}},{attr:{transform:"rotate(24 540 760) scale(0.85)"},duration:0.45,ease:"power2.out"},0.47);
@@ -519,7 +519,7 @@ tl.fromTo("#s06-halftone-comic-hal-motif",{attr:{transform:"translate(540 1140) 
 
 
   v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
-v7.placeCharacter(P, [540,1790], 2, 1);
+v7.placeCharacter(P, [540,1770], 2, 1);
   v7.character(tl, P, SCENE.action, DUR);
   if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
   if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);

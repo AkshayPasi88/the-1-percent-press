@@ -138,11 +138,11 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
 
             
             <g id="s07-riso-poster-to-barbell" opacity="0" transform="translate(0 -78)">
-              <rect x="-122" y="-4.5" width="244" height="9" rx="4.5" fill="#3A3D47"/>
-              <circle cx="-112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
-              <circle cx="112" cy="0" r="26" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
-              <circle cx="-112" cy="0" r="10" fill="#0B0C10"/>
-              <circle cx="112" cy="0" r="10" fill="#0B0C10"/>
+              <rect x="-76" y="-4.5" width="152" height="9" rx="4.5" fill="#3A3D47"/>
+              <circle cx="-70" cy="0" r="22" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="70" cy="0" r="22" fill="#14151C" stroke="var(--acc)" stroke-width="4"/>
+              <circle cx="-70" cy="0" r="9" fill="#0B0C10"/>
+              <circle cx="70" cy="0" r="9" fill="#0B0C10"/>
             </g>
 
             
@@ -465,22 +465,24 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
         bounce(tl, g("to-bob"), 3, 1.11, dur);
         break;
       case "lift": {
+        // overhead press, v6 geometry: arms sweep 138°↔72°, barbell tracks
+        // hand height: hand_y(torso) = -62 + 74*cos(θ)  →  -117 (top) ↔ -39 (bottom)
         const cyc = 1.82;
         const reps = Math.max(1, Math.ceil(dur / cyc));
         for (let i = 0; i < reps; i++) {
           const t0 = i * cyc;
           tl.fromTo(g("to-armL"),
-            { attr: { transform: "rotate(168)" } },
-            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+            { attr: { transform: "rotate(138)" } },
+            { attr: { transform: "rotate(72)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
           tl.fromTo(g("to-armR"),
-            { attr: { transform: "rotate(-168)" } },
-            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
-          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
-          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+            { attr: { transform: "rotate(-138)" } },
+            { attr: { transform: "rotate(-72)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(138)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-138)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
           tl.fromTo(g("to-barbell"),
-            { attr: { transform: "translate(0 -108)" } },
-            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
-          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+            { attr: { transform: "translate(0 -117)" } },
+            { attr: { transform: "translate(0 -39)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -117)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
           tl.fromTo(g("to-bob"),
             { attr: { transform: "translate(0 0)" } },
             { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
@@ -533,7 +535,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
   const DUR = 2.6;
   const ENV = [0.005,0.005,0.004,0.003,0.002,0.002,0.002,0.001,0.001,0.004,0.248,1,0.955,0.92,0.937,0.899,0.782,1,1,0.82,0.672,0.551,0.68,0.857,1,1,0.82,0.672,0.714,0.586,0.53,0.746,0.649,0.532,0.436,0.358,0.725,0.71,0.611,0.595,0.488,0.4,0.328,0.269,0.221,0.289,0.425,0.349,0.523,0.562,0.461,0.378,0.31,0.254,0.208,0.171,0.14,0.115,0.094,0.077,0.063,0.052,0.043,0.035,0.029,0.023,0.019,0.016,0.117,0.668,1,1,0.82,0.672,0.637,1,1,0.982];
   const ONSETS = [0.333,0.6,2.3];
-  const SCENE = {"action":"victory","type":"caption","camera":[{"t":0,"x":40,"y":0,"zoom":1.06,"rot":1.2},{"t":2.7376521739130446,"x":-30,"y":-14,"zoom":1.12,"rot":-1.2}],"fx":["shockwave"],"counter":null,"hookLines":null,"words":[{"w":"That","start":0.2106231884058012,"end":0.6071313405797127},{"w":"is","start":0.6071313405797127,"end":0.845036231884059},{"w":"where","start":0.845036231884059,"end":1.320846014492755},{"w":"the","start":1.320846014492755,"end":1.6380525362318856},{"w":"results","start":1.6380525362318856,"end":2.272465579710147},{"w":"live.","start":2.272465579710147,"end":2.748275362318843}],"startSec":17.6};
+  const SCENE = {"action":"run","type":"caption","camera":[{"t":0,"x":40,"y":0,"zoom":1.06,"rot":1.2},{"t":2.7376521739130446,"x":-30,"y":-14,"zoom":1.12,"rot":-1.2}],"fx":["shockwave"],"counter":null,"hookLines":null,"words":[{"w":"That","start":0.2106231884058012,"end":0.6071313405797127},{"w":"is","start":0.6071313405797127,"end":0.845036231884059},{"w":"where","start":0.845036231884059,"end":1.320846014492755},{"w":"the","start":1.320846014492755,"end":1.6380525362318856},{"w":"results","start":1.6380525362318856,"end":2.272465579710147},{"w":"live.","start":2.272465579710147,"end":2.748275362318843}],"startSec":17.6};
   const TH = {"bg":"#0A0D12","panel":"#141922","accent":"#FF4438","accentDeep":"#C02820","ink":"#F4F6F8","inkSoft":"#93A0AE"};
   const gsap = window.gsap;
   const tl = gsap.timeline({ paused: true });

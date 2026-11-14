@@ -10,7 +10,7 @@
 //
 // Reads  : scripts/reels/hype_scripts.json
 // Writes : scripts/reels/public/audio/hype_NN.mp3
-//          scripts/reels/hype_props.json  (captions + timing for Remotion)
+//          engine/reels/hype_props.json  (captions + timing for the reel engine)
 import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";

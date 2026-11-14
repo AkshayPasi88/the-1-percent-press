@@ -2,10 +2,10 @@
 """Fetch Playfair Display + Source Sans 3 TTFs via Google Fonts v1 CSS API.
 
 v1 endpoint + legacy UA serves static per-weight TTFs — works for both
-Remotion (@font-face) and LibreOffice (~/.fonts install).
+HyperFrames @font-face and LibreOffice (~/.fonts install).
 
 Saves to:
-  /home/z/my-project/scripts/reels/public/fonts/  (Remotion @font-face)
+  engine/reels/public/fonts/  (HyperFrames @font-face)
   /home/z/.fonts/                                  (LibreOffice PDF check)
 """
 import re

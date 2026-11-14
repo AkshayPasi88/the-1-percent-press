@@ -8,28 +8,32 @@ published to **Instagram (@self_efficient_daily)** and **Pinterest
 
 | Asset | Spec | How |
 | --- | --- | --- |
-| Voiced reels | 9:16 · 1080×1920 · 30fps · H.264 + AAC, 11–36s | **Engine v6 — Fully Animated Cinematic Reels**: Fish Audio TTS narration + Remotion-animated worlds, one consistent protagonist, audio-reactive effects, kinetic type, ebook CTA. **No stock footage — every frame is drawn by code.** |
+| Voiced reels | 9:16 · 1080×1920 · 30fps · H.264 + AAC, 11–36s | **Engine v7 — HyperFrames HTML reels**: Fish Audio TTS narration + HTML/SVG/CSS + GSAP animated worlds, one canonical protagonist, audio-reactive effects, kinetic type, ebook CTA. **No stock footage — every frame is drawn by code. Rendered deterministically by HyperFrames.** |
 | Quote slides | 4:5 · 1080×1350 PNG, single-image | HTML + headless Chrome (motivational/dopamine content, 6+ color themes) |
 | Ebooks | 18 pages · 4:5 portrait (8×10 in) · PPTX + PDF | pptx skill workflow (batch `build_pptx_4x5.js` + `slides_to_pdf.js`) |
 
 **Niche: self-improvement only.**
 
-## Engine v6 — the fully animated cinematic reel engine
+## Engine v7 — the HyperFrames HTML reel engine
 
-**Philosophy: the AI no longer searches for stock footage to tell the story —
-it creates the entire animated world where the story happens.**
+**Philosophy: every reel is an animated world built from plain web tech —
+HTML, CSS, SVG and GSAP — rendered frame by frame by HyperFrames.**
 Stock video, random web images and static backgrounds are permanently banned.
 
-Pipeline: `probe.mjs` (audio envelope + onsets) → `director.mjs` (Creative
-Director: script → scene specs) → Remotion deterministic render → ffmpeg
-master (film grain + loudnorm) → `qc.mjs` (gates + contact sheets).
-One command: `cd engine/reels && npm run build`.
+Pipeline: `v7/probe.mjs` (audio envelope + onsets) → `v7/director.mjs`
+(Creative Director: script → scene specs, scene-uniqueness validated) →
+`v7/build.mjs` (generates a HyperFrames project per reel: one HTML file per
+scene) → `v7/render.mjs` (`hyperframes check` gate → deterministic render →
+ffmpeg master: film grain + loudnorm) → `v7/qc.mjs` (gates + per-scene
+perceptual uniqueness + contact sheets).
+One command: `cd engine/reels && npm run make`.
 
 Ten animated worlds: iso-grid · riso-poster · ink-dawn · neon-city ·
 paper-forest · cosmic-orbit · blueprint-tech · halftone-comic · liquid-grad ·
-cel-stage. One protagonist ("TheOne": charcoal hoodie, gold trim, cap) across
-every reel. Full schema + credits in
-[`engine/reels/v6/SPEC.md`](engine/reels/v6/SPEC.md).
+cel-stage. One protagonist ("TheOne": charcoal hoodie, gold trim, cap) from a
+single canonical SVG asset inlined into every scene — identity and
+proportions cannot drift. Full schema + credits in
+[`engine/reels/v7/SPEC.md`](engine/reels/v7/SPEC.md).
 
 ## Repository layout
 
@@ -44,17 +48,20 @@ the-1-percent-press/
 │   ├── build_pptx_4x5.js     ← HTML → 4:5 portrait PPTX
 │   ├── slides_to_pdf.js      ← HTML → PDF
 │   ├── fetch_fonts.py, fix_font_names.py
-│   └── reels/                ← Engine v6 (Remotion project)
-│       ├── v6/probe.mjs      ← audio → envelope + onsets (deterministic)
-│       ├── v6/director.mjs   ← Creative Director: scripts → scene specs
-│       ├── v6/render.mjs     ← bundle + render + ffmpeg master
-│       ├── v6/qc.mjs         ← QC gates + contact sheets
-│       ├── v6/specs/         ← generated scene specs (the films)
-│       ├── v6/SPEC.md        ← schema + worlds + attribution
+│   └── reels/                ← Engine v7 (HyperFrames HTML video engine)
+│       ├── v7/probe.mjs      ← audio → envelope + onsets (deterministic)
+│       ├── v7/director.mjs   ← Creative Director: scripts → scene specs (+ uniqueness)
+│       ├── v7/build.mjs      ← spec → HyperFrames project (scene HTML files)
+│       ├── v7/render.mjs     ← check gate + hyperframes render + ffmpeg master
+│       ├── v7/qc.mjs         ← QC gates + perceptual scene uniqueness + sheets
+│       ├── v7/specs/         ← generated scene specs (the films)
+│       ├── v7/lib/           ← worlds.mjs, scene-kit.js, character.js, prng.mjs
+│       ├── v7/assets/characters/theone.svg  ← canonical protagonist asset
+│       ├── v7/build/         ← generated HyperFrames projects (one reel each)
+│       ├── v7/SPEC.md        ← schema + worlds + attribution
 │       ├── hype_props.json   ← reel content source (scripts + themes)
 │       ├── public/audio/     ← TTS narration tracks
-│       ├── public/fonts/     ← Anton, Archivo Black, Playfair, Source Sans 3
-│       └── src/v6/           ← worlds, TheOne rig, camera, fx, kinetic type
+│       └── public/fonts/     ← Anton, Archivo Black, Playfair, Source Sans 3
 ```
 
 Each **ebook** gets its own repository with its reels, slides and marketing kit:
@@ -90,7 +97,8 @@ chat). Full details in `PIPELINE.md`.
 
 ## Credits
 
-Engine v6 architecture adapted from **lemomo-ai/lemo-opuscar** (MIT) and the
+Engine v6/v7 architecture adapted from **lemomo-ai/lemo-opuscar** (MIT) and the
 creative vocabulary of **yihui-dev/awesome-opus5-5-videos** (MIT) — both
-studied in depth before implementation. See
-[`engine/reels/v6/SPEC.md`](engine/reels/v6/SPEC.md).
+studied in depth before implementation. Rendering framework:
+**HyperFrames** (heygen-com/hyperframes). See
+[`engine/reels/v7/SPEC.md`](engine/reels/v7/SPEC.md).

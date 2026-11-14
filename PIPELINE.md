@@ -61,8 +61,8 @@ Same flow as batch 001:
 
 ## Environment prerequisites (build sandbox)
 
-- Node 24 · Remotion deps in `engine/reels` (`npm install` if recycled)
-- Playwright Chromium headless-shell (reels render + slides)
+- Node 24 · `npx hyperframes@0.9.40` (Engine v7 reels render; auto-installed)
+- Chrome via hyperframes `browser ensure` (reels render) + Playwright Chromium (slides)
 - ffmpeg/ffprobe · LibreOffice · poppler for QA
 - Secrets in `/home/z/my-project/.secrets/`: `github_token`, `fish_audio_key`,
   `zernio_key`, `instagram_account_id`, `pinterest_account_id` (chmod 600)

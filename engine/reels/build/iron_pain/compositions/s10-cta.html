@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080, height=1920"/>
+<title>s10-cta</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+@font-face{font-family:'Anton';src:url('assets/fonts/Anton-Regular.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-400.ttf');font-weight:400;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-600.ttf');font-weight:600;font-display:block}
+@font-face{font-family:'Source Sans 3';src:url('assets/fonts/SourceSans3-700.ttf');font-weight:700;font-display:block}
+.clip{position:absolute;inset:0;overflow:hidden}
+#s10-cta{position:absolute;inset:0;font-family:'Source Sans 3',sans-serif;background:#0A0D12;--pulse:0;--acc:#FF4438}
+#s10-cta-camera{position:absolute;inset:0;will-change:transform}
+#s10-cta-world{position:absolute;left:0;top:0}
+#s10-cta-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
+  radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.10) 100%),
+  linear-gradient(180deg, rgba(244,246,248,0.048), rgba(244,246,248,0.019));}
+#s10-cta-wipe{position:absolute;inset:0;z-index:50;background:linear-gradient(180deg,#C02820,#FF4438);transform:translateY(0)}
+#s10-cta-wipe .wipe-edge{position:absolute;left:0;right:0;bottom:0;height:26px;background:#F4F6F8;opacity:0.9}
+#s10-cta-fade{position:absolute;inset:0;z-index:60;background:#000;opacity:0}
+#s10-cta-cta-type{position:absolute;top:1020px;left:60px;right:60px;display:flex;flex-direction:column;align-items:center;z-index:10}
+.cta-title{font-family:'Anton';font-size:110px;color:#F4F6F8;letter-spacing:2px;text-shadow:6px 5px 0 #731f19}
+.cta-sub{font-family:'Source Sans 3';font-weight:600;font-size:33px;color:#93A0AE;margin-top:14px;letter-spacing:1px;max-width:760px;text-align:center}
+.cta-chip{margin-top:44px;font-family:'Source Sans 3';font-weight:700;font-size:40px;letter-spacing:3px;color:#0B0C10;background:#FF4438;border-radius:999px;padding:20px 46px;box-shadow:0 10px 40px rgba(255,68,56,0.400)}
+.cta-handle{margin-top:26px;font-family:'Source Sans 3';font-weight:600;font-size:30px;letter-spacing:5px;color:#93A0AE}
+</style>
+</head>
+<body>
+<div id="s10-cta" data-composition-id="s10-cta" data-width="1080" data-height="1920">
+  <div id="s10-cta-camera">
+    <svg id="s10-cta-world" viewBox="0 0 1080 1920" width="1080" height="1920">
+
+  <rect x="0" y="0" width="1080" height="1920" fill="#0A0D12"/>
+  <rect x="0" y="0" width="1080" height="1920" fill="url(#s10-cta-cta-bg)" style="opacity:calc(1 + var(--pulse,0)*0.4)"/>
+  <defs><radialGradient id="s10-cta-cta-bg">
+    <stop offset="0" stop-color="rgba(255,68,56,0.220)"/><stop offset="0.38" stop-color="rgba(255,68,56,0.050)"/><stop offset="0.68" stop-color="rgba(10,13,18,0.000)"/>
+  </radialGradient></defs>
+  <rect id="s10-cta-cta-cf0" x="0" y="0" width="12.94" height="26.98" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf1" x="0" y="0" width="23.53" height="26.41" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf2" x="0" y="0" width="24.4" height="30.46" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf3" x="0" y="0" width="14.92" height="21.32" fill="#93A0AE" opacity="0.7"/><rect id="s10-cta-cta-cf4" x="0" y="0" width="18.76" height="19.61" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf5" x="0" y="0" width="22.42" height="25.49" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf6" x="0" y="0" width="21.66" height="27.03" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf7" x="0" y="0" width="24.01" height="21.47" fill="#93A0AE" opacity="0.7"/><rect id="s10-cta-cta-cf8" x="0" y="0" width="25.46" height="26" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf9" x="0" y="0" width="18.24" height="30.71" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf10" x="0" y="0" width="18.85" height="31.52" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf11" x="0" y="0" width="18.15" height="23.82" fill="#93A0AE" opacity="0.7"/><rect id="s10-cta-cta-cf12" x="0" y="0" width="23.22" height="22.36" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf13" x="0" y="0" width="13.11" height="33.73" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf14" x="0" y="0" width="25.77" height="24.24" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf15" x="0" y="0" width="17.96" height="24.64" fill="#93A0AE" opacity="0.7"/><rect id="s10-cta-cta-cf16" x="0" y="0" width="25.4" height="23.99" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf17" x="0" y="0" width="21.54" height="19.39" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf18" x="0" y="0" width="22.56" height="26.17" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf19" x="0" y="0" width="12.43" height="29.64" fill="#93A0AE" opacity="0.7"/><rect id="s10-cta-cta-cf20" x="0" y="0" width="12.04" height="22.77" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf21" x="0" y="0" width="20.01" height="32.34" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf22" x="0" y="0" width="23.18" height="30.53" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf23" x="0" y="0" width="19.13" height="32.21" fill="#93A0AE" opacity="0.7"/><rect id="s10-cta-cta-cf24" x="0" y="0" width="24.15" height="32.21" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf25" x="0" y="0" width="17.45" height="27.33" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf26" x="0" y="0" width="24.31" height="25.12" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf27" x="0" y="0" width="12.36" height="18.6" fill="#93A0AE" opacity="0.7"/><rect id="s10-cta-cta-cf28" x="0" y="0" width="17.27" height="27.98" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf29" x="0" y="0" width="21.33" height="20.71" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf30" x="0" y="0" width="16.97" height="19.92" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf31" x="0" y="0" width="21.83" height="23.21" fill="#93A0AE" opacity="0.7"/><rect id="s10-cta-cta-cf32" x="0" y="0" width="25.33" height="32.41" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf33" x="0" y="0" width="17.73" height="19.64" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf34" x="0" y="0" width="19.72" height="20.72" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf35" x="0" y="0" width="24.43" height="26.81" fill="#93A0AE" opacity="0.7"/><rect id="s10-cta-cta-cf36" x="0" y="0" width="23.32" height="18.05" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf37" x="0" y="0" width="17.21" height="30.2" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf38" x="0" y="0" width="15.61" height="33.33" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf39" x="0" y="0" width="20.44" height="23.44" fill="#93A0AE" opacity="0.7"/><rect id="s10-cta-cta-cf40" x="0" y="0" width="14.6" height="33.57" fill="#FF4438" opacity="0.7"/><rect id="s10-cta-cta-cf41" x="0" y="0" width="13.88" height="29.42" fill="#C02820" opacity="0.7"/><rect id="s10-cta-cta-cf42" x="0" y="0" width="13.02" height="21.87" fill="#F4F6F8" opacity="0.7"/><rect id="s10-cta-cta-cf43" x="0" y="0" width="12.84" height="28.38" fill="#93A0AE" opacity="0.7"/>
+  <g id="s10-cta-cta-book">
+    <rect x="-14" y="-150" width="28" height="300" rx="6" fill="#0e12NaN" stroke="rgba(244,246,248,0.600)" stroke-width="3"/>
+    <rect x="10" y="-150" width="220" height="300" rx="10" fill="#141922" stroke="rgba(244,246,248,0.800)" stroke-width="4"/>
+    <rect x="34" y="-126" width="172" height="252" rx="6" fill="rgba(10,13,18,0.500)"/>
+    <rect x="10" y="-150" width="220" height="300" rx="10" fill="none" stroke="#FF4438" stroke-width="2.5" opacity="0.6"/>
+    <text x="120" y="-40" text-anchor="middle" font-family="Anton" font-size="34" fill="#F4F6F8">THE 1%</text>
+    <text x="120" y="0" text-anchor="middle" font-family="Anton" font-size="46" fill="#FF4438">METHOD</text>
+    <line x1="50" y1="26" x2="190" y2="26" stroke="rgba(147,160,174,0.600)" stroke-width="2"/>
+    <text x="120" y="58" text-anchor="middle" font-family="Source Sans 3" font-weight="600" font-size="17" fill="#93A0AE">COMPOUND GROWTH</text>
+    <path d="M 230 -100 q 16 8 30 0" stroke="rgba(244,246,248,0.400)" stroke-width="3" fill="none"/><path d="M 230 -70 q 16 -8 30 0" stroke="rgba(244,246,248,0.400)" stroke-width="3" fill="none"/><path d="M 230 -40 q 16 8 30 0" stroke="rgba(244,246,248,0.400)" stroke-width="3" fill="none"/>
+  </g>
+
+
+    </svg>
+  </div>
+  <div id="s10-cta-grade"></div>
+  <div id="s10-cta-cta-type">
+      <div class="cta-title">THE 1% METHOD</div>
+      <div class="cta-sub">The 18-page pocket guide to compound growth</div>
+      <div class="cta-chip" id="s10-cta-cta-chip">FREE EBOOK · LINK IN BIO</div>
+      <div class="cta-handle">@SELF_EFFICIENT_DAILY</div>
+    </div>
+  <div id="s10-cta-wipe"><div class="wipe-edge"></div></div>
+  <div id="s10-cta-fade"></div>
+</div>
+<script>
+(function () {
+  const v7 = {};
+// v7 scene-kit — shared browser runtime inlined into every scene by build.mjs.
+// Camera creep, audio-envelope proxy (--pulse CSS var), hook slam, karaoke
+// captions, counters, brand tag, onset fx, flood wipe-in, grade veil.
+// Everything is a pure function of the paused GSAP timeline (deterministic).
+/* global v7 */
+(function () {
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+
+  // ---- audio envelope proxy: one tween drives the --pulse CSS var -------
+  v7.envProxy = function (tl, p, rootId, env, dur) {
+    if (!env || env.length === 0 || dur <= 0.02) return;
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const prox = { t: 0 };
+    tl.to(prox, {
+      t: dur,
+      duration: dur,
+      ease: "none",
+      onUpdate: function () {
+        const f = Math.min(env.length - 1, Math.max(0, Math.round(prox.t * 30)));
+        root.style.setProperty("--pulse", env[f].toFixed(3));
+      },
+    }, 0);
+  };
+
+  // ---- camera: keyed [t,x,y,zoom,rot] -> sequential fromTo on #camera ----
+  v7.camera = function (tl, p, keys, dur) {
+    if (!keys || keys.length === 0) return;
+    const cam = "#" + p + "camera";
+    if (keys.length === 1) {
+      const k = keys[0];
+      tl.set(cam, { x: -k.x, y: -k.y, scale: k.zoom, rotation: k.rot }, 0.001);
+      return;
+    }
+    for (let i = 0; i < keys.length - 1; i++) {
+      const a = keys[i];
+      const b = keys[i + 1];
+      const span = Math.max(0.05, b.t - a.t);
+      tl.fromTo(cam,
+        { x: -a.x, y: -a.y, scale: a.zoom, rotation: a.rot },
+        { x: -b.x, y: -b.y, scale: b.zoom, rotation: b.rot, duration: span, ease: "power2.inOut" },
+        Math.max(0, a.t));
+    }
+  };
+
+  // ---- hook type: per-character spring slam --------------------------------
+  v7.hook = function (tl, p, lines, th, dur) {
+    const box = "#" + p + "hook";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.05);
+    let delay = 0.05;
+    lines.forEach((line, li) => {
+      const chars = line.split("");
+      chars.forEach((ch, ci) => {
+        const sel = `#${p}hk-${li}-${ci}`;
+        if (ch === " ") return;
+        tl.fromTo(sel,
+          { opacity: 0, scale: 0.6, y: 26 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" },
+          delay + ci * 0.035);
+      });
+      delay += 0.14 + Math.min(0.5, chars.length * 0.035);
+    });
+    // hold, then shrink away just before scene end
+    tl.to(box, { scale: 0.94, duration: 0.3, ease: "power2.in" }, Math.max(0.1, dur - 0.32));
+  };
+
+  // ---- karaoke captions: word-level color/scale sync -----------------------
+  v7.captions = function (tl, p, words, th, sceneDur, sceneStart) {
+    const box = "#" + p + "cap";
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.02);
+    words.forEach((w, i) => {
+      const sel = `#${p}cw-${i}`;
+      const ws = Math.max(0, w.start - sceneStart);
+      const we = Math.min(sceneDur - 0.05, w.end - sceneStart);
+      if (we <= ws) return;
+      // upcoming -> active (white, pop)
+      tl.fromTo(sel,
+        { color: th.inkSoft, scale: 1 },
+        { color: "#FFFFFF", scale: 1.1, duration: 0.09, ease: "power2.out" },
+        ws);
+      // active -> spoken (accent, settle)
+      tl.to(sel, { color: th.accent, scale: 1, duration: 0.12, ease: "power2.out" }, we);
+    });
+  };
+
+  // ---- animated counter ------------------------------------------------------
+  v7.counter = function (tl, p, counter, dur) {
+    const box = "#" + p + "ctr";
+    const numEl = document.getElementById(p + "ctr-num");
+    tl.set(box, { opacity: 0 }, 0.001);
+    tl.fromTo(box, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, 0.05);
+    const dec = counter.decimals || 0;
+    const prox = { v: counter.from };
+    tl.fromTo(prox,
+      { v: counter.from },
+      { v: counter.to, duration: dur * 0.7, ease: "power3.out",
+        onUpdate: function () {
+          numEl.textContent = (counter.prefix || "") + prox.v.toFixed(dec) + (counter.suffix || "");
+        } },
+      0.08);
+  };
+
+  // ---- brand tag: settle-in + tiny bob ---------------------------------------
+  v7.brand = function (tl, p, dur) {
+    const tag = "#" + p + "brand";
+    tl.set(tag, { opacity: 0 }, 0.001);
+    tl.fromTo(tag, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.1);
+    tl.fromTo(tag, { y: 0 }, { y: -4, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.6)) - 1 }, 0.5);
+  };
+
+  // ---- onset fx ---------------------------------------------------------------
+  // shockwave ring + speed lines + flash, placed at scene-local onset times
+  v7.onsetFx = function (tl, p, th, onsets, fxKeys, dur) {
+    const has = (k) => fxKeys && fxKeys.indexOf(k) >= 0;
+    onsets.forEach((t0) => {
+      if (t0 <= 0.05 || t0 >= dur - 0.05) return;
+      if (has("shockwave")) {
+        const ring = "#" + p + "fx-ring";
+        tl.set(ring, { attr: { r: 60, opacity: 0 } }, t0 - 0.001);
+        tl.fromTo(ring,
+          { attr: { r: 60, opacity: 0.5 } },
+          { attr: { r: 700, opacity: 0 }, duration: 0.55, ease: "power2.out" },
+          t0);
+      }
+      if (has("speedlines")) {
+        const g = "#" + p + "fx-speed";
+        tl.set(g, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(g,
+          { opacity: 0.55, scale: 1.15 },
+          { opacity: 0, scale: 1, duration: 0.4, ease: "power2.out", transformOrigin: "50% 51%" },
+          t0);
+      }
+      if (has("flash")) {
+        const f = "#" + p + "fx-flash";
+        tl.set(f, { opacity: 0 }, t0 - 0.001);
+        tl.fromTo(f, { opacity: 0.16 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, t0);
+      }
+    });
+  };
+
+  // ---- flood wipe-in at scene start -------------------------------------------
+  v7.wipe = function (tl, p, isFirst, dur) {
+    const panel = "#" + p + "wipe";
+    if (isFirst) {
+      const fade = "#" + p + "fade";
+      tl.set(fade, { opacity: 1 }, 0.001);
+      tl.fromTo(fade, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 0.02);
+      tl.set(panel, { opacity: 0 }, 0.001);
+      return;
+    }
+    tl.set(panel, { opacity: 1 }, 0.001);
+    tl.fromTo(panel,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.46, ease: "power3.inOut" },
+      0.02);
+    // trailing edge accent line
+    const edge = "#" + p + "wipe-edge";
+    tl.fromTo(edge,
+      { yPercent: 0 },
+      { yPercent: 106, duration: 0.5, ease: "power3.inOut" },
+      0.02);
+  };
+
+  // ---- character: place rig wrapper (static) and run action ------------------
+  v7.placeCharacter = function (p, pos, scale, facing) {
+    const el = document.getElementById(p + "char");
+    if (!el) return;
+    el.setAttribute("transform",
+      `translate(${pos[0]} ${pos[1]}) scale(${(scale * (facing || 1)).toFixed(3)} ${scale.toFixed(3)})`);
+  };
+})();
+
+// TheOne character runtime — inlined into every scene by build.mjs.
+// Applies GSAP tweens to the canonical rig. The rig markup is byte-identical
+// in every scene (only ids get a scene prefix); these joint rotations are the
+// ONLY per-scene variation, so identity and proportions cannot drift.
+// Determinism: finite repeats only, absolute times, pure function of timeline.
+/* global v7 */
+(function () {
+  // Joint oscillation around `base` between base+amp and base-amp.
+  // yoyo with sine.inOut approximates sin(t) closely at joint scale.
+  function swing(tl, sel, base, amp, cycleSec, dur, phase) {
+    if (amp === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    const from = base + (phase >= 0 ? amp : -amp);
+    tl.fromTo(
+      sel,
+      { attr: { transform: `rotate(${from.toFixed(2)})` } },
+      { attr: { transform: `rotate(${(2 * base - from).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+  // Bounded bounce (0 -> -depth -> 0) on the bob wrapper.
+  function bounce(tl, sel, depth, cycleSec, dur) {
+    if (depth === 0 || dur <= 0.02) return;
+    const half = cycleSec / 2;
+    const reps = Math.max(1, Math.ceil(dur / half));
+    tl.fromTo(
+      sel,
+      { attr: { transform: "translate(0 0)" } },
+      { attr: { transform: `translate(0 ${(-depth).toFixed(2)})` }, duration: half, ease: "sine.inOut", yoyo: true, repeat: reps - 1 },
+      0,
+    );
+  }
+
+  // p = scene id prefix, e.g. "s01-" (rig ids are `${p}to-…`)
+  v7.character = function (tl, p, action, dur) {
+    const g = (n) => "#" + p + n;
+    const seated = action === "meditate" || action === "levitate";
+
+    tl.set(g("to-legsStand"), { attr: { opacity: seated ? 0 : 1 } }, 0.001);
+    tl.set(g("to-legsSit"), { attr: { opacity: seated ? 1 : 0 } }, 0.001);
+
+    const S = {
+      idle:     { lean: 0,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      walk:     { lean: 2,   head: 0,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+      run:      { lean: -9,  head: -3, fArmL: 42,  fArmR: 42,  barbell: 0 },
+      climb:    { lean: 14,  head: -6, fArmL: 8,   fArmR: 8,   barbell: 0 },
+      lift:     { lean: 0,   head: 0,  fArmL: 6,   fArmR: 6,   barbell: 1 },
+      meditate: { lean: 0,   head: 2,  fArmL: 32,  fArmR: -32, barbell: 0 },
+      levitate: { lean: 0,   head: -2, fArmL: 14,  fArmR: -14, barbell: 0 },
+      victory:  { lean: 0,   head: -2, fArmL: 6,   fArmR: 6,   barbell: 0 },
+      point:    { lean: 3,   head: 4,  fArmL: 0,   fArmR: 0,   barbell: 0 },
+    }[action] || { lean: 0, head: 0, fArmL: 0, fArmR: 0, barbell: 0 };
+
+    tl.set(g("to-lean"), { attr: { transform: `rotate(${S.lean})` } }, 0.001);
+    tl.set(g("to-head"), { attr: { transform: `rotate(${S.head})` } }, 0.001);
+    tl.set(g("to-forearmL"), { attr: { transform: `rotate(${S.fArmL})` } }, 0.001);
+    tl.set(g("to-forearmR"), { attr: { transform: `rotate(${S.fArmR})` } }, 0.001);
+    tl.set(g("to-barbell"), { attr: { opacity: S.barbell } }, 0.001);
+
+    switch (action) {
+      case "idle":
+        swing(tl, g("to-armL"), 0, 4, 1.1, dur, 1);
+        swing(tl, g("to-armR"), 0, 4, 1.1, dur, -1);
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+        break;
+      case "walk":
+        swing(tl, g("to-legL"), 0, 24, 0.667, dur, 1);
+        swing(tl, g("to-legR"), 0, 24, 0.667, dur, -1);
+        swing(tl, g("to-armL"), 0, 16, 0.667, dur, -1);
+        swing(tl, g("to-armR"), 0, 16, 0.667, dur, 1);
+        bounce(tl, g("to-bob"), 5, 0.333, dur);
+        break;
+      case "run":
+        swing(tl, g("to-legL"), 0, 40, 0.385, dur, 1);
+        swing(tl, g("to-legR"), 0, 40, 0.385, dur, -1);
+        swing(tl, g("to-armL"), 0, 34, 0.385, dur, -1);
+        swing(tl, g("to-armR"), 0, 34, 0.385, dur, 1);
+        bounce(tl, g("to-bob"), 7, 0.192, dur);
+        break;
+      case "climb":
+        // arms reach up alternately around 150°, knees step
+        swing(tl, g("to-armL"), 150, 26, 1.11, dur, 1);
+        swing(tl, g("to-armR"), 150, 26, 1.11, dur, -1);
+        swing(tl, g("to-legL"), 28, 16, 1.11, dur, 1);
+        swing(tl, g("to-legR"), 28, 16, 1.11, dur, -1);
+        bounce(tl, g("to-bob"), 3, 1.11, dur);
+        break;
+      case "lift": {
+        const cyc = 1.82;
+        const reps = Math.max(1, Math.ceil(dur / cyc));
+        for (let i = 0; i < reps; i++) {
+          const t0 = i * cyc;
+          tl.fromTo(g("to-armL"),
+            { attr: { transform: "rotate(168)" } },
+            { attr: { transform: "rotate(48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.fromTo(g("to-armR"),
+            { attr: { transform: "rotate(-168)" } },
+            { attr: { transform: "rotate(-48)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-armL"), { attr: { transform: "rotate(168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.to(g("to-armR"), { attr: { transform: "rotate(-168)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-barbell"),
+            { attr: { transform: "translate(0 -108)" } },
+            { attr: { transform: "translate(0 -10)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-barbell"), { attr: { transform: "translate(0 -108)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+          tl.fromTo(g("to-bob"),
+            { attr: { transform: "translate(0 0)" } },
+            { attr: { transform: "translate(0 4)" }, duration: cyc * 0.55, ease: "sine.inOut" }, t0);
+          tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: cyc * 0.45, ease: "sine.inOut" }, t0 + cyc * 0.55);
+        }
+        break;
+      }
+      case "meditate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(38)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-38)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 2.0, dur);
+        break;
+      case "levitate":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(62)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-62)" } }, 0.002);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 -14)" } },
+          { attr: { transform: "translate(0 -23)" }, duration: 1.11, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 1.11)) - 1 },
+          0);
+        break;
+      case "victory":
+        // arms held up (~160°) with a slight sway + one hop
+        tl.fromTo(g("to-armL"),
+          { attr: { transform: "rotate(158)" } },
+          { attr: { transform: "rotate(163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-armR"),
+          { attr: { transform: "rotate(-158)" } },
+          { attr: { transform: "rotate(-163)" }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: Math.max(1, Math.ceil(dur / 0.45)) - 1 },
+          0);
+        tl.fromTo(g("to-bob"),
+          { attr: { transform: "translate(0 0)" } },
+          { attr: { transform: "translate(0 -12)" }, duration: 0.36, ease: "sine.out" },
+          0);
+        tl.to(g("to-bob"), { attr: { transform: "translate(0 0)" }, duration: 0.36, ease: "bounce.in" }, 0.36);
+        break;
+      case "point":
+        tl.set(g("to-armL"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        tl.set(g("to-armR"), { attr: { transform: "rotate(-46)" } }, 0.002);
+        bounce(tl, g("to-bob"), 1.6, 1.4, dur);
+        break;
+      default:
+        bounce(tl, g("to-bob"), 1.6, 1.1, dur);
+    }
+  };
+})();
+
+  const SID = "s10-cta";
+  const P = "s10-cta-";
+  const DUR = 4.567;
+  const ENV = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  const ONSETS = [];
+  const SCENE = {"action":"victory","type":"cta","camera":[{"t":0,"x":0,"y":0,"zoom":1,"rot":0}],"fx":[],"counter":null,"hookLines":null,"words":null,"startSec":30.066666666666666};
+  const TH = {"bg":"#0A0D12","panel":"#141922","accent":"#FF4438","accentDeep":"#C02820","ink":"#F4F6F8","inkSoft":"#93A0AE"};
+  const gsap = window.gsap;
+  const tl = gsap.timeline({ paused: true });
+
+  v7.wipe(tl, P, false, DUR);
+  v7.camera(tl, P, SCENE.camera, DUR);
+  v7.envProxy(tl, P, SID, ENV, DUR);
+tl.fromTo("#s10-cta-cta-book",{attr:{transform:"translate(540 700) rotate(-6) scale(0.4)"},opacity:0},{attr:{transform:"translate(540 700) rotate(3) scale(1)"},opacity:1,duration:0.7,ease:"back.out(1.6)"},0.05);
+  tl.fromTo("#s10-cta-cta-book",{attr:{transform:"translate(540 700) rotate(3) scale(1)"}},{attr:{transform:"translate(540 684) rotate(3) scale(1.02)"},duration:1.1,ease:"sine.inOut",yoyo:true,repeat:4},0.75);
+tl.fromTo("#s10-cta-cta-cf0",{attr:{transform:"translate(401.53 1263.9) rotate(97.94)"},opacity:0},{attr:{transform:"translate(401.53 2706.03) rotate(317.94)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf1",{attr:{transform:"translate(40.89 618.73) rotate(168.38)"},opacity:0},{attr:{transform:"translate(40.89 2008.36) rotate(388.38)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf2",{attr:{transform:"translate(1006.02 1011.09) rotate(328.06)"},opacity:0},{attr:{transform:"translate(1006.02 1700.9) rotate(548.06)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf3",{attr:{transform:"translate(516.65 131.75) rotate(311.85)"},opacity:0},{attr:{transform:"translate(516.65 1331.57) rotate(531.85)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf4",{attr:{transform:"translate(645.23 331.62) rotate(210.3)"},opacity:0},{attr:{transform:"translate(645.23 1279.71) rotate(430.3)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf5",{attr:{transform:"translate(1004.43 1404.98) rotate(203.76)"},opacity:0},{attr:{transform:"translate(1004.43 2294.04) rotate(423.76)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf6",{attr:{transform:"translate(571.14 658.39) rotate(38.91)"},opacity:0},{attr:{transform:"translate(571.14 1822.07) rotate(258.91)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf7",{attr:{transform:"translate(509.29 1391.12) rotate(4.03)"},opacity:0},{attr:{transform:"translate(509.29 2080.67) rotate(224.03)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf8",{attr:{transform:"translate(107.57 1674.13) rotate(269.89)"},opacity:0},{attr:{transform:"translate(107.57 2883.81) rotate(489.89)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf9",{attr:{transform:"translate(430.52 569.68) rotate(192.48)"},opacity:0},{attr:{transform:"translate(430.52 1760.6) rotate(412.48)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf10",{attr:{transform:"translate(855.37 -65.82) rotate(101.51)"},opacity:0},{attr:{transform:"translate(855.37 1234.86) rotate(321.51)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf11",{attr:{transform:"translate(373.19 1175.14) rotate(33.96)"},opacity:0},{attr:{transform:"translate(373.19 2263.5) rotate(253.96)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf12",{attr:{transform:"translate(660.96 399.95) rotate(127.58)"},opacity:0},{attr:{transform:"translate(660.96 1723.13) rotate(347.58)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf13",{attr:{transform:"translate(156.79 586.81) rotate(286.36)"},opacity:0},{attr:{transform:"translate(156.79 1836.87) rotate(506.36)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf14",{attr:{transform:"translate(321.67 1282.62) rotate(43.01)"},opacity:0},{attr:{transform:"translate(321.67 2670.61) rotate(263.01)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf15",{attr:{transform:"translate(114.84 657.85) rotate(66.8)"},opacity:0},{attr:{transform:"translate(114.84 2011.86) rotate(286.8)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf16",{attr:{transform:"translate(504.49 1083.19) rotate(58.52)"},opacity:0},{attr:{transform:"translate(504.49 1983.25) rotate(278.52)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf17",{attr:{transform:"translate(84.47 526.53) rotate(265.25)"},opacity:0},{attr:{transform:"translate(84.47 1927.77) rotate(485.25)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf18",{attr:{transform:"translate(644.47 921.91) rotate(295.23)"},opacity:0},{attr:{transform:"translate(644.47 1572.89) rotate(515.23)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf19",{attr:{transform:"translate(958.43 99.23) rotate(257.47)"},opacity:0},{attr:{transform:"translate(958.43 1231.27) rotate(477.47)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf20",{attr:{transform:"translate(1026.4 1211.14) rotate(114.02)"},opacity:0},{attr:{transform:"translate(1026.4 2102.21) rotate(334.02)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf21",{attr:{transform:"translate(64.24 418.3) rotate(138.54)"},opacity:0},{attr:{transform:"translate(64.24 1545.85) rotate(358.54)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf22",{attr:{transform:"translate(282.02 465.11) rotate(142.49)"},opacity:0},{attr:{transform:"translate(282.02 1355.58) rotate(362.49)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf23",{attr:{transform:"translate(442.69 1320.12) rotate(156.29)"},opacity:0},{attr:{transform:"translate(442.69 2529.7) rotate(376.29)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf24",{attr:{transform:"translate(221.57 1974.5) rotate(179.59)"},opacity:0},{attr:{transform:"translate(221.57 3439.77) rotate(399.59)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf25",{attr:{transform:"translate(422.8 745.24) rotate(38.92)"},opacity:0},{attr:{transform:"translate(422.8 1436.79) rotate(258.92)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf26",{attr:{transform:"translate(108.54 653.04) rotate(162.63)"},opacity:0},{attr:{transform:"translate(108.54 1720.65) rotate(382.63)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf27",{attr:{transform:"translate(60.38 1044.71) rotate(55.73)"},opacity:0},{attr:{transform:"translate(60.38 2511.3) rotate(275.73)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf28",{attr:{transform:"translate(751.38 488.44) rotate(349.95)"},opacity:0},{attr:{transform:"translate(751.38 1348.42) rotate(569.95)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf29",{attr:{transform:"translate(734.71 33.62) rotate(24.71)"},opacity:0},{attr:{transform:"translate(734.71 729.2) rotate(244.71)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf30",{attr:{transform:"translate(741.86 32.2) rotate(161.35)"},opacity:0},{attr:{transform:"translate(741.86 1181.39) rotate(381.35)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf31",{attr:{transform:"translate(1012.85 130.75) rotate(23.25)"},opacity:0},{attr:{transform:"translate(1012.85 1075.24) rotate(243.25)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf32",{attr:{transform:"translate(408.62 1326.18) rotate(161.92)"},opacity:0},{attr:{transform:"translate(408.62 2814.5) rotate(381.92)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf33",{attr:{transform:"translate(792.72 316.27) rotate(140.92)"},opacity:0},{attr:{transform:"translate(792.72 1701.47) rotate(360.92)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf34",{attr:{transform:"translate(324.92 161.34) rotate(318.71)"},opacity:0},{attr:{transform:"translate(324.92 789.74) rotate(538.71)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf35",{attr:{transform:"translate(1075.59 1694.2) rotate(96.88)"},opacity:0},{attr:{transform:"translate(1075.59 2485.5) rotate(316.88)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf36",{attr:{transform:"translate(649.89 -67.45) rotate(250.37)"},opacity:0},{attr:{transform:"translate(649.89 1327.45) rotate(470.37)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf37",{attr:{transform:"translate(388.58 1995.03) rotate(310.27)"},opacity:0},{attr:{transform:"translate(388.58 3465.14) rotate(530.27)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf38",{attr:{transform:"translate(371.17 -2.87) rotate(47.51)"},opacity:0},{attr:{transform:"translate(371.17 691.13) rotate(267.51)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf39",{attr:{transform:"translate(1.29 854.88) rotate(180.31)"},opacity:0},{attr:{transform:"translate(1.29 1546.7) rotate(400.31)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf40",{attr:{transform:"translate(937.29 1423.08) rotate(288.28)"},opacity:0},{attr:{transform:"translate(937.29 2154.15) rotate(508.28)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf41",{attr:{transform:"translate(887.1 1930.55) rotate(137.7)"},opacity:0},{attr:{transform:"translate(887.1 3408.45) rotate(357.7)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf42",{attr:{transform:"translate(769.21 441.73) rotate(334.69)"},opacity:0},{attr:{transform:"translate(769.21 1709.32) rotate(554.69)"},opacity:0.8,duration:4.57,ease:"none"},0);
+tl.fromTo("#s10-cta-cta-cf43",{attr:{transform:"translate(233.1 489.58) rotate(31.35)"},opacity:0},{attr:{transform:"translate(233.1 1329.55) rotate(251.35)"},opacity:0.8,duration:4.57,ease:"none"},0);
+
+
+  v7.onsetFx(tl, P, TH, ONSETS, SCENE.fx, DUR);
+
+  if (SCENE.type === "hook" && SCENE.hookLines) v7.hook(tl, P, SCENE.hookLines, TH, DUR);
+  if (SCENE.words) v7.captions(tl, P, SCENE.words, TH, DUR, SCENE.startSec);
+  if (SCENE.counter) v7.counter(tl, P, SCENE.counter, DUR);
+  if (SCENE.type !== "cta") v7.brand(tl, P, DUR);
+  // CTA type choreography
+  tl.set("#" + P + "cta-type", { opacity: 0 }, 0.001);
+  tl.fromTo("#" + P + "cta-type", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.4)" }, 0.5);
+  tl.fromTo("#" + P + "cta-chip", { scale: 1 }, { scale: 1.06, duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 6 }, 1.2);
+
+  window.__timelines[SID] = tl;
+  tl.seek(0);
+})();
+</script>
+</body>
+</html>

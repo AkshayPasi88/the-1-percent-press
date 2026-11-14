@@ -1,25 +1,19 @@
 {
   "name": "reels",
-  "version": "6.0.0",
-  "description": "Engine v6 — Fully Animated Cinematic Video Generation Engine. Every reel is an animated world: no stock footage, no photos, no static backgrounds.",
-  "main": "index.js",
+  "version": "7.0.0",
+  "description": "Engine v7 — HyperFrames HTML video engine. Every reel is an animated world built from HTML/SVG/CSS + GSAP, rendered deterministically by HyperFrames (frame-by-frame seek of a paused timeline). No stock footage, no photos, no Remotion.",
   "scripts": {
-    "probe": "node v6/probe.mjs",
-    "direct": "node v6/director.mjs",
-    "render": "node v6/render.mjs",
-    "render:one": "node v6/render.mjs --only",
-    "qc": "node v6/qc.mjs",
-    "build": "node v6/probe.mjs && node v6/director.mjs && node v6/render.mjs && node v6/qc.mjs"
+    "probe": "node v7/probe.mjs",
+    "direct": "node v7/director.mjs",
+    "build": "node v7/build.mjs",
+    "build:one": "node v7/build.mjs --reel-id",
+    "render": "node v7/render.mjs",
+    "render:one": "node v7/render.mjs --reel-id",
+    "qc": "node v7/qc.mjs",
+    "make": "node v7/probe.mjs && node v7/director.mjs && node v7/build.mjs && node v7/render.mjs && node v7/qc.mjs"
   },
-  "keywords": ["remotion", "reels", "animation", "cinematic"],
+  "keywords": ["hyperframes", "reels", "animation", "cinematic", "motion-graphics"],
   "author": "",
   "license": "MIT",
-  "type": "commonjs",
-  "dependencies": {
-    "@remotion/bundler": "^4.0.542",
-    "@remotion/renderer": "^4.0.542",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "remotion": "^4.0.542"
-  }
+  "type": "commonjs"
 }
